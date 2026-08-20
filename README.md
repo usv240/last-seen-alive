@@ -3,8 +3,8 @@
 Before an unidentified reel is discarded, investigate whether its clues support a probable
 identity—and show exactly where the evidence stops.
 
-> Build status: active development. The public URL and held-out results remain intentionally
-> unpublished until their corresponding gates pass. No placeholder is presented as a result.
+> Build status: deployed. Google ADK/Gemini is live; Parallel execution remains fail-closed until
+> a real sponsor credential is attached. The held-out result remains intentionally unpublished.
 
 ## The 60-second explanation
 
@@ -16,8 +16,8 @@ identity always requires explicit human approval.
 
 ## Live product and public API
 
-- Product: pending the Cloud Run integration gate
-- API docs: `/docs` on the deployed product
+- Product: https://last-seen-alive-109051079423.us-central1.run.app
+- API docs: https://last-seen-alive-109051079423.us-central1.run.app/docs
 - Judge access: the landing page mints a 60-day key without email
 - Local: `uvicorn app.api.main:app --reload`
 
@@ -28,9 +28,9 @@ coverage and abstention reason. An abstention is HTTP 200 because it is a valid 
 
 The held-out result is **not run**. Five fragments remain sealed until:
 
-1. the ten-item set contains the required solvable, trap, abstain and misattributed tiers;
-2. clips have been visually checked and re-cut around discriminating evidence;
-3. the implementation is committed and tagged `eval-freeze-*`.
+1. the five development cases pass the live Parallel workflow;
+2. the implementation is committed and tagged `eval-freeze-*`;
+3. the five held-out cases are then run exactly once.
 
 The evaluator records every corpus SHA-256 and refuses a second held-out attempt. The primary
 safety metric is false-confident identifications; the target is zero. Failures will remain in the
@@ -78,7 +78,7 @@ that private systems cannot exist. See [prior art](docs/PRIOR-ART.md).
 | Google ADK | `app/adk_app.py` | Runs the fixed four-role workflow and preserves each output in state. |
 | Gemini on Vertex AI | `agentic_core/agents/gemini.py`, `app/adk_app.py` | Reads multimodal clues and performs adversarial interpretation; never owns the verdict. |
 | Cloud Run | `Dockerfile`, `infra/deploy.sh` | Hosts the API and product surface. |
-| Agent Engine | ADK deployment manifest pending platform smoke gate | Hosts the agent runtime. |
+| Vertex AI | `app/adk_runtime.py` | Executes Gemini inside the ADK workflow using the Cloud Run service identity. |
 
 ## Parallel runtime use
 
@@ -121,4 +121,3 @@ copy `.env.example` only for local development and never commit `.env`.
 Code is Apache-2.0. Demo assets must be self-created, Creative Commons or public domain and are
 tracked in [ASSET_RIGHTS.md](ASSET_RIGHTS.md). No published trailers or third-party-owned film
 material may appear in the submission.
-

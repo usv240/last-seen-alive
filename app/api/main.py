@@ -22,7 +22,7 @@ WEB_DIR = Path(__file__).resolve().parents[1] / "web"
 EVAL_DIR = Path(__file__).resolve().parents[2] / "eval"
 PROJECT = os.environ.get("GOOGLE_CLOUD_PROJECT", "agentic-fleet-2026")
 LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1")
-MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 
 _health_cache: tuple[float, Mapping[str, Mapping[str, object]]] | None = None
 
@@ -111,10 +111,19 @@ async def evaluation_corpus() -> dict[str, object]:
 
 
 @api.post("/v1/identify")
-async def identify_sealed(request: IdentifyRequest) -> None:
+async def identify(request: IdentifyRequest) -> dict[str, object]:
     manifest = json.loads((EVAL_DIR / "manifest.json").read_text(encoding="utf-8-sig"))
-    if request.sample_id not in {item["case_id"] for item in manifest}:
+    item = next((row for row in manifest if row["case_id"] == request.sample_id), None)
+    if item is None:
         raise HTTPException(status_code=404, detail={"code": "sample_not_found", "message": "Unknown evaluation sample."})
+    if item["split"] != "dev":
+        raise HTTPException(
+            status_code=423,
+            detail={
+                "code": "holdout_sealed",
+                "message": "Held-out fragments remain sealed until the workflow is frozen and tagged.",
+            },
+        )
     if not os.environ.get("PARALLEL_API_KEY"):
         raise HTTPException(
             status_code=503,
@@ -123,13 +132,36 @@ async def identify_sealed(request: IdentifyRequest) -> None:
                 "message": "The evaluation corpus is corrected. Live identification now requires a real Parallel API credential.",
             },
         )
-    raise HTTPException(
-        status_code=503,
-        detail={
-            "code": "workflow_not_frozen",
-            "message": "Parallel is configured, but the development workflow must be verified and frozen before any held-out execution.",
+    from app.adk_runtime import InvestigationNotConfigured, run_development_investigation
+
+    try:
+        result = await run_development_investigation(
+            sample_id=request.sample_id,
+            fragment_path=EVAL_DIR / item["file"],
+            media_type=item["media_type"],
+            provided_label=item.get("provided_label"),
+        )
+    except InvestigationNotConfigured as exc:
+        raise HTTPException(
+            status_code=503,
+            detail={"code": "runtime_not_configured", "message": str(exc)},
+        ) from exc
+    except Exception as exc:
+        raise HTTPException(
+            status_code=502,
+            detail={
+                "code": "live_investigation_failed",
+                "message": f"The live workflow failed closed ({type(exc).__name__}). No verdict was fabricated.",
+            },
+        ) from exc
+    return {
+        "data": result,
+        "meta": {
+            "verdict": result["gate"]["verdict"],
+            "gate": result["gate"],
+            "requires_human": True,
         },
-    )
+    }
 
 
 api.mount("/static", StaticFiles(directory=WEB_DIR), name="static")

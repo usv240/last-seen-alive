@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Literal, Mapping, Protocol, Sequence
 
 from agentic_core.evidence.models import Claim
@@ -51,4 +51,3 @@ class Gate(Protocol):
         claims: Sequence[Claim],
         context: Mapping[str, object],
     ) -> GateResult: ...
-

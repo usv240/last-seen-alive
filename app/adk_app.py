@@ -10,7 +10,7 @@ from google.adk.apps import App
 
 from app.partners.parallel_research import deep_holdings_research, search_archival_evidence
 
-MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 
 visual_examiner = LlmAgent(
     name="VisualExaminer",
@@ -75,4 +75,3 @@ root_agent = SequentialAgent(
 )
 
 app = App(root_agent=root_agent, name="last_seen_alive")
-

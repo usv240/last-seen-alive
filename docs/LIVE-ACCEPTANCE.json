@@ -1,0 +1,34 @@
+{
+  "verified_at": "2026-08-20T22:30:00Z",
+  "revision": "last-seen-alive-00006-zgb",
+  "public_url": "https://last-seen-alive-109051079423.us-central1.run.app",
+  "root_status": 200,
+  "integrations": {
+    "google_vertex_ai": {
+      "ok": true,
+      "model": "publishers/google/models/gemini-2.5-flash"
+    },
+    "parallel_search": {
+      "ok": false,
+      "reason": "credential_not_configured"
+    }
+  },
+  "evaluation_corpus": {
+    "status": "corrected_and_sealed",
+    "cases": 10,
+    "development": 5,
+    "holdout": 5,
+    "holdout_run": "not_run"
+  },
+  "boundary_checks": {
+    "development_without_partner_credential": {
+      "status": 503,
+      "code": "partner_credential_not_configured"
+    },
+    "holdout_even_without_partner_credential": {
+      "status": 423,
+      "code": "holdout_sealed"
+    }
+  },
+  "claim": "Google is live; Parallel remains an explicit external credential gate."
+}

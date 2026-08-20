@@ -56,14 +56,23 @@ def create_app(
 
     @app.exception_handler(HTTPException)
     async def http_error(_request: object, exc: HTTPException) -> JSONResponse:
+        detail = exc.detail if isinstance(exc.detail, dict) else {}
+        default_code = "unauthorized" if exc.status_code == 401 else "request_error"
         return JSONResponse(
             status_code=exc.status_code,
             content={
                 "ok": False,
                 "error": {
-                    "code": "unauthorized" if exc.status_code == 401 else "request_error",
-                    "message": str(exc.detail),
-                    "fix": "Mint a judge key at POST /v1/keys and send it as a Bearer token.",
+                    "code": str(detail.get("code", default_code)),
+                    "message": str(detail.get("message", exc.detail)),
+                    "fix": str(
+                        detail.get(
+                            "fix",
+                            "Mint a judge key at POST /v1/keys and send it as a Bearer token."
+                            if exc.status_code == 401
+                            else "Correct the request or required runtime configuration, then retry.",
+                        )
+                    ),
                     "docs": "/docs",
                 },
                 "meta": {"request_id": "req_" + secrets.token_hex(10)},
@@ -100,4 +109,3 @@ def create_app(
 
     app.state.require_key = require_key
     return app
-
