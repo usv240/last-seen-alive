@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import asyncio
-import json
 import os
 import time
 from pathlib import Path
@@ -14,21 +13,15 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from google import genai
 from parallel import Parallel
-from pydantic import BaseModel, Field
 
 from agentic_core.api import ApiHooks, MemoryApiKeyStore, create_app
 
 WEB_DIR = Path(__file__).resolve().parents[1] / "web"
-EVAL_DIR = Path(__file__).resolve().parents[2] / "eval"
 PROJECT = os.environ.get("GOOGLE_CLOUD_PROJECT", "agentic-fleet-2026")
 LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1")
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 
 _health_cache: tuple[float, Mapping[str, Mapping[str, object]]] | None = None
-
-
-class IdentifyRequest(BaseModel):
-    sample_id: str = Field(pattern=r"^[DH][0-9]{2}$")
 
 
 def _check_google() -> dict[str, object]:
@@ -75,8 +68,10 @@ async def latest_evaluation() -> Mapping[str, object]:
     if not report.exists():
         return {
             "status": "not_run",
-            "reason": "The corrected holdout remains sealed until the workflow, partner runtime, and eval-freeze tag are ready.",
+            "reason": "The held-out split remains sealed until an eval-freeze tag exists.",
         }
+    import json
+
     return json.loads(report.read_text(encoding="utf-8"))
 
 
@@ -94,43 +89,14 @@ async def index() -> FileResponse:
     return FileResponse(WEB_DIR / "index.html")
 
 
-@api.get("/v1/eval/corpus")
-async def evaluation_corpus() -> dict[str, object]:
-    manifest = json.loads((EVAL_DIR / "manifest.json").read_text(encoding="utf-8-sig"))
-    tiers: dict[str, int] = {}
-    for item in manifest:
-        tiers[item["tier"]] = tiers.get(item["tier"], 0) + 1
-    return {
-        "status": "corrected_and_sealed",
-        "cases": len(manifest),
-        "development": sum(item["split"] == "dev" for item in manifest),
-        "holdout": sum(item["split"] == "holdout" for item in manifest),
-        "tiers": tiers,
-        "holdout_run": "not_run",
-    }
-
-
 @api.post("/v1/identify")
-async def identify_sealed(request: IdentifyRequest) -> None:
-    manifest = json.loads((EVAL_DIR / "manifest.json").read_text(encoding="utf-8-sig"))
-    if request.sample_id not in {item["case_id"] for item in manifest}:
-        raise HTTPException(status_code=404, detail={"code": "sample_not_found", "message": "Unknown evaluation sample."})
-    if not os.environ.get("PARALLEL_API_KEY"):
-        raise HTTPException(
-            status_code=503,
-            detail={
-                "code": "partner_credential_not_configured",
-                "message": "The evaluation corpus is corrected. Live identification now requires a real Parallel API credential.",
-            },
-        )
+async def identify_not_yet_enabled() -> None:
     raise HTTPException(
         status_code=503,
-        detail={
-            "code": "workflow_not_frozen",
-            "message": "Parallel is configured, but the development workflow must be verified and frozen before any held-out execution.",
-        },
+        detail="The live investigation path is sealed until its evaluation corpus is corrected.",
     )
 
 
 api.mount("/static", StaticFiles(directory=WEB_DIR), name="static")
 app = api
+
