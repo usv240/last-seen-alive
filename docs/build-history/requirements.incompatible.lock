@@ -1,0 +1,9 @@
+fastapi==0.141.1
+google-adk[gcp]==2.7.1
+google-genai==1.75.0
+httpx==0.28.1
+parallel-web==1.1.0
+pydantic==2.12.5
+python-multipart==0.0.22
+uvicorn[standard]==0.41.0
+

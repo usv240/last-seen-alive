@@ -1,0 +1,28 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: last-seen-alive
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "4"
+        run.googleapis.com/execution-environment: gen2
+    spec:
+      containerConcurrency: 40
+      timeoutSeconds: 900
+      containers:
+        - image: IMAGE_REPLACED_BY_DEPLOYMENT
+          ports:
+            - containerPort: 8080
+          env:
+            - name: GOOGLE_CLOUD_PROJECT
+              value: agentic-fleet-2026
+            - name: GOOGLE_CLOUD_LOCATION
+              value: us-central1
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+

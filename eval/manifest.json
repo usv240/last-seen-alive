@@ -1,0 +1,193 @@
+﻿[
+    {
+        "case_id":  "D01",
+        "split":  "dev",
+        "tier":  "D",
+        "expected_outcome":  "abstain",
+        "provided_label":  null,
+        "file":  "fragments-v2/dev/fragment_D01.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Low-information dark interior with no legible text; required behavior is calibrated abstention.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "cropped embedded catalogue footer",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "4cb6414430087608ac43b0f29a1fddc004ccf367efa9f2ede33e7c5e7d2bb766",
+        "bytes":  632782,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "D02",
+        "split":  "dev",
+        "tier":  "A",
+        "expected_outcome":  "identify",
+        "provided_label":  null,
+        "file":  "fragments-v2/dev/fragment_D02.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Rare dialogue intertitle: â€œJiminy gosh whiz! Iâ€™ll bet fifty million dollars theyâ€™ll all be sorry when they find us gone!â€ plus Bray Studios mark.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "16f088ba8380f2520f72e8bb4dc793e12b17d988a8742016ffdf18972323fb1b",
+        "bytes":  11322811,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "D03",
+        "split":  "dev",
+        "tier":  "C",
+        "expected_outcome":  "candidates",
+        "provided_label":  null,
+        "file":  "fragments-v2/dev/fragment_D03.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Generic Civil War action deliberately permits several plausible films.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "7c69002fea7d6437ce788c0bbde361b522fe78ac5d19873b3320553c3f33b2ce",
+        "bytes":  10881759,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "D04",
+        "split":  "dev",
+        "tier":  "B",
+        "expected_outcome":  "identify",
+        "provided_label":  null,
+        "file":  "fragments-v2/dev/fragment_D04.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Distinctive visual premise: a cow being led through an early-1900s Paris streetscape; no title card.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "28f4a3ce8e1610fc02219eddb37e82546c930ef44f6a8931a416fbee311b34ed",
+        "bytes":  12097409,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "D05",
+        "split":  "dev",
+        "tier":  "E",
+        "expected_outcome":  "contradict",
+        "provided_label":  "Those who pay",
+        "file":  "fragments-v2/dev/fragment_D05.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Official LOC record documents the former supplied title and corrected identity.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "7cd26cab726b0348135aa4b169f734290545264a64dc01c1bf1db6300fa83499",
+        "bytes":  11161366,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "H01",
+        "split":  "holdout",
+        "tier":  "A",
+        "expected_outcome":  "identify",
+        "provided_label":  null,
+        "file":  "fragments-v2/holdout/fragment_H01.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Rare dialogue intertitle containing the name Tubby.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "31cfb3b8e7ab6647c4529dca906bb0ee7b1f498cb5da427abf89daa65aaadf3f",
+        "bytes":  9092008,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "H02",
+        "split":  "holdout",
+        "tier":  "A",
+        "expected_outcome":  "identify",
+        "provided_label":  null,
+        "file":  "fragments-v2/holdout/fragment_H02.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Narrative intertitle WATERLOO / THE FALL OF THE EAGLE plus visual context.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "6c397785acf6838a92f2a9ae0e45d7207dffdf1bccc05f69d3b38f8b498677eb",
+        "bytes":  13019061,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "H03",
+        "split":  "holdout",
+        "tier":  "B",
+        "expected_outcome":  "identify",
+        "provided_label":  null,
+        "file":  "fragments-v2/holdout/fragment_H03.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Distinctive industrial light-bulb manufacturing imagery; no title card.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "2996fa8c1670273a0f6db00cecef7393ea8c40896bf7f6bae68d0a9e042844c4",
+        "bytes":  11999214,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "H04",
+        "split":  "holdout",
+        "tier":  "C",
+        "expected_outcome":  "candidates",
+        "provided_label":  null,
+        "file":  "fragments-v2/holdout/fragment_H04.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Generic staged western chase deliberately permits several plausible films.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "975a70964bf205139d1cd508d439776c77793a0963047d32baea306f279422b7",
+        "bytes":  12146409,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    },
+    {
+        "case_id":  "H05",
+        "split":  "holdout",
+        "tier":  "D",
+        "expected_outcome":  "abstain",
+        "provided_label":  null,
+        "file":  "fragments-v2/holdout/fragment_H05.mp4",
+        "media_type":  "video/mp4",
+        "duration_seconds":  50,
+        "selection_basis":  "Generic social scene with no discriminating text; identity is withheld to test abstention.",
+        "transforms":  [
+                           "concatenated five adjacent HLS segments",
+                           "metadata and chapters removed",
+                           "H.264 transcoded without audio"
+                       ],
+        "sha256":  "16f76d76a87ab1841c6b0fee27cf791257f2bc1711da57b34fda4a862f37c084",
+        "bytes":  12353741,
+        "permitted_input":  "fragment, case ID, and provided_label only; no repository, metadata, source-code, or answer-key inspection"
+    }
+]

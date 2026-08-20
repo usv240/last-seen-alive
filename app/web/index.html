@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence-first identification triage for unidentified archival film fragments.">
+  <title>Last Seen Alive</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">LAST SEEN ALIVE</a>
+    <div class="header-actions" aria-label="Page settings">
+      <div class="segmented" aria-label="Reading mode">
+        <button type="button" data-set-mode="plain" aria-pressed="true">Plain</button>
+        <button type="button" data-set-mode="technical" aria-pressed="false">Technical</button>
+      </div>
+      <button type="button" class="quiet-button" data-theme-toggle>Dark</button>
+      <button type="button" class="stack-button" aria-controls="stack-panel" aria-expanded="false">
+        <span class="status-dot pending" aria-hidden="true"></span> Live stack
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="masthead shell" aria-labelledby="page-title">
+      <p class="eyebrow">ARCHIVAL IDENTIFICATION TRIAGE</p>
+      <h1 id="page-title">Before an unidentified reel is discarded, investigate what it might be.</h1>
+      <p class="deck" data-mode="plain">Last Seen Alive finds clues inside a nameless film fragment, searches historical records, challenges its own candidates, and shows an archivist exactly what the evidence can—and cannot—establish.</p>
+      <p class="deck" data-mode="technical">A four-role Google ADK workflow extracts typed multimodal clues, searches through Parallel, preserves claim-level provenance, attempts falsification, then passes structured evidence to a pure deterministic gate with mandatory human approval.</p>
+      <dl class="fact-strip">
+        <div><dt>Decision owner</dt><dd>Archivist</dd></div>
+        <div><dt>Primary metric</dt><dd>0 false-confident IDs</dd></div>
+        <div><dt>Web evidence</dt><dd>Parallel at runtime</dd></div>
+        <div><dt>Outcome</dt><dd>Probable · candidates · abstain</dd></div>
+      </dl>
+    </section>
+
+    <section class="section shell" aria-labelledby="failure-title">
+      <p class="eyebrow">THE FAILURE, IN TEN SECONDS</p>
+      <h2 id="failure-title">The frame has clues. The can has no name.</h2>
+      <div class="clue-stage">
+        <div class="film-frame" role="img" aria-label="Illustrated archival frame with markers for an intertitle, costume, and edge mark">
+          <span class="frame-copy">“Tell Mara the lamp still burns.”</span>
+          <span class="marker marker-one">A</span><span class="marker marker-two">B</span><span class="marker marker-three">C</span>
+        </div>
+        <ol class="clue-list">
+          <li><strong>A · rare phrase</strong><span>Search it verbatim, not as a plot summary.</span></li>
+          <li><strong>B · visual period</strong><span>Useful only when another source corroborates it.</span></li>
+          <li><strong>C · stock mark</strong><span>Constrains a date; it does not identify a title.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section shell prose" aria-labelledby="user-title">
+      <p class="eyebrow">WHO THIS IS FOR</p>
+      <h2 id="user-title">An archivist triaging unidentified material.</h2>
+      <p data-mode="plain">The tool does the broad, repetitive investigation and hands over a dossier. The archivist—not the model—decides whether the evidence is strong enough to act on.</p>
+      <p data-mode="technical">The gate requires three independent domains, two distinct clue families, temporal and entity compatibility, no unresolved contradiction, cited decisive claims, and explicit human approval.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="try-title">
+      <p class="eyebrow">TRY IT NOW</p>
+      <h2 id="try-title">Run a fragment with no signup.</h2>
+      <div class="demo-grid">
+        <form class="card demo-card" data-demo-form>
+          <label for="sample">Preloaded public-domain sample</label>
+          <select id="sample" name="sample_id">
+            <option value="sample-candidate">Candidate case · evidence remains incomplete</option>
+            <option value="sample-abstain">Abstention case · no discriminating text</option>
+          </select>
+          <button class="primary-button" type="submit">Investigate sample</button>
+          <p class="small">No upload is sent until you choose Run. Progress and sources appear beside it.</p>
+        </form>
+        <section class="card run-panel" aria-labelledby="run-title" aria-live="polite">
+          <h3 id="run-title">Run state</h3>
+          <ol data-run-events>
+            <li class="muted">Choose a sample to begin.</li>
+          </ol>
+        </section>
+      </div>
+      <div class="api-callout">
+        <div><strong>Hackathon judge?</strong><span>Mint a 60-day key instantly. No email.</span></div>
+        <button type="button" class="secondary-button" data-mint-judge-key>Get instant API access</button>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="works-title">
+      <p class="eyebrow">HOW IT WORKS</p>
+      <h2 id="works-title">Four roles. One gate. No hidden verdict.</h2>
+      <ol class="flow">
+        <li><span class="step">01</span><div><h3>Visual Examiner</h3><p data-mode="plain">Writes down the words and physical clues visible in the fragment.</p><p data-mode="technical">Gemini multimodal emits a typed clue set; verbatim intertitles remain verbatim.</p></div></li>
+        <li><span class="step">02</span><div><h3>Phrase Hunter</h3><p data-mode="plain">Searches old publications using the rarest exact words.</p><p data-mode="technical">Parallel Search API receives two to five literal, diverse probes and returns cited excerpts.</p></div></li>
+        <li><span class="step">03</span><div><h3>Holdings Researcher</h3><p data-mode="plain">Checks alternate titles and named archive catalogues.</p><p data-mode="technical">Parallel Task API performs multi-hop research across title, studio, performer, region, and holdings.</p></div></li>
+        <li><span class="step">04</span><div><h3>Skeptic</h3><p data-mode="plain">Tries to prove each candidate wrong.</p><p data-mode="technical">Gemini directs fresh Parallel searches for date, entity, and attribution contradictions.</p></div></li>
+        <li class="deterministic"><span class="step">05</span><div><h3>Evidence gate · deterministic</h3><p data-mode="plain">Code checks every rule. An archivist must still approve.</p><p data-mode="technical">A pure Python function exposes every boolean threshold as <code>gate.passed</code> and <code>gate.failed</code>.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="section shell prose" aria-labelledby="limits-title">
+      <p class="eyebrow">WHAT IT WILL NOT DO</p>
+      <h2 id="limits-title">Uncertainty is an output.</h2>
+      <p>It never says “last surviving copy.” It can only say: “No additional holding was found across these named catalogues as of this search date.” A fragment without legible, discriminating clues may remain unidentified, and the system will abstain.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="eval-title">
+      <p class="eyebrow">EVALUATION</p>
+      <h2 id="eval-title">Held-out results will be published once, after freeze.</h2>
+      <div class="metric-grid">
+        <article class="metric"><span>False-confident IDs</span><strong>Not run</strong><small>Held-out · n=5 · target 0</small></article>
+        <article class="metric"><span>Correct abstentions</span><strong>Not run</strong><small>Held-out · n=5</small></article>
+        <article class="metric"><span>Citation precision</span><strong>Not run</strong><small>Decisive claims checked by hand</small></article>
+      </div>
+      <p class="small">These placeholders are deliberate: the held-out fragments cannot be touched until the implementation is tagged and frozen.</p>
+    </section>
+
+    <section class="section shell prose" aria-labelledby="prior-title">
+      <p class="eyebrow">PRIOR ART</p>
+      <h2 id="prior-title">Why not a screenshot matcher or archive catalogue?</h2>
+      <p>Our documented search found screenshot identifiers, archive cataloguing products, and crowdsourced identification projects, but did not find a production system combining multimodal clue extraction, live open-web historical investigation, adversarial verification, global holdings research, and claim-level provenance.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="stack-title">
+      <p class="eyebrow">STACK</p>
+      <h2 id="stack-title">Remove either required service and the workflow stops.</h2>
+      <div class="stack-grid">
+        <article class="card"><span class="badge">REQUIRED</span><h3>Google ADK + Gemini</h3><p>Runs the four-role workflow and interprets visual clues and contradictions.</p></article>
+        <article class="card"><span class="badge">REQUIRED</span><h3>Parallel Search</h3><p>Supplies the live historical evidence, working URLs, and excerpts used by claims.</p></article>
+      </div>
+    </section>
+
+    <section class="section shell prose" aria-labelledby="risk-title">
+      <p class="eyebrow">HONEST RISKS</p>
+      <h2 id="risk-title">The benchmark is easier than a genuinely unknown reel.</h2>
+      <p>The evaluation fragments have known answers; real orphan material may not. Search coverage is uneven outside digitised English-language sources. Exact phrases can be reused. Human approval is mandatory because the gate measures evidence completeness, not historical truth.</p>
+    </section>
+  </main>
+
+  <aside id="stack-panel" class="stack-panel" aria-labelledby="stack-panel-title" hidden>
+    <div class="panel-head"><h2 id="stack-panel-title">Live stack</h2><button type="button" aria-label="Close live stack" data-close-stack>×</button></div>
+    <p class="small">Checked at most once per minute.</p>
+    <ul data-integration-list><li><span class="status-dot pending"></span> Waiting for health check</li></ul>
+  </aside>
+
+  <footer class="footer shell"><span>Apache-2.0</span><a href="/docs">API docs</a><a href="#">Source repository</a><span>Demo assets: credits pending final corpus</span></footer>
+</body>
+</html>
+
