@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "project": "Last Seen Alive",
+  "track": "Parallel",
+  "public_url": "https://last-seen-alive-109051079423.us-central1.run.app",
+  "repository": "https://github.com/usv240/last-seen-alive",
+  "license": "Apache-2.0",
+  "google_runtime": {"status": "verified", "evidence": "/health/integrations"},
+  "partner_runtime": {"status": "blocked_external", "reason": "credential_not_configured", "evidence": "/health/integrations"},
+  "evaluation": {"development": 5, "sealed_holdout": 5, "holdout_status": "not_run"},
+  "decision_owner": "deterministic IdentityGate plus archivist approval",
+  "claims_excluded": ["definitive attribution", "last surviving copy", "complete search coverage"],
+  "submission_video": {"status": "pending_external"},
+  "devpost": {"status": "pending_external"}
+}

@@ -21,6 +21,10 @@ identity always requires explicit human approval.
 - Judge access: the landing page mints a 60-day key without email
 - Local: `uvicorn app.api.main:app --reload`
 
+Start with [`JUDGING.md`](JUDGING.md) and the machine-readable
+[`submission-evidence.json`](submission-evidence.json). Both preserve the current
+Parallel blocker rather than turning code presence into runtime proof.
+
 Every identification response exposes `meta.gate.passed`, `meta.gate.failed`, latency, source
 coverage and abstention reason. An abstention is HTTP 200 because it is a valid outcome.
 
