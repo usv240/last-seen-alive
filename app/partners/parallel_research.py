@@ -7,6 +7,8 @@ from typing import Any
 
 from parallel import Parallel
 
+from .citation_registry import active_registry
+
 
 def _client() -> Parallel:
     api_key = os.environ.get("PARALLEL_API_KEY")
@@ -33,7 +35,7 @@ def search_archival_evidence(objective: str, search_queries: list[str]) -> dict[
         mode="advanced",
         max_results=10,
     )
-    return {
+    payload = {
         "provider": "parallel_search_v1",
         "search_id": response.search_id,
         "session_id": response.session_id,
@@ -49,6 +51,12 @@ def search_archival_evidence(objective: str, search_queries: list[str]) -> dict[
         "warnings": [str(warning) for warning in (response.warnings or [])],
         "usage": [str(item) for item in (response.usage or [])],
     }
+    # Record what was really returned so a claim cannot cite a URL Parallel
+    # never produced. See app/partners/citation_registry.py.
+    registry = active_registry()
+    if registry is not None:
+        registry.record_search(payload)
+    return payload
 
 
 def deep_holdings_research(research_question: str) -> dict[str, Any]:
@@ -67,11 +75,15 @@ def deep_holdings_research(research_question: str) -> dict[str, Any]:
     )
     result = client.task_run.result(run.run_id, api_timeout=600)
     output = result.output
-    return {
+    payload = {
         "provider": "parallel_task_v1",
         "run_id": run.run_id,
         "interaction_id": run.interaction_id,
         "content": getattr(output, "content", None),
         "basis": [str(item) for item in getattr(output, "basis", [])],
     }
+    registry = active_registry()
+    if registry is not None:
+        registry.record_task(payload)
+    return payload
 

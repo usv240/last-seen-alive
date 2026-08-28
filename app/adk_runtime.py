@@ -13,7 +13,10 @@ from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
 from app.adk_app import MODEL, root_agent
+from app.evidence_builder import build as build_evidence
+from app.evidence_schema import CompiledEvidence
 from app.gates.identity import IdentityGate
+from app.partners.citation_registry import start_registry
 
 APP_NAME = "last_seen_alive"
 
@@ -36,14 +39,17 @@ async def run_development_investigation(
 ) -> dict[str, Any]:
     """Run the real four-role workflow without opening the held-out split.
 
-    The model and Parallel produce research evidence. Until a typed claim parser and
-    archivist approval exist, the deterministic gate deliberately receives no decisive
-    claims and therefore cannot emit a probable identity.
+    The model and Parallel produce research evidence; the compiler restates it as
+    typed claims; and only citations that Parallel actually returned in this run
+    survive into the gate. The gate therefore reaches a real verdict, but never a
+    confirmed one: `human_approved` is false here because approving an identity is
+    an archivist action, not an API call.
     """
 
     validate_runtime()
     if not sample_id.startswith("D"):
         raise PermissionError("Only development fragments may enter the live workflow before eval freeze.")
+    registry = start_registry()
     fragment = fragment_path.read_bytes()
     session_id = f"lsa_{uuid.uuid4().hex[:12]}"
     user_id = "public_judge"
@@ -87,16 +93,15 @@ async def run_development_investigation(
         "phrase_hunter": state.get("phrase_evidence"),
         "holdings_researcher": state.get("holdings_evidence"),
         "skeptic": state.get("skeptic_evidence"),
+        "evidence_compiler": state.get("compiled_evidence"),
     }
+    compiled_raw = state.get("compiled_evidence")
+    compiled = _parse_compiled(compiled_raw)
+    evidence = build_evidence(compiled, registry)
     gate = IdentityGate().evaluate(
-        claims=(),
-        context={
-            "candidates": (),
-            "decisive_clue_families": (),
-            "temporal_compatibility": False,
-            "entity_compatibility": False,
-            "human_approved": False,
-        },
+        claims=evidence.claims,
+        # human_approved stays false: the archivist approves, the API never does.
+        context=evidence.gate_context(human_approved=False),
     )
     return {
         "status": "completed",
@@ -106,6 +111,12 @@ async def run_development_investigation(
         "agent_runtime": "google-adk",
         "research_runtime": "parallel-search-and-task",
         "outputs": outputs,
+        "evidence": evidence.as_dict(),
+        "parallel_retrieval": {
+            "calls": registry.calls,
+            "sources_returned": len(registry.sources),
+            "independent_domains": sorted(registry.domains),
+        },
         "transcript": transcript,
         "gate": {
             **asdict(gate),
@@ -114,3 +125,24 @@ async def run_development_investigation(
         },
         "requires_human": True,
     }
+
+
+def _parse_compiled(raw: Any) -> CompiledEvidence:
+    """Read the compiler's output, failing to an empty structure rather than a guess.
+
+    An unparseable compiler result must not become an identification. Empty
+    evidence makes the gate abstain, which is the safe direction.
+    """
+    if isinstance(raw, CompiledEvidence):
+        return raw
+    if isinstance(raw, dict):
+        try:
+            return CompiledEvidence.model_validate(raw)
+        except Exception:
+            return CompiledEvidence()
+    if isinstance(raw, str) and raw.strip():
+        try:
+            return CompiledEvidence.model_validate_json(raw)
+        except Exception:
+            return CompiledEvidence()
+    return CompiledEvidence()
