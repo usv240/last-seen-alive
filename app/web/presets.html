@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ten public-domain Library of Congress film fragments: watch them, download them, run them through the identification workflow.">
+  <title>Demo fragments · Last Seen Alive</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d0b" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Demo fragments · Last Seen Alive">
+  <meta property="og:description" content="Ten public-domain Library of Congress fragments. Watch them, download them, run them.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://last-seen-alive-109051079423.us-central1.run.app">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/console.js" defer></script>
+  <script src="/static/presets.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">LAST SEEN ALIVE</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/">Overview</a>
+      <a href="/presets" aria-current="page">Demo fragments</a>
+      <a href="/api">API</a>
+      <a href="/stack">Stack</a>
+    </nav>
+    <div class="header-actions" aria-label="Page settings">
+      <button type="button" class="quiet-button" data-theme-toggle>Dark</button>
+      <button type="button" class="stack-button" aria-controls="stack-panel" aria-expanded="false">
+        <span class="status-dot pending" aria-hidden="true"></span> Live stack
+      </button>
+    </div>
+  </header>
+  <div class="stack-ribbon" data-stack-ribbon aria-label="Sponsor services this product runs on"></div>
+
+  <main id="main">
+    <section class="masthead compact shell" aria-labelledby="page-title">
+      <p class="eyebrow">THE DEMO SET</p>
+      <h1 id="page-title">Ten fragments, chosen so that five of them should not be identified.</h1>
+      <p class="deck">Every one is a 50-second excerpt from the Library of Congress National Screening Room, published by 1929 and in the United States public domain. Watch them, download them, and run the five development cases yourself.</p>
+      <p class="lede">A demo set of ten easy wins would prove nothing. This one is balanced by <em>required behaviour</em>: two cases must be abstained on, two must return ranked candidates rather than a verdict, and one arrives with a catalogue label that the record itself contradicts. A system that identifies all ten has failed.</p>
+      <dl class="fact-strip" data-corpus-strip></dl>
+      <div class="row-actions">
+        <a class="link-button" href="/v1/eval/manifest">Download the full manifest (JSON)</a>
+        <a class="link-button" href="https://www.loc.gov/collections/national-screening-room/about-this-collection/rights-and-access/" rel="noreferrer">Library of Congress rights and access ↗</a>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="dev-title">
+      <p class="eyebrow">DEVELOPMENT SPLIT · RUNNABLE</p>
+      <h2 id="dev-title">Five you can run right now.</h2>
+      <p class="lede">These are the cases used to build the system, so their behaviour is known. Running one calls the public API with a key this page mints for itself.</p>
+      <div class="preset-grid" data-preset-grid data-split="dev"></div>
+    </section>
+
+    <section class="board" data-board hidden aria-live="polite"></section>
+
+    <section class="section shell" aria-labelledby="holdout-title">
+      <p class="eyebrow">HELD-OUT SPLIT · SEALED</p>
+      <h2 id="holdout-title">Five that stay closed.</h2>
+      <p class="lede">A benchmark you can re-run until it passes measures nothing. These five are listed with their SHA-256 hashes so the set cannot be quietly changed, and the media endpoint refuses to serve them — try it, it returns 423. They are opened exactly once, after the implementation is tagged <code>eval-freeze-*</code>, and every miss is published alongside the successes.</p>
+      <div class="preset-grid sealed" data-preset-grid data-split="holdout"></div>
+    </section>
+
+    <section class="section shell prose" aria-labelledby="rights-title">
+      <p class="eyebrow">RIGHTS AND PROVENANCE</p>
+      <h2 id="rights-title">Where these came from, and what was done to them.</h2>
+      <p>Each fragment is five adjacent ten-second segments taken from one Library of Congress item, joined, stripped of container metadata and chapters, transcoded to H.264, and silenced. One source carried an identifying footer baked into the scan; the builder cropped it and the transform is recorded on that case. Offsets were chosen only after contact-sheet review, so no case was selected by peeking at an answer.</p>
+      <p>Required credit, and it appears on every response and download: <strong>Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division.</strong> The Library states it is unaware of U.S. restrictions for the vast majority of these films but places item-specific copyright, privacy, publicity and trademark assessment on the user.</p>
+    </section>
+  </main>
+
+  <aside id="stack-panel" class="stack-panel" aria-labelledby="stack-panel-title" hidden>
+    <div class="panel-head"><h2 id="stack-panel-title">Live stack</h2><button type="button" aria-label="Close live stack" data-close-stack>×</button></div>
+    <ul data-integration-list><li><span class="status-dot pending"></span> Waiting for health check</li></ul>
+  </aside>
+
+  <footer class="footer shell">
+    <span>Apache-2.0</span>
+    <a href="/docs">API docs</a>
+    <a href="https://github.com/usv240/last-seen-alive" rel="noreferrer">Source repository</a>
+    <a href="/stack">Stack</a>
+    <span>Fragments: Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division · United States public domain</span>
+  </footer>
+</body>
+</html>

@@ -3,15 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Evidence-first identification triage for unidentified archival film fragments.">
+  <meta name="description" content="Evidence-first identification triage for unidentified archival film fragments. Google ADK and Gemini read the frame; Parallel searches the historical record; deterministic code decides.">
   <title>Last Seen Alive</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d0b" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Last Seen Alive">
+  <meta property="og:description" content="Evidence-first identification triage for unidentified archival film fragments.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://last-seen-alive-109051079423.us-central1.run.app">
+  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/console.js" defer></script>
   <script src="/static/app.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark" href="/">LAST SEEN ALIVE</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/" aria-current="page">Overview</a>
+      <a href="/presets">Demo fragments</a>
+      <a href="/api">API</a>
+      <a href="/stack">Stack</a>
+    </nav>
     <div class="header-actions" aria-label="Page settings">
       <div class="segmented" aria-label="Reading mode">
         <button type="button" data-set-mode="plain" aria-pressed="true">Plain</button>
@@ -23,13 +40,19 @@
       </button>
     </div>
   </header>
+  <div class="stack-ribbon" data-stack-ribbon aria-label="Sponsor services this product runs on"></div>
 
   <main id="main">
     <section class="masthead shell" aria-labelledby="page-title">
       <p class="eyebrow">ARCHIVAL IDENTIFICATION TRIAGE</p>
       <h1 id="page-title">Before an unidentified reel is discarded, investigate what it might be.</h1>
-      <p class="deck" data-mode="plain">Last Seen Alive finds clues inside a nameless film fragment, searches historical records, challenges its own candidates, and shows an archivist exactly what the evidence can—and cannot—establish.</p>
-      <p class="deck" data-mode="technical">A four-role Google ADK workflow extracts typed multimodal clues, searches through Parallel, preserves claim-level provenance, attempts falsification, then passes structured evidence to a pure deterministic gate with mandatory human approval.</p>
+      <p class="deck" data-mode="plain">Last Seen Alive finds clues inside a nameless film fragment, searches historical records, tries to prove itself wrong, and shows an archivist exactly what the evidence can—and cannot—establish.</p>
+      <p class="deck" data-mode="technical">A five-role Google ADK workflow extracts typed multimodal clues, researches through six Parallel surfaces, re-opens every cited page to confirm the quotation, attempts falsification, then passes structured evidence to a pure deterministic gate with mandatory human approval.</p>
+      <div class="cta-row">
+        <a class="primary-button" href="#try">Run a fragment now</a>
+        <a class="secondary-button" href="/presets">Watch the demo set</a>
+        <a class="secondary-button" href="/api">Use the API</a>
+      </div>
       <dl class="fact-strip">
         <div><dt>Decision owner</dt><dd>Archivist</dd></div>
         <div><dt>Primary metric</dt><dd>0 false-confident IDs</dd></div>
@@ -61,49 +84,91 @@
       <p data-mode="technical">The gate requires three independent domains, two distinct clue families, temporal and entity compatibility, no unresolved contradiction, cited decisive claims, and explicit human approval.</p>
     </section>
 
-    <section class="section shell" aria-labelledby="try-title">
+    <section class="section shell" id="try" aria-labelledby="try-title">
       <p class="eyebrow">TRY IT NOW</p>
-      <h2 id="try-title">Run a fragment with no signup.</h2>
+      <h2 id="try-title">Run a public fragment, or bring your own.</h2>
+      <p class="lede">No signup. The page mints itself a real API key the moment you press run, and calls the same public endpoints you would. There is no privileged internal path.</p>
+
+      <div class="tabs" role="tablist" aria-label="Choose an input">
+        <button type="button" role="tab" id="tab-preset" aria-controls="pane-preset" aria-selected="true" data-tab="preset">Public demo fragment</button>
+        <button type="button" role="tab" id="tab-upload" aria-controls="pane-upload" aria-selected="false" data-tab="upload">Bring your own</button>
+      </div>
+
       <div class="demo-grid">
-        <form class="card demo-card" data-demo-form>
-          <label for="sample">Preloaded public-domain sample</label>
-          <select id="sample" name="sample_id">
-            <option value="D03">D03 · candidate case · evidence remains incomplete</option>
-            <option value="D01">D01 · abstention case · no discriminating text</option>
-          </select>
-          <button class="primary-button" type="submit">Investigate sample</button>
-          <p class="small">No upload is sent until you choose Run. Progress and sources appear beside it.</p>
-        </form>
-        <section class="card run-panel" aria-labelledby="run-title" aria-live="polite">
-          <h3 id="run-title">Run state</h3>
-          <ol data-run-events>
-            <li class="muted">Choose a sample to begin.</li>
-          </ol>
+        <div>
+          <form class="card demo-card" data-demo-form id="pane-preset" role="tabpanel" aria-labelledby="tab-preset">
+            <label for="sample">Preloaded public-domain fragment</label>
+            <select id="sample" name="sample_id" data-preset-select>
+              <option value="">Loading the demo set…</option>
+            </select>
+            <p class="small" data-preset-note></p>
+            <video class="preset-video" data-preset-video controls preload="metadata" playsinline muted></video>
+            <div class="row-actions">
+              <a class="link-button" data-preset-download download>Download this fragment</a>
+              <a class="link-button" href="/presets">All ten cases →</a>
+            </div>
+            <label class="check"><input type="checkbox" name="depth" value="deep"> Deep mode — fan out one independent Parallel Task Group run per candidate</label>
+            <button class="primary-button" type="submit">Investigate this fragment</button>
+            <p class="small">Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division. United States public domain.</p>
+          </form>
+
+          <form class="card demo-card" data-upload-form id="pane-upload" role="tabpanel" aria-labelledby="tab-upload" hidden>
+            <label for="own">Your own fragment</label>
+            <input type="file" id="own" name="fragment" accept="video/mp4,video/quicktime,video/webm,video/x-matroska,image/jpeg,image/png,image/webp" required>
+            <video class="preset-video" data-upload-preview controls preload="metadata" playsinline muted hidden></video>
+            <label for="label">Catalogue label, if it already has one</label>
+            <input type="text" id="label" name="provided_label" maxlength="160" placeholder="e.g. “Those who pay” — leave blank if unlabelled">
+            <p class="small">Supplying a label is the interesting case: the workflow tries to contradict it with evidence rather than inherit it.</p>
+            <label class="check"><input type="checkbox" name="depth" value="deep"> Deep mode — independent falsification per candidate</label>
+            <button class="primary-button" type="submit">Investigate my fragment</button>
+            <p class="small privacy">A 30–60 second excerpt works best; 48&nbsp;MB maximum. Your file is held in memory for the request and never written to disk or logged. Frames do travel to Gemini on Vertex AI, and text read off them travels to Parallel as search queries — that is the investigation. Do not upload material you are not free to send to those two services.</p>
+          </form>
+        </div>
+
+        <section class="card run-panel" aria-labelledby="run-title">
+          <h3 id="run-title">Investigation</h3>
+          <div data-run-events aria-live="polite"></div>
+          <p class="small">An investigation runs five agents and several live Parallel calls, so it takes
+            40&ndash;120 seconds. Nothing is queued or cached &mdash; every run is real.</p>
+          <button type="button" class="secondary-button" data-show-example>See a worked example dossier</button>
         </section>
       </div>
       <section class="board" data-board hidden aria-live="polite"></section>
       <div class="api-callout">
-        <div><strong>Hackathon judge?</strong><span>Mint a 60-day key instantly. No email.</span></div>
+        <div><strong>Hackathon judge?</strong><span>Mint a 60-day key instantly. No email, no signup.</span></div>
         <button type="button" class="secondary-button" data-mint-judge-key>Get instant API access</button>
       </div>
     </section>
 
     <section class="section shell" aria-labelledby="works-title">
       <p class="eyebrow">HOW IT WORKS</p>
-      <h2 id="works-title">Four roles. One gate. No hidden verdict.</h2>
+      <h2 id="works-title">Five roles research. Code verifies. A human decides.</h2>
       <ol class="flow">
         <li><span class="step">01</span><div><h3>Visual Examiner</h3><p data-mode="plain">Writes down the words and physical clues visible in the fragment.</p><p data-mode="technical">Gemini multimodal emits a typed clue set; verbatim intertitles remain verbatim.</p></div></li>
-        <li><span class="step">02</span><div><h3>Phrase Hunter</h3><p data-mode="plain">Searches old publications using the rarest exact words.</p><p data-mode="technical">Parallel Search API receives two to five literal, diverse probes and returns cited excerpts.</p></div></li>
-        <li><span class="step">03</span><div><h3>Holdings Researcher</h3><p data-mode="plain">Checks alternate titles and named archive catalogues.</p><p data-mode="technical">Parallel Task API performs multi-hop research across title, studio, performer, region, and holdings.</p></div></li>
-        <li><span class="step">04</span><div><h3>Skeptic</h3><p data-mode="plain">Tries to prove each candidate wrong.</p><p data-mode="technical">Gemini directs fresh Parallel searches for date, entity, and attribution contradictions.</p></div></li>
-        <li class="deterministic"><span class="step">05</span><div><h3>Evidence gate · deterministic</h3><p data-mode="plain">Code checks every rule. An archivist must still approve.</p><p data-mode="technical">A pure Python function exposes every boolean threshold as <code>gate.passed</code> and <code>gate.failed</code>.</p></div></li>
+        <li><span class="step">02</span><div><h3>Phrase Hunter</h3><p data-mode="plain">Searches old publications using the rarest exact words.</p><p data-mode="technical">Parallel Search API receives two to five literal, diverse probes and returns long cited excerpts.</p></div></li>
+        <li><span class="step">03</span><div><h3>Holdings Researcher</h3><p data-mode="plain">Checks alternate titles, then counts which archives actually list the film.</p><p data-mode="technical">Parallel Task API performs multi-hop research against a JSON output schema; Parallel FindAll enumerates the named catalogues that hold it.</p></div></li>
+        <li><span class="step">04</span><div><h3>Skeptic</h3><p data-mode="plain">Tries to prove each candidate wrong.</p><p data-mode="technical">Gemini directs fresh Parallel searches for date, entity and attribution contradictions.</p></div></li>
+        <li class="deterministic"><span class="step">05</span><div><h3>Citation audit · deterministic</h3><p data-mode="plain">Every page a claim quotes is re-opened and checked.</p><p data-mode="technical">Parallel Extract fetches each cited page; a quotation that is not in the live document is refused by the gate.</p></div></li>
+        <li class="deterministic"><span class="step">06</span><div><h3>Evidence gate · deterministic</h3><p data-mode="plain">Code checks every rule. An archivist must still approve.</p><p data-mode="technical">A pure Python function exposes every boolean threshold as <code>gate.passed</code> and <code>gate.failed</code>.</p></div></li>
       </ol>
+    </section>
+
+    <section class="section shell" aria-labelledby="stack-title">
+      <p class="eyebrow">THE STACK</p>
+      <h2 id="stack-title">Eleven sponsor surfaces, each doing a job the product needs.</h2>
+      <p class="lede">Five Google Cloud services and all six of Parallel's product surfaces. Every one names the function that calls it, and reports whether it is reachable right now.</p>
+      <div class="stack-cards">
+        <article class="card"><span class="badge">GOOGLE CLOUD · 5</span><h3>Reads the frame, runs the workflow, holds the secrets</h3><p>Agent Development Kit sequences the five roles and keeps each output separately inspectable. Gemini on Vertex AI reads the fragment and argues against itself. Controlled generation forces a typed claim structure, because prose cannot be gated. Cloud Run hosts it; Secret Manager holds the credentials.</p></article>
+        <article class="card"><span class="badge">PARALLEL · 6</span><h3>Every open-web fact, and every check on it</h3><p><b>Search</b> hunts rare literal strings. <b>Task</b> researches holdings against a schema. <b>FindAll</b> names the catalogues that let us describe coverage honestly. <b>Extract</b> re-opens cited pages to confirm quotations. <b>Task Group</b> gives each candidate an independent attacker. <b>Monitor</b> keeps looking after we abstain.</p></article>
+      </div>
+      <p><a class="link-button" href="/stack">See exactly how each one is used, and its live status →</a></p>
     </section>
 
     <section class="section shell prose" aria-labelledby="limits-title">
       <p class="eyebrow">WHAT IT WILL NOT DO</p>
       <h2 id="limits-title">Uncertainty is an output.</h2>
-      <p>It never says “last surviving copy.” It can only say: “No additional holding was found across these named catalogues as of this search date.” A fragment without legible, discriminating clues may remain unidentified, and the system will abstain.</p>
+      <p>It never says “last surviving copy.” Searching every catalogue you can name tells you where a print is; it can never tell you no other print exists. The only permitted sentence is: “No additional holding was found across these named catalogues as of this search date” — followed by the names. Sentences that break that rule are caught in code and shown to you as violations rather than published as findings.</p>
+      <p>A fragment without legible, discriminating clues may remain unidentified, and the system will abstain. That is a result, not a failure — and you can leave a standing watch on it.</p>
     </section>
 
     <section class="section shell" aria-labelledby="eval-title">
@@ -114,22 +179,13 @@
         <article class="metric"><span>Correct abstentions</span><strong>Not run</strong><small>Held-out · n=5</small></article>
         <article class="metric"><span>Citation precision</span><strong>Not run</strong><small>Decisive claims checked by hand</small></article>
       </div>
-      <p class="small">These placeholders are deliberate: the held-out fragments cannot be touched until the implementation is tagged and frozen.</p>
+      <p class="small">These placeholders are deliberate: the held-out fragments cannot be touched until the implementation is tagged and frozen. Their hashes are published now so the set cannot be quietly changed later. <a href="/v1/eval/manifest">Download the full manifest</a>.</p>
     </section>
 
     <section class="section shell prose" aria-labelledby="prior-title">
       <p class="eyebrow">PRIOR ART</p>
       <h2 id="prior-title">Why not a screenshot matcher or archive catalogue?</h2>
-      <p>Our documented search found screenshot identifiers, archive cataloguing products, and crowdsourced identification projects, but did not find a production system combining multimodal clue extraction, live open-web historical investigation, adversarial verification, global holdings research, and claim-level provenance.</p>
-    </section>
-
-    <section class="section shell" aria-labelledby="stack-title">
-      <p class="eyebrow">STACK</p>
-      <h2 id="stack-title">Remove either required service and the workflow stops.</h2>
-      <div class="stack-grid">
-        <article class="card"><span class="badge">REQUIRED</span><h3>Google ADK + Gemini</h3><p>Runs the four-role workflow and interprets visual clues and contradictions.</p></article>
-        <article class="card"><span class="badge">REQUIRED</span><h3>Parallel Search</h3><p>Supplies the live historical evidence, working URLs, and excerpts used by claims.</p></article>
-      </div>
+      <p>Our documented search found screenshot identifiers, archive cataloguing products, and crowdsourced identification projects, but did not find a production system combining multimodal clue extraction, live open-web historical investigation, adversarial verification, global holdings research, and claim-level provenance. This is a documented search result, not a claim that private systems cannot exist.</p>
     </section>
 
     <section class="section shell prose" aria-labelledby="risk-title">
@@ -141,10 +197,16 @@
 
   <aside id="stack-panel" class="stack-panel" aria-labelledby="stack-panel-title" hidden>
     <div class="panel-head"><h2 id="stack-panel-title">Live stack</h2><button type="button" aria-label="Close live stack" data-close-stack>×</button></div>
-    <p class="small">Checked at most once per minute.</p>
+    <p class="small">Google Cloud is probed live. The Parallel probe costs a real search, so a healthy result is cached for fifteen minutes and a failure for one.</p>
     <ul data-integration-list><li><span class="status-dot pending"></span> Waiting for health check</li></ul>
   </aside>
 
-  <footer class="footer shell"><span>Apache-2.0</span><a href="/docs">API docs</a><a href="#">Source repository</a><span>Demo assets: credits pending final corpus</span></footer>
+  <footer class="footer shell">
+    <span>Apache-2.0</span>
+    <a href="/docs">API docs</a>
+    <a href="https://github.com/usv240/last-seen-alive" rel="noreferrer">Source repository</a>
+    <a href="/stack">Stack</a>
+    <span>Fragments: Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division · United States public domain</span>
+  </footer>
 </body>
 </html>

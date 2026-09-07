@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Every Google Cloud and Parallel service Last Seen Alive runs on, the function that calls each one, why it is used that way, and whether it is reachable right now.">
+  <title>Stack · Last Seen Alive</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d0b" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Stack · Last Seen Alive">
+  <meta property="og:description" content="Eleven Google Cloud and Parallel surfaces, each with the function that calls it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://last-seen-alive-109051079423.us-central1.run.app">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/common.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">LAST SEEN ALIVE</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/">Overview</a>
+      <a href="/presets">Demo fragments</a>
+      <a href="/api">API</a>
+      <a href="/stack" aria-current="page">Stack</a>
+    </nav>
+    <div class="header-actions" aria-label="Page settings">
+      <button type="button" class="quiet-button" data-theme-toggle>Dark</button>
+      <button type="button" class="stack-button" aria-controls="stack-panel" aria-expanded="false">
+        <span class="status-dot pending" aria-hidden="true"></span> Live stack
+      </button>
+    </div>
+  </header>
+  <div class="stack-ribbon" data-stack-ribbon aria-label="Sponsor services this product runs on"></div>
+
+  <main id="main">
+    <section class="masthead compact shell" aria-labelledby="page-title">
+      <p class="eyebrow">WHAT THIS RUNS ON</p>
+      <h1 id="page-title">Eleven sponsor surfaces, and the line of code that calls each one.</h1>
+      <p class="deck">Five Google Cloud services and all six of Parallel's product surfaces. Nothing here is a logo on a slide: each entry names the module and function, says what job it does, and reports whether that path is reachable right now.</p>
+      <p class="lede">A service marked <b>required</b> is one the workflow cannot run without. Remove Gemini and nothing can read the fragment. Remove Parallel Search and there is no open web at all — and this product would rather stop than answer a historical question from model memory.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="live-title">
+      <h2 id="live-title" class="visually-hidden">Live status by service</h2>
+      <div data-stack-table></div>
+    </section>
+
+    <section class="section shell prose" aria-labelledby="why-title">
+      <p class="eyebrow">THE DIVISION OF LABOUR</p>
+      <h2 id="why-title">Models research. Code verifies. A human decides.</h2>
+      <p>Three Parallel surfaces are exposed to the agents as tools, because choosing when to search, when to research holdings and when to enumerate catalogues is a judgement call a reasoning agent should make. Search, Task and FindAll sit in <code>app/partners/parallel_research.py</code>.</p>
+      <p>The other three are called by deterministic code, never by a model, because each one exists to check or outlast the model's own work. A system that both gathers the evidence and rules on whether the evidence holds up can talk itself into either answer. Extract, Task Group and Monitor sit in <code>app/partners/parallel_verify.py</code>.</p>
+      <ul>
+        <li><strong>Extract</strong> re-opens each cited page. A quotation that is in a search snippet but not in the live document is refused by the gate — it can only ever weaken a verdict, never support one.</li>
+        <li><strong>Task Group</strong> gives every surviving candidate its own researcher that has never seen the others, and asks it only to disprove that candidate. The Skeptic agent, working in one context window, inherits its own earlier conclusions; these runs cannot.</li>
+        <li><strong>Monitor</strong> handles the case the product is most likely to hit: no identification possible today. Archives digitise continuously, so an abstention becomes a standing weekly query on the strings visible in the frame.</li>
+      </ul>
+    </section>
+
+    <section class="section shell prose" aria-labelledby="rules-title">
+      <p class="eyebrow">TRACK REQUIREMENTS</p>
+      <h2 id="rules-title">What the Parallel track asks for, and where to check it.</h2>
+      <p>The requirement is that the project <em>actively uses Parallel's Search API at runtime</em>, via the official SDK, and that the integration is present in the code rather than only in a README. The official <code>parallel-web</code> Python SDK is pinned in <code>requirements.resolved.txt</code>; <code>search_archival_evidence</code> is a registered tool on two of the five agents; and <code>GET /health/integrations</code> above performs a genuine Search call against the live credential rather than reporting a cached opinion.</p>
+      <p>The Google Cloud requirement is met by <code>google-adk</code> and <code>google-genai</code>, both imported and called on the request path — the workflow in <code>app/adk_app.py</code> is executed by a real ADK <code>Runner</code> in <code>app/adk_runtime.py</code>, against Gemini on Vertex AI, hosted on Cloud Run.</p>
+      <p>Every AI call in this system is a Google Cloud model or a Parallel built-in feature. There is no other model provider anywhere in the dependency lock.</p>
+    </section>
+  </main>
+
+  <aside id="stack-panel" class="stack-panel" aria-labelledby="stack-panel-title" hidden>
+    <div class="panel-head"><h2 id="stack-panel-title">Live stack</h2><button type="button" aria-label="Close live stack" data-close-stack>×</button></div>
+    <ul data-integration-list><li><span class="status-dot pending"></span> Waiting for health check</li></ul>
+  </aside>
+
+  <footer class="footer shell">
+    <span>Apache-2.0</span>
+    <a href="/docs">API docs</a>
+    <a href="https://github.com/usv240/last-seen-alive" rel="noreferrer">Source repository</a>
+    <a href="/v1/stack">This page as JSON</a>
+    <span>Fragments: Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division · United States public domain</span>
+  </footer>
+</body>
+</html>

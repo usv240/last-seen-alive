@@ -18,7 +18,6 @@ from contextvars import ContextVar
 from dataclasses import dataclass, field
 from urllib.parse import urlparse
 
-
 _WHITESPACE = re.compile(r"\s+")
 
 
@@ -49,6 +48,10 @@ class CitationRegistry:
 
     sources: dict[str, RetrievedSource] = field(default_factory=dict)
     calls: list[dict[str, object]] = field(default_factory=list)
+    #: normalised url -> whether Parallel Extract found the quoted text on the
+    #: live page. Absent means the page was never audited, which is different
+    #: from audited-and-failed and is reported as such.
+    live_audit: dict[str, bool] = field(default_factory=dict)
 
     def record_search(self, payload: dict) -> None:
         self.calls.append(
@@ -105,6 +108,41 @@ class CitationRegistry:
                     provider=str(payload.get("provider") or "parallel_task_v1"),
                     retrieval_id=str(payload.get("run_id") or ""),
                 )
+
+    def record_findall(self, payload: dict) -> None:
+        """A catalogue census names institutions; record their record URLs too."""
+        institutions = payload.get("institutions") or []
+        self.calls.append(
+            {
+                "provider": payload.get("provider"),
+                "retrieval_id": payload.get("findall_id"),
+                "result_count": len(institutions),
+            }
+        )
+        for entry in institutions:
+            url = str(entry.get("url") or "")
+            if not url.startswith(("http://", "https://")):
+                continue
+            key = normalise_url(url)
+            if key in self.sources:
+                continue
+            host = (urlparse(url).hostname or "").lower()
+            label = str(entry.get("name") or url)
+            self.sources[key] = RetrievedSource(
+                url=url,
+                domain=host,
+                excerpts=(label,),
+                provider=str(payload.get("provider") or "parallel_findall_v1beta"),
+                retrieval_id=str(payload.get("findall_id") or ""),
+            )
+
+    def record_live_audit(self, url: str, present: bool) -> None:
+        """Record whether Parallel Extract found the quoted text on the live page."""
+        self.live_audit[normalise_url(url)] = present
+
+    def live_audit_state(self, url: str) -> bool | None:
+        """True/False when the page was audited, None when it was not."""
+        return self.live_audit.get(normalise_url(url))
 
     def lookup(self, url: str) -> RetrievedSource | None:
         return self.sources.get(normalise_url(url))

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import Mapping, Sequence
+from collections.abc import Mapping, Sequence
 
 from agentic_core.evidence import Claim
 from agentic_core.gate import Candidate, GateResult

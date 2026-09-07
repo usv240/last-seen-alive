@@ -58,3 +58,73 @@ def test_report_includes_hashes_failures_and_latency(tmp_path: Path) -> None:
     assert report["p95_latency_ms"] == 25
     assert len(report["corpus_sha256"]["fragment-01.bin"]) == 64
 
+
+
+# --- the real corpus ------------------------------------------------------
+#
+# The held-out split is run exactly once and cannot be retried. Every one of
+# these mismatches would otherwise have surfaced for the first time on that run.
+
+from agentic_core.eval import EvaluationCorpus  # noqa: E402
+
+EVAL_DIR = Path(__file__).resolve().parents[1] / "eval"
+
+
+def test_real_corpus_resolves_and_matches_its_manifest() -> None:
+    corpus = EvaluationCorpus(EVAL_DIR)
+    assert corpus.verify() == []
+    assert corpus.ids_for("dev") == ["D01", "D02", "D03", "D04", "D05"]
+    assert corpus.ids_for("held-out") == ["H01", "H02", "H03", "H04", "H05"]
+
+
+def test_real_corpus_filenames_do_not_equal_case_ids() -> None:
+    """Guards the assumption the harness used to make.
+
+    If this ever becomes false the stem-matching fallback would start working by
+    accident, and the explicit mapping would look unnecessary. It is not.
+    """
+    files = EvaluationCorpus(EVAL_DIR).files()
+    assert files["D01"].stem == "fragment_D01" != "D01"
+
+
+def test_harness_runs_the_real_development_split(tmp_path: Path) -> None:
+    corpus = EvaluationCorpus(EVAL_DIR)
+    seen: list[str] = []
+
+    def system(path: Path, expected: object) -> EvalItemResult:
+        case_id = path.stem.removeprefix("fragment_")
+        seen.append(case_id)
+        return EvalItemResult(item_id=case_id, outcome="abstained", latency_ms=1)
+
+    report = run_eval(
+        system,
+        EVAL_DIR / "fragments-v2" / "dev",
+        corpus.answer_key(),
+        split="dev",
+        frozen_commit="unused-for-dev",
+        verifier=Frozen(),
+        ledger_path=tmp_path / "ledger.json",
+        item_files=corpus.files(),
+    )
+    assert seen == ["D01", "D02", "D03", "D04", "D05"]
+    assert len(report.corpus_sha256) == 5
+
+
+def test_harness_hashes_match_the_published_manifest(tmp_path: Path) -> None:
+    """The report's hashes have to be the hashes the manifest publishes."""
+    corpus = EvaluationCorpus(EVAL_DIR)
+    report = run_eval(
+        lambda path, expected: EvalItemResult(
+            item_id=path.stem.removeprefix("fragment_"), outcome="abstained", latency_ms=1
+        ),
+        EVAL_DIR / "fragments-v2" / "dev",
+        corpus.answer_key(),
+        split="dev",
+        frozen_commit="unused-for-dev",
+        verifier=Frozen(),
+        ledger_path=tmp_path / "ledger.json",
+        item_files=corpus.files(),
+    )
+    for case_id in corpus.ids_for("dev"):
+        filename = Path(corpus.manifest[case_id]["file"]).name
+        assert report.corpus_sha256[filename] == corpus.manifest[case_id]["sha256"]

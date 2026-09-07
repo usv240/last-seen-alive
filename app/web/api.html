@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Last Seen Alive as an API: mint a key with no signup, run a live call from this page, and integrate archival identification triage into your own catalogue tooling.">
+  <title>API · Last Seen Alive</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d0b" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="API · Last Seen Alive">
+  <meta property="og:description" content="Mint a key with no signup and run a live investigation from the browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://last-seen-alive-109051079423.us-central1.run.app">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/console.js" defer></script>
+  <script src="/static/api.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">LAST SEEN ALIVE</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/">Overview</a>
+      <a href="/presets">Demo fragments</a>
+      <a href="/api" aria-current="page">API</a>
+      <a href="/stack">Stack</a>
+    </nav>
+    <div class="header-actions" aria-label="Page settings">
+      <button type="button" class="quiet-button" data-theme-toggle>Dark</button>
+      <button type="button" class="stack-button" aria-controls="stack-panel" aria-expanded="false">
+        <span class="status-dot pending" aria-hidden="true"></span> Live stack
+      </button>
+    </div>
+  </header>
+  <div class="stack-ribbon" data-stack-ribbon aria-label="Sponsor services this product runs on"></div>
+
+  <main id="main">
+    <section class="masthead compact shell" aria-labelledby="page-title">
+      <p class="eyebrow">FOR DEVELOPERS AND ARCHIVES</p>
+      <h1 id="page-title">Put evidence-first identification triage inside your own catalogue.</h1>
+      <p class="deck">One POST returns the whole dossier: typed claims, the source behind each one, what contradicted it, which citations failed a live re-check, and the deterministic gate that refused or allowed a verdict.</p>
+      <p class="lede">No signup, no email, no sales call. Mint a key below, run a real call from this page, then copy the snippet into your own code. The site itself has no privileged path — every button on this product calls these same endpoints.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="key-title">
+      <p class="eyebrow">STEP ONE</p>
+      <h2 id="key-title">Mint a key.</h2>
+      <div class="keybox">
+        <div class="keybox-actions">
+          <button type="button" class="primary-button" data-mint>Mint a 60-day judge key</button>
+          <button type="button" class="secondary-button" data-copy-key hidden>Copy key</button>
+        </div>
+        <output class="keyout" data-key-output>No key yet.</output>
+        <dl class="keyfacts" data-key-facts hidden></dl>
+        <p class="small">The key is signed, not stored. It carries its own tier and expiry, verifies on every Cloud Run instance, and survives restarts — so it cannot 401 because you happened to reach a different instance than the one that minted it. Nothing server-side can list or recover it, so copy it now. Rotating the signing pepper invalidates every outstanding key at once.</p>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="play-title">
+      <p class="eyebrow">STEP TWO</p>
+      <h2 id="play-title">Run it live, right here.</h2>
+      <p class="lede">This is a real request against the live service with your real key. The response below is not a recording.</p>
+
+      <div class="playground">
+        <form class="card play-form" data-play-form>
+          <label for="endpoint">Endpoint</label>
+          <select id="endpoint" data-endpoint>
+            <option value="GET /health/integrations">GET /health/integrations — is every sponsor runtime reachable?</option>
+            <option value="GET /v1/stack">GET /v1/stack — every service, its call site, its status</option>
+            <option value="GET /v1/presets">GET /v1/presets — the ten demo fragments</option>
+            <option value="GET /v1/eval/corpus">GET /v1/eval/corpus — benchmark state</option>
+            <option value="POST /v1/identify" selected>POST /v1/identify — investigate a demo fragment</option>
+            <option value="POST /v1/investigate">POST /v1/investigate — investigate your own file</option>
+            <option value="GET /v1/eval/latest">GET /v1/eval/latest — frozen held-out report</option>
+          </select>
+
+          <div data-body-wrap>
+            <label for="body">Request body</label>
+            <textarea id="body" data-body rows="5" spellcheck="false"></textarea>
+          </div>
+
+          <div data-file-wrap hidden>
+            <label for="playfile">File</label>
+            <input type="file" id="playfile" data-file accept="video/mp4,video/quicktime,video/webm,video/x-matroska,image/jpeg,image/png,image/webp">
+            <label for="playlabel">provided_label (optional)</label>
+            <input type="text" id="playlabel" data-label maxlength="160" placeholder="A title your catalogue already carries">
+          </div>
+
+          <button class="primary-button" type="submit" data-send>Send request</button>
+          <p class="small" data-warn hidden>An investigation runs five agents and several live Parallel calls. Expect 40–120 seconds, longer in deep mode.</p>
+        </form>
+
+        <section class="card play-result" aria-live="polite">
+          <div class="play-status" data-status>Ready.</div>
+          <pre class="play-out" data-out>The response will appear here.</pre>
+          <div class="row-actions">
+            <button type="button" class="link-button" data-copy-response hidden>Copy response</button>
+            <button type="button" class="link-button" data-render-board hidden>Show as evidence board</button>
+          </div>
+        </section>
+      </div>
+      <section class="board" data-board hidden aria-live="polite"></section>
+    </section>
+
+    <section class="section shell" aria-labelledby="snippet-title">
+      <p class="eyebrow">STEP THREE</p>
+      <h2 id="snippet-title">Copy it into your own code.</h2>
+      <div class="tabs" role="tablist" aria-label="Language">
+        <button type="button" role="tab" data-lang="curl" aria-selected="true">curl</button>
+        <button type="button" role="tab" data-lang="python" aria-selected="false">Python</button>
+        <button type="button" role="tab" data-lang="node" aria-selected="false">TypeScript</button>
+      </div>
+      <pre class="snippet" data-snippet></pre>
+      <p class="small">The snippet updates with the endpoint you selected above and embeds your minted key.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="ref-title">
+      <p class="eyebrow">REFERENCE</p>
+      <h2 id="ref-title">The whole surface.</h2>
+      <div class="table-scroll">
+        <table class="reftable">
+          <caption>Full OpenAPI at <a href="/openapi.json">/openapi.json</a>, browsable at <a href="/docs">/docs</a>.</caption>
+          <thead><tr><th scope="col">Endpoint</th><th scope="col">Key</th><th scope="col">What it does</th></tr></thead>
+          <tbody>
+            <tr><td><code>POST /v1/keys</code></td><td>—</td><td>Mint a key. <code>{"tier":"judge"}</code> needs no email.</td></tr>
+            <tr><td><code>GET /health</code></td><td>—</td><td>Liveness.</td></tr>
+            <tr><td><code>GET /health/integrations</code></td><td>—</td><td>Whether Vertex AI and Parallel are genuinely reachable right now.</td></tr>
+            <tr><td><code>GET /v1/stack</code></td><td>—</td><td>Every sponsor service, the function that calls it, and its live status.</td></tr>
+            <tr><td><code>GET /v1/presets</code></td><td>—</td><td>The ten demo fragments with tier, required behaviour and hashes.</td></tr>
+            <tr><td><code>GET /v1/presets/{id}/media</code></td><td>—</td><td>Watch or download a fragment. Range requests supported. Held-out cases return 423.</td></tr>
+            <tr><td><code>GET /v1/eval/corpus</code></td><td>—</td><td>Benchmark composition and whether the holdout has been opened.</td></tr>
+            <tr><td><code>GET /v1/eval/manifest</code></td><td>—</td><td>The unedited manifest as a download.</td></tr>
+            <tr><td><code>POST /v1/identify</code></td><td>Bearer</td><td>Investigate a demo fragment. <code>depth: "deep"</code> adds independent falsification per candidate.</td></tr>
+            <tr><td><code>POST /v1/investigate</code></td><td>Bearer</td><td>Investigate your own file. multipart/form-data, 48 MB.</td></tr>
+            <tr><td><code>POST /v1/watch</code></td><td>Bearer</td><td>Leave a standing Parallel Monitor on a fragment that could not be identified.</td></tr>
+            <tr><td><code>GET /v1/eval/latest</code></td><td>Bearer</td><td>The frozen held-out report, once it exists.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="contract-title">
+      <p class="eyebrow">THE CONTRACT</p>
+      <h2 id="contract-title">What you can rely on.</h2>
+      <div class="stack-cards">
+        <article class="card">
+          <h3>An abstention is a 200</h3>
+          <p>“I could not identify this” is a correct, useful answer, not an error. Check <code>meta.verdict</code>, which is one of <code>probable</code>, <code>candidates</code> or <code>abstain</code>. The API can never return a confirmed identity: <code>human_approved</code> is a gate threshold only an archivist can satisfy, outside this API.</p>
+        </article>
+        <article class="card">
+          <h3>Errors say how to fix themselves</h3>
+          <p>Every failure returns <code>{ok:false, error:{code, message, fix, docs}}</code> with a stable machine-readable <code>code</code>. A missing partner credential is a <code>503</code>, never a degraded guess: this service will stop before it answers from model memory.</p>
+        </article>
+        <article class="card">
+          <h3>Provenance is in the payload</h3>
+          <p>Each source carries <code>verified</code> (the excerpt matched what Parallel returned) and <code>live_verified</code> (the quotation is still on the page today). A source that fails either is shown to you and refused by the gate. <code>evidence.rejected_citations</code> lists everything discarded and why.</p>
+        </article>
+        <article class="card">
+          <h3>Limits, stated honestly</h3>
+          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher — we would rather say that than imply a distributed quota we do not have. Investigations take 40–120 seconds; nothing is queued or cached.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <aside id="stack-panel" class="stack-panel" aria-labelledby="stack-panel-title" hidden>
+    <div class="panel-head"><h2 id="stack-panel-title">Live stack</h2><button type="button" aria-label="Close live stack" data-close-stack>×</button></div>
+    <ul data-integration-list><li><span class="status-dot pending"></span> Waiting for health check</li></ul>
+  </aside>
+
+  <footer class="footer shell">
+    <span>Apache-2.0</span>
+    <a href="/docs">API docs</a>
+    <a href="https://github.com/usv240/last-seen-alive" rel="noreferrer">Source repository</a>
+    <a href="/stack">Stack</a>
+    <span>Fragments: Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division · United States public domain</span>
+  </footer>
+</body>
+</html>

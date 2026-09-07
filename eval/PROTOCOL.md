@@ -8,7 +8,22 @@ Development cases D01–D05 may be used to tune. Holdout cases H01–H05 may be 
 
 ## Frozen budgets
 
-Before the first holdout, record the Gemini model ID, prompt hashes, agent topology, gate thresholds, maximum Parallel searches, maximum opened domains, request timeout, Gemini-call maximum, and dollar-cost ceiling. The intended first pass is 12 searches, 20 opened pages, 180 seconds, and one transport retry.
+Before the first holdout, record the Gemini model ID, prompt hashes, agent topology, gate thresholds, per-surface Parallel call ceilings, request timeout, Gemini-call maximum, and dollar-cost ceiling.
+
+The pipeline now touches five Parallel surfaces on a held-out run, so the budget is stated per surface rather than as a single search count:
+
+| Surface | Ceiling per case | Enforced by |
+|---|---:|---|
+| Search | 12 calls, 2–5 queries each, `mode=advanced` | agent tool contract in `parallel_research.py` |
+| Task | 1 run, `processor=pro-fast` | one call site, Holdings Researcher |
+| FindAll | 1 run, `match_limit=12`, `generator=base` | one call site, strongest candidate only |
+| Extract | 8 pages | `MAX_AUDITED_URLS` |
+| Task Group | 4 runs, `processor=base` | `MAX_FALSIFIED_CANDIDATES` |
+| Monitor | 0 | never called during evaluation; it is an archivist action |
+
+Wall clock: 180 seconds standard, 300 seconds in deep mode, and one transport retry. Record the actual per-surface counts from `parallel_retrieval.calls` in the report, not the ceilings.
+
+The held-out run is executed at `depth=deep`, because the falsification fan-out is part of the system being measured. Record that in the freeze.
 
 ## Decision contract
 

@@ -1,22 +1,35 @@
 # Submission status
 
-Last verified: 2026-08-28.
+Last verified: 2026-09-06. Full audit: [`docs/AUDIT-2026-09-05.md`](docs/AUDIT-2026-09-05.md).
 
 | Gate | Status | Evidence / next action |
 |---|---|---|
 | Public standalone repository + Apache-2.0 | Pass | GitHub repository and detected licence. |
-| Hosted product | Pass | Cloud Run revision `last-seen-alive-00006-zgb`; public API and no-signup judge key. |
+| Hosted product | Pass | Cloud Run; four pages, public API, no-signup judge key. |
 | Google ADK + Gemini runtime | Pass | `app/adk_runtime.py`; live Vertex health probe. |
+| Public demo set, viewable and downloadable | Pass | `/presets`; range-request playback, download, published SHA-256 served as a response header. |
+| Bring your own data | Pass | `POST /v1/investigate`; validated before any partner call, held in memory only. |
+| Usable as an API by a third party | Pass | Signed stateless keys, key-gated endpoints, stable error contract, live playground at `/api`. |
+| All six Parallel surfaces implemented | Pass | Search, Task, FindAll, Extract, Task Group, Monitor. See `/stack`. |
+| Sponsor stack visible on every page | Pass | Live ribbon on all four pages, driven by `GET /v1/stack`. |
 | Typed evidence into the identity gate | Pass | `EvidenceCompiler` emits a schema; `app/evidence_builder.py` builds Claim/Candidate records. |
-| Citations verified against Parallel output | Pass | `app/partners/citation_registry.py`; 5 tests prove invented URLs cannot reach a probable verdict. |
-| Evidence board UI | Renderer verified | Verified against a mocked response; not yet seen with live Parallel data. |
-| Parallel runtime | Blocked externally | Code uses Search v1 and Task v1 and fails closed; attach sponsor credential in Secret Manager. |
+| Citations verified against Parallel output | Pass | `app/partners/citation_registry.py`; invented URLs cannot reach a probable verdict. |
+| Citations audited against the live page | Pass | Parallel Extract; a source failing the audit cannot carry a threshold. |
+| Survival-claim language enforced at runtime | Pass | `find_prohibited_language` runs on every investigation; violations are surfaced, not published. |
+| Evidence board UI | Pass | Renderer verified against the worked example at `/v1/example/dossier`, which is built by the real gate. Not yet seen with live Parallel data. |
+| Live verification script | Pass | `python scripts/verify_live.py` — 72 behavioural checks against the deployed service, no credentials needed. |
+| Parallel request shapes validated | Pass | `tests/test_parallel_wire_contract.py` asserts the JSON body each of the six surfaces would send, offline. |
+| Evaluation harness runs on the real corpus | Pass | `agentic_core/eval/corpus.py`; previously would have failed on the single held-out run. |
+| Dependency lock free of prohibited AI tooling | Pass | 111 packages audited; only google-adk, google-genai, google-cloud-aiplatform, parallel-web. |
+| Devpost draft and video shot list | Pass | `docs/DEVPOST.md`, `docs/DEMO-VIDEO.md` — owner still records and submits. |
+| Design system and principles | Pass | `docs/DESIGN.md`; WCAG AA contrast in both themes, automated a11y audit clean, no horizontal scroll 320–1440px, print stylesheet for filing a dossier. |
+| **Parallel runtime** | **Blocked externally** | No credential exists. Create `last-seen-alive-parallel-api-key` and run `infra/deploy.sh`. |
 | Ten-fragment evaluation set | Pass | Five development + five sealed holdout clips with hashes and rights record. |
 | Held-out evaluation | Intentionally not run | Run once only after live development cases pass and `eval-freeze-*` is tagged. |
 | Public demo video, no more than 3 minutes | Owner action | Record and publish after live Parallel proof. |
 | Devpost submission | Owner action | Complete after video and evidence links are final. |
 | External archivist validation | Outreach action | Obtain review of workflow, claims, and limitations; do not invent endorsement. |
 
-No missing external dependency is represented as passing.
-
-Machine-readable live checks are recorded in `docs/LIVE-ACCEPTANCE.json` with no credentials.
+No missing external dependency is represented as passing. `GET /health/integrations`,
+`GET /v1/stack` and the ribbon on every page all report Parallel as unavailable until the
+credential is attached.

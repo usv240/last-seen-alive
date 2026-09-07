@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import html
 import json
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 
 def render_json(report: Mapping[str, Any]) -> str:

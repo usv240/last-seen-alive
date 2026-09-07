@@ -23,7 +23,6 @@ from app.evidence_schema import (
 from app.gates.identity import IdentityGate
 from app.partners.citation_registry import CitationRegistry
 
-
 REAL_URL = "https://www.loc.gov/item/through-the-breakers"
 REAL_EXCERPT = "Through the Breakers was formerly supplied under the title Those Who Pay."
 

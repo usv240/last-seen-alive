@@ -9,7 +9,11 @@ from google.adk.agents.sequential_agent import SequentialAgent
 from google.adk.apps import App
 
 from app.evidence_schema import CompiledEvidence
-from app.partners.parallel_research import deep_holdings_research, search_archival_evidence
+from app.partners.parallel_research import (
+    census_named_catalogues,
+    deep_holdings_research,
+    search_archival_evidence,
+)
 
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 
@@ -47,11 +51,16 @@ holdings_researcher = LlmAgent(
     instruction="""
 Read {visual_clues} and {phrase_evidence}. For plausible candidates, call deep_holdings_research
 to trace studio, performer, release date, alternate and foreign titles, restoration notices, and
-named archive catalogues. Report only cited findings. The permitted negative formulation is:
-'No additional holding was found across these named catalogues as of this search date.'
-Never write 'last copy', 'only surviving', or 'sole'.
+named archive catalogues.
+
+Then, for the single strongest candidate only, call census_named_catalogues to enumerate the
+institutions whose own catalogues list it. That census is the ONLY basis on which you may describe
+coverage. Report only cited findings. The permitted negative formulation is:
+'No additional holding was found across these named catalogues as of this search date,'
+followed by the institution names the census actually returned.
+Never write 'last copy', 'only surviving', 'sole', 'lost', or 'rediscovered'.
 """,
-    tools=[deep_holdings_research],
+    tools=[deep_holdings_research, census_named_catalogues],
     output_key="holdings_evidence",
 )
 

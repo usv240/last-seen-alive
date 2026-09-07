@@ -23,7 +23,6 @@ from typing import Any
 
 from agentic_core.evidence import Claim, Source, stable_claim_id
 from agentic_core.gate import Candidate
-
 from app.evidence_schema import CompiledEvidence
 from app.partners.citation_registry import CitationRegistry
 
@@ -81,6 +80,8 @@ class BuiltEvidence:
                             "domain": source.domain,
                             "excerpt": source.excerpt,
                             "verified": source.verified,
+                            "live_verified": source.live_verified,
+                            "counts_toward_gate": Claim._counts(source),
                         }
                         for source in claim.sources
                     ],
@@ -121,6 +122,15 @@ def build(compiled: CompiledEvidence, registry: CitationRegistry) -> BuiltEviden
                         "claim": item.claim_text[:160],
                     }
                 )
+            live = registry.live_audit_state(candidate_source.url)
+            if live is False:
+                rejected.append(
+                    {
+                        "url": candidate_source.url,
+                        "reason": "quoted_text_absent_from_live_page",
+                        "claim": item.claim_text[:160],
+                    }
+                )
             excerpt = candidate_source.excerpt.strip() or (
                 retrieved.excerpts[0] if retrieved.excerpts else retrieved.url
             )
@@ -131,6 +141,7 @@ def build(compiled: CompiledEvidence, registry: CitationRegistry) -> BuiltEviden
                         domain=retrieved.domain,
                         excerpt=excerpt[:1200],
                         verified=verified,
+                        live_verified=live,
                     )
                 )
             except ValueError as exc:
@@ -140,6 +151,9 @@ def build(compiled: CompiledEvidence, registry: CitationRegistry) -> BuiltEviden
 
         # An unverified excerpt is kept for a human to read but must not be able
         # to satisfy the gate, so only verified sources travel with the claim.
+        # A source that failed the live Extract audit is deliberately kept here
+        # rather than dropped: Claim.is_decisive_eligible refuses to count it,
+        # and the archivist should be able to see what did not hold up.
         verified_sources = tuple(source for source in sources if source.verified)
         claim_id = stable_claim_id(item.subject, item.clue_family, item.claim_text)
         try:

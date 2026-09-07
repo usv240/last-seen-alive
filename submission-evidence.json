@@ -1,15 +1,65 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "project": "Last Seen Alive",
   "track": "Parallel",
   "public_url": "https://last-seen-alive-109051079423.us-central1.run.app",
   "repository": "https://github.com/usv240/last-seen-alive",
   "license": "Apache-2.0",
-  "google_runtime": {"status": "verified", "evidence": "/health/integrations"},
-  "partner_runtime": {"status": "blocked_external", "reason": "credential_not_configured", "evidence": "/health/integrations"},
-  "evaluation": {"development": 5, "sealed_holdout": 5, "holdout_status": "not_run"},
+  "surfaces": {
+    "product": "/",
+    "demo_fragments": "/presets",
+    "api_playground": "/api",
+    "sponsor_stack": "/stack",
+    "openapi": "/openapi.json",
+    "stack_json": "/v1/stack",
+    "integration_health": "/health/integrations"
+  },
+  "google_runtime": {
+    "status": "verified",
+    "evidence": "/health/integrations",
+    "surfaces": ["google_adk", "gemini_vertex", "vertex_controlled_generation", "cloud_run", "secret_manager"]
+  },
+  "partner_runtime": {
+    "status": "blocked_external",
+    "reason": "credential_not_configured",
+    "evidence": "/health/integrations",
+    "surfaces_implemented": ["search", "task", "findall", "extract", "task_group", "monitor"],
+    "surfaces_executed": [],
+    "unblock": "Create Secret Manager secret last-seen-alive-parallel-api-key, grant lsa-runtime@agentic-fleet-2026.iam.gserviceaccount.com secretAccessor, run infra/deploy.sh."
+  },
+  "public_api": {
+    "key_minting": "POST /v1/keys",
+    "signup_required": false,
+    "key_model": "HMAC-signed stateless; verifies on every instance; never stored server-side",
+    "key_gated_endpoints": ["/v1/identify", "/v1/investigate", "/v1/watch", "/v1/eval/latest"]
+  },
+  "bring_your_own_data": {
+    "endpoint": "POST /v1/investigate",
+    "max_bytes": 50331648,
+    "retention": "held in memory for the request only; never written to disk, logged, retained, or used for training"
+  },
+  "evaluation": {
+    "development": 5,
+    "sealed_holdout": 5,
+    "holdout_status": "not_run",
+    "media_served": "development only; holdout returns 423 on every path",
+    "manifest": "/v1/eval/manifest"
+  },
+  "assets": {
+    "source": "Library of Congress National Screening Room",
+    "rights": "United States public domain; all works published by 1929",
+    "credit": "Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division.",
+    "credit_displayed_at": ["X-Credit response header", "/presets cards", "/v1/presets records", "page footers"]
+  },
   "decision_owner": "deterministic IdentityGate plus archivist approval",
   "claims_excluded": ["definitive attribution", "last surviving copy", "complete search coverage"],
+  "verification": {
+    "tests": 60,
+    "lint": "ruff check clean",
+    "network_required": false,
+    "fail_closed_proof": "tests/test_parallel_surfaces.py::test_every_surface_fails_closed_without_a_credential"
+  },
+  "audit": "docs/AUDIT-2026-09-05.md",
   "submission_video": {"status": "pending_external"},
   "devpost": {"status": "pending_external"}
 }

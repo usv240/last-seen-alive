@@ -27,6 +27,10 @@ class Source:
     excerpt: str
     retrieved_at: datetime = field(default_factory=utc_now)
     verified: bool = False
+    #: Result of re-opening the page with Parallel Extract and looking for the
+    #: quoted text in the live document. None means the page was not audited,
+    #: which is reported differently from audited-and-not-found.
+    live_verified: bool | None = None
 
     def __post_init__(self) -> None:
         parsed = urlparse(self.url)
@@ -58,15 +62,26 @@ class Claim:
         if not self.confidence_basis.strip():
             raise ValueError("confidence_basis must explain why the claim is believed")
 
+    @staticmethod
+    def _counts(source: Source) -> bool:
+        """A source counts toward the gate unless a live audit contradicted it.
+
+        `verified` means the excerpt matched what Parallel Search returned.
+        `live_verified is False` means Parallel Extract re-opened the page and
+        the quoted text was not there. A citation that fails the live audit is
+        still shown to the archivist, but it cannot carry a threshold.
+        """
+        return source.verified and source.live_verified is not False
+
     @property
     def is_decisive_eligible(self) -> bool:
-        return any(source.verified for source in self.sources)
+        return any(self._counts(source) for source in self.sources)
 
     @property
     def independent_domains(self) -> frozenset[str]:
         return frozenset(
             source.domain.lower().removeprefix("www.")
             for source in self.sources
-            if source.verified
+            if self._counts(source)
         )
 

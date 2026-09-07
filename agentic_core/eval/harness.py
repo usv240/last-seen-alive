@@ -5,10 +5,11 @@ from __future__ import annotations
 import json
 import subprocess
 import time
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import asdict, dataclass
 from hashlib import sha256
 from pathlib import Path
-from typing import Callable, Literal, Mapping, Protocol, Sequence
+from typing import Literal, Protocol
 
 Outcome = Literal["correct", "abstained", "false_confident", "missed"]
 
@@ -133,17 +134,32 @@ def run_eval(
     frozen_commit: str,
     verifier: FreezeVerifier,
     ledger_path: Path,
+    item_files: Mapping[str, Path] | None = None,
 ) -> EvalReport:
-    """Run each item once; held-out claims are recorded before system execution."""
+    """Run each item once; held-out claims are recorded before system execution.
+
+    `item_files` maps item id to file when the filenames do not equal the ids.
+    Real corpora rarely name a file after its case id -- ours are
+    `fragment_D01.mp4` for case `D01` -- and resolving by stem alone would raise
+    FileNotFoundError on the single held-out run, which by design can never be
+    repeated. Passing the mapping explicitly removes that failure mode.
+    """
 
     if split == "held-out":
         verifier.verify(frozen_commit)
-    files = sorted(path for path in corpus_dir.iterdir() if path.is_file())
-    file_by_id = {path.stem: path for path in files}
+    if item_files is None:
+        files = sorted(path for path in corpus_dir.iterdir() if path.is_file())
+        file_by_id = {path.stem: path for path in files}
+    else:
+        file_by_id = dict(item_files)
     expected_ids = sorted(
         item_id for item_id, expected in answer_key.items() if expected.get("split") == split
     )
-    missing = [item_id for item_id in expected_ids if item_id not in file_by_id]
+    missing = [
+        item_id
+        for item_id in expected_ids
+        if item_id not in file_by_id or not file_by_id[item_id].exists()
+    ]
     if missing:
         raise FileNotFoundError(f"corpus is missing answer-key items: {missing}")
 

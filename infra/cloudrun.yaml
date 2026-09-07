@@ -1,3 +1,10 @@
+# Reference shape of the deployed service.
+#
+# `infra/deploy.sh` is what actually deploys, using `gcloud run deploy --source`.
+# This file exists so the service's shape is reviewable in the repository. It had
+# drifted badly -- no service account, no secrets, and three missing environment
+# variables -- which made it worse than useless, because it described a service
+# that would not work. Keep it in step with deploy.sh or delete it.
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
@@ -10,7 +17,10 @@ spec:
         autoscaling.knative.dev/maxScale: "4"
         run.googleapis.com/execution-environment: gen2
     spec:
-      containerConcurrency: 40
+      serviceAccountName: lsa-runtime@agentic-fleet-2026.iam.gserviceaccount.com
+      # See the sizing note in deploy.sh: uploads are held in memory and the
+      # Cloud Run filesystem is memory-backed, so concurrency is capped low.
+      containerConcurrency: 8
       timeoutSeconds: 900
       containers:
         - image: IMAGE_REPLACED_BY_DEPLOYMENT
@@ -21,8 +31,23 @@ spec:
               value: agentic-fleet-2026
             - name: GOOGLE_CLOUD_LOCATION
               value: us-central1
+            - name: GOOGLE_GENAI_USE_VERTEXAI
+              value: "true"
+            - name: GEMINI_MODEL
+              value: gemini-2.5-flash
+            - name: API_KEY_PEPPER
+              valueFrom:
+                secretKeyRef:
+                  name: last-seen-alive-key-pepper
+                  key: latest
+            # Absent until the owner creates the secret. The service deploys
+            # without it and reports Parallel unavailable rather than pretending.
+            - name: PARALLEL_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: last-seen-alive-parallel-api-key
+                  key: latest
           resources:
             limits:
               cpu: "1"
-              memory: 1Gi
-
+              memory: 2Gi
