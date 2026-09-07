@@ -29,7 +29,9 @@ Last verified: 2026-09-06. Full audit: [`docs/AUDIT-2026-09-05.md`](docs/AUDIT-2
 | Held-out evaluation | Intentionally not run | Run once only after live development cases pass and `eval-freeze-*` is tagged. |
 | Public demo video, no more than 3 minutes | Owner action | Record and publish after live Parallel proof. |
 | Devpost submission | Owner action | Complete after video and evidence links are final. |
-| External archivist validation | Outreach action | Obtain review of workflow, claims, and limitations; do not invent endorsement. |
+| Standards conformance | **Tested** | `docs/STANDARDS-CONFORMANCE.md`, `GET /v1/standards`. 7 requirements from FIAF (2016) and EN 15907, each page-cited and test-backed. 5 conform, 2 partial, 1 was failing (FIAF A.2.5 devised titles) and is now fixed. |
+| Ablation Arm B — control through the real gate | **Measured** | 7 control identifications, 0 survive the gate. Proves the gate is not a rubber stamp. Arm C still needs the credential. |
+| External archivist validation | Outreach action | Still none. Standards conformance is weaker evidence and is not offered as a substitute. Obtain a practitioner review; do not invent endorsement. |
 
 No missing external dependency is represented as passing. `GET /health/integrations`,
 `GET /v1/stack` and the ribbon on every page all report Parallel as unavailable until the

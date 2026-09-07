@@ -79,7 +79,16 @@
         "D04",
         "D05"
       ],
-      "note": "The control declined correctly on both fragments where no identification is possible, contradicting the assumption the ablation was built to test; that result is published unchanged. The failure it does show is instability and unsourceability."
+      "note": "The control declined correctly on both fragments where no identification is possible, contradicting the assumption the ablation was built to test; that result is published unchanged. The failure it does show is instability and unsourceability.",
+      "arm_b_control_plus_gate": {
+        "control_identifications": 7,
+        "surviving_the_gate": 0,
+        "verdicts": [
+          "abstain",
+          "candidates"
+        ],
+        "note": "The control's own answers through the production evidence builder and IdentityGate with an empty citation registry. Needs no partner credential. Shows the gate refuses unsourced claims; cannot show whether real evidence lifts a case above the threshold."
+      }
     }
   },
   "assets": {
@@ -100,7 +109,7 @@
     "complete search coverage"
   ],
   "verification": {
-    "tests": 93,
+    "tests": 109,
     "lint": "ruff check clean",
     "network_required": false,
     "fail_closed_proof": "tests/test_parallel_surfaces.py::test_every_surface_fails_closed_without_a_credential",
@@ -113,5 +122,21 @@
   },
   "devpost": {
     "status": "pending_external"
+  },
+  "standards_conformance": {
+    "status": "tested",
+    "endpoint": "/v1/standards",
+    "document": "docs/STANDARDS-CONFORMANCE.md",
+    "tests": "tests/test_standards_conformance.py",
+    "sources": [
+      "The FIAF Moving Image Cataloguing Manual, Linda Tadic (ed.), FIAF, 2016",
+      "EN 15907:2010 Film identification (CEN)"
+    ],
+    "requirements": 7,
+    "conforms": 4,
+    "partial": 2,
+    "was_failing_now_conforms": 1,
+    "finding": "FIAF A.2.5 requires an unidentifiable entity still receive a supplied/devised title. Abstention previously returned no title; app/devised_title.py now supplies one.",
+    "limitation": "No archivist has reviewed this system. Conformance testing is weaker evidence than a practitioner review and is not a substitute for one."
   }
 }
