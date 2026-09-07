@@ -79,9 +79,10 @@ status, _, health = call("/health/integrations")
 integ = health["data"]["integrations"]
 check("health reports Google live", integ["google_vertex_ai"]["ok"] is True)
 check("health reports signing pepper present", integ["api_keys"]["ok"] is True)
-check("health reports Parallel honestly as unavailable",
-      integ["parallel_search"]["ok"] is False
-      and integ["parallel_search"]["detail"] == "credential_not_configured")
+check("health reports Parallel live with a real search id",
+      integ["parallel_search"]["ok"] is True
+      and str(integ["parallel_search"]["detail"]).startswith("search_"),
+      str(integ["parallel_search"]))
 
 # ---------------------------------------------------------------- stack
 status, _, stack = call("/v1/stack")
@@ -95,8 +96,9 @@ check("every surface names its call site",
       all(e.get("call_site") for e in d["google_cloud"] + d["parallel"]))
 check("every surface has a short ribbon label",
       all(e.get("short") for e in d["google_cloud"] + d["parallel"]))
-check("Parallel surfaces reported unavailable, not optimistic",
-      all(e["status"] == "unavailable" for e in d["parallel"]))
+check("all six Parallel surfaces report live",
+      all(e["status"] == "live" for e in d["parallel"]),
+      str({e["short"]: e["status"] for e in d["parallel"]}))
 check("Google surfaces reported live", all(e["status"] == "live" for e in d["google_cloud"]))
 
 # ---------------------------------------------------------------- presets
@@ -173,11 +175,21 @@ check("missing key distinguished from invalid",
 s, _, err = call("/v1/identify", method="POST", body={"sample_id": "D02"})
 check("identify requires a key", s == 401)
 
-s, _, err = call("/v1/identify", method="POST", key=key, body={"sample_id": "D02"})
-check("identify fails closed without Parallel",
-      s == 503 and err["error"]["code"] == "partner_credential_not_configured", f"HTTP {s}")
-check("the fail-closed message refuses to guess",
-      "model memory" in err["error"]["message"])
+# Deliberately not run here: a real investigation takes ~6 minutes and costs
+# partner credit. What this script checks instead is that the runtime is live
+# and that every cheap boundary still holds. The full-system result is measured
+# separately and published at /v1/eval/arm-c.
+s, _, arm_c = call("/v1/eval/arm-c")
+measured = arm_c.get("data", {})
+check("full-system arm has been measured", measured.get("arm") == "full_system", str(measured)[:80])
+check("arm C surfaced correct identities",
+      measured.get("correct_identities_surfaced", 0) >= 2,
+      str(measured.get("correct_identities_surfaced")))
+check("arm C recorded zero false-confident identifications",
+      measured.get("false_confident_identifications") == 0)
+check("arm C did not touch the held-out split",
+      measured.get("split") == "dev"
+      and all(r["case_id"].startswith("D") for r in measured.get("results", [])))
 
 s, _, err = call("/v1/identify", method="POST", key=key, body={"sample_id": "H01"})
 check("holdout sealed even with a valid key",
@@ -208,9 +220,6 @@ except urllib.error.HTTPError as e:
 check("upload validated before the partner credential is blamed",
       s == 422 and err.get("error", {}).get("code") == "fragment_rejected", f"HTTP {s} {err}")
 
-s, _, err = call("/v1/watch", method="POST", key=key,
-                 body={"fragment_label": "reel 41B", "rare_strings": ["a visible intertitle"]})
-check("watch fails closed without Parallel", s == 503, f"HTTP {s}")
 
 # ---------------------------------------------------------------- error contract
 for path, body in (("/v1/identify", {"sample_id": "H01"}),):
@@ -229,6 +238,15 @@ check("CORS preflight allows a third-party browser client",
       headers.get("Access-Control-Allow-Origin") == "*", f"HTTP {s}")
 check("CORS does not allow credentials (no CSRF surface)",
       "Access-Control-Allow-Credentials" not in headers)
+
+# ------------------------------------------------------------- standards
+s, _, std = call("/v1/standards")
+reqs = std.get("data", {}).get("requirements", [])
+check("standards conformance is published", len(reqs) == 7, str(len(reqs)))
+check("conformance names its primary sources",
+      len(std.get("data", {}).get("sources", [])) >= 2)
+check("conformance does not claim an archivist review",
+      "No archivist has reviewed" in std.get("data", {}).get("disclaimer", ""))
 
 # ---------------------------------------------------------------- openapi
 s, _, spec = call("/openapi.json")
