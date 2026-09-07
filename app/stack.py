@@ -34,7 +34,7 @@ GOOGLE_CLOUD: list[dict[str, Any]] = [
         "short": "Gemini",
         "package": "google-genai",
         "required": True,
-        "call_site": "app/adk_runtime.py, agentic_core/agents/gemini.py",
+        "call_site": "app/adk_runtime.py, app/adk_app.py",
         "role": "Reads the fragment multimodally, transcribes visible text verbatim, directs the research, and argues against its own candidates. It never issues the verdict.",
         "health_key": "google_vertex_ai",
     },

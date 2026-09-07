@@ -31,8 +31,20 @@ Five minutes, no signup, no email.
 |---|---|---|
 | Technological Implementation | All six Parallel surfaces used for distinct, necessary jobs; five-role ADK workflow; typed claims; live citation audit via Extract; independent falsification via Task Group; deterministic gate; sealed evaluation controls | Live Search, Task, FindAll, Extract and Task Group responses from a real Parallel account |
 | Design | Four coherent pages, watchable and downloadable demo set, bring-your-own upload, a working API playground, live sponsor stack on every page, explicit abstention as a first-class outcome | Re-run the complete visible workflow after Parallel activation |
-| Potential Impact | Evidence-first archive triage, zero false-confident-ID target, a cold-case watch so an abstention is not a dead end | Independent archivist review and an honest frozen holdout result |
+| Potential Impact | Evidence-first archive triage, a measured baseline showing the alternative is unstable and unsourceable, a cold-case watch so an abstention is not a dead end | Independent archivist review and an honest frozen holdout result |
 | Quality of Idea | Multimodal clue extraction plus adversarial historical research, not screenshot similarity; verification separated from research in code, not in a prompt | Preserve prior-art scope and report multilingual coverage gaps |
+
+## The one measured result
+
+`GET /v1/eval/ablation` — the control arm. Same five fragments, same model, no
+web, no gate, three samples each. It did **not** come out the way the project
+wanted: Gemini declined correctly on both fragments where no identification is
+possible, so false-confident identifications were zero, and that number is
+published unchanged. What it did do was return three different titles across
+three runs of one fragment, all at high confidence, none with a source. See
+[`docs/ABLATION.md`](docs/ABLATION.md).
+
+Everything else on the evaluation page still says "not run", because it is.
 
 ## What to check if you want to be adversarial
 

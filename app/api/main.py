@@ -341,6 +341,32 @@ async def example_dossier() -> dict[str, object]:
     }
 
 
+@api.get(
+    "/v1/eval/ablation",
+    tags=["Evaluation"],
+    summary="Control-arm result: what Gemini alone does with the same fragments",
+    description=(
+        "A measured baseline. The same five development fragments given to Gemini with no web "
+        "access, no citation checking and no gate, three samples each. "
+        "It contradicted the assumption it was built to test: the model declined to name a film "
+        "on both fragments whose evidence cannot support one, so false-confident identifications "
+        "were zero. What it did instead was return a different title on each repeat, every one at "
+        "high confidence and none with a citable source. See docs/ABLATION.md."
+    ),
+)
+async def evaluation_ablation() -> dict[str, object]:
+    report = EVAL_DIR / "reports" / "ablation-control.json"
+    if not report.exists():
+        return {
+            "ok": True,
+            "data": {
+                "status": "not_run",
+                "reason": "Run scripts/run_ablation.py --write to produce it.",
+            },
+        }
+    return {"ok": True, "data": json.loads(report.read_text(encoding="utf-8"))}
+
+
 @api.get("/v1/eval/corpus", tags=["Evaluation"], summary="Benchmark corpus state")
 async def evaluation_corpus() -> dict[str, object]:
     return preset_catalog.corpus_summary()

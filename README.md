@@ -87,7 +87,7 @@ See [the full architecture](docs/ARCHITECTURE.md).
 | Service | Runtime call site | Why it is required |
 |---|---|---|
 | Google ADK | `app/adk_app.py` | Runs the fixed five-role workflow and preserves each output in state. |
-| Gemini on Vertex AI | `app/adk_runtime.py`, `agentic_core/agents/gemini.py` | Reads multimodal clues and performs adversarial interpretation; never owns the verdict. |
+| Gemini on Vertex AI | `app/adk_runtime.py`, `app/adk_app.py` | Reads multimodal clues and performs adversarial interpretation; never owns the verdict. |
 | Vertex controlled generation | `app/evidence_schema.py` | Forces a typed claim structure. Prose cannot be gated; a schema can. |
 | Cloud Run | `Dockerfile`, `infra/deploy.sh` | Hosts the API, product surface and demo media. |
 | Secret Manager | `infra/deploy.sh` | Holds the Parallel credential and the API-key signing pepper. |
@@ -119,6 +119,28 @@ holdings research and claim-level provenance. This is a documented search result
 that private systems cannot exist. See [prior art](docs/PRIOR-ART.md).
 
 ## Evaluation
+
+### The baseline, measured
+
+Before measuring this system, we measured the alternative: the same five
+fragments given to Gemini with no web access, no citation checking and no gate,
+three samples each. It needs no partner credential, so it ran first rather than
+afterwards when the number would have been easier to rationalise.
+
+It contradicted the assumption it was built to test. Gemini is **well calibrated
+about whether to answer** — it declined to name a film on both fragments whose
+evidence cannot support one, so false-confident identifications were **zero**.
+
+What it could not do was answer the same question twice. Three runs of one
+fragment returned three different titles and two different years, every one at
+"high" confidence, and **all 7 identifications it made cited nothing**. A
+cataloguer runs it once, gets one of three answers, and cannot tell which.
+
+Full method and caveats: [docs/ABLATION.md](docs/ABLATION.md). Raw result:
+[`eval/reports/ablation-control.json`](eval/reports/ablation-control.json) or
+`GET /v1/eval/ablation`. Reproduce: `python scripts/run_ablation.py --repeats 3 --temp 0.7`.
+
+### The held-out split
 
 The held-out result is **not run**. Five fragments remain sealed until:
 

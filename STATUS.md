@@ -25,6 +25,7 @@ Last verified: 2026-09-06. Full audit: [`docs/AUDIT-2026-09-05.md`](docs/AUDIT-2
 | Design system and principles | Pass | `docs/DESIGN.md`; WCAG AA contrast in both themes, automated a11y audit clean, no horizontal scroll 320–1440px, print stylesheet for filing a dossier. |
 | **Parallel runtime** | **Blocked externally** | No credential exists. Create `last-seen-alive-parallel-api-key` and run `infra/deploy.sh`. |
 | Ten-fragment evaluation set | Pass | Five development + five sealed holdout clips with hashes and rights record. |
+| Control-arm ablation | **Measured** | `docs/ABLATION.md`, `GET /v1/eval/ablation`. 15 runs. Gemini alone: 0 false-confident IDs, but 7/7 identifications unsourceable and 3/3 cases unstable across repeats. |
 | Held-out evaluation | Intentionally not run | Run once only after live development cases pass and `eval-freeze-*` is tagged. |
 | Public demo video, no more than 3 minutes | Owner action | Record and publish after live Parallel proof. |
 | Devpost submission | Owner action | Complete after video and evidence links are final. |
