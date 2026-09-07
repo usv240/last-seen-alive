@@ -26,9 +26,9 @@
     ]
   },
   "partner_runtime": {
-    "status": "blocked_external",
-    "reason": "credential_not_configured",
-    "evidence": "/health/integrations",
+    "status": "verified",
+    "evidence": "/health/integrations returns a live Parallel search_id",
+    "verified_at": "2026-09-07",
     "surfaces_implemented": [
       "search",
       "task",
@@ -37,8 +37,15 @@
       "task_group",
       "monitor"
     ],
-    "surfaces_executed": [],
-    "unblock": "Create Secret Manager secret last-seen-alive-parallel-api-key, grant lsa-runtime@agentic-fleet-2026.iam.gserviceaccount.com secretAccessor, run infra/deploy.sh."
+    "surfaces_live": [
+      "search",
+      "task",
+      "findall",
+      "extract",
+      "task_group",
+      "monitor"
+    ],
+    "note": "All six report live on /v1/stack. Search, Task, FindAll and Extract exercised in the Arm C run."
   },
   "public_api": {
     "key_minting": "POST /v1/keys",
@@ -89,6 +96,23 @@
         ],
         "note": "The control's own answers through the production evidence builder and IdentityGate with an empty citation registry. Needs no partner credential. Shows the gate refuses unsourced claims; cannot show whether real evidence lifts a case above the threshold."
       }
+    },
+    "arm_c_full_system": {
+      "status": "measured",
+      "endpoint": "/v1/eval/arm-c",
+      "split": "dev",
+      "depth": "standard",
+      "correct_identities_surfaced": 2,
+      "identifiable_cases": 3,
+      "false_confident_identifications": 0,
+      "malformed_candidates": 1,
+      "language_violations": 0,
+      "median_latency_ms": 383000,
+      "exact_matches": [
+        "D02 Dud Leaves Home (1919)",
+        "D05 Through the Breakers (1909)"
+      ],
+      "miss": "D04 abstained; ten citations rejected for paraphrase or live-page absence"
     }
   },
   "assets": {
@@ -109,7 +133,7 @@
     "complete search coverage"
   ],
   "verification": {
-    "tests": 109,
+    "tests": 112,
     "lint": "ruff check clean",
     "network_required": false,
     "fail_closed_proof": "tests/test_parallel_surfaces.py::test_every_surface_fails_closed_without_a_credential",

@@ -227,3 +227,20 @@ def test_r6_an_unmeasured_result_says_so_rather_than_showing_zero() -> None:
         encoding="utf-8"
     )
     assert "Not run" in index, "unmeasured held-out metrics must be labelled, not zeroed"
+
+
+def test_r5_a_devised_title_is_never_just_the_collection_name() -> None:
+    """Caught in the first live run.
+
+    With no descriptive clues, the title came out as "Library of Congress
+    National Screening Room" — true, useless, and identical for every fragment
+    in the collection. FIAF A.2.5 asks the title to describe the Work; the
+    collection is the last of the five Ws, never the whole of it.
+    """
+    devised = devise_title(
+        {"notes": ["nothing legible"]},
+        collection="Library of Congress National Screening Room",
+        fragment_reference="D02",
+    )
+    assert devised["title"] != "Library of Congress National Screening Room"
+    assert "D02" in devised["title"], "it must still identify which fragment this is"

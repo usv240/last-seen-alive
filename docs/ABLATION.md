@@ -1,7 +1,7 @@
-# Control arm: what Gemini alone does with the same fragments
+# Ablation: what the research and the gate are actually worth
 
-Run it yourself: `python scripts/run_ablation.py --repeats 3 --temp 0.7`
-Raw output: [`eval/reports/ablation-control.json`](../eval/reports/ablation-control.json)
+Run the control: `python scripts/run_ablation.py --repeats 3 --temp 0.7`
+Raw output: [`ablation-control.json`](../eval/reports/ablation-control.json) (Arms A and B) · [`arm-c-development.json`](../eval/reports/arm-c-development.json) (Arm C)
 
 This project claims that live open-web research plus deterministic gating
 produces something an archivist can act on, where a capable multimodal model
@@ -116,6 +116,91 @@ That is exactly the question the Parallel credential unblocks, and it is why thi
 is a two-arm result rather than a three-arm one. When the credential lands, the
 same five fragments run as Arm C and the third column is published — **including
 if it shows the full system never gets past its own gate.**
+
+## Arm C — the full system, measured 2026-09-07
+
+The Parallel credential arrived, so the third arm exists. Same five fragments,
+`standard` depth, `gemini-2.5-flash`, all six Parallel surfaces live.
+
+| | A: Gemini alone | B: A + the gate | **C: full system** |
+|---|---:|---:|---:|
+| Correct identities surfaced | **0** of 3 | 0 of 3 | **2** of 3 |
+| False-confident identifications | 0 | 0 | **0** |
+| Identifications with no citable source | 7 of 7 | — | **0** |
+| Answers unstable across repeats | 3 of 3 cases | — | not re-run |
+| Median latency | 15 s | 15 s | **383 s** |
+
+Per case, against the sealed answer key:
+
+| Case | Required | Verdict | Answer key | System's leading candidate | |
+|---|---|---|---|---|---|
+| D01 | abstain | `abstain` | *Ghosts* | — none — | correct |
+| D02 | identify | `candidates` | *Dud leaves home* (1919) | **Dud Leaves Home (1919)** | **exact** |
+| D03 | candidates | `candidates` | *The rival brothers' patriotism* | *Early to Mid-20th Century Civilian and Workwear* | no film named |
+| D04 | identify | `abstain` | *Buying a cow* | — none — | **missed** |
+| D05 | contradict | `candidates` | *Through the breakers* (1909) | **Through the Breakers (1909)** | **exact** |
+
+### What changed between the arms
+
+**D02.** The control returned *Bobby Bumps' Night Out* (1917), then *Bobby Bumps'
+Midnight Auto Ride*, then *Bobby Bumps' Night Out* (1918) — three answers, all
+"high" confidence, none sourced, all wrong. The full system returned **Dud Leaves
+Home (1919)**, which is the answer key exactly, supported by 9 decisive claims
+across 9 independent domains, and it cited `loc.gov/item/00694010` — the very LOC
+record the benchmark was built from. Six of six cited pages were re-opened by
+Parallel Extract and confirmed.
+
+**D05, the misattribution case.** The fragment arrives labelled *"Those who pay"*.
+The control replaced that with *The Nervous Wreck* (1913) on one run and *The Way
+of the World* (1910) on another, and on one run never mentioned the supplied
+title at all. The full system surfaced **Through the Breakers (1909)** — the
+documented correction — with a contradiction claim citing the Library of Congress
+record. That is the FIAF rule "correct it only when it is known to be ambiguous
+or erroneous" behaving as intended.
+
+**Neither result was reachable without the open web.** These are 1909 and 1919
+titles whose evidence lives in trade papers and catalogue records, not in model
+weights.
+
+### The miss, and why it is the right kind
+
+**D04 abstained where the answer key says *Buying a cow*.** The research worked:
+13 independent domains, the Visual Examiner correctly transcribed "LOUVRE" and
+"TABAC" from a horse-drawn omnibus. Then **ten citations were rejected** — eight
+because the compiler paraphrased rather than quoting what Parallel returned
+verbatim, two because Parallel Extract could not find the quoted text on the live
+page. Zero decisive claims survived, so the gate abstained.
+
+That is the citation registry doing exactly what it was built to do, and it cost
+us a recall point. **The strictness that produces zero false-confident
+identifications is the same strictness that produced this miss.** We are not
+going to loosen it to improve the number; a system that accepts paraphrased
+citations has given up the only thing it was offering.
+
+### A defect the run exposed
+
+D03 returned a candidate called `early_to_mid_20th_century_costume`, labelled
+*"Early to Mid-20th Century Civilian and Workwear"*. That is a costume-period
+cluster, not a film. The required behaviour — ranked candidates, no verdict — was
+met, and no film was misidentified. But a candidate slot is for a candidate
+**work**, and the compiler filled it with an observation. Scored here as a
+malformed candidate rather than a false-confident identification; the label is
+published so that judgement can be disputed.
+
+### Honest reading of "2 of 5"
+
+Only two cases matched their required outcome exactly, and that number needs the
+asterisk it comes with: **`identify` is unreachable through the API by design.**
+`human_approved` is a gate threshold only an archivist can satisfy, so `probable`
+is never returned to a caller. D02 surfaced the correct identity with five of
+seven thresholds passed, failing only an unresolved contradiction and human
+approval. Calling that a failure against `identify` would be scoring the system
+against something it deliberately refuses to do.
+
+The metric that carries the product's claim is the second row of the table, and
+it is **0** in every arm — including the control, which was well calibrated about
+when to decline. What the full system adds is not restraint. It is *sourced,
+correct answers where the control produced unsourced, unstable, wrong ones*.
 
 ## Why this is the argument
 

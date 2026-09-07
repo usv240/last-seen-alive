@@ -182,7 +182,9 @@ def test_task_request_shape(wire: Wire) -> None:
     research.deep_holdings_research("Which archives hold this film?")
     body = wire.sent("/v1/tasks/runs")
 
-    assert body["processor"] == "pro-fast"
+    # Measured against this exact schema: base 69s, pro-fast 268s. A four-minute
+    # partner call inside a synchronous request is a timeout, not a budget.
+    assert body["processor"] == "base"
     assert body["input"]
 
     # Task's source policy IS top-level, unlike Search's.

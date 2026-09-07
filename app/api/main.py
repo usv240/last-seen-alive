@@ -384,6 +384,53 @@ async def standards() -> dict[str, object]:
     return {"ok": True, "data": standards_catalog.conformance_report()}
 
 
+@api.get(
+    "/v1/census/{findall_id}",
+    tags=["Investigate"],
+    summary="Collect a named-catalogue census",
+    description=(
+        "An investigation commissions a Parallel FindAll census of the archives whose own "
+        "catalogues list the leading candidate. That genuinely takes minutes to an hour, so the "
+        "dossier does not block on it — it returns a handle and you collect the result here. "
+        "Poll until `status` is no longer active."
+    ),
+)
+async def collect_census(findall_id: str, _key: ApiKeyRecord = Depends(require_key)) -> dict[str, object]:
+    _partner_required()
+    from app.partners.parallel_research import collect_named_catalogue_census
+
+    try:
+        report = await asyncio.to_thread(collect_named_catalogue_census, findall_id)
+    except Exception as exc:
+        raise HTTPException(
+            status_code=502,
+            detail={
+                "code": "census_unavailable",
+                "message": f"The census could not be collected ({type(exc).__name__}).",
+                "fix": "Check the findall_id from the investigation response and retry.",
+            },
+        ) from exc
+    return {"ok": True, "data": report}
+
+
+@api.get(
+    "/v1/eval/arm-c",
+    tags=["Evaluation"],
+    summary="Full-system result on the development split",
+    description=(
+        "The third arm of the ablation, run once the Parallel credential was attached. Same "
+        "five development fragments, all six Parallel surfaces live. Two of three identifiable "
+        "cases were surfaced correctly against the sealed answer key, with zero false-confident "
+        "identifications and one honest miss. The held-out split is untouched."
+    ),
+)
+async def evaluation_arm_c() -> dict[str, object]:
+    report = EVAL_DIR / "reports" / "arm-c-development.json"
+    if not report.exists():
+        return {"ok": True, "data": {"status": "not_run"}}
+    return {"ok": True, "data": json.loads(report.read_text(encoding="utf-8"))}
+
+
 @api.get("/v1/eval/corpus", tags=["Evaluation"], summary="Benchmark corpus state")
 async def evaluation_corpus() -> dict[str, object]:
     return preset_catalog.corpus_summary()

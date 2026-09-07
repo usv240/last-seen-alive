@@ -174,23 +174,34 @@
     <section class="section shell" aria-labelledby="eval-title">
       <p class="eyebrow">EVALUATION</p>
       <h2 id="eval-title">We measured the alternative before we measured ourselves.</h2>
-      <p class="lede">The claim is that open-web research plus a deterministic gate beats asking a capable model directly. So the first thing measured was the model on its own — same five fragments, same model, no web, no gate, three samples each. It needs no partner credential, so it could be run before the system it is a baseline for, rather than afterwards when the number would be easier to rationalise.</p>
+      <p class="lede">Three arms on the same five Library of Congress fragments. <strong>A:</strong> Gemini alone, no web, no gate. <strong>B:</strong> those same answers put through the real gate. <strong>C:</strong> the full system with all six Parallel surfaces live. The baseline was measured first, before the credential existed, so its numbers could not be tuned after the fact.</p>
 
-      <h3 class="subhead">Control arm · Gemini alone · measured</h3>
-      <div class="metric-grid" data-ablation-metrics>
-        <article class="metric"><span>False-confident IDs</span><strong>0</strong><small>of 6 runs where no ID is possible</small></article>
-        <article class="metric warn"><span>IDs with no citable source</span><strong>7 / 7</strong><small>every one at &ldquo;high&rdquo; confidence</small></article>
-        <article class="metric warn"><span>Cases unstable across repeats</span><strong>3 of 3</strong><small>that produced an identification at all</small></article>
+      <div class="table-scroll">
+        <table class="reftable">
+          <caption>Development split, five fragments, scored against the sealed answer key. Raw: <a href="/v1/eval/ablation">arms A and B</a> · <a href="/v1/eval/arm-c">arm C</a> · <a href="https://github.com/usv240/last-seen-alive/blob/main/docs/ABLATION.md" rel="noreferrer">method</a>.</caption>
+          <thead><tr><th scope="col">Measure</th><th scope="col">A · Gemini alone</th><th scope="col">B · + the gate</th><th scope="col">C · full system</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Correct identities surfaced</strong></td><td>0 of 3</td><td>0 of 3</td><td><strong>2 of 3</strong></td></tr>
+            <tr><td><strong>False-confident identifications</strong></td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+            <tr><td>Identifications with no citable source</td><td>7 of 7</td><td>&mdash;</td><td>0</td></tr>
+            <tr><td>Answers unstable across repeats</td><td>3 of 3 cases</td><td>&mdash;</td><td>not re-run</td></tr>
+            <tr><td>Median latency</td><td>15 s</td><td>15 s</td><td>383 s</td></tr>
+          </tbody>
+        </table>
       </div>
-      <p class="small">It contradicted our own assumption. Gemini is <strong>well calibrated about whether to answer</strong> — it declined on both fragments whose evidence cannot support an identification. What it could not do was answer the same question the same way twice: three runs of one fragment returned three different titles and two different years, all at high confidence, none with a source. <a href="/v1/eval/ablation">Raw result</a> · <a href="https://github.com/usv240/last-seen-alive/blob/main/docs/ABLATION.md" rel="noreferrer">how it was measured</a>.</p>
 
-      <h3 class="subhead">This system · held-out split · not run</h3>
+      <p class="lede" style="margin-top:var(--s5)">Two results carry it. <strong>D02:</strong> the control returned three different Bray cartoons across three runs, every one at high confidence, none sourced, all wrong. The full system returned <em>Dud Leaves Home</em> (1919) &mdash; the answer key exactly &mdash; on 9 decisive claims across 9 domains, citing the very Library of Congress record the benchmark was built from. <strong>D05</strong> arrives mislabelled <em>&ldquo;Those who pay&rdquo;</em>; the control replaced it with two different wrong films, the full system surfaced <em>Through the Breakers</em> (1909), the documented correction, with a contradiction claim.</p>
+
+      <h3 class="subhead">The miss, and why we are keeping it</h3>
+      <p class="lede">D04 abstained where the answer key says <em>Buying a cow</em>. The research worked &mdash; 13 domains, &ldquo;LOUVRE&rdquo; and &ldquo;TABAC&rdquo; correctly transcribed. Then ten citations were rejected: eight because the compiler paraphrased instead of quoting Parallel verbatim, two because Extract could not find the quote on the live page. No decisive claim survived, so it abstained. <strong>The strictness that produces zero false-confident identifications is the same strictness that cost this one.</strong> We are not loosening it; a system that accepts paraphrased citations has given up the only thing it offers.</p>
+
+      <h3 class="subhead">Held-out split &middot; still sealed</h3>
       <div class="metric-grid">
-        <article class="metric"><span>False-confident IDs</span><strong>Not run</strong><small>Held-out · n=5 · target 0</small></article>
-        <article class="metric"><span>Correct abstentions</span><strong>Not run</strong><small>Held-out · n=5</small></article>
+        <article class="metric"><span>False-confident IDs</span><strong>Not run</strong><small>Held-out &middot; n=5 &middot; target 0</small></article>
+        <article class="metric"><span>Correct abstentions</span><strong>Not run</strong><small>Held-out &middot; n=5</small></article>
         <article class="metric"><span>Citation precision</span><strong>Not run</strong><small>Decisive claims checked by hand</small></article>
       </div>
-      <p class="small">These stay placeholders until the partner runtime is live, the implementation is tagged <code>eval-freeze-*</code>, and the sealed fragments are opened exactly once. Their hashes are published now so the set cannot be quietly changed later, and the misses will be published beside the successes. <a href="/v1/eval/manifest">Download the full manifest</a>.</p>
+      <p class="small">Opened exactly once, after the implementation is tagged <code>eval-freeze-*</code>, with the misses published beside the successes. Hashes are published now so the set cannot be quietly changed. <a href="/v1/eval/manifest">Download the manifest</a>.</p>
     </section>
 
     <section class="section shell prose" aria-labelledby="prior-title">

@@ -1,6 +1,6 @@
 # Submission status
 
-Last verified: 2026-09-06. Full audit: [`docs/AUDIT-2026-09-05.md`](docs/AUDIT-2026-09-05.md).
+Last verified: 2026-09-07. Full audit: [`docs/AUDIT-2026-09-05.md`](docs/AUDIT-2026-09-05.md).
 
 | Gate | Status | Evidence / next action |
 |---|---|---|
@@ -23,14 +23,16 @@ Last verified: 2026-09-06. Full audit: [`docs/AUDIT-2026-09-05.md`](docs/AUDIT-2
 | Dependency lock free of prohibited AI tooling | Pass | 111 packages audited; only google-adk, google-genai, google-cloud-aiplatform, parallel-web. |
 | Devpost draft and video shot list | Pass | `docs/DEVPOST.md`, `docs/DEMO-VIDEO.md` — owner still records and submits. |
 | Design system and principles | Pass | `docs/DESIGN.md`; WCAG AA contrast in both themes, automated a11y audit clean, no horizontal scroll 320–1440px, print stylesheet for filing a dossier. |
-| **Parallel runtime** | **Blocked externally** | No credential exists. Create `last-seen-alive-parallel-api-key` and run `infra/deploy.sh`. |
+| **Parallel runtime** | **PASS — live** | Credential attached 2026-09-07. `/health/integrations` returns a real `search_id`; all six surfaces report live on `/v1/stack`. |
 | Ten-fragment evaluation set | Pass | Five development + five sealed holdout clips with hashes and rights record. |
 | Control-arm ablation | **Measured** | `docs/ABLATION.md`, `GET /v1/eval/ablation`. 15 runs. Gemini alone: 0 false-confident IDs, but 7/7 identifications unsourceable and 3/3 cases unstable across repeats. |
 | Held-out evaluation | Intentionally not run | Run once only after live development cases pass and `eval-freeze-*` is tagged. |
 | Public demo video, no more than 3 minutes | Owner action | Record and publish after live Parallel proof. |
 | Devpost submission | Owner action | Complete after video and evidence links are final. |
 | Standards conformance | **Tested** | `docs/STANDARDS-CONFORMANCE.md`, `GET /v1/standards`. 7 requirements from FIAF (2016) and EN 15907, each page-cited and test-backed. 5 conform, 2 partial, 1 was failing (FIAF A.2.5 devised titles) and is now fixed. |
-| Ablation Arm B — control through the real gate | **Measured** | 7 control identifications, 0 survive the gate. Proves the gate is not a rubber stamp. Arm C still needs the credential. |
+| Ablation Arm B — control through the real gate | **Measured** | 7 control identifications, 0 survive the gate. Proves the gate is not a rubber stamp. |
+| Ablation Arm C — full system | **Measured** | `GET /v1/eval/arm-c`. Five dev fragments, all six surfaces live: 2 of 3 identifiable cases surfaced correctly against the sealed key, 0 false-confident, 1 miss (D04), 0 language violations. |
+| Five development cases run live | **Pass** | D01 abstain ✓, D02 *Dud Leaves Home* (1919) exact, D03 candidates ✓, D04 missed, D05 *Through the Breakers* (1909) exact with the supplied label contradicted. |
 | External archivist validation | Outreach action | Still none. Standards conformance is weaker evidence and is not offered as a substitute. Obtain a practitioner review; do not invent endorsement. |
 
 No missing external dependency is represented as passing. `GET /health/integrations`,

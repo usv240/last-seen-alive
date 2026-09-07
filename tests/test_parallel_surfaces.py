@@ -181,11 +181,47 @@ def test_a_source_failing_the_live_audit_cannot_be_decisive() -> None:
 
 # ----------------------------------------------------------------- findall
 
-def test_findall_census_records_institutions_and_refuses_uniqueness_language(monkeypatch) -> None:
+def test_findall_census_is_commissioned_not_awaited(monkeypatch) -> None:
+    """A census takes minutes to an hour, so the workflow must not block on it.
+
+    Parallel's own console quotes 5-60 minutes for FindAll. Awaiting it inside a
+    synchronous investigation made the endpoint unusable, which is exactly the
+    kind of thing only a live credential reveals.
+    """
+    awaited = []
     fake = SimpleNamespace(
         beta=SimpleNamespace(
             findall=SimpleNamespace(
-                create=lambda **kwargs: SimpleNamespace(findall_id="fa_1", generator="base"),
+                create=lambda **kwargs: SimpleNamespace(
+                    findall_id="fa_1",
+                    generator="base",
+                    status=SimpleNamespace(status="queued", is_active=True),
+                ),
+                result=lambda _id: awaited.append(_id) or SimpleNamespace(candidates=[]),
+            )
+        )
+    )
+    monkeypatch.setattr(parallel_research, "client", lambda: fake)
+    registry = CitationRegistry()
+    monkeypatch.setattr(parallel_research, "active_registry", lambda: registry)
+
+    payload = parallel_research.census_named_catalogues("Through the Breakers", "1928")
+    assert awaited == [], "the agent tool must not wait for the census result"
+    assert payload["findall_id"] == "fa_1"
+    assert payload["collect_at"] == "/v1/census/fa_1"
+    assert payload["institutions"] == [], "no institutions are known yet"
+    assert "minutes to an hour" in payload["asynchronous"]
+    # It still refuses uniqueness language even before it has any results.
+    assert_permitted_holdings_language(payload["prohibited_statement"])
+
+
+def test_collecting_a_finished_census_returns_its_institutions(monkeypatch) -> None:
+    fake = SimpleNamespace(
+        beta=SimpleNamespace(
+            findall=SimpleNamespace(
+                retrieve=lambda _id: SimpleNamespace(
+                    status=SimpleNamespace(status="completed", is_active=False)
+                ),
                 result=lambda _id: SimpleNamespace(
                     candidates=[
                         SimpleNamespace(
@@ -200,16 +236,29 @@ def test_findall_census_records_institutions_and_refuses_uniqueness_language(mon
         )
     )
     monkeypatch.setattr(parallel_research, "client", lambda: fake)
-    registry = CitationRegistry()
-    monkeypatch.setattr(parallel_research, "active_registry", lambda: registry)
-
-    payload = parallel_research.census_named_catalogues("Through the Breakers", "1928")
+    payload = parallel_research.collect_named_catalogue_census("fa_1")
+    assert payload["complete"] is True
     assert payload["institutions"][0]["name"] == "Library of Congress"
-    assert "named catalogues" in payload["permitted_statement"]
-    # The census URL is now a source a claim may legitimately cite.
-    assert registry.lookup("https://www.loc.gov/item/123/") is not None
-    # ...and the payload never offers a uniqueness formulation.
     assert_permitted_holdings_language(payload["permitted_statement"])
+
+
+def test_collecting_a_running_census_says_so_rather_than_blocking(monkeypatch) -> None:
+    fetched = []
+    fake = SimpleNamespace(
+        beta=SimpleNamespace(
+            findall=SimpleNamespace(
+                retrieve=lambda _id: SimpleNamespace(
+                    status=SimpleNamespace(status="running", is_active=True)
+                ),
+                result=lambda _id: fetched.append(_id) or SimpleNamespace(candidates=[]),
+            )
+        )
+    )
+    monkeypatch.setattr(parallel_research, "client", lambda: fake)
+    payload = parallel_research.collect_named_catalogue_census("fa_1")
+    assert payload["complete"] is False
+    assert fetched == [], "must not fetch a result that is not ready"
+    assert "Poll" in payload["note"]
 
 
 # ------------------------------------------------------------- task group

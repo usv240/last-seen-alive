@@ -53,11 +53,13 @@ Read {visual_clues} and {phrase_evidence}. For plausible candidates, call deep_h
 to trace studio, performer, release date, alternate and foreign titles, restoration notices, and
 named archive catalogues.
 
-Then, for the single strongest candidate only, call census_named_catalogues to enumerate the
-institutions whose own catalogues list it. That census is the ONLY basis on which you may describe
-coverage. Report only cited findings. The permitted negative formulation is:
-'No additional holding was found across these named catalogues as of this search date,'
-followed by the institution names the census actually returned.
+Then, for the single strongest candidate only, call census_named_catalogues. That commissions a
+catalogue census which runs in the background and returns a handle, not results. Record that it was
+commissioned and note its id; do not wait for it and do not describe coverage on its strength.
+
+Describe coverage ONLY from catalogues deep_holdings_research actually consulted and cited. The
+permitted negative formulation is: 'No additional holding was found across these named catalogues
+as of this search date,' followed by those institution names.
 Never write 'last copy', 'only surviving', 'sole', 'lost', or 'rediscovered'.
 """,
     tools=[deep_holdings_research, census_named_catalogues],

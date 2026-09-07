@@ -164,20 +164,29 @@ def devise_title(
 
     form = _form_term(everything)
 
-    ordered = [
+    # The collection alone is not a title. A first live run produced the devised
+    # title "Library of Congress National Screening Room" -- true, useless, and
+    # indistinguishable between every fragment in the collection. FIAF A.2.5
+    # asks the title to describe the Work; the collection is the last of the
+    # five Ws, never the whole of it.
+    descriptive = [
         components.get("who_what", ""),
         components.get("what_activity", ""),
         components.get("where", ""),
         components.get("when", ""),
-        components.get("source_collection", ""),
     ]
-    body = ", ".join(part for part in ordered if part)
+    body = ", ".join(part for part in descriptive if part)
+    if body and components.get("source_collection"):
+        body = f"{body}, {components['source_collection']}"
 
     if not body:
         # Nothing describable was observed. FIAF still expects a usable handle,
         # so fall back to the reference the fragment arrived with rather than
-        # inventing descriptive content that was not seen.
+        # inventing descriptive content that was not seen. The collection is
+        # appended as provenance, not as the title.
         body = f"Unidentified fragment {fragment_reference}".strip()
+        if components.get("source_collection"):
+            body = f"{body}, {components['source_collection']}"
 
     title = f"{body}. {form}" if form else body
     title = title[:MAX_TITLE_CHARS].strip()

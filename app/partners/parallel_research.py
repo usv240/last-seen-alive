@@ -135,9 +135,12 @@ def deep_holdings_research(research_question: str) -> dict[str, Any]:
     """
 
     api = client()
+    # `base` measured at 69s against this schema; `pro-fast` at 268s for output
+    # that was longer but not better-sourced. A four-minute call inside a
+    # synchronous request is not a research budget, it is a timeout.
     run = api.task_run.create(
         input=research_question[:15_000],
-        processor="pro-fast",
+        processor="base",
         task_spec={"output_schema": {"type": "json", "json_schema": HOLDINGS_OUTPUT_SCHEMA}},
         # Holdings are an institutional question, so this one surface is pointed
         # at institutional sources. Search deliberately is not.
@@ -150,7 +153,7 @@ def deep_holdings_research(research_question: str) -> dict[str, Any]:
         "provider": "parallel_task_v1",
         "run_id": run.run_id,
         "interaction_id": run.interaction_id,
-        "processor": "pro-fast",
+        "processor": "base",
         "content": getattr(output, "content", None),
         "basis": [str(item) for item in getattr(output, "basis", [])],
     }
@@ -161,11 +164,14 @@ def deep_holdings_research(research_question: str) -> dict[str, Any]:
 
 
 def census_named_catalogues(candidate_title: str, release_year: str) -> dict[str, Any]:
-    """Enumerate the film archives and catalogues that list a candidate title.
+    """Commission a census of the film archives and catalogues that list a candidate title.
 
-    Use this once a candidate is plausible. It returns a list of named institutions,
-    which is the only basis on which this system is permitted to describe search
-    coverage. Never use it to claim a film is rare, unique, or lost.
+    Use this once a candidate is plausible. It does NOT return institutions
+    immediately: a census of world archive catalogues takes minutes to an hour,
+    so this commissions the run and returns a handle. Record that a census was
+    commissioned and its id. Do not wait for it, do not claim its findings, and
+    do not describe coverage on the strength of a census that has not returned.
+    Never use it to claim a film is rare, unique, or lost.
 
     Args:
         candidate_title: The candidate film title to look for in archive holdings.
@@ -206,25 +212,22 @@ def census_named_catalogues(candidate_title: str, release_year: str) -> dict[str
         match_limit=12,
         metadata={"workflow": "last-seen-alive-catalogue-census"},
     )
-    result = api.beta.findall.result(run.findall_id)
-    candidates = getattr(result, "candidates", None) or []
-    institutions: list[dict[str, Any]] = []
-    for entry in candidates:
-        institutions.append(
-            {
-                "name": str(getattr(entry, "name", "") or ""),
-                "url": str(getattr(entry, "url", "") or ""),
-                "match_status": str(getattr(entry, "match_status", "") or ""),
-                "fields": _plain(getattr(entry, "enrichments", None))
-                or _plain(getattr(entry, "fields", None)),
-            }
-        )
+    # Do not wait for it. A census of world archive catalogues genuinely takes
+    # minutes to an hour, and holding a request open for that is the wrong
+    # shape: it is a background job, like the cold-case Monitor. The run is
+    # commissioned here and collected later at GET /v1/census/{findall_id}.
     payload = {
         "provider": "parallel_findall_v1beta",
         "findall_id": run.findall_id,
         "generator": run.generator,
         "queried_title": label,
-        "institutions": institutions,
+        "status": str(getattr(run.status, "status", "queued")),
+        "institutions": [],
+        "collect_at": f"/v1/census/{run.findall_id}",
+        "asynchronous": (
+            "Commissioned, not awaited. A named-catalogue census takes minutes to an hour; "
+            "the dossier does not block on it and the archivist collects it separately."
+        ),
         "permitted_statement": (
             "No additional holding was found across these named catalogues as of this "
             "search date."
@@ -256,3 +259,50 @@ def _plain(value: Any) -> Any:
     if isinstance(value, (list, tuple)):
         return [_plain(item) for item in value]
     return str(value)
+
+
+def collect_named_catalogue_census(findall_id: str) -> dict[str, Any]:
+    """Collect a census commissioned during an investigation.
+
+    Separated from the agent tool because the agent must not wait for it. This
+    is the archivist's side of the same run: poll until it is no longer active,
+    then read the institutions it found.
+    """
+    api = client()
+    run = api.beta.findall.retrieve(findall_id)
+    status = getattr(run.status, "status", "unknown")
+    active = bool(getattr(run.status, "is_active", False))
+    if active:
+        return {
+            "provider": "parallel_findall_v1beta",
+            "findall_id": findall_id,
+            "status": str(status),
+            "complete": False,
+            "institutions": [],
+            "note": "Still running. Poll this endpoint again; a census can take up to an hour.",
+        }
+
+    result = api.beta.findall.result(findall_id)
+    institutions = [
+        {
+            "name": str(getattr(entry, "name", "") or ""),
+            "url": str(getattr(entry, "url", "") or ""),
+            "match_status": str(getattr(entry, "match_status", "") or ""),
+            "fields": _plain(getattr(entry, "enrichments", None))
+            or _plain(getattr(entry, "fields", None)),
+        }
+        for entry in (getattr(result, "candidates", None) or [])
+    ]
+    return {
+        "provider": "parallel_findall_v1beta",
+        "findall_id": findall_id,
+        "status": str(status),
+        "complete": True,
+        "institutions": institutions,
+        "permitted_statement": (
+            "No additional holding was found across these named catalogues as of this search date."
+        ),
+        "prohibited_statement": (
+            "This census can never establish that a print is the last, only, or sole surviving copy."
+        ),
+    }

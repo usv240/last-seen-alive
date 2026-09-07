@@ -3,9 +3,9 @@
 Before an unidentified reel is discarded, investigate whether its clues support a probable
 identity—and show exactly where the evidence stops.
 
-> Build status: deployed. Google ADK/Gemini is live. All six Parallel surfaces are implemented
-> and fail closed until a sponsor credential is attached. The held-out result remains
-> intentionally unpublished.
+> Build status: deployed and fully live. Google ADK/Gemini and all six Parallel surfaces are
+> running against real credentials. The five development fragments have been investigated
+> end to end; the held-out result remains intentionally unpublished.
 
 ## The 60-second explanation
 

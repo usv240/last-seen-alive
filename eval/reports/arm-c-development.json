@@ -1,0 +1,191 @@
+{
+  "arm": "full_system",
+  "generated_at": "2026-09-07T23:41:07.722772+00:00",
+  "split": "dev",
+  "depth": "standard",
+  "model": "gemini-2.5-flash",
+  "runs": 5,
+  "identifiable_cases": 3,
+  "correct_identities_surfaced": 2,
+  "false_confident_identifications": 0,
+  "malformed_candidates_not_a_film": 1,
+  "required_behaviour_met_exactly": 2,
+  "total_language_violations": 0,
+  "median_latency_ms": 383122,
+  "definitions": {
+    "false_confident_identification": "The system put forward a specific film as the leading candidate and the answer key says it is the wrong film. `probable` is unreachable through the API because human_approved is a threshold only an archivist can satisfy, so this is the strictest meaningful reading available at the API level.",
+    "malformed_candidate": "A candidate slot filled with something that is not a film. D03 returned `early_to_mid_20th_century_costume` labelled 'Early to Mid-20th Century Civilian and Workwear' \u2014 a costume-period cluster. It identifies no film, correctly or otherwise, so it is not scored as a false-confident identification. That is a judgement call and the label is published so it can be disputed.",
+    "identify_is_unreachable": "The benchmark's `identify` outcome cannot be produced by an API call by design. For those cases the honest reading is whether the correct identity was surfaced as the leading candidate with every evidence threshold met except human approval."
+  },
+  "results": [
+    {
+      "case_id": "D01",
+      "tier": "D",
+      "required_outcome": "abstain",
+      "verdict": "abstain",
+      "expected_title": "Ghosts",
+      "expected_year": "1915",
+      "top_candidate": null,
+      "top_candidate_id": null,
+      "top_candidate_names_a_film": false,
+      "identity_matches_answer_key": false,
+      "thresholds_passed": 1,
+      "thresholds_failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "every_decisive_claim_has_source",
+        "human_approved"
+      ],
+      "claims": 9,
+      "decisive_claims": 1,
+      "rejected_citations": 5,
+      "rejection_reasons": [
+        "excerpt_not_found_in_retrieved_text",
+        "quoted_text_absent_from_live_page"
+      ],
+      "independent_domains": 5,
+      "parallel_surfaces": [
+        "parallel_search_v1"
+      ],
+      "latency_ms": 403164,
+      "supplied_title": "Unidentified fragment D01, Library of Congress National Screening Room",
+      "language_violations": 0
+    },
+    {
+      "case_id": "D02",
+      "tier": "A",
+      "required_outcome": "identify",
+      "verdict": "candidates",
+      "expected_title": "Dud leaves home",
+      "expected_year": "1919",
+      "top_candidate": "Dud Leaves Home (1919)",
+      "top_candidate_id": "dud_leaves_home_1919",
+      "top_candidate_names_a_film": true,
+      "identity_matches_answer_key": true,
+      "thresholds_passed": 5,
+      "thresholds_failed": [
+        "unresolved_contradictions==0",
+        "human_approved"
+      ],
+      "claims": 17,
+      "decisive_claims": 10,
+      "rejected_citations": 4,
+      "rejection_reasons": [
+        "excerpt_not_found_in_retrieved_text"
+      ],
+      "independent_domains": 9,
+      "parallel_surfaces": [
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ],
+      "latency_ms": 225434,
+      "supplied_title": "Library of Congress National Screening Room",
+      "language_violations": 0
+    },
+    {
+      "case_id": "D03",
+      "tier": "C",
+      "required_outcome": "candidates",
+      "verdict": "candidates",
+      "expected_title": "The rival brothers' patriotism",
+      "expected_year": "1911",
+      "top_candidate": "Early to Mid-20th Century Civilian and Workwear",
+      "top_candidate_id": "early_to_mid_20th_century_costume",
+      "top_candidate_names_a_film": false,
+      "identity_matches_answer_key": false,
+      "thresholds_passed": 4,
+      "thresholds_failed": [
+        "distinct_clue_families>=2",
+        "entity_compatibility",
+        "human_approved"
+      ],
+      "claims": 10,
+      "decisive_claims": 4,
+      "rejected_citations": 13,
+      "rejection_reasons": [
+        "excerpt_not_found_in_retrieved_text"
+      ],
+      "independent_domains": 7,
+      "parallel_surfaces": [
+        "parallel_search_v1"
+      ],
+      "latency_ms": 429738,
+      "supplied_title": "Unidentified fragment D03, Library of Congress National Screening Room",
+      "language_violations": 0
+    },
+    {
+      "case_id": "D04",
+      "tier": "B",
+      "required_outcome": "identify",
+      "verdict": "abstain",
+      "expected_title": "Buying a cow",
+      "expected_year": "1908",
+      "top_candidate": null,
+      "top_candidate_id": null,
+      "top_candidate_names_a_film": false,
+      "identity_matches_answer_key": false,
+      "thresholds_passed": 1,
+      "thresholds_failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "every_decisive_claim_has_source",
+        "human_approved"
+      ],
+      "claims": 7,
+      "decisive_claims": 0,
+      "rejected_citations": 10,
+      "rejection_reasons": [
+        "excerpt_not_found_in_retrieved_text",
+        "quoted_text_absent_from_live_page"
+      ],
+      "independent_domains": 13,
+      "parallel_surfaces": [
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ],
+      "latency_ms": 373085,
+      "supplied_title": "Unidentified fragment D04, Library of Congress National Screening Room",
+      "language_violations": 0
+    },
+    {
+      "case_id": "D05",
+      "tier": "E",
+      "required_outcome": "contradict",
+      "verdict": "candidates",
+      "expected_title": "Through the breakers",
+      "expected_year": "1909",
+      "top_candidate": "Through the Breakers (1909)",
+      "top_candidate_id": "through_the_breakers_1909",
+      "top_candidate_names_a_film": true,
+      "identity_matches_answer_key": true,
+      "thresholds_passed": 3,
+      "thresholds_failed": [
+        "independent_source_domains>=3",
+        "entity_compatibility",
+        "unresolved_contradictions==0",
+        "human_approved"
+      ],
+      "claims": 7,
+      "decisive_claims": 3,
+      "rejected_citations": 8,
+      "rejection_reasons": [
+        "excerpt_not_found_in_retrieved_text",
+        "not_returned_by_parallel_in_this_run",
+        "quoted_text_absent_from_live_page"
+      ],
+      "independent_domains": 17,
+      "parallel_surfaces": [
+        "parallel_findall_v1beta",
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ],
+      "latency_ms": 383122,
+      "supplied_title": "Edwardian period, Library of Congress National Screening Room",
+      "language_violations": 0
+    }
+  ]
+}
