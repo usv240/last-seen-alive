@@ -29,6 +29,7 @@ easy to rationalise.
 from __future__ import annotations
 
 import os
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from time import perf_counter
@@ -271,5 +272,126 @@ def summarise(results: list[ControlResult], expected: dict[str, str]) -> dict[st
             "carrying a superseded catalogue title it produced a third title instead of engaging "
             "with the label at all. Those two failures are what the full system's citation "
             "registry, live citation audit and deterministic gate exist to address."
+        ),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Arm B: the control's own answers, put through the real gate.
+#
+# Arm A measures a capable model alone. Arm C -- the full system -- needs the
+# Parallel credential and cannot run yet. Arm B sits between them and needs
+# nothing new: take exactly what the control said and pass it through the real
+# `build_evidence` and the real `IdentityGate`.
+#
+# This is not circular. It answers a question neither other arm does: is the
+# gate doing work, or is it a rubber stamp? The control produced seven
+# high-confidence identifications that no source supports. If the gate lets any
+# of them through, the gate is decoration.
+#
+# It also frames the question Arm C exists to answer. Arm B establishes that
+# unsourced claims cannot pass. Whether *sourced* claims can pass -- whether
+# real open-web evidence lifts a fragment above the threshold rather than
+# merely failing more expensively -- is exactly what the credential unblocks.
+
+from app.evidence_builder import build as build_evidence  # noqa: E402
+from app.evidence_schema import CompiledCandidate, CompiledClaim, CompiledEvidence  # noqa: E402
+from app.gates.identity import IdentityGate  # noqa: E402
+from app.partners.citation_registry import CitationRegistry  # noqa: E402
+
+
+def _slug(text: str) -> str:
+    cleaned = re.sub(r"[^a-z0-9]+", "_", text.lower()).strip("_")
+    return cleaned or "unnamed_candidate"
+
+
+def gate_the_control(result: ControlResult) -> dict[str, Any]:
+    """Run one control answer through the production evidence path and gate.
+
+    The citation registry starts empty, which is the honest representation of a
+    run with no web access: nothing was retrieved, so nothing the model cites
+    can be confirmed as retrieved.
+    """
+    if not result.names_a_film:
+        return {
+            "case_id": result.case_id,
+            "control_named_a_film": False,
+            "gated_verdict": "abstain",
+            "gated_reason": "The control named no film, so there was nothing to gate.",
+            "changed": False,
+        }
+
+    candidate_id = _slug(result.title)
+    compiled = CompiledEvidence(
+        candidates=[
+            CompiledCandidate(
+                candidate_id=candidate_id,
+                title=result.title,
+                year=result.year,
+                # The control reports confidence, not evidence strength. Mapping
+                # its highest confidence to a high score is the most generous
+                # reading available to it.
+                score=0.9 if result.confidence == "high" else 0.5,
+                rationale=result.reasoning[:400],
+            )
+        ],
+        claims=[
+            CompiledClaim(
+                claim_text=observation[:500],
+                subject=candidate_id,
+                stance="supports",
+                clue_family="visual_or_material",
+                confidence_basis=f"Observed by the model; control confidence {result.confidence}.",
+                sources=[],
+            )
+            for observation in (result.visible_evidence or [result.reasoning])[:6]
+            if observation.strip()
+        ],
+        temporal_compatibility=True,
+        entity_compatibility=True,
+    )
+
+    evidence = build_evidence(compiled, CitationRegistry())
+    gate = IdentityGate().evaluate(
+        claims=evidence.claims,
+        context=evidence.gate_context(human_approved=False),
+    )
+    return {
+        "case_id": result.case_id,
+        "control_named_a_film": True,
+        "control_title": result.title,
+        "control_confidence": result.confidence,
+        "gated_verdict": gate.verdict,
+        "gated_reason": gate.reason,
+        "thresholds_failed": list(gate.failed),
+        "changed": True,
+    }
+
+
+def summarise_gated(results: list[ControlResult]) -> dict[str, Any]:
+    """What the gate does to the control's answers."""
+    scored = [r for r in results if r.error is None]
+    gated = [gate_the_control(r) for r in scored]
+    named = [g for g in gated if g["control_named_a_film"]]
+    survived = [g for g in named if g["gated_verdict"] not in {"abstain", "candidates"}]
+
+    return {
+        "arm": "control_plus_gate",
+        "description": (
+            "The control's own answers passed through the production evidence builder and "
+            "IdentityGate, with an empty citation registry because nothing was retrieved."
+        ),
+        "runs": len(scored),
+        "control_identifications": len(named),
+        "identifications_surviving_the_gate": len(survived),
+        "verdicts": sorted({g["gated_verdict"] for g in gated}),
+        "per_case": gated,
+        "reading": (
+            "The gate is not a rubber stamp: every high-confidence identification the control "
+            "made was refused, because none of them had a source that had actually been "
+            "retrieved. What this arm cannot show is the other direction -- whether real "
+            "open-web evidence lifts a fragment ABOVE the threshold rather than just failing "
+            "more expensively. That is precisely the question the Parallel credential unblocks, "
+            "and it is why this is a two-arm result and not a three-arm one."
         ),
     }

@@ -36,6 +36,7 @@ from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
 from app.adk_app import MODEL, root_agent
+from app.devised_title import devise_title
 from app.evidence_builder import build as build_evidence
 from app.evidence_schema import CompiledEvidence
 from app.gates.identity import IdentityGate
@@ -179,6 +180,22 @@ async def run_investigation(
 
     cold_case = rare_strings_from_clues(outputs.get("visual_examiner"))
 
+    # FIAF A.2.5: supplied/devised titles exist for entities that are
+    # unidentifiable, so an archivist can still file and find the thing. An
+    # abstention that hands back nothing at all leaves them worse off than a
+    # descriptive handle would.
+    supplied_title = (
+        devise_title(
+            outputs.get("visual_examiner"),
+            collection="Library of Congress National Screening Room"
+            if (sample_id or "").startswith("D")
+            else "",
+            fragment_reference=sample_id or origin,
+        )
+        if gate.verdict in {"abstain", "candidates"}
+        else None
+    )
+
     return {
         "status": "completed",
         "session_id": session_id,
@@ -203,6 +220,7 @@ async def run_investigation(
         "citation_audit": audit,
         "falsification": falsification,
         "language_findings": language_findings,
+        "supplied_title": supplied_title,
         "cold_case": {
             "eligible": gate.verdict in {"abstain", "candidates"} and bool(cold_case),
             "watchable_strings": cold_case,

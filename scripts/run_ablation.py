@@ -26,7 +26,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from agentic_core.eval import EvaluationCorpus  # noqa: E402
-from app.ablation import run_control, summarise  # noqa: E402
+from app.ablation import run_control, summarise, summarise_gated  # noqa: E402
 
 EVAL_DIR = Path(__file__).resolve().parents[1] / "eval"
 OUT = EVAL_DIR / "reports" / "ablation-control.json"
@@ -97,6 +97,10 @@ def main() -> int:
     report["temperature"] = temperature
     report["expected_outcomes"] = expected
 
+    # Arm B costs nothing extra: it is the control's own answers put through the
+    # production evidence builder and gate, with an empty citation registry.
+    report["arm_b_control_plus_gate"] = summarise_gated(results)
+
     print("\n" + "=" * 72)
     print(f"  runs                                         {report['runs']} over {report['cases']} cases")
     print(f"  runs where no identification is possible     {report['runs_where_no_identification_is_possible']}")
@@ -110,6 +114,12 @@ def main() -> int:
     if report["unstable_cases_across_repeats"]:
         print(f"  unstable across repeats                      {report['unstable_cases_across_repeats']}")
     print(f"  median latency                               {report['median_latency_ms']} ms")
+    print("-" * 72)
+    b = report["arm_b_control_plus_gate"]
+    print("  ARM B — the same answers through the real gate")
+    print(f"    control identifications                    {b['control_identifications']}")
+    print(f"    surviving the gate                         {b['identifications_surviving_the_gate']}")
+    print(f"    verdicts produced                          {', '.join(b['verdicts'])}")
     print("=" * 72)
 
     if "--write" in sys.argv:

@@ -78,6 +78,45 @@ get if you do not build the research layer. The instability is different. That i
 not an artifact of the setup, and it is not fixed by giving the model a better
 prompt.
 
+## Arm B — the same answers, through the real gate
+
+Arm A measures a capable model alone. Arm C, the full system, needs the Parallel
+credential and cannot run yet. Arm B sits between them and needs nothing new:
+take exactly what the control said and pass it through the **production**
+`build_evidence` and the **production** `IdentityGate`, with an empty citation
+registry — the honest representation of a run in which nothing was retrieved.
+
+This is not circular. It answers a question neither other arm does: **is the gate
+doing work, or is it a rubber stamp?**
+
+| | Arm A: control | Arm B: control + gate |
+|---|---:|---:|
+| Identifications presented as such | **7** | **0** |
+| Verdicts produced | 7 × "high confidence" | `abstain`, `candidates` |
+| Thresholds failed | n/a | `independent_source_domains>=3`, `distinct_clue_families>=2`, `every_decisive_claim_has_source`, `human_approved` |
+
+Every high-confidence identification the control made was refused, on the
+threshold that no source supported it. The gate is not decoration.
+
+Note *how* it refuses. The answers become `candidates`, not `abstain` — the
+model's guess is not hidden, it is **labelled as unsupported** and shown with the
+exact thresholds it failed. An archivist still sees "Bobby Bumps' Night Out" as
+something to look into; what they no longer see is a confident assertion they
+cannot check. That is the difference between suppressing a model and grounding
+one.
+
+### What Arm B cannot show
+
+It establishes that unsourced claims cannot pass. It says nothing about the other
+direction: whether real open-web evidence lifts a fragment **above** the
+threshold, or whether the system merely fails more expensively than the control
+does. A gate that refuses everything is trivially safe and useless.
+
+That is exactly the question the Parallel credential unblocks, and it is why this
+is a two-arm result rather than a three-arm one. When the credential lands, the
+same five fragments run as Arm C and the third column is published — **including
+if it shows the full system never gets past its own gate.**
+
 ## Why this is the argument
 
 A cataloguer runs this once. They get one of three titles, possibly with the
@@ -113,6 +152,10 @@ nothing.
   confident is the question.
 - The control is **faster** — 14.7 s against 40–120 s for the full pipeline. That
   is a real cost, honestly stated.
+- **Neither arm has been reviewed by an archivist.** Conformance to the published
+  cataloguing standards is tested separately in
+  [STANDARDS-CONFORMANCE.md](STANDARDS-CONFORMANCE.md); that is weaker evidence than a
+  practitioner review and is not offered as a replacement for one.
 
 ## Reproducing
 

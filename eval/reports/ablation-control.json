@@ -354,5 +354,180 @@
     "D03": "candidates",
     "D04": "identify",
     "D05": "contradict"
+  },
+  "arm_b_control_plus_gate": {
+    "arm": "control_plus_gate",
+    "description": "The control's own answers passed through the production evidence builder and IdentityGate, with an empty citation registry because nothing was retrieved.",
+    "runs": 15,
+    "control_identifications": 7,
+    "identifications_surviving_the_gate": 0,
+    "verdicts": [
+      "abstain",
+      "candidates"
+    ],
+    "per_case": [
+      {
+        "case_id": "D01",
+        "control_named_a_film": false,
+        "gated_verdict": "abstain",
+        "gated_reason": "The control named no film, so there was nothing to gate.",
+        "changed": false
+      },
+      {
+        "case_id": "D01",
+        "control_named_a_film": false,
+        "gated_verdict": "abstain",
+        "gated_reason": "The control named no film, so there was nothing to gate.",
+        "changed": false
+      },
+      {
+        "case_id": "D01",
+        "control_named_a_film": false,
+        "gated_verdict": "abstain",
+        "gated_reason": "The control named no film, so there was nothing to gate.",
+        "changed": false
+      },
+      {
+        "case_id": "D02",
+        "control_named_a_film": true,
+        "control_title": "Bobby Bumps' Midnight Auto Ride",
+        "control_confidence": "high",
+        "gated_verdict": "candidates",
+        "gated_reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, every_decisive_claim_has_source, human_approved.",
+        "thresholds_failed": [
+          "independent_source_domains>=3",
+          "distinct_clue_families>=2",
+          "every_decisive_claim_has_source",
+          "human_approved"
+        ],
+        "changed": true
+      },
+      {
+        "case_id": "D02",
+        "control_named_a_film": true,
+        "control_title": "Bobby Bumps' Night Out",
+        "control_confidence": "high",
+        "gated_verdict": "candidates",
+        "gated_reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, every_decisive_claim_has_source, human_approved.",
+        "thresholds_failed": [
+          "independent_source_domains>=3",
+          "distinct_clue_families>=2",
+          "every_decisive_claim_has_source",
+          "human_approved"
+        ],
+        "changed": true
+      },
+      {
+        "case_id": "D02",
+        "control_named_a_film": true,
+        "control_title": "Bobby Bumps' Night Out",
+        "control_confidence": "high",
+        "gated_verdict": "candidates",
+        "gated_reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, every_decisive_claim_has_source, human_approved.",
+        "thresholds_failed": [
+          "independent_source_domains>=3",
+          "distinct_clue_families>=2",
+          "every_decisive_claim_has_source",
+          "human_approved"
+        ],
+        "changed": true
+      },
+      {
+        "case_id": "D03",
+        "control_named_a_film": false,
+        "gated_verdict": "abstain",
+        "gated_reason": "The control named no film, so there was nothing to gate.",
+        "changed": false
+      },
+      {
+        "case_id": "D03",
+        "control_named_a_film": false,
+        "gated_verdict": "abstain",
+        "gated_reason": "The control named no film, so there was nothing to gate.",
+        "changed": false
+      },
+      {
+        "case_id": "D03",
+        "control_named_a_film": false,
+        "gated_verdict": "abstain",
+        "gated_reason": "The control named no film, so there was nothing to gate.",
+        "changed": false
+      },
+      {
+        "case_id": "D04",
+        "control_named_a_film": true,
+        "control_title": "La Vache qui prend le M\u00e9tro",
+        "control_confidence": "high",
+        "gated_verdict": "candidates",
+        "gated_reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, every_decisive_claim_has_source, human_approved.",
+        "thresholds_failed": [
+          "independent_source_domains>=3",
+          "distinct_clue_families>=2",
+          "every_decisive_claim_has_source",
+          "human_approved"
+        ],
+        "changed": true
+      },
+      {
+        "case_id": "D04",
+        "control_named_a_film": true,
+        "control_title": "La Vache qui prend le M\u00e9tro (The Cow Who Takes the Metro)",
+        "control_confidence": "high",
+        "gated_verdict": "candidates",
+        "gated_reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, every_decisive_claim_has_source, human_approved.",
+        "thresholds_failed": [
+          "independent_source_domains>=3",
+          "distinct_clue_families>=2",
+          "every_decisive_claim_has_source",
+          "human_approved"
+        ],
+        "changed": true
+      },
+      {
+        "case_id": "D04",
+        "control_named_a_film": true,
+        "control_title": "La Vache qui prend le M\u00e9tro",
+        "control_confidence": "high",
+        "gated_verdict": "candidates",
+        "gated_reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, every_decisive_claim_has_source, human_approved.",
+        "thresholds_failed": [
+          "independent_source_domains>=3",
+          "distinct_clue_families>=2",
+          "every_decisive_claim_has_source",
+          "human_approved"
+        ],
+        "changed": true
+      },
+      {
+        "case_id": "D05",
+        "control_named_a_film": true,
+        "control_title": "The Way of the World",
+        "control_confidence": "high",
+        "gated_verdict": "candidates",
+        "gated_reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, every_decisive_claim_has_source, human_approved.",
+        "thresholds_failed": [
+          "independent_source_domains>=3",
+          "distinct_clue_families>=2",
+          "every_decisive_claim_has_source",
+          "human_approved"
+        ],
+        "changed": true
+      },
+      {
+        "case_id": "D05",
+        "control_named_a_film": false,
+        "gated_verdict": "abstain",
+        "gated_reason": "The control named no film, so there was nothing to gate.",
+        "changed": false
+      },
+      {
+        "case_id": "D05",
+        "control_named_a_film": false,
+        "gated_verdict": "abstain",
+        "gated_reason": "The control named no film, so there was nothing to gate.",
+        "changed": false
+      }
+    ],
+    "reading": "The gate is not a rubber stamp: every high-confidence identification the control made was refused, because none of them had a source that had actually been retrieved. What this arm cannot show is the other direction -- whether real open-web evidence lifts a fragment ABOVE the threshold rather than just failing more expensively. That is precisely the question the Parallel credential unblocks, and it is why this is a two-arm result and not a three-arm one."
   }
 }

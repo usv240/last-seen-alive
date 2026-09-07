@@ -20,6 +20,7 @@ from agentic_core.api import ApiHooks, MemoryApiKeyStore, create_app
 from agentic_core.api.keys import ApiKeyRecord
 from app import presets as preset_catalog
 from app import stack as stack_catalog
+from app import standards as standards_catalog
 from app.partners import parallel_client
 
 WEB_DIR = Path(__file__).resolve().parents[1] / "web"
@@ -365,6 +366,22 @@ async def evaluation_ablation() -> dict[str, object]:
             },
         }
     return {"ok": True, "data": json.loads(report.read_text(encoding="utf-8"))}
+
+
+@api.get(
+    "/v1/standards",
+    tags=["Evaluation"],
+    summary="Conformance to published archival cataloguing standards",
+    description=(
+        "Seven requirements quoted from the FIAF Moving Image Cataloguing Manual and EN 15907, "
+        "each with the page it comes from, how this system meets it, and the tests that check "
+        "it. Five conform, two only partially, and one was failing until the exercise ran. "
+        "No archivist has reviewed this system; conformance testing is weaker evidence than a "
+        "practitioner review and is not offered as a substitute."
+    ),
+)
+async def standards() -> dict[str, object]:
+    return {"ok": True, "data": standards_catalog.conformance_report()}
 
 
 @api.get("/v1/eval/corpus", tags=["Evaluation"], summary="Benchmark corpus state")

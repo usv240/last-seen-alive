@@ -511,3 +511,53 @@
   };
   paintStack();
 })();
+
+/* ---- standards conformance table (stack page) ----------------------
+   Rendered from GET /v1/standards so the page cannot drift from the data
+   the tests assert against. */
+(async () => {
+  const host = document.querySelector('[data-standards-table]');
+  if (!host) return;
+  const el = (tag, text, cls) => {
+    const n = document.createElement(tag);
+    if (text !== undefined && text !== null) n.textContent = text;
+    if (cls) n.className = cls;
+    return n;
+  };
+  const LABEL = {
+    conforms: ['Conforms', 'live'],
+    partial: ['Partial', 'unknown'],
+    was_failing_now_conforms: ['Was failing \u00b7 now fixed', 'req'],
+  };
+  let data;
+  try {
+    data = (await (await fetch('/v1/standards')).json()).data;
+  } catch (_) {
+    host.replaceChildren(el('p', 'Conformance data unavailable.', 'nosrc'));
+    return;
+  }
+  host.replaceChildren();
+  data.requirements.forEach((r) => {
+    const [text, tone] = LABEL[r.status] || [r.status, 'unknown'];
+    const card = el('article', undefined, 'stackrow ' + (r.status === 'partial' ? 'unknown' : 'live'));
+    const top = el('div', undefined, 'stackrow-top');
+    top.append(el('span', r.id, 'preset-id'));
+    top.append(el('h3', r.requirement));
+    top.append(el('span', text, `badge-mini ${tone}`));
+    card.append(top);
+    const quote = el('p', undefined, 'stackrow-note');
+    quote.append(el('q', r.quote));
+    quote.append(el('span', ' \u2014 ' + r.citation, 'cmeta'));
+    card.append(quote);
+    card.append(el('p', r.how, 'stackrow-role'));
+    if (r.tests.length) {
+      const meta = el('div', undefined, 'stackrow-meta');
+      r.tests.forEach((name) => meta.append(el('code', name)));
+      card.append(meta);
+    }
+    host.append(card);
+  });
+  const note = el('p', data.disclaimer, 'colnote');
+  note.style.marginTop = 'var(--s4)';
+  host.append(note);
+})();
