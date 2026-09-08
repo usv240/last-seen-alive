@@ -1,9 +1,10 @@
 # Demo script — read this while recording
 
-**3:00 hard limit.** Only the first three minutes are judged. The narration below
-is **418 words — about 2:47** at a normal pace, leaving ~13 seconds for the
-visuals to land. That margin is thin: if you speak slowly, use the cut list at
-the bottom rather than rushing the two beats that matter.
+**Target a finished video of 2:45–2:50, not 2:59.** The limit is 3:00 and anything
+past it is not evaluated, so aiming at the line risks losing the ending. The
+narration below is **399 words — about 2:40** spoken normally. With the two
+scripted pauses that lands at **2:44**, leaving ~16 seconds for navigation. Those
+pauses are part of the script, not slack. **Do not fill them.**
 
 Open two tabs before you start:
 1. `https://last-seen-alive-109051079423.us-central1.run.app`
@@ -16,15 +17,22 @@ Open two tabs before you start:
 The video is **not** a scored category. Rules.md §8 gives four **equal-weighted**
 criteria — Technological Implementation, Design, Potential Impact, Quality of the
 Idea — at 25% each. The video is a Stage One pass/fail requirement *and* the only
-thing most judges will ever actually see. So it is not 30% of your score; it is
-the lens all 100% is judged through.
+thing most judges will ever actually see. It is not a slice of your score; it is
+the lens the whole score is formed through.
 
-Every beat below is tagged with the criterion it is buying. Nothing is in here
-that does not buy one.
+Every beat is tagged with the criterion it buys. Two rules govern the whole thing:
+
+**The judge must know what this is by 0:25.** Everything after that is then proof
+of one sentence, rather than a mystery that resolves at 1:30.
+
+**The technology supports the story; it must not become the story.** A judge who
+remembers "Gemini plus six Parallel APIs" has remembered a checklist. A judge who
+remembers "the AI was wrong and the architecture stopped it" has remembered the
+submission.
 
 ---
 
-## 0:00–0:22 · The problem
+## 0:00–0:25 · The problem, then what you built
 **Buys: Potential Impact**
 
 **NAVIGATE:** Landing page. Scroll to the section headed *"Most of it is already
@@ -34,14 +42,19 @@ gone."*
 > **"Seventy percent of American silent films are gone. What survived often
 > arrives like this — a can with no name. Every year the Library of Congress fills
 > a room with historians who shout out clues to identify them. They get under a
-> third. That is the state of the art."**
+> third."**
 
-*Do not rush this. The cited numbers are the entire argument for why the project
-matters, and they read in two seconds.*
+**POINT AT:** the page title as you say the next line.
+
+> **"Last Seen Alive turns an unidentified fragment into an evidence dossier — and
+> when the evidence isn't strong enough, it refuses to identify the film."**
+
+*That second sentence is the whole product. Say it clearly and a little slower
+than the rest. Every beat after this is proof of it.*
 
 ---
 
-## 0:22–0:40 · Why it is hard
+## 0:25–0:42 · Why it is hard
 **Buys: Quality of the Idea**
 
 **NAVIGATE:** `/presets`
@@ -54,18 +67,23 @@ matters, and they read in two seconds.*
 
 ---
 
-## 0:40–1:05 · Start a real run
+## 0:42–1:05 · Start a real run
 **Buys: Technological Implementation**
 
-**NAVIGATE:** back to the landing page, section *"Run a public fragment"*.
+**NAVIGATE:** landing page, section *"Run a public fragment"*.
 **DO:** select **D04** and press **Investigate**.
 **POINT AT:** the six stages as they light up — each names its agent and its
 Parallel surface — then the live clock and the duration line.
 
-> **"Five agents. Gemini transcribes the frame word for word. Parallel Search
-> hunts the rarest phrase as a literal quote. Parallel Task and FindAll check
-> alternate titles and name the archives holding them. A Skeptic hunts evidence
-> against its own answer. Five minutes — and it tells you that up front."**
+> **"Five agents, one workflow: extract the clues, research the evidence, attack
+> its own hypothesis, verify every citation, then gate the conclusion. Gemini
+> reads the frame. Parallel Search, Task and FindAll do the research. It takes
+> about five minutes, and it tells you that before you start."**
+
+*Say the workflow verbs and let the screen name the services. The stages already
+show which agent calls which Parallel surface, so reciting all six aloud buys
+nothing and costs ten seconds. This is how you earn Technological Implementation
+without sounding like a sponsor list.*
 
 **CUT HERE.** On-screen caption:
 
@@ -83,11 +101,12 @@ Parallel surface — then the live clock and the duration line.
 3. the threshold panel, with `human_approved` failing.
 
 > **"Then code takes over. Every citation is re-opened by Parallel Extract and
-> checked against the live page. This one failed — so the gate refuses it. It
-> counts toward nothing."**
+> checked against the live page. This one failed — so the gate refuses it."**
 
 > **"Now the part I want you to see. Its leading candidate is 'Un coin de Paris',
 > 1900. The answer key says 'Buying a cow', 1908. It is wrong."**
+
+### ⏸ PAUSE — two full seconds. Let the wrong answer sit on screen.
 
 > **"And it does not get to say so. It hands over the evidence, marks what it
 > could not confirm, and stops."**
@@ -105,43 +124,49 @@ measured ourselves."* Scroll to the **19-run table**.
 > verdict every time. Our own published headline — zero false-confident
 > identifications — was one lucky pass. Across nineteen runs there are five."**
 
-> **"That is on our own landing page. A system asking an archivist to trust it
-> cannot hide the runs where it was wrong."**
+### ⏸ PAUSE — two full seconds on the number 5.
 
-> **"One thing held. In nineteen runs it never once claimed a probable identity —
-> that needs a human, and the API cannot supply one."**
+> **"A system asking an archivist to trust it cannot hide the runs where it was
+> wrong. In nineteen runs it never once claimed a probable identity — that needs
+> a human, and the API cannot supply one."**
 
-*This is the single most memorable thirty seconds in the video. Judges watch
-polished demos all day. They almost never see a team show them the failures.*
+*The most memorable thirty seconds in the video. Judges watch polished demos all
+day; they almost never see a team show them the failures.*
 
 ---
 
-## 2:20–2:40 · The review we could not get
+## 2:20–2:32 · The review we could not get
 **Buys: Potential Impact**
 
 **NAVIGATE:** `/practice`
 **POINT AT:** the **Unanswered** group — it renders first, above everything the
-system does well. Make sure P5 is legible.
+system does well.
 
-> **"No archivist has reviewed this. So rather than pretend otherwise, we took
-> fourteen demands archivists have already published — including a peer-reviewed
-> study where archive experts graded AI cataloguing — and answered each one. Four
-> are unanswered. The missing review is first."**
+> **"No archivist has reviewed this yet. We say that plainly, and we publish the
+> practitioner requirements the system still doesn't meet."**
+
+*Deliberately short. By 2:20 the judge already believes you are honest, because
+the stability study proved it. Showing the page is enough; explaining the register
+costs ten seconds that D04 and the 19-run table need more.*
 
 ---
 
-## 2:40–3:00 · It is a product, not a demo
-**Buys: Design + Technological Implementation**
+## 2:32–2:50 · Close on the human, not the stack
+**Buys: Design + Technological Implementation + Potential Impact**
 
-**NAVIGATE:** `/api`. Press **Mint a judge key**. Send one `GET /v1/stack`.
-**THEN:** `/stack`, scrolled so several surfaces and their call sites show.
+**NAVIGATE:** `/api`, press **Mint a judge key**, send one `GET /v1/stack`.
+**THEN:** `/stack`, scrolled so several surfaces and their call sites show. Leave
+it on screen for the final line.
 
-> **"No signup. Mint a key, call the same endpoints this page calls, put it in
-> your own catalogue. Eleven sponsor surfaces, each with the line of code that
-> calls it."**
+> **"No signup. Mint a key and call the same endpoints this page calls. Eleven
+> sponsor surfaces, each with the line of code that calls it."**
 
-> **"Triage, not attribution. An archivist approves every identification. This
-> page never does."**
+> **"The archivist still makes the identification. Last Seen Alive makes sure they
+> don't start from an unidentified reel and a blank page."**
+
+*End on the person, not the architecture. The stack stays on screen so the
+technical claim is visible while the human claim is spoken — you get both without
+spending words on either.*
 
 ---
 
@@ -154,23 +179,24 @@ system does well. Make sure P5 is legible.
 - [ ] No terminal, no editor, no cloud consoles, **no sponsor logos** (Rules.md
       forbids third-party marks — our ribbon is plain text on purpose).
 - [ ] The cut away from the running investigation carries its caption.
+- [ ] **Both pauses are actually in the edit.** Check on playback.
 - [ ] The **refused citation** is legible, not just visible.
-- [ ] The **19-run table** is legible. If you are over time, cut the `/api` beat
-      before you cut this one.
+- [ ] The **19-run table** is legible.
 - [ ] English subtitles burned in.
-- [ ] Upload to YouTube or Vimeo, **public**, and paste the link into Devpost.
+- [ ] Finished length **2:45–2:50**. If it lands at 2:58, cut — do not ship it.
+- [ ] Upload to YouTube or Vimeo, **public**, link into Devpost.
 
 ## If you are running long
 
 Cut in this order. Never cut from the top of the list.
 
-1. The `/api` mint-a-key beat (2:40) — keep only the `/stack` close.
-2. The `/practice` beat (2:20) — painful, but the stability study makes the same
+1. The mint-a-key sentence at 2:32 — keep the `/stack` visual and the closing line.
+2. The `/practice` beat (2:20) entirely — the stability study already made the
    point about honesty.
-3. Trim the `/presets` beat (0:22) to one sentence.
+3. Trim the `/presets` beat (0:25) to one sentence.
 
-**Never cut:** the refused citation, or the 19-run table. Those two are the
-submission.
+**Never cut:** the thesis sentence at 0:20, the refused citation, the 19-run
+table, or the two pauses. Those four are the submission.
 
 ## Before you hit record
 
