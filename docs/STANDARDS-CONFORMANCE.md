@@ -155,7 +155,7 @@ value is "exact, approximate or unknown" (§2.3.5.1–2.3.5.2, pp. 58–59).
 
 **Conformance: yes, by a different mechanism.** We do not use question-mark
 notation. Uncertainty is carried structurally: an explicit verdict enum
-(`probable` / `candidates` / `abstain`), every one of the seven thresholds
+(`probable` / `candidates` / `abstain`), every one of the nine thresholds
 returned with its boolean, and — importantly — a three-state citation audit where
 `live_verified: null` means *not audited* and is distinguishable from `false`,
 *audited and not found*. Omission never stands in for uncertainty.
@@ -201,6 +201,6 @@ Five conform, two partially, and one was failing until this exercise ran.
 Conformance to a cataloguing standard is not the same as being useful to a
 cataloguer. These standards govern how a record should be *written*; they say
 nothing about whether the evidence this system gathers is the evidence an
-archivist would have wanted, whether the seven thresholds are set anywhere near
+archivist would have wanted, whether the nine thresholds are set anywhere near
 the right level, or whether a dossier is readable under time pressure. Those
 questions need a practitioner, and they remain open.

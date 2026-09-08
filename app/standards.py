@@ -148,7 +148,7 @@ REQUIREMENTS: list[dict[str, Any]] = [
         "status": "conforms",
         "how": (
             "By a different mechanism. Not question-mark notation but an explicit verdict enum, "
-            "all seven thresholds returned with their booleans, and a three-state citation audit "
+            "all nine thresholds returned with their booleans, and a three-state citation audit "
             "where null means not audited and is distinguishable from false, audited and absent."
         ),
         "tests": [

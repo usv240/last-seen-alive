@@ -23,6 +23,7 @@ from typing import Any
 
 from agentic_core.evidence import Claim, Source, stable_claim_id
 from agentic_core.gate import Candidate
+from app import works
 from app.evidence_schema import CompiledEvidence
 from app.partners.citation_registry import CitationRegistry
 
@@ -176,6 +177,21 @@ def build(compiled: CompiledEvidence, registry: CitationRegistry) -> BuiltEviden
 
     candidates: list[Candidate] = []
     for entry in compiled.candidates:
+        # A candidate slot is for a work. Measured over 19 runs, seven of the
+        # things that landed here were not: a studio, a piece of leader, a
+        # costume cluster, a restatement of the input. None of those can be
+        # right or wrong about which film this is, so none of them may be
+        # scored as though it could. The rejection is recorded, not deleted:
+        # "this is a Bray Studios picture" is a real finding an archivist wants.
+        names_work, why_not = works.classify(entry.title, year=entry.year)
+        if not names_work:
+            rejected.append({
+                "url": "",
+                "reason": f"candidate_not_a_work:{why_not}",
+                "claim": f"{entry.title} (score {entry.score})",
+            })
+            continue
+
         supporting = [
             claim.claim_id
             for claim in claims

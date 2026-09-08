@@ -149,8 +149,14 @@ def _compiled() -> CompiledEvidence:
                 "rationale": "A rare closing line and a catalogue record agree on title and year.",
             },
             {
-                "candidate_id": "ardwick_reissue_1924",
-                "title": "Unidentified Ardwick reissue",
+                # Named as a work, not described as one. "Unidentified Ardwick
+                # reissue" was the label here until app/works.py started type-
+                # checking candidates and correctly threw it out: a description
+                # of a film cannot be a rival hypothesis to a film, and the gate
+                # was then left with a single unopposed candidate. The example
+                # has to model the analysis it is demonstrating.
+                "candidate_id": "ardwick_lamp_1924",
+                "title": "The Ardwick Lamp",
                 "year": "1924",
                 "score": 0.31,
                 "rationale": "The same line recurs in a later reissue, which the evidence cannot yet rule out.",
@@ -382,7 +388,7 @@ def worked_example() -> dict[str, Any]:
                 },
                 {
                     "run_id": "trun_example_0002",
-                    "candidate_id": "ardwick_reissue_1924",
+                    "candidate_id": "ardwick_lamp_1924",
                     "status": "completed",
                     "content": {
                         "disproved": False,

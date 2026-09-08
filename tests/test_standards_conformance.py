@@ -205,7 +205,7 @@ def test_r5_the_runtime_attaches_a_devised_title_when_it_cannot_identify() -> No
 def test_r6_verdict_is_an_explicit_enum_never_an_absence() -> None:
     gate = worked_example()["gate"]
     assert gate["verdict"] in {"confirmed", "probable", "candidates", "abstain", "contradicted"}
-    assert len(gate["thresholds"]) == 7
+    assert len(gate["thresholds"]) == 9
     for name, value in gate["thresholds"].items():
         assert isinstance(value, bool), f"{name} is not an explicit boolean"
 

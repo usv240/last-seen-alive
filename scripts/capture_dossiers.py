@@ -115,6 +115,7 @@ def main() -> int:
             "expected_outcome": row.get("expected_outcome"),
             "elapsed_seconds": round(elapsed, 1),
             "thresholds_passed": len(meta.get("gate", {}).get("passed", [])),
+            "thresholds_total": len(meta.get("gate", {}).get("thresholds", {})),
             "parallel_surfaces_used": meta.get("parallel_surfaces_used", []),
         })
 

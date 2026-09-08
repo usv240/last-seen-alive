@@ -73,7 +73,7 @@ def test_the_gate_really_ran() -> None:
     """
     gate = worked_example()["gate"]
     thresholds = gate["thresholds"]
-    assert len(thresholds) == 7
+    assert len(thresholds) == 9
     assert all(isinstance(value, bool) for value in thresholds.values())
     assert set(gate["passed"]) == {n for n, v in thresholds.items() if v}
     assert set(gate["failed"]) == {n for n, v in thresholds.items() if not v}

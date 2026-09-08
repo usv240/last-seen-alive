@@ -290,8 +290,13 @@ if rows:
     check(f"{case} dossier is the whole response", s == 200 and "meta" in body and "data" in body)
     check(f"{case} dossier carries its capture provenance",
           body.get("captured", {}).get("service", "").startswith("https://"))
-    check(f"{case} dossier still carries all seven gate thresholds",
-          len(body.get("meta", {}).get("gate", {}).get("thresholds", {})) == 7)
+    # Not a fixed count: the gate gained two competing-hypothesis thresholds
+    # after the stability study, and a dossier captured before that legitimately
+    # carries the older set. What must always be there is the human.
+    gate_thresholds = body.get("meta", {}).get("gate", {}).get("thresholds", {})
+    check(f"{case} dossier still carries its full gate",
+          len(gate_thresholds) >= 7 and "human_approved" in gate_thresholds,
+          str(sorted(gate_thresholds)))
     check("a held-out dossier is not retrievable by guessing the id",
           call("/v1/dossiers/H01")[0] == 404)
 

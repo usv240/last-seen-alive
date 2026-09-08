@@ -38,7 +38,7 @@ your own file. You get back a dossier, not an answer:
 - every claim, with the source behind it and the exact quoted excerpt;
 - the contradictions found *against* the leading candidate;
 - which citations failed a live re-check, and were therefore refused;
-- a seven-threshold deterministic gate, showing every threshold that passed and
+- a nine-threshold deterministic gate, showing every threshold that passed and
   every one that did not;
 - a verdict of `probable`, `candidates` or `abstain` — and never `confirmed`,
   because human approval is a gate threshold no API call can satisfy.

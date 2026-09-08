@@ -75,6 +75,17 @@ Read {visual_clues}, {phrase_evidence}, and {holdings_evidence}. Actively try to
 candidate: incompatible dates, wrong studio or country, performer career mismatch, reused stock
 phrases, and competing attributions. Use search_archival_evidence for every web fact. Return a
 JSON list of supported contradiction claims and unresolved questions. You do not issue a verdict.
+
+Attacking the leading candidate is not enough. Search for a DIFFERENT film that
+would explain the same clues: the same stock phrase in another studio's release,
+the same performer in a neighbouring year, the same location in an unrelated
+subject. Report any you find as a rival identity with its own sources.
+
+This matters because the earlier agents hand you one hypothesis and everything
+after them tends to accumulate agreement with it. A run that ends with one
+candidate and a dozen supporting claims has not tested anything, and it is how
+this system reached five of seven thresholds on a film that was simply wrong.
+Your job is to give it something to be wrong against.
 """,
     tools=[search_archival_evidence],
     output_key="skeptic_evidence",
@@ -106,6 +117,22 @@ Emit the typed evidence structure. Rules:
 - Set temporal_compatibility and entity_compatibility to true only if you can
   point to cited claims that are mutually consistent. Default to false.
 - Do not issue a verdict. Deterministic code and an archivist decide.
+
+A candidate must NAME A FILM. A studio, a production company, an archive or
+collection, a costume period, a subject heading, or a restatement like
+"unidentified fragment" is not a candidate identity, and code will discard it.
+If the strongest thing the evidence supports is a studio, say so in a claim and
+leave the candidate list shorter.
+
+List EVERY identity the evidence leaves open, not just the best one. Where the
+research supports a second reading of the same clues, it belongs in candidates
+with its own score and its own claims. A single candidate that nothing competes
+with cannot be assessed: evidence only discriminates when there is something for
+it to discriminate against, so an unopposed candidate will not pass the gate
+however much support it has. Do not invent a filler rival to satisfy this — a
+candidate with no cited claims helps nothing, and a wrong rival is worse than a
+short list. If the evidence genuinely supports only one reading, submit one and
+let the gate withhold.
 """,
     output_schema=CompiledEvidence,
     output_key="compiled_evidence",

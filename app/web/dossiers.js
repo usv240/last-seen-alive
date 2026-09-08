@@ -89,7 +89,8 @@
         const verdict = el('span', VERDICT_WORD[row.verdict] || row.verdict, 'dossier-verdict');
         verdict.dataset.verdict = row.verdict;
         button.append(verdict);
-        button.append(el('span', `${row.thresholds_passed} of 7 thresholds · ${Math.round(row.elapsed_seconds)}s`, 'dossier-meta'));
+        const total = row.thresholds_total || 7;
+        button.append(el('span', `${row.thresholds_passed} of ${total} thresholds · ${Math.round(row.elapsed_seconds)}s`, 'dossier-meta'));
 
         button.addEventListener('click', () => show(row.case_id));
         const item = el('li');

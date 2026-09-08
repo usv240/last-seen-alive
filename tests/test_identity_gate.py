@@ -27,6 +27,13 @@ def sourced_claim(domain: str, *, subject: str = "film-42") -> Claim:
 
 
 def complete_context(claims: list[Claim]) -> dict[str, object]:
+    """A case that has actually been analysed, which now means more than one hypothesis.
+
+    The rival is not decoration. The gate requires competing hypotheses because a
+    lone candidate cannot be discriminated against anything, so a fixture with one
+    candidate no longer describes a completed analysis -- it describes the failure
+    mode the gate was changed to catch.
+    """
     return {
         "candidates": [
             Candidate(
@@ -34,7 +41,13 @@ def complete_context(claims: list[Claim]) -> dict[str, object]:
                 label="Example Film",
                 score=0.82,
                 decisive_claim_ids=tuple(claim.claim_id for claim in claims),
-            )
+            ),
+            Candidate(
+                candidate_id="film-77",
+                label="A Rival Film",
+                score=0.41,
+                decisive_claim_ids=(),
+            ),
         ],
         "decisive_clue_families": ["intertitle", "performer"],
         "temporal_compatibility": True,

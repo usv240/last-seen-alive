@@ -377,7 +377,7 @@
     const cols = el('div', undefined, 'boardcols');
 
     const left = el('section', undefined, 'boardcol');
-    left.append(el('h3', 'The seven-threshold identity gate'));
+    left.append(el('h3', 'The nine-threshold identity gate'));
     left.append(el('p', 'Deterministic code, not the model, decides. Every threshold is shown whether it passed or not.', 'colnote'));
     left.append(gateGrid(gate));
     if ((ev.candidates || []).length) {

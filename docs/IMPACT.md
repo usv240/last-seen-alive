@@ -89,7 +89,7 @@ This runs on request, from anywhere, through an API with a key anyone can mint.
 
 **It produces a dossier, not an answer.** The output is the evidence: every claim,
 every source, which sources were re-opened and confirmed on the live page, which
-of seven thresholds passed, and what is still unresolved. An archivist can audit
+of nine thresholds passed, and what is still unresolved. An archivist can audit
 it in minutes and disagree with it specifically. That is a different artifact from
 a title and a confidence score, and it is the artifact the ArchiveGPT study
 concluded practitioners need — AI "subordinate to human verification".
