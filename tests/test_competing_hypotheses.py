@@ -20,13 +20,11 @@ are tested here against the labels actually observed, not against invented ones.
 from __future__ import annotations
 
 import pytest
+from test_identity_gate import complete_context, sourced_claim
 
 from agentic_core.evidence import Claim, Source, stable_claim_id
-from agentic_core.gate import Candidate
 from app import works
 from app.gates import IdentityGate
-
-from test_identity_gate import complete_context, sourced_claim
 
 # ------------------------------------------------------------- the type check
 
@@ -99,11 +97,6 @@ def test_an_empty_title_is_not_a_candidate() -> None:
 
 
 # ------------------------------------------------- competing hypotheses (ACH)
-
-def _rival(candidate_id: str = "rival-1", *, score: float = 0.4) -> Candidate:
-    return Candidate(candidate_id=candidate_id, label="A Rival Film", score=score,
-                     decisive_claim_ids=())
-
 
 def test_a_lone_hypothesis_cannot_reach_probable() -> None:
     """The D04 failure, reproduced and then blocked.
