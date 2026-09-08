@@ -1,13 +1,12 @@
 /* The investigation console.
 
    An investigation is slow: five Gemini agents and several live Parallel
-   calls. Nineteen runs of the five development fragments are recorded in
-   eval/reports/stability.json. Eighteen finished inside the server's 900s
-   request timeout and took 61s to 430s, median 299s; those are the numbers
-   quoted below. The nineteenth took 95 minutes, and a twentieth attempt failed
-   with a 502. Both stay in the report as reliability events rather than being
-   folded into "typical", because a run that outlives the server's own timeout
-   is a failure, not a latency.
+   calls. Twenty-eight runs of the five development fragments are recorded in
+   eval/reports/stability.json. Twenty-seven finished inside the server's 900s
+   request timeout and took 61s to 444s, median 304s; those are the numbers
+   quoted below. The twenty-eighth took 95 minutes. It stays in the report as a
+   reliability event rather than being folded into "typical", because a run that
+   outlives the server's own timeout is a failure, not a latency.
    A spinner for five minutes tells the viewer nothing
    and reads as a hang. But the wait is also the single best opportunity this
    product has to explain itself, because what it is doing during those
@@ -39,19 +38,19 @@
 
   const STAGES = [
     ['Visual Examiner', 'Gemini reads the frames and transcribes any visible text verbatim', 33],
-    ['Phrase Hunter', 'Parallel Search hunts the rarest strings as literal quoted phrases', 60],
-    ['Holdings Researcher', 'Parallel Task and FindAll check alternate titles and name the catalogues', 78],
-    ['Skeptic', 'Parallel Search looks for evidence against its own candidates', 54],
+    ['Phrase Hunter', 'Parallel Search hunts the rarest strings as literal quoted phrases', 61],
+    ['Holdings Researcher', 'Parallel Task and FindAll check alternate titles and name the catalogues', 79],
+    ['Skeptic', 'Parallel Search looks for evidence against its own candidates', 55],
     ['Evidence Compiler', 'Gemini restates the findings as typed, citable claims', 30],
-    ['Verification', 'Parallel Extract re-opens every cited page, then the gate counts thresholds', 44],
+    ['Verification', 'Parallel Extract re-opens every cited page, then the gate counts thresholds', 46],
   ];
 
   //: The measured spread of a full run, in seconds, across the development
   //: split. Shown before the clock starts so a long wait is an expectation
   //: rather than a surprise.
   const TYPICAL_LOW = 61;
-  const TYPICAL_HIGH = 430;
-  const TYPICAL_MEDIAN = 299;
+  const TYPICAL_HIGH = 444;
+  const TYPICAL_MEDIAN = 304;
 
   class RunConsole {
     constructor(host) {
@@ -91,7 +90,7 @@
       const note = el('p', undefined, 'run-note');
       // The range alone reads as vague and the median alone reads as a promise.
       // Both, measured, is the only version that survives being timed.
-      note.append(el('b', `Usually ${Math.round(TYPICAL_LOW / 60)}-${Math.ceil(TYPICAL_HIGH / 60)} minutes; the median of 18 measured runs is ${Math.round(TYPICAL_MEDIAN / 60)}.`));
+      note.append(el('b', `Usually ${Math.round(TYPICAL_LOW / 60)}-${Math.ceil(TYPICAL_HIGH / 60)} minutes; the median of 27 measured runs is ${Math.round(TYPICAL_MEDIAN / 60)}.`));
       note.append(el('span', ' Real archival research against live sources, not a cached answer. Leave this tab open; the dossier replaces this panel when it lands.'));
 
       const list = el('ol', undefined, 'stagelist');

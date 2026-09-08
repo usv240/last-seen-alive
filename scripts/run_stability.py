@@ -101,6 +101,20 @@ def main() -> int:
                     "latency_seconds": round(record["latency_ms"] / 1000, 1),
                 })
 
+    # Earlier stability reports are priors too. Without this the runner rebuilt
+    # from arm-c and the dossiers each time and silently dropped every pass it
+    # had previously recorded -- including the 95-minute run and the first
+    # delivery failure, which are the two most interesting reliability events in
+    # the whole record. A study that forgets its own bad runs is not a study.
+    for prior in ("stability.json", "stability-before-fix.json"):
+        path = ROOT / "eval" / "reports" / prior
+        if not path.exists():
+            continue
+        for case in json.loads(path.read_text(encoding="utf-8")).get("results", []):
+            if case["case_id"] not in observations:
+                continue
+            observations[case["case_id"]].extend(case.get("observations", []))
+
     dossiers = ROOT / "eval" / "reports" / "dossiers"
     if (dossiers / "index.json").exists():
         for path in sorted(dossiers.glob("D*.json")):
@@ -160,6 +174,25 @@ def main() -> int:
                 "latency_seconds": round(elapsed, 1),
             })
             print(f"{meta['verdict']} in {elapsed:.0f}s")
+
+    # Priors are merged from several files, so the same run can arrive twice.
+    # Deduplicate on what identifies a run rather than on object identity.
+    for case_id, runs in observations.items():
+        seen: set[tuple] = set()
+        unique = []
+        for run in runs:
+            key = (
+                run.get("source"),
+                run.get("verdict"),
+                run.get("latency_seconds"),
+                run.get("top_candidate"),
+                run.get("thresholds_passed"),
+            )
+            if key in seen:
+                continue
+            seen.add(key)
+            unique.append(run)
+        observations[case_id] = unique
 
     # ---------------------------------------------------------------- summarise
     results = []

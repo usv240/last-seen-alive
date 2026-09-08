@@ -424,6 +424,33 @@ async def evaluation_stability() -> dict[str, object]:
 
 
 @api.get(
+    "/v1/eval/fix-comparison",
+    tags=["Evaluation"],
+    summary="What changed when the two defects found by the stability study were fixed",
+    description=(
+        "The stability study found two defects: candidates that were not films, and "
+        "hypotheses nothing ever opposed. Both were fixed. This reports the runs before and "
+        "after, scored by the same scorer. One defect is gone; the other is not, and the "
+        "second result is the more interesting one -- constraining the candidate type turned "
+        "disguised failures into visible wrong answers rather than removing them. Sample "
+        "sizes are small and the report says so."
+    ),
+)
+async def evaluation_fix_comparison() -> dict[str, object]:
+    report = EVAL_DIR / "reports" / "fix-comparison.json"
+    if not report.exists():
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "code": "comparison_not_measured",
+                "message": "No before/after comparison has been run for this deployment.",
+                "fix": "Run scripts/compare_fix.py --write and redeploy.",
+            },
+        )
+    return {"ok": True, "data": json.loads(report.read_text(encoding="utf-8"))}
+
+
+@api.get(
     "/v1/practice",
     tags=["Evaluation"],
     summary="Published practitioner objections, and how this system answers them",

@@ -220,22 +220,23 @@
 
       <p class="lede" style="margin-top:var(--s5)">Two results carry it. <strong>D02:</strong> the control returned three different Bray cartoons across three runs, every one at high confidence, none sourced, all wrong. The full system returned <em>Dud Leaves Home</em> (1919) &mdash; the answer key exactly &mdash; on 9 decisive claims across 9 domains, citing the very Library of Congress record the benchmark was built from. <strong>D05</strong> arrives mislabelled <em>&ldquo;Those who pay&rdquo;</em>; the control replaced it with two different wrong films, the full system surfaced <em>Through the Breakers</em> (1909), the documented correction, with a contradiction claim.</p>
 
-      <h3 class="subhead">Then we ran it 19 times, and the column above did not survive</h3>
-      <p class="lede">Arm C is a <strong>single pass</strong>. Four passes over the same five fragments &mdash; <strong>19 runs in total</strong> &mdash; say something quite different, and we would rather you heard it from us.</p>
+      <h3 class="subhead">Then we ran it 28 times, and the column above did not survive</h3>
+      <p class="lede">Arm C is a <strong>single pass</strong>. Six passes over the same five fragments &mdash; <strong>28 runs in total</strong> &mdash; say something quite different, and we would rather you heard it from us.</p>
       <div class="table-scroll">
         <table class="reftable">
-          <caption>Every recorded run on the development split. Raw: <a href="/v1/eval/stability">/v1/eval/stability</a>.</caption>
-          <thead><tr><th scope="col">Across 19 runs</th><th scope="col">Count</th></tr></thead>
+          <caption>Every recorded run on the development split, including the ones that went badly. Raw: <a href="/v1/eval/stability">/v1/eval/stability</a> &middot; before and after the fixes: <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a>.</caption>
+          <thead><tr><th scope="col">Across 28 runs</th><th scope="col">Count</th></tr></thead>
           <tbody>
             <tr><td>Cases that gave the same verdict every time</td><td><strong>1 of 5</strong></td></tr>
-            <tr><td>Correct identities</td><td>2</td></tr>
-            <tr><td><strong>False-confident identifications</strong></td><td><strong>5</strong> <small>(12 on the strictest reading)</small></td></tr>
-            <tr><td>Candidates that were not a film at all</td><td>7</td></tr>
+            <tr><td>Correct identities</td><td>3</td></tr>
+            <tr><td><strong>False-confident identifications</strong></td><td><strong>9</strong> <small>(16 on the strictest reading)</small></td></tr>
+            <tr><td>Candidates that were not a film at all</td><td>7 <small>(now 0 &mdash; fixed)</small></td></tr>
             <tr><td><strong>Runs that reached <code>probable</code></strong></td><td><strong>0</strong></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="lede">Two findings hurt. <strong>D02 returned four different leading candidates in four runs</strong> &mdash; the correct film once, the studio once, and two other films. And <strong>D04 returned the same wrong film, <em>Un coin de Paris</em> (1900), in three of four runs at five of seven thresholds</strong>: not noise, a reproducible misidentification, where the key says <em>Buying a cow</em>. <strong>&ldquo;Zero false-confident identifications&rdquo; is a property of one pass, not of this system</strong>, and every surface that quoted it now says so.</p>
+      <p class="lede">Two findings hurt. <strong>D02 returned four different leading candidates in four runs</strong> &mdash; the correct film once, the studio once, and two other films. And <strong>D04 returned the same wrong film, <em>Un coin de Paris</em> (1900), in three of four runs at five of seven thresholds</strong>: not noise, a reproducible misidentification. <strong>&ldquo;Zero false-confident identifications&rdquo; is a property of one pass, not of this system</strong>, and every surface that quoted it now says so.</p>
+      <p class="lede">We fixed both defects and measured again, and only one of them went away. Candidates that named no film went from 7 to <strong>0</strong>. False-confident identifications did <strong>not</strong> improve &mdash; constraining the candidate type turned disguised failures into visible wrong answers rather than removing them. <strong>The error rate was always this high; the non-films were hiding it.</strong> Both eras are published at <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a>.</p>
       <p class="lede">We could have shipped the good pass and said nothing. Publishing this is the only position consistent with everything else on this page. And one thing did hold across all 19: <strong>no run ever reached <code>probable</code></strong>, because that threshold needs a human the API cannot supply. Every wrong answer above arrived as <code>candidates</code> with its failing thresholds attached. The defensible claim is not that this system is not wrong &mdash; it is that it does not assert what it cannot support, and shows its working.</p>
 
       <h3 class="subhead">The miss, and why we are keeping it</h3>

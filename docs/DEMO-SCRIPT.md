@@ -117,18 +117,19 @@ without sounding like a sponsor list.*
 **Buys: Quality of the Idea, and the credibility of everything above**
 
 **NAVIGATE:** landing page, section *"We measured the alternative before we
-measured ourselves."* Scroll to the **19-run table**.
+measured ourselves."* Scroll to the **stability table**.
 **THEN:** open `/v1/eval/stability` for two seconds of raw JSON.
 
-> **"We ran these same five fragments nineteen times. Only one gave the same
-> verdict every time. Our own published headline — zero false-confident
-> identifications — was one lucky pass. Across nineteen runs there are five."**
+> **"We ran these same five fragments twenty-eight times. Only one of the five
+> gave the same verdict every time. Our own published headline — zero
+> false-confident identifications — was one lucky pass. Across twenty-eight runs
+> it named the wrong film nine times."**
 
-### ⏸ PAUSE — two full seconds on the number 5.
+### ⏸ PAUSE — two full seconds on the number 9.
 
 > **"A system asking an archivist to trust it cannot hide the runs where it was
-> wrong. In nineteen runs it never once claimed a probable identity — that needs
-> a human, and the API cannot supply one."**
+> wrong. And in twenty-eight runs it never once claimed a probable identity —
+> that needs a human, and the API cannot supply one."**
 
 *The most memorable thirty seconds in the video. Judges watch polished demos all
 day; they almost never see a team show them the failures.*
@@ -147,7 +148,7 @@ system does well.
 
 *Deliberately short. By 2:20 the judge already believes you are honest, because
 the stability study proved it. Showing the page is enough; explaining the register
-costs ten seconds that D04 and the 19-run table need more.*
+costs ten seconds that D04 and the stability table need more.*
 
 ---
 
@@ -181,7 +182,7 @@ spending words on either.*
 - [ ] The cut away from the running investigation carries its caption.
 - [ ] **Both pauses are actually in the edit.** Check on playback.
 - [ ] The **refused citation** is legible, not just visible.
-- [ ] The **19-run table** is legible.
+- [ ] The **stability table** is legible.
 - [ ] English subtitles burned in.
 - [ ] Finished length **2:45–2:50**. If it lands at 2:58, cut — do not ship it.
 - [ ] Upload to YouTube or Vimeo, **public**, link into Devpost.
@@ -195,7 +196,7 @@ Cut in this order. Never cut from the top of the list.
    point about honesty.
 3. Trim the `/presets` beat (0:25) to one sentence.
 
-**Never cut:** the thesis sentence at 0:20, the refused citation, the 19-run
+**Never cut:** the thesis sentence at 0:20, the refused citation, the stability
 table, or the two pauses. Those four are the submission.
 
 ## Before you hit record

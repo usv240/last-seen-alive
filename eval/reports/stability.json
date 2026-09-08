@@ -1,16 +1,16 @@
 {
   "study": "verdict_stability",
-  "generated_at": "2026-09-08T03:19:04.203840+00:00",
+  "generated_at": "2026-09-08T04:53:53.870656+00:00",
   "service": "https://last-seen-alive-109051079423.us-central1.run.app",
   "split": "dev",
   "cases": 5,
-  "total_runs": 19,
+  "total_runs": 28,
   "cases_with_a_stable_verdict": 1,
   "never_reached_probable_in_any_run": true,
   "latency_seconds": {
-    "n": 19,
+    "n": 28,
     "min": 61.4,
-    "median": 299.4,
+    "median": 306.1,
     "max": 5705.2
   },
   "finding": "Verdicts are not stable across repeated runs of an identical input. The pipeline makes live web calls against a web that changes and samples a model that is not replayed, so the boundary between 'candidates' and 'abstain' moves between passes. What did not move is the safety property: no run in this study reached 'probable', because that threshold requires a human and the API cannot supply one.",
@@ -19,12 +19,12 @@
     {
       "case_id": "D01",
       "expected_outcome": "abstain",
-      "runs": 4,
+      "runs": 6,
       "verdicts": {
-        "abstain": 3,
+        "abstain": 5,
         "candidates": 1
       },
-      "verdict_stability": 0.75,
+      "verdict_stability": 0.83,
       "distinct_top_candidates": 1,
       "top_candidates_seen": {
         "An unidentified film fragment": 1
@@ -54,6 +54,24 @@
           "verdict": "abstain",
           "top_candidate": null,
           "thresholds_passed": 1,
+          "latency_seconds": 70.1,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
+          "latency_seconds": 92.0,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        },
+        {
+          "source": "stability pass 1",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
           "latency_seconds": 74.4,
           "classification": "no_candidate",
           "classification_reason": "The system put no candidate forward."
@@ -70,22 +88,23 @@
       ],
       "expected_title": "Ghosts",
       "classification_counts": {
-        "no_candidate": 3,
+        "no_candidate": 5,
         "malformed_candidate": 1
       }
     },
     {
       "case_id": "D02",
       "expected_outcome": "identify",
-      "runs": 4,
+      "runs": 5,
       "verdicts": {
-        "candidates": 4
+        "candidates": 5
       },
       "verdict_stability": 1.0,
-      "distinct_top_candidates": 4,
+      "distinct_top_candidates": 5,
       "top_candidates_seen": {
         "Dud Leaves Home (1919)": 1,
         "Bray Studios Inc.": 1,
+        "Oh Boy! (1927)": 1,
         "The Artist's Dream (1913)": 1,
         "Bobby Bumps at the Circus (1916)": 1
       },
@@ -110,6 +129,15 @@
           "classification_reason": "A production company. Naming the studio is a real research result and may well be correct, but it identifies no film, so it is neither a hit nor a misidentification."
         },
         {
+          "source": "stability pass 2",
+          "verdict": "candidates",
+          "top_candidate": "Oh Boy! (1927)",
+          "thresholds_passed": 4,
+          "latency_seconds": 306.1,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says Dud leaves home."
+        },
+        {
           "source": "stability pass 1",
           "verdict": "candidates",
           "top_candidate": "The Artist's Dream (1913)",
@@ -132,21 +160,22 @@
       "classification_counts": {
         "correct": 1,
         "malformed_candidate": 1,
-        "false_confident": 2
+        "false_confident": 3
       }
     },
     {
       "case_id": "D03",
       "expected_outcome": "candidates",
-      "runs": 4,
+      "runs": 6,
       "verdicts": {
-        "candidates": 2,
-        "abstain": 2
+        "candidates": 3,
+        "abstain": 3
       },
       "verdict_stability": 0.5,
-      "distinct_top_candidates": 3,
+      "distinct_top_candidates": 4,
       "top_candidates_seen": {
         "Early to Mid-20th Century Civilian and Workwear": 1,
+        "The Forest Ranger (1910)": 1,
         "Military subjects. Soldiers on horseback (ca. 1920-ca. 1950)": 1,
         "Men's outdoor and equestrian attire from late 19th to early 20th century": 1
       },
@@ -172,6 +201,24 @@
         },
         {
           "source": "stability pass 1",
+          "verdict": "candidates",
+          "top_candidate": "The Forest Ranger (1910)",
+          "thresholds_passed": 6,
+          "latency_seconds": 369.4,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says The rival brothers' patriotism."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
+          "latency_seconds": 114.4,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        },
+        {
+          "source": "stability pass 1",
           "verdict": "abstain",
           "top_candidate": "Military subjects. Soldiers on horseback (ca. 1920-ca. 1950)",
           "thresholds_passed": 4,
@@ -192,21 +239,23 @@
       "expected_title": "The rival brothers' patriotism",
       "classification_counts": {
         "malformed_candidate": 3,
-        "no_candidate": 1
+        "no_candidate": 2,
+        "false_confident": 1
       }
     },
     {
       "case_id": "D04",
       "expected_outcome": "identify",
-      "runs": 4,
+      "runs": 6,
       "verdicts": {
-        "abstain": 1,
-        "candidates": 3
+        "abstain": 2,
+        "candidates": 4
       },
-      "verdict_stability": 0.75,
-      "distinct_top_candidates": 1,
+      "verdict_stability": 0.67,
+      "distinct_top_candidates": 2,
       "top_candidates_seen": {
-        "Un coin de Paris (1900)": 3
+        "Un coin de Paris (1900)": 3,
+        "Champs Elysees (1900)": 1
       },
       "never_reached_probable": true,
       "observations": [
@@ -231,6 +280,24 @@
         {
           "source": "stability pass 1",
           "verdict": "candidates",
+          "top_candidate": "Champs Elysees (1900)",
+          "thresholds_passed": 5,
+          "latency_seconds": 403.2,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says Buying a cow."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
+          "latency_seconds": 385.2,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        },
+        {
+          "source": "stability pass 1",
+          "verdict": "candidates",
           "top_candidate": "Un coin de Paris (1900)",
           "thresholds_passed": 5,
           "latency_seconds": 311.1,
@@ -249,23 +316,24 @@
       ],
       "expected_title": "Buying a cow",
       "classification_counts": {
-        "no_candidate": 1,
-        "false_confident": 3
+        "no_candidate": 2,
+        "false_confident": 4
       }
     },
     {
       "case_id": "D05",
       "expected_outcome": "contradict",
-      "runs": 3,
+      "runs": 5,
       "verdicts": {
-        "candidates": 2,
+        "candidates": 4,
         "abstain": 1
       },
-      "verdict_stability": 0.67,
-      "distinct_top_candidates": 3,
+      "verdict_stability": 0.8,
+      "distinct_top_candidates": 4,
       "top_candidates_seen": {
-        "Through the Breakers (1909)": 1,
+        "Through the Breakers (1909)": 2,
         "Those who pay": 1,
+        "Mother Love (1910)": 1,
         "Those Who Pay (1917)": 1
       },
       "never_reached_probable": true,
@@ -289,6 +357,24 @@
           "classification_reason": "The incorrect label the fragment arrived carrying. Returning the supplied label is a failure to contradict it, not a new identification put forward by the system."
         },
         {
+          "source": "stability pass 1",
+          "verdict": "candidates",
+          "top_candidate": "Mother Love (1910)",
+          "thresholds_passed": 4,
+          "latency_seconds": 303.9,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says Through the breakers."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "candidates",
+          "top_candidate": "Through the Breakers (1909)",
+          "thresholds_passed": 4,
+          "latency_seconds": 444.4,
+          "classification": "correct",
+          "classification_reason": "Matches the answer key (Through the breakers)."
+        },
+        {
           "source": "stability pass 2",
           "verdict": "candidates",
           "top_candidate": "Those Who Pay (1917)",
@@ -300,21 +386,22 @@
       ],
       "expected_title": "Through the breakers",
       "classification_counts": {
-        "correct": 1,
-        "malformed_candidate": 2
+        "correct": 2,
+        "malformed_candidate": 2,
+        "false_confident": 1
       }
     }
   ],
   "scoring": {
     "definition": "false_confident_identification: the system put forward a specific film as the leading candidate and the answer key says it is the wrong film. This is the definition published with the Arm C report, applied here to every recorded pass rather than to one.",
     "totals": {
-      "correct": 2,
-      "false_confident": 5,
+      "correct": 3,
+      "false_confident": 9,
       "malformed_candidate": 7,
-      "no_candidate": 5,
+      "no_candidate": 9,
       "unscored": 0
     },
-    "runs_scored": 19,
+    "runs_scored": 28,
     "runs_that_reached_probable": 0,
     "headline_correction": "The Arm C pass recorded zero false-confident identifications and two correct identities. Across every recorded pass those figures do not hold: the system is not stable enough for a single pass to stand as its result. Both numbers are reported here over all passes.",
     "what_did_hold": "No run in any pass reached `probable`. Every false-confident identification counted above was returned as `candidates` with the failing thresholds attached, which is the difference between a system that is wrong and a system that asserts something wrong. It is a weaker claim than 'never wrong' and it is the true one.",
@@ -328,8 +415,8 @@
         "Men's outdoor and equestrian attire from late 19th to early 20th century": "A costume description, the same failure mode as the workwear cluster above."
       },
       "note": "Each label above was excluded from scoring as a misidentification because it names no work. That is a judgement, and a self-serving one if left unchecked, so both readings are published: `totals` applies the judgement, and `false_confident_upper_bound` is what the count becomes if every one of these is instead treated as a wrong identification. Quote whichever you find more defensible; neither is hidden.",
-      "false_confident_strict": 5,
-      "false_confident_upper_bound": 12
+      "false_confident_strict": 9,
+      "false_confident_upper_bound": 16
     },
     "matching": "Casefolded, punctuation stripped, a trailing parenthesised year removed, then exact or containment match. Nothing fuzzier: a near-miss on a title is a miss."
   }
