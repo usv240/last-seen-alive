@@ -191,18 +191,122 @@
   const GATE_COPY = {
     'independent_source_domains>=3': 'Three or more independent source domains',
     'distinct_clue_families>=2': 'Two or more distinct clue families',
+    'competing_hypotheses>=2': 'At least one rival identity to test against',
+    leading_hypothesis_has_diagnostic_evidence: 'Evidence fits this film and not the rival',
     temporal_compatibility: 'Dates are mutually compatible',
     entity_compatibility: 'Studio, performers and country agree',
     'unresolved_contradictions==0': 'No unresolved contradiction from the Skeptic',
     every_decisive_claim_has_source: 'Every decisive claim carries a verified source',
     human_approved: 'An archivist has approved the identity',
   };
+
+  /* ---- plain-language explainers -------------------------------------
+     This product uses a small private vocabulary. "Decisive claim", "clue
+     family", "threshold" and "abstain" are precise and, to anyone meeting them
+     for the first time, opaque. A reader should not have to hold seven
+     definitions in their head to read one dossier.
+
+     So every term that carries weight gets a small "i" beside it and one
+     sentence of explanation with no jargon in it. It opens on hover, on focus
+     and on click: hover alone would exclude every keyboard and touch user,
+     which is exactly what the rest of this interface is built not to do. */
+  const GLOSSARY = {
+    verdict: ['What the system decided',
+      'One of three outcomes. It abstains, offers ranked candidates for a person to judge, or (only with a human signature) records a probable identity. It can never assert one on its own.'],
+    probable: ['Probable identity',
+      'The strongest verdict, and it needs a real archivist to approve it. No API call can produce it, so nothing here is ever an automatic identification.'],
+    candidates: ['Candidates only',
+      'The evidence points somewhere but is not strong enough to name the film. You get the possibilities and the reasoning, and you decide.'],
+    abstain: ['Abstained',
+      'The system found nothing solid enough to offer. That is a correct answer, not a failure: a confident wrong guess is worse than none.'],
+    gate: ['The identity gate',
+      'Ordinary code, not the AI, counting whether the evidence clears a fixed set of bars. The model gathers evidence; this decides what it is worth.'],
+    threshold: ['A threshold',
+      'One bar the evidence has to clear. Every one is shown whether it passed or failed, so you can see exactly what was missing.'],
+    decisive: ['A decisive claim',
+      'A claim solid enough to count toward the verdict: it has a real source, and that source still had the quoted words when checked. Claims without one are still shown, but cannot count.'],
+    clue_family: ['A clue family',
+      'A kind of evidence: an intertitle, a performer, a studio, a release date. Two facts from the same family are weaker than two from different ones.'],
+    domains: ['Independent source domains',
+      'How many different websites back the claim. Three pages on one site count once, because one voice repeated is not corroboration.'],
+    stance: ['Supports, contradicts or neutral',
+      'Which way a claim cuts. Evidence against the leading candidate sits next to evidence for it, never hidden.'],
+    audit: ['The live citation audit',
+      'Every cited page is opened again and checked for the exact quoted words. A search result is a summary of a page; this is the page itself.'],
+    rejected: ['Rejected citations',
+      'Sources thrown out before the verdict, because the search never returned them or the quoted words are not on the page. A made-up citation can only weaken a result here, never strengthen it.'],
+    surfaces: ['Parallel surfaces',
+      'Which research tools this run used. Search finds rare phrases, Task researches holdings, Extract re-opens pages to verify them.'],
+    sealed: ['Held out and sealed',
+      'Five fragments the system has never been run on, kept back so results cannot be tuned to fit them. Their answers are public; the runs have not happened.'],
+    false_confident: ['A false-confident identification',
+      'The system named a specific film and the answer key says it is the wrong one. This is the number that matters most, and it is published even when it is bad.'],
+    stability: ['Why runs disagree',
+      'The same fragment can give different answers on different days, because the agents search a web that changes. Every recorded run is published, not the best one.'],
+  };
+
+  function explainer(key) {
+    const entry = GLOSSARY[key];
+    if (!entry) return null;
+    const wrap = el('span', undefined, 'explain');
+    const btn = el('button', 'i', 'explain-btn');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'What does this mean? ' + entry[0]);
+    btn.setAttribute('aria-expanded', 'false');
+    const bubble = el('span', undefined, 'explain-bubble');
+    bubble.setAttribute('role', 'tooltip');
+    bubble.append(el('b', entry[0]));
+    bubble.append(el('span', entry[1]));
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const open = wrap.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    const close = () => {
+      wrap.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    };
+    btn.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') { close(); btn.focus(); }
+    });
+    // A pinned bubble should not follow you around the page.
+    document.addEventListener('click', (event) => {
+      if (!wrap.contains(event.target)) close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') close();
+    });
+    wrap.append(btn, bubble);
+    return wrap;
+  }
+
+  function withExplainer(node, key) {
+    const tip = explainer(key);
+    if (tip) node.append(tip);
+    return node;
+  }
+
+  // Anything in the static HTML opts in with data-explain="key".
+  function attachExplainers(root) {
+    (root || document).querySelectorAll('[data-explain]').forEach((node) => {
+      if (node.querySelector(':scope > .explain')) return;
+      withExplainer(node, node.dataset.explain);
+    });
+  }
+  attachExplainers(document);
+  document.addEventListener('DOMContentLoaded', () => attachExplainers(document));
   const AGENT_COPY = {
     visual_examiner: ['Visual Examiner', 'Gemini · transcribe clues, never name the film'],
     phrase_hunter: ['Phrase Hunter', 'Parallel Search · rare literal strings'],
     holdings_researcher: ['Holdings Researcher', 'Parallel Task + FindAll · titles and catalogues'],
     skeptic: ['Skeptic', 'Parallel Search · disconfirming evidence'],
     evidence_compiler: ['Evidence Compiler', 'Gemini · restate findings as typed claims'],
+  };
+
+  const VERDICT_TERM = {
+    probable: 'probable', candidates: 'candidates', abstain: 'abstain',
+    contradicted: 'candidates', confirmed: 'probable',
   };
 
   function verdictBanner(verdict, reason) {
@@ -224,7 +328,15 @@
     Object.entries(gate.thresholds || {}).forEach(([name, passed]) => {
       const row = el('div', undefined, `gaterow ${passed ? 'ok' : 'no'}`);
       row.append(el('span', passed ? '✓' : '·', 'gmark'));
-      row.append(el('span', GATE_COPY[name] || name.replace(/_/g, ' ')));
+      const label = el('span', GATE_COPY[name] || name.replace(/_/g, ' '));
+      const GATE_TERM = {
+        'independent_source_domains>=3': 'domains',
+        'distinct_clue_families>=2': 'clue_family',
+        every_decisive_claim_has_source: 'decisive',
+        human_approved: 'probable',
+      };
+      if (GATE_TERM[name]) withExplainer(label, GATE_TERM[name]);
+      row.append(label);
       wrap.append(row);
     });
     return wrap;
@@ -298,7 +410,7 @@
 
   function auditPanel(audit) {
     const box = el('section', undefined, 'auditbox');
-    box.append(el('h3', 'Live citation audit · Parallel Extract'));
+    box.append(withExplainer(el('h3', 'Live citation audit · Parallel Extract'), 'audit'));
     if (!audit || audit.status === 'skipped' || audit.status === 'not_requested') {
       box.append(el('p', audit?.reason || 'Not run for this investigation.', 'colnote'));
       return box;
@@ -425,7 +537,7 @@
     const cols = el('div', undefined, 'boardcols');
 
     const left = el('section', undefined, 'boardcol');
-    left.append(el('h3', 'The nine-threshold identity gate'));
+    left.append(withExplainer(el('h3', 'The nine-threshold identity gate'), 'gate'));
     left.append(el('p', 'Deterministic code, not the model, decides. Every threshold is shown whether it passed or not.', 'colnote'));
     left.append(gateGrid(gate));
     if ((ev.candidates || []).length) {
@@ -441,7 +553,7 @@
       });
     }
     if ((ev.rejected_citations || []).length) {
-      left.append(el('h3', 'Rejected citations'));
+      left.append(withExplainer(el('h3', 'Rejected citations'), 'rejected'));
       left.append(el('p', 'A source Parallel did not return in this run, or whose quoted text is not on the live page, is discarded before the gate sees it. A fabricated citation can only weaken a candidate, never support one.', 'colnote'));
       ev.rejected_citations.forEach((r) => {
         const row = el('div', undefined, 'rejrow');
@@ -453,7 +565,7 @@
     cols.append(left);
 
     const right = el('section', undefined, 'boardcol');
-    right.append(el('h3', 'Claims and their sources'));
+    right.append(withExplainer(el('h3', 'Claims and their sources'), 'stance'));
     right.append(el('p', 'Supporting and contradicting claims are shown together. The Skeptic searches specifically for evidence against the leading candidate.', 'colnote'));
     const claims = ev.claims || [];
     if (!claims.length) right.append(el('p', 'No claim survived compilation. The gate abstained rather than guessing.', 'nosrc'));

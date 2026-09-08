@@ -58,7 +58,7 @@
       </div>
       <dl class="fact-strip">
         <div><dt>Decision owner</dt><dd>Archivist</dd></div>
-        <div><dt>Primary metric</dt><dd>0 identities asserted</dd></div>
+        <div><dt data-explain="probable">Primary metric</dt><dd>0 identities asserted</dd></div>
         <div><dt>Web evidence</dt><dd>Parallel at runtime</dd></div>
         <div><dt>Outcome</dt><dd>Probable · candidates · abstain</dd></div>
       </dl>
@@ -196,7 +196,7 @@
 
     <section class="section shell prose" aria-labelledby="limits-title">
       <p class="eyebrow">WHAT IT WILL NOT DO</p>
-      <h2 id="limits-title">Uncertainty is an output.</h2>
+      <h2 id="limits-title" data-explain="abstain">Uncertainty is an output.</h2>
       <p>It never says “last surviving copy.” Searching every catalogue you can name tells you where a print is; it can never tell you no other print exists. The only permitted sentence is: “No additional holding was found across these named catalogues as of this search date”, followed by the names. Sentences that break that rule are caught in code and shown to you as violations rather than published as findings.</p>
       <p>A fragment without legible, discriminating clues may remain unidentified, and the system will abstain. That is a result, not a failure, and you can leave a standing watch on it.</p>
     </section>
@@ -212,7 +212,7 @@
           <thead><tr><th scope="col">Measure</th><th scope="col">A · Gemini alone</th><th scope="col">B · + the gate</th><th scope="col">C · full system</th></tr></thead>
           <tbody>
             <tr><td><strong>Correct identities surfaced</strong></td><td>0 of 3</td><td>0 of 3</td><td><strong>2 of 3</strong> <small>(this pass)</small></td></tr>
-            <tr><td><strong>False-confident identifications</strong></td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+            <tr><td><strong data-explain="false_confident">False-confident identifications</strong></td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
             <tr><td>Identifications with no citable source</td><td>7 of 7</td><td>n/a</td><td>0</td></tr>
             <tr><td>Answers unstable across repeats</td><td>3 of 3 cases</td><td>n/a</td><td><strong>4 of 5 cases moved</strong> over 28 runs</td></tr>
             <tr><td>Median latency</td><td>15 s</td><td>15 s</td><td>383 s <small>(this pass; 299 s over 18)</small></td></tr>
@@ -222,7 +222,7 @@
 
       <p class="lede" style="margin-top:var(--s5)">Two results carry it. <strong>D02:</strong> the control returned three different Bray cartoons across three runs, every one at high confidence, none sourced, all wrong. The full system returned <em>Dud Leaves Home</em> (1919), the answer key exactly, on 9 decisive claims across 9 domains, citing the very Library of Congress record the benchmark was built from. <strong>D05</strong> arrives mislabelled <em>&ldquo;Those who pay&rdquo;</em>; the control replaced it with two different wrong films, the full system surfaced <em>Through the Breakers</em> (1909), the documented correction, with a contradiction claim.</p>
 
-      <h3 class="subhead">Then we ran it 28 times, and the column above did not survive</h3>
+      <h3 class="subhead" data-explain="stability">Then we ran it 28 times, and the column above did not survive</h3>
       <p class="lede">Arm C is a <strong>single pass</strong>. Six passes over the same five fragments, <strong>28 runs in total</strong>, say something quite different, and we would rather you heard it from us.</p>
       <div class="table-scroll">
         <table class="reftable">
@@ -231,7 +231,7 @@
           <tbody>
             <tr><td>Cases that gave the same verdict every time</td><td><strong>1 of 5</strong></td></tr>
             <tr><td>Correct identities</td><td>3</td></tr>
-            <tr><td><strong>False-confident identifications</strong></td><td><strong>9</strong> <small>(16 on the strictest reading)</small></td></tr>
+            <tr><td><strong data-explain="false_confident">False-confident identifications</strong></td><td><strong>9</strong> <small>(16 on the strictest reading)</small></td></tr>
             <tr><td>Candidates that were not a film at all</td><td>7 <small>(now 0, fixed)</small></td></tr>
             <tr><td><strong>Runs that reached <code>probable</code></strong></td><td><strong>0</strong></td></tr>
           </tbody>
@@ -244,7 +244,7 @@
       <h3 class="subhead">The miss, and why we are keeping it</h3>
       <p class="lede">D04 abstained where the answer key says <em>Buying a cow</em>. The research worked: 13 domains, &ldquo;LOUVRE&rdquo; and &ldquo;TABAC&rdquo; correctly transcribed. Then ten citations were rejected: eight because the compiler paraphrased instead of quoting Parallel verbatim, two because Extract could not find the quote on the live page. No decisive claim survived, so it abstained. <strong>The strictness that stops this system asserting an identity on its own is the same strictness that cost this one.</strong> We are not loosening it; a system that accepts paraphrased citations has given up the only thing it offers.</p>
 
-      <h3 class="subhead">Held-out split &middot; still sealed</h3>
+      <h3 class="subhead" data-explain="sealed">Held-out split &middot; still sealed</h3>
       <div class="metric-grid">
         <article class="metric"><span>False-confident IDs</span><strong>Not run</strong><small>Held-out &middot; n=5 &middot; target 0</small></article>
         <article class="metric"><span>Correct abstentions</span><strong>Not run</strong><small>Held-out &middot; n=5</small></article>

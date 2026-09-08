@@ -237,6 +237,34 @@ def main() -> int:
               f"{rows.count()}")
         shot("07-stack-close")
 
+        # ------------------------------------------------------- explainers
+        beat("Plain-language explainers")
+        page.goto(BASE + "/dossiers#D04", wait_until="networkidle")
+        page.wait_for_timeout(2000)
+        tips = page.locator(".explain-btn")
+        check(tips.count() >= 5, "the dossier carries explainers", f"{tips.count()}")
+        btn = tips.first
+        bubble = page.locator(".explain-bubble").first
+        check(btn.evaluate("e => e.tagName") == "BUTTON", "each is a real button, so it is tabbable")
+        check(bool(btn.get_attribute("aria-label")), "each has an accessible name")
+        check(not bubble.is_visible(), "nothing is shown until asked for")
+        btn.hover()
+        page.wait_for_timeout(250)
+        check(bubble.is_visible(), "hover reveals it, for a mouse")
+        page.mouse.move(0, 0)
+        page.wait_for_timeout(250)
+        check(not bubble.is_visible(), "moving away hides it again")
+        btn.focus()
+        page.keyboard.press("Enter")
+        page.wait_for_timeout(250)
+        check(bubble.is_visible(), "Enter reveals it, for a keyboard")
+        words = len(bubble.inner_text().split())
+        check(12 <= words <= 70, "the explanation is a sentence, not an essay", f"{words} words")
+        page.keyboard.press("Escape")
+        page.wait_for_timeout(250)
+        check(not bubble.is_visible(), "Escape dismisses it")
+        shot("08-explainer")
+
         # ------------------------------------------------------- global checks
         beat("Across every page")
         for path in ("/", "/presets", "/dossiers", "/evaluation", "/practice", "/api", "/stack"):

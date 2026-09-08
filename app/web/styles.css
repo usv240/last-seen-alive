@@ -887,3 +887,48 @@ details.agentstrip{margin-top:var(--s4)}
 details.agentstrip>.auditsum{align-items:baseline}
 details.agentstrip .strip{margin-top:var(--s3)}
 @media print{details.agentstrip>*{display:block!important}}
+
+/* =================== plain-language explainers ==========================
+   A small "i" beside any term that carries weight. One sentence, no jargon.
+
+   It opens three ways on purpose: hover for a mouse, focus for a keyboard, and
+   click for touch and for anyone who wants it to stay put. Hover alone is the
+   usual way this pattern is built and it reaches neither a keyboard nor a phone,
+   which would contradict everything else in this stylesheet. */
+.explain{position:relative;display:inline-flex;vertical-align:baseline;margin-left:6px}
+.explain-btn{
+  width:15px;height:15px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  background:var(--sunk);color:var(--ink-faint);
+  font:700 10px/15px var(--f-display);text-align:center;
+}
+.explain-btn:hover{background:var(--accent-bg);color:var(--accent-ink)}
+.explain-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.explain-bubble{
+  position:absolute;left:50%;top:calc(100% + 8px);translate:-50% 0;z-index:40;
+  width:min(280px,72vw);padding:var(--s3) var(--s4);
+  background:var(--ink);color:var(--paper);border-radius:var(--r-md);
+  box-shadow:var(--shadow-2);
+  font:var(--t-small)/1.5 var(--f-display);text-align:left;
+  opacity:0;visibility:hidden;transition:opacity .12s var(--ease);
+  pointer-events:none;
+}
+.explain-bubble b{display:block;margin-bottom:4px;color:var(--paper);font-weight:700}
+.explain-bubble::before{
+  content:"";position:absolute;left:50%;top:-5px;translate:-50% 0;
+  border:5px solid transparent;border-top:0;border-bottom-color:var(--ink);
+}
+/* Two states, not three. Hovering shows it; toggling pins it. Focus does not
+   show it on its own, because a focus rule fought the toggle: the button still
+   held focus after a click, so clicking again to close, and pressing Escape,
+   both appeared to do nothing. A keyboard user presses Enter on the button,
+   which is the same toggle a mouse user gets, and Escape closes it. */
+.explain:hover .explain-bubble,
+.explain.open .explain-bubble{opacity:1;visibility:visible}
+
+/* Near the right edge the bubble would run off screen; nudge it back. */
+.gaterow:last-child .explain-bubble,.stackrow .explain-bubble{left:auto;right:0;translate:0 0}
+.gaterow:last-child .explain-bubble::before,.stackrow .explain-bubble::before{left:auto;right:14px;translate:0 0}
+
+@media(prefers-reduced-motion:reduce){.explain-bubble{transition:none}}
+@media print{.explain{display:none!important}}
