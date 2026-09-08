@@ -59,6 +59,13 @@ NOT_A_FILM: dict[str, str] = {
         "The incorrect label the fragment arrived carrying. Returning the supplied label is a "
         "failure to contradict it, not a new identification put forward by the system."
     ),
+    "Military subjects. Soldiers on horseback (ca. 1920-ca. 1950)": (
+        "A subject heading with a date range, in the form archives use to describe unidentified "
+        "footage. It names no work."
+    ),
+    "Men's outdoor and equestrian attire from late 19th to early 20th century": (
+        "A costume description, the same failure mode as the workwear cluster above."
+    ),
 }
 
 
@@ -69,13 +76,29 @@ def normalise(title: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+#: The labels above are written as they were observed, so they stay readable and
+#: disputable. They have to be compared in the same normalised form as the
+#: candidate label or a stray hyphen or full stop silently reclassifies a
+#: malformed candidate as a misidentification -- which is exactly what happened
+#: on the first run of this scorer, inflating the false-confident count from one
+#: to three.
+_NOT_A_FILM_NORMALISED = {}
+
+
+def _not_a_film() -> dict[str, str]:
+    if not _NOT_A_FILM_NORMALISED:
+        for label, reason in NOT_A_FILM.items():
+            _NOT_A_FILM_NORMALISED[normalise(label)] = reason
+    return _NOT_A_FILM_NORMALISED
+
+
 def classify(label: str | None, expected: str | None) -> tuple[str, str]:
     """Return (classification, why)."""
     if not label:
         return "no_candidate", "The system put no candidate forward."
     key = normalise(label)
-    if key in NOT_A_FILM:
-        return "malformed_candidate", NOT_A_FILM[key]
+    if key in _not_a_film():
+        return "malformed_candidate", _not_a_film()[key]
     if not expected:
         return "unscored", "No expected title recorded for this case."
     want = normalise(expected)
@@ -145,9 +168,15 @@ def main() -> int:
             "labels_treated_as_not_a_film": NOT_A_FILM,
             "note": (
                 "Each label above was excluded from scoring as a misidentification because it "
-                "names no work. That is a judgement; the labels are published so it can be "
-                "disputed individually. Scoring them as false-confident instead would raise "
-                "that count and lower none of the others."
+                "names no work. That is a judgement, and a self-serving one if left unchecked, "
+                "so both readings are published: `totals` applies the judgement, and "
+                "`false_confident_upper_bound` is what the count becomes if every one of these "
+                "is instead treated as a wrong identification. Quote whichever you find more "
+                "defensible; neither is hidden."
+            ),
+            "false_confident_strict": totals["false_confident"],
+            "false_confident_upper_bound": (
+                totals["false_confident"] + totals["malformed_candidate"]
             ),
         },
         "matching": (

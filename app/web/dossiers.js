@@ -83,7 +83,6 @@
         button.type = 'button';
         button.dataset.case = row.case_id;
         button.setAttribute('aria-pressed', 'false');
-        button.setAttribute('role', 'listitem');
 
         button.append(el('b', row.case_id, 'dossier-id'));
         button.append(el('span', row.title || '', 'dossier-title'));
@@ -93,7 +92,9 @@
         button.append(el('span', `${row.thresholds_passed} of 7 thresholds · ${Math.round(row.elapsed_seconds)}s`, 'dossier-meta'));
 
         button.addEventListener('click', () => show(row.case_id));
-        list.append(button);
+        const item = el('li');
+        item.append(button);
+        list.append(item);
         return button;
       });
 
@@ -104,7 +105,9 @@
       const wanted = decodeURIComponent(window.location.hash.replace('#', '')).toUpperCase();
       if (rows.some((row) => row.case_id === wanted)) show(wanted, { push: false });
     } catch (error) {
-      list.replaceChildren(el('p', `No dossiers have been captured for this deployment (${error.message}).`, 'small'));
+      const item = el('li');
+      item.append(el('p', `No dossiers have been captured for this deployment (${error.message}).`, 'small'));
+      list.replaceChildren(item);
     }
   })();
 })();

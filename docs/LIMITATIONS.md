@@ -21,12 +21,13 @@ headline number.
 This is the most important limitation on the page and it was found late, by running
 the development split a second time to capture dossiers for the site.
 
-**Four of five verdicts moved between the first pass and the second.** Neither of
-the two correct identities the published ablation leads with reappeared. On D02 the
-leading candidate came back as *Bray Studios Inc.* — the studio, not the film. On
-D04 a pass returned *Un coin de Paris (1900)* as its sole leading candidate where
-the answer key says *Buying a cow* (1908); by the definition this project published,
-that is a false-confident identification, and it is scored as one.
+**Across 19 runs of the five development fragments, only one case gave the same
+verdict every time.** D02 returned four different leading candidates in four runs —
+the correct film once, the studio once, and two other films. D04 returned *Un coin
+de Paris (1900)* in three of four runs, at five of seven thresholds, where the key
+says *Buying a cow* (1908): a **reproducible** misidentification, which is worse
+than a random one. Across all 19 runs there are **five** false-confident
+identifications, or twelve if every candidate that named no film is counted as one.
 
 The causes are structural, not a bug to be fixed before the deadline: five agents
 make live calls against a web that changes between runs, and the model is sampled
@@ -38,10 +39,12 @@ Consequences a reader should hold onto:
   pass — including every number in the Arm C column — carries that caveat.
 - **"Zero false-confident identifications" is a property of one pass, not of the
   system.** Across all recorded passes it is not zero.
-- **Four passes over five fragments is a disclosure, not a rate.** It is nowhere
-  near enough to state a false-confident percentage, and none is stated.
+- **Four passes over five fragments is a disclosure, not a rate.** Nineteen runs
+  is nowhere near enough to state a false-confident percentage, and none is stated.
+- **Reliability is part of this.** Of 20 attempted runs one took 95 minutes and one
+  returned HTTP 502. Both are kept in the study, because a caller experiences them.
 
-What did hold across every recorded run: **`probable` was never reached.** That
+What did hold across all 19 runs: **`probable` was never reached.** That
 threshold requires human approval the API cannot supply, so every result above —
 including the wrong one — was returned as `candidates` or `abstain` with its failing
 thresholds attached. The defensible claim is not that this system is not wrong. It

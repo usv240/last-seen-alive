@@ -4,6 +4,16 @@
 
 The agent receives only the anonymous fragment, case ID, optional `provided_label`, the prediction schema, Gemini, and live Parallel research. It cannot access this repository, the builder, filenames outside the isolated input directory, media metadata, LOC item IDs, or the answer key.
 
+**What "sealed" means here, precisely.** `eval/answer_key/ground_truth.json` is
+committed to this public repository and contains the expected titles for the
+held-out cases as well as the development ones. Sealed therefore does **not** mean
+the answers are secret — anyone can read them, which is deliberate, because a
+benchmark whose answers cannot be checked cannot be audited either. It means the
+system has never been run against those five fragments, `/v1/identify` refuses
+them with HTTP 423, their media is never served, and the run will happen exactly
+once after the implementation is tagged. The protection is against tuning on the
+held-out set, not against a reader knowing the answers.
+
 Development cases D01–D05 may be used to tune. Holdout cases H01–H05 may be run only after an `eval-freeze` Git tag exists and the harness records the corpus hash in its durable taint ledger. No retry is permitted after a semantic failure; infrastructure failures must be documented and may be retried only if no model output was produced.
 
 ## Frozen budgets

@@ -16,7 +16,8 @@
     "dossier_archive": "/dossiers",
     "practitioner_register": "/practice",
     "dossiers_json": "/v1/dossiers",
-    "practice_json": "/v1/practice"
+    "practice_json": "/v1/practice",
+    "stability_study": "/v1/eval/stability"
   },
   "google_runtime": {
     "status": "verified",
@@ -203,10 +204,32 @@
     "statement": "Complete, unedited responses captured from real runs of the deployed service, so the product can be read without waiting four to seven minutes for a run. Rendered by the same renderer a live run uses. Held-out cases are never captured."
   },
   "measured_latency": {
-    "source": "eval/reports/arm-c-development.json",
-    "min_seconds": 225,
-    "median_seconds": 383,
+    "source": "eval/reports/stability.json",
+    "runs_inside_server_timeout": 18,
+    "min_seconds": 61,
+    "median_seconds": 299,
     "max_seconds": 430,
-    "note": "The run console's stage timings were originally written from a pre-credential estimate totalling 100 seconds and were 4x optimistic. Corrected, and bound to the measurement by tests/test_published_latency_is_honest.py."
+    "outliers": "one run of 5,705s and one HTTP 502, both published rather than dropped",
+    "note": "Corrected twice. The run console's stage timings were first written from a pre-credential estimate totalling 100s, then rebound to a single pass's 383s median, and are now bound to the 19-run study by tests/test_published_latency_is_honest.py."
+  },
+  "stability_study": {
+    "endpoint": "/v1/eval/stability",
+    "runner": "scripts/run_stability.py",
+    "scorer": "scripts/score_stability.py",
+    "report": "eval/reports/stability.json",
+    "tests": "tests/test_stability_scoring.py",
+    "runs": 19,
+    "passes": 4,
+    "cases": 5,
+    "cases_with_a_stable_verdict": 1,
+    "correct_identities": 2,
+    "false_confident_identifications": 5,
+    "false_confident_upper_bound": 12,
+    "candidates_naming_no_film": 7,
+    "runs_that_reached_probable": 0,
+    "headline_correction": "The Arm C figures published at /v1/eval/arm-c are a single pass recording zero false-confident identifications and two correct identities. Across 19 runs neither figure holds. This is published rather than corrected away, and every surface that quoted the single-pass numbers now labels them as one pass.",
+    "worst_finding": "D04 returned 'Un coin de Paris (1900)' as its sole leading candidate in three of four runs at five of seven thresholds, where the answer key says 'Buying a cow' (1908). A reproducible misidentification is a failure mode, not sampling noise.",
+    "what_held": "No run in 19 reached `probable`. Every wrong answer was returned as `candidates` or `abstain` with its failing thresholds attached.",
+    "reliability": "Of 20 attempted runs, 18 finished inside the 900s server timeout (61-430s, median 299s), one took 5,705s and one returned HTTP 502. Both are retained in the report."
   }
 }

@@ -93,7 +93,7 @@
           </div>
 
           <button class="primary-button" type="submit" data-send>Send request</button>
-          <p class="small" data-warn hidden>An investigation runs five agents and several live Parallel calls. Measured on the development split: 225–430 seconds, median 383. Longer in deep mode. Set your client timeout accordingly.</p>
+          <p class="small" data-warn hidden>An investigation runs five agents and several live Parallel calls. Measured over 18 runs that finished inside the server timeout: 61–430 seconds, median 299. One further run took 95 minutes and one returned 502. Longer in deep mode. Set your client timeout to 900s, not to the median.</p>
         </form>
 
         <section class="card play-result" aria-live="polite">
@@ -163,7 +163,7 @@
         </article>
         <article class="card">
           <h3>Limits, stated honestly</h3>
-          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher — we would rather say that than imply a distributed quota we do not have. Investigations took 225–430 seconds (median 383) across the development split; nothing is queued or cached, so every call pays that in full.</p>
+          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher — we would rather say that than imply a distributed quota we do not have. Investigations took 61–430 seconds (median 299) across 18 runs, with one 95-minute outlier and one 502 in 20 attempts; nothing is queued or cached, so every call pays that in full. The full distribution is at <a href="/v1/eval/stability">/v1/eval/stability</a>.</p>
         </article>
       </div>
     </section>

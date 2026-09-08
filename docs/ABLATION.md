@@ -120,9 +120,10 @@ if it shows the full system never gets past its own gate.**
 ## Arm C — the full system, measured 2026-09-07
 
 > **Read the stability section below before quoting any number in this table.**
-> This arm is a *single pass*. Later passes over the same five fragments disagreed
-> with it on four of five verdicts and reproduced neither correct identity. The
-> table stands as the record of what that pass did; it is not this system's result.
+> This arm is a *single pass*. Nineteen runs over the same five fragments show
+> four of five cases changing verdict, five false-confident identifications where
+> this pass had none, and one reproducible misidentification. The table stands as
+> the record of what this pass did; it is not this system's result.
 
 The Parallel credential arrived, so the third arm exists. Same five fragments,
 `standard` depth, `gemini-2.5-flash`, all six Parallel surfaces live.
@@ -169,8 +170,42 @@ weights.
 
 ### The stability problem, found afterwards
 
-Capturing dossiers for the site meant running these five fragments a second time.
-The second pass disagreed with the table above on **four of five verdicts**:
+Capturing dossiers for the site meant running these five fragments a second time,
+which disagreed with the pass above. So it was run twice more. **Nineteen runs
+over four passes**, all recorded in `eval/reports/stability.json`:
+
+| Across 19 runs | |
+|---|---:|
+| Cases giving the same verdict every time | **1 of 5** |
+| Correct identities | 2 |
+| **False-confident identifications** | **5** (12 on the strictest reading) |
+| Candidates that named no film at all | 7 |
+| **Runs that reached `probable`** | **0** |
+
+Per case, distinct leading candidates across four runs:
+
+| Case | Answer key | Runs | Distinct verdicts | Distinct candidates |
+|---|---|---:|---:|---:|
+| D01 | *Ghosts* (1915) | 4 | 2 | 1 |
+| D02 | *Dud leaves home* (1919) | 4 | 1 | **4** |
+| D03 | *The rival brothers' patriotism* (1911) | 4 | 2 | 3 |
+| D04 | *Buying a cow* (1908) | 4 | 2 | 1 |
+| D05 | *Through the breakers* (1909) | 3 | 2 | 3 |
+
+Two of those lines are worse than instability.
+
+**D02 answered differently every single time.** Four runs, four leading
+candidates: *Dud Leaves Home (1919)* — correct — then *Bray Studios Inc.* (the
+studio), then *The Artist's Dream (1913)*, then *Bobby Bumps at the Circus
+(1916)*. The verdict never changed; the identity underneath it never repeated.
+
+**D04 is reproducibly wrong.** Three of four runs returned *Un coin de Paris
+(1900)* as the sole leading candidate at five of seven thresholds, where the key
+says *Buying a cow* (1908). A wrong answer that recurs is not sampling noise, it
+is a failure mode, and it is the most serious defect this project has found in
+itself.
+
+The first two passes, side by side:
 
 | Case | Arm C pass | Second pass | Answer key |
 |---|---|---|---|
@@ -188,17 +223,23 @@ studio rather than the film.
 
 **"Zero false-confident identifications" does not survive.** By the definition
 published with this report — *the system put forward a specific film as the leading
-candidate and the answer key says it is the wrong film* — the second pass has
-**one**: D04 returned *Un coin de Paris (1900)*, alone, at five of seven thresholds,
-where the key says *Buying a cow*. That is scored as a false-confident
-identification in `eval/reports/stability.json` rather than argued away.
+candidate and the answer key says it is the wrong film* — there are **five** across
+the 19 runs, and **twelve** if every candidate that named no film is counted as a
+misidentification too. Both numbers are published; `scripts/score_stability.py`
+carries the judgement calls in data, line by line, so a reader can disagree with a
+specific exclusion rather than with a total.
 
-**What did hold.** No run, in any pass, reached `probable`. Every one of these
-results was returned as `candidates` or `abstain`, with the failing thresholds
-attached — including the wrong one, where `unresolved_contradictions==0` failed
-because the Skeptic had found the contradiction. The defensible claim is not "this
-system is not wrong". It is "this system does not assert what it cannot support,
-and shows you why" — which is weaker, and true.
+**What did hold.** No run, in 19, reached `probable`. Every one of these results
+was returned as `candidates` or `abstain`, with the failing thresholds attached —
+including the wrong ones, where `unresolved_contradictions==0` failed because the
+Skeptic had found the contradiction. The defensible claim is not "this system is
+not wrong". It is "this system does not assert what it cannot support, and shows
+you why" — which is weaker, and true.
+
+**Reliability, while we are here.** Of 20 attempted runs, 18 finished inside the
+server's 900s timeout (61s–430s, median 299s), one took 95 minutes, and one
+returned HTTP 502. Those two are kept in the report rather than dropped as
+outliers, because a caller experiences them.
 
 The full study, every pass including the bad ones, is at `/v1/eval/stability`
 (`scripts/run_stability.py`, scored by `scripts/score_stability.py`).

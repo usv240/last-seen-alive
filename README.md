@@ -25,6 +25,7 @@ explicit human approval.
 | API | [`/api`](https://last-seen-alive-109051079423.us-central1.run.app/api) — mint a key and run a live call in the browser |
 | Dossiers | [`/dossiers`](https://last-seen-alive-109051079423.us-central1.run.app/dossiers) — complete output from real runs, read it without waiting |
 | Practice | [`/practice`](https://last-seen-alive-109051079423.us-central1.run.app/practice) — published practitioner objections, answered or admitted |
+| Stability | [`/v1/eval/stability`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/stability) — 19 runs of the same five fragments, including the bad ones |
 | Stack | [`/stack`](https://last-seen-alive-109051079423.us-central1.run.app/stack) — every sponsor surface with its call site and live status |
 | OpenAPI | [`/docs`](https://last-seen-alive-109051079423.us-central1.run.app/docs) |
 | Local | `uvicorn app.api.main:app --reload` |
@@ -111,6 +112,31 @@ deterministic code, because each exists to check or outlast the model's own work
 Nothing silently falls back. Without `PARALLEL_API_KEY`, every surface raises
 `ParallelNotConfigured`, the investigation stops, and the stack ribbon on every page reports the
 integration unavailable. `tests/test_parallel_surfaces.py` proves this for all six.
+
+## Read this before quoting any evaluation number
+
+**The published Arm C figures are a single pass and they do not hold.** Running the
+same five development fragments four times — **19 runs** — gives a different and
+worse picture:
+
+| Across 19 runs | |
+|---|---:|
+| Cases giving the same verdict every time | **1 of 5** |
+| Correct identities | 2 |
+| **False-confident identifications** | **5** (12 on the strictest reading) |
+| Candidates that named no film at all | 7 |
+| **Runs that reached `probable`** | **0** |
+
+D02 returned four different leading candidates in four runs. D04 returned the same
+wrong film, *Un coin de Paris* (1900), in three of four runs at five of seven
+thresholds — a reproducible misidentification, not noise. Full study, every run
+including the 95-minute one and the 502: [`/v1/eval/stability`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/stability).
+
+What did hold: **no run ever reached `probable`**, because that threshold requires
+human approval the API cannot supply. Every wrong answer arrived as `candidates`
+with its failing thresholds attached. The claim this project defends is not that it
+is never wrong — it is that it never asserts what it cannot support, and shows its
+working.
 
 ## The case for it, and the review it has not had
 

@@ -1,0 +1,336 @@
+{
+  "study": "verdict_stability",
+  "generated_at": "2026-09-08T03:19:04.203840+00:00",
+  "service": "https://last-seen-alive-109051079423.us-central1.run.app",
+  "split": "dev",
+  "cases": 5,
+  "total_runs": 19,
+  "cases_with_a_stable_verdict": 1,
+  "never_reached_probable_in_any_run": true,
+  "latency_seconds": {
+    "n": 19,
+    "min": 61.4,
+    "median": 299.4,
+    "max": 5705.2
+  },
+  "finding": "Verdicts are not stable across repeated runs of an identical input. The pipeline makes live web calls against a web that changes and samples a model that is not replayed, so the boundary between 'candidates' and 'abstain' moves between passes. What did not move is the safety property: no run in this study reached 'probable', because that threshold requires a human and the API cannot supply one.",
+  "why_this_is_published": "The Arm C figures at /v1/eval/arm-c are a single pass and were reported as such. A second pass disagreed with them on four of five verdicts and reproduced neither of the two correct identities. Publishing only the first pass would have been reporting the better sample.",
+  "results": [
+    {
+      "case_id": "D01",
+      "expected_outcome": "abstain",
+      "runs": 4,
+      "verdicts": {
+        "abstain": 3,
+        "candidates": 1
+      },
+      "verdict_stability": 0.75,
+      "distinct_top_candidates": 1,
+      "top_candidates_seen": {
+        "An unidentified film fragment": 1
+      },
+      "never_reached_probable": true,
+      "observations": [
+        {
+          "source": "arm-c-development.json",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
+          "latency_seconds": 403.2,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        },
+        {
+          "source": "captured dossier",
+          "verdict": "candidates",
+          "top_candidate": "An unidentified film fragment",
+          "thresholds_passed": 2,
+          "latency_seconds": 103.9,
+          "classification": "malformed_candidate",
+          "classification_reason": "A restatement of the input. It names nothing and cannot be right or wrong."
+        },
+        {
+          "source": "stability pass 1",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
+          "latency_seconds": 74.4,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
+          "latency_seconds": 61.4,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        }
+      ],
+      "expected_title": "Ghosts",
+      "classification_counts": {
+        "no_candidate": 3,
+        "malformed_candidate": 1
+      }
+    },
+    {
+      "case_id": "D02",
+      "expected_outcome": "identify",
+      "runs": 4,
+      "verdicts": {
+        "candidates": 4
+      },
+      "verdict_stability": 1.0,
+      "distinct_top_candidates": 4,
+      "top_candidates_seen": {
+        "Dud Leaves Home (1919)": 1,
+        "Bray Studios Inc.": 1,
+        "The Artist's Dream (1913)": 1,
+        "Bobby Bumps at the Circus (1916)": 1
+      },
+      "never_reached_probable": true,
+      "observations": [
+        {
+          "source": "arm-c-development.json",
+          "verdict": "candidates",
+          "top_candidate": "Dud Leaves Home (1919)",
+          "thresholds_passed": 5,
+          "latency_seconds": 225.4,
+          "classification": "correct",
+          "classification_reason": "Matches the answer key (Dud leaves home)."
+        },
+        {
+          "source": "captured dossier",
+          "verdict": "candidates",
+          "top_candidate": "Bray Studios Inc.",
+          "thresholds_passed": 4,
+          "latency_seconds": 335.7,
+          "classification": "malformed_candidate",
+          "classification_reason": "A production company. Naming the studio is a real research result and may well be correct, but it identifies no film, so it is neither a hit nor a misidentification."
+        },
+        {
+          "source": "stability pass 1",
+          "verdict": "candidates",
+          "top_candidate": "The Artist's Dream (1913)",
+          "thresholds_passed": 3,
+          "latency_seconds": 368.7,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says Dud leaves home."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "candidates",
+          "top_candidate": "Bobby Bumps at the Circus (1916)",
+          "thresholds_passed": 5,
+          "latency_seconds": 285.3,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says Dud leaves home."
+        }
+      ],
+      "expected_title": "Dud leaves home",
+      "classification_counts": {
+        "correct": 1,
+        "malformed_candidate": 1,
+        "false_confident": 2
+      }
+    },
+    {
+      "case_id": "D03",
+      "expected_outcome": "candidates",
+      "runs": 4,
+      "verdicts": {
+        "candidates": 2,
+        "abstain": 2
+      },
+      "verdict_stability": 0.5,
+      "distinct_top_candidates": 3,
+      "top_candidates_seen": {
+        "Early to Mid-20th Century Civilian and Workwear": 1,
+        "Military subjects. Soldiers on horseback (ca. 1920-ca. 1950)": 1,
+        "Men's outdoor and equestrian attire from late 19th to early 20th century": 1
+      },
+      "never_reached_probable": true,
+      "observations": [
+        {
+          "source": "arm-c-development.json",
+          "verdict": "candidates",
+          "top_candidate": "Early to Mid-20th Century Civilian and Workwear",
+          "thresholds_passed": 4,
+          "latency_seconds": 429.7,
+          "classification": "malformed_candidate",
+          "classification_reason": "A costume-period cluster, not a work. Already classified this way in the Arm C report."
+        },
+        {
+          "source": "captured dossier",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
+          "latency_seconds": 100.8,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        },
+        {
+          "source": "stability pass 1",
+          "verdict": "abstain",
+          "top_candidate": "Military subjects. Soldiers on horseback (ca. 1920-ca. 1950)",
+          "thresholds_passed": 4,
+          "latency_seconds": 362.2,
+          "classification": "malformed_candidate",
+          "classification_reason": "A subject heading with a date range, in the form archives use to describe unidentified footage. It names no work."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "candidates",
+          "top_candidate": "Men's outdoor and equestrian attire from late 19th to early 20th century",
+          "thresholds_passed": 5,
+          "latency_seconds": 93.1,
+          "classification": "malformed_candidate",
+          "classification_reason": "A costume description, the same failure mode as the workwear cluster above."
+        }
+      ],
+      "expected_title": "The rival brothers' patriotism",
+      "classification_counts": {
+        "malformed_candidate": 3,
+        "no_candidate": 1
+      }
+    },
+    {
+      "case_id": "D04",
+      "expected_outcome": "identify",
+      "runs": 4,
+      "verdicts": {
+        "abstain": 1,
+        "candidates": 3
+      },
+      "verdict_stability": 0.75,
+      "distinct_top_candidates": 1,
+      "top_candidates_seen": {
+        "Un coin de Paris (1900)": 3
+      },
+      "never_reached_probable": true,
+      "observations": [
+        {
+          "source": "arm-c-development.json",
+          "verdict": "abstain",
+          "top_candidate": null,
+          "thresholds_passed": 1,
+          "latency_seconds": 373.1,
+          "classification": "no_candidate",
+          "classification_reason": "The system put no candidate forward."
+        },
+        {
+          "source": "captured dossier",
+          "verdict": "candidates",
+          "top_candidate": "Un coin de Paris (1900)",
+          "thresholds_passed": 5,
+          "latency_seconds": 255.9,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says Buying a cow."
+        },
+        {
+          "source": "stability pass 1",
+          "verdict": "candidates",
+          "top_candidate": "Un coin de Paris (1900)",
+          "thresholds_passed": 5,
+          "latency_seconds": 311.1,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says Buying a cow."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "candidates",
+          "top_candidate": "Un coin de Paris (1900)",
+          "thresholds_passed": 5,
+          "latency_seconds": 299.4,
+          "classification": "false_confident",
+          "classification_reason": "A specific film was put forward as the leading candidate; the answer key says Buying a cow."
+        }
+      ],
+      "expected_title": "Buying a cow",
+      "classification_counts": {
+        "no_candidate": 1,
+        "false_confident": 3
+      }
+    },
+    {
+      "case_id": "D05",
+      "expected_outcome": "contradict",
+      "runs": 3,
+      "verdicts": {
+        "candidates": 2,
+        "abstain": 1
+      },
+      "verdict_stability": 0.67,
+      "distinct_top_candidates": 3,
+      "top_candidates_seen": {
+        "Through the Breakers (1909)": 1,
+        "Those who pay": 1,
+        "Those Who Pay (1917)": 1
+      },
+      "never_reached_probable": true,
+      "observations": [
+        {
+          "source": "arm-c-development.json",
+          "verdict": "candidates",
+          "top_candidate": "Through the Breakers (1909)",
+          "thresholds_passed": 3,
+          "latency_seconds": 383.1,
+          "classification": "correct",
+          "classification_reason": "Matches the answer key (Through the breakers)."
+        },
+        {
+          "source": "captured dossier",
+          "verdict": "abstain",
+          "top_candidate": "Those who pay",
+          "thresholds_passed": 0,
+          "latency_seconds": 234.3,
+          "classification": "malformed_candidate",
+          "classification_reason": "The incorrect label the fragment arrived carrying. Returning the supplied label is a failure to contradict it, not a new identification put forward by the system."
+        },
+        {
+          "source": "stability pass 2",
+          "verdict": "candidates",
+          "top_candidate": "Those Who Pay (1917)",
+          "thresholds_passed": 4,
+          "latency_seconds": 5705.2,
+          "classification": "malformed_candidate",
+          "classification_reason": "The incorrect label the fragment arrived carrying. Returning the supplied label is a failure to contradict it, not a new identification put forward by the system."
+        }
+      ],
+      "expected_title": "Through the breakers",
+      "classification_counts": {
+        "correct": 1,
+        "malformed_candidate": 2
+      }
+    }
+  ],
+  "scoring": {
+    "definition": "false_confident_identification: the system put forward a specific film as the leading candidate and the answer key says it is the wrong film. This is the definition published with the Arm C report, applied here to every recorded pass rather than to one.",
+    "totals": {
+      "correct": 2,
+      "false_confident": 5,
+      "malformed_candidate": 7,
+      "no_candidate": 5,
+      "unscored": 0
+    },
+    "runs_scored": 19,
+    "runs_that_reached_probable": 0,
+    "headline_correction": "The Arm C pass recorded zero false-confident identifications and two correct identities. Across every recorded pass those figures do not hold: the system is not stable enough for a single pass to stand as its result. Both numbers are reported here over all passes.",
+    "what_did_hold": "No run in any pass reached `probable`. Every false-confident identification counted above was returned as `candidates` with the failing thresholds attached, which is the difference between a system that is wrong and a system that asserts something wrong. It is a weaker claim than 'never wrong' and it is the true one.",
+    "judgement_calls": {
+      "labels_treated_as_not_a_film": {
+        "early to mid-20th century civilian and workwear": "A costume-period cluster, not a work. Already classified this way in the Arm C report.",
+        "bray studios inc.": "A production company. Naming the studio is a real research result and may well be correct, but it identifies no film, so it is neither a hit nor a misidentification.",
+        "an unidentified film fragment": "A restatement of the input. It names nothing and cannot be right or wrong.",
+        "those who pay": "The incorrect label the fragment arrived carrying. Returning the supplied label is a failure to contradict it, not a new identification put forward by the system.",
+        "Military subjects. Soldiers on horseback (ca. 1920-ca. 1950)": "A subject heading with a date range, in the form archives use to describe unidentified footage. It names no work.",
+        "Men's outdoor and equestrian attire from late 19th to early 20th century": "A costume description, the same failure mode as the workwear cluster above."
+      },
+      "note": "Each label above was excluded from scoring as a misidentification because it names no work. That is a judgement, and a self-serving one if left unchecked, so both readings are published: `totals` applies the judgement, and `false_confident_upper_bound` is what the count becomes if every one of these is instead treated as a wrong identification. Quote whichever you find more defensible; neither is hidden.",
+      "false_confident_strict": 5,
+      "false_confident_upper_bound": 12
+    },
+    "matching": "Casefolded, punctuation stripped, a trailing parenthesised year removed, then exact or containment match. Nothing fuzzier: a near-miss on a title is a miss."
+  }
+}
