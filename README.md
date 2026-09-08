@@ -25,7 +25,7 @@ explicit human approval.
 | API | [`/api`](https://last-seen-alive-109051079423.us-central1.run.app/api) — mint a key and run a live call in the browser |
 | Dossiers | [`/dossiers`](https://last-seen-alive-109051079423.us-central1.run.app/dossiers) — complete output from real runs, read it without waiting |
 | Practice | [`/practice`](https://last-seen-alive-109051079423.us-central1.run.app/practice) — published practitioner objections, answered or admitted |
-| Stability | [`/v1/eval/stability`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/stability) — 19 runs of the same five fragments, including the bad ones |
+| Stability | [`/v1/eval/stability`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/stability) — 28 runs of the same five fragments, including the bad ones |
 | Stack | [`/stack`](https://last-seen-alive-109051079423.us-central1.run.app/stack) — every sponsor surface with its call site and live status |
 | OpenAPI | [`/docs`](https://last-seen-alive-109051079423.us-central1.run.app/docs) |
 | Local | `uvicorn app.api.main:app --reload` |
@@ -116,10 +116,10 @@ integration unavailable. `tests/test_parallel_surfaces.py` proves this for all s
 ## Read this before quoting any evaluation number
 
 **The published Arm C figures are a single pass and they do not hold.** Running the
-same five development fragments four times — **19 runs** — gives a different and
+same five development fragments six times — **28 runs** — gives a different and
 worse picture:
 
-| Across 19 runs | |
+| Across 28 runs | |
 |---|---:|
 | Cases giving the same verdict every time | **1 of 5** |
 | Correct identities | 2 |

@@ -21,13 +21,13 @@ headline number.
 This is the most important limitation on the page and it was found late, by running
 the development split a second time to capture dossiers for the site.
 
-**Across 19 runs of the five development fragments, only one case gave the same
+**Across 28 runs of the five development fragments, only one case gave the same
 verdict every time.** D02 returned four different leading candidates in four runs —
 the correct film once, the studio once, and two other films. D04 returned *Un coin
 de Paris (1900)* in three of four runs, at five of seven thresholds, where the key
 says *Buying a cow* (1908): a **reproducible** misidentification, which is worse
-than a random one. Across all 19 runs there are **five** false-confident
-identifications, or twelve if every candidate that named no film is counted as one.
+than a random one. Across all 28 runs there are **nine** false-confident
+identifications, or sixteen if every candidate that named no film is counted as one.
 
 The causes are structural, not a bug to be fixed before the deadline: five agents
 make live calls against a web that changes between runs, and the model is sampled
@@ -47,7 +47,7 @@ Consequences a reader should hold onto:
   about 100ms after the application had logged `200 OK` for the same request. Retrying
   costs a second full run and a second set of partner calls.
 
-What did hold across all 19 runs: **`probable` was never reached.** That
+What did hold across all 28 runs: **`probable` was never reached.** That
 threshold requires human approval the API cannot supply, so every result above —
 including the wrong one — was returned as `candidates` or `abstain` with its failing
 thresholds attached. The defensible claim is not that this system is not wrong. It

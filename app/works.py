@@ -1,7 +1,7 @@
 """Does this candidate actually name a moving-image work?
 
-Measured defect, not a hypothetical one. Across 19 recorded runs of the
-development split, **seven** put something into the candidate slot that is not a
+Measured defect, not a hypothetical one. Across the first 19 recorded runs of
+the development split, **seven** put something into the candidate slot that is not a
 film: a production company (`Bray Studios Inc.`), a physical element of the print
 (`black_film_leader`), a restatement of the input (`An unidentified film
 fragment`), the fragment's own visuals (`fragment_D03_visuals`), and two costume

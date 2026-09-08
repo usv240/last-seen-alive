@@ -174,7 +174,7 @@ Capturing dossiers for the site meant running these five fragments a second time
 which disagreed with the pass above. So it was run twice more. **Nineteen runs
 over four passes**, all recorded in `eval/reports/stability.json`:
 
-| Across 19 runs | |
+| Across 28 runs | |
 |---|---:|
 | Cases giving the same verdict every time | **1 of 5** |
 | Correct identities | 2 |
@@ -224,7 +224,7 @@ studio rather than the film.
 **"Zero false-confident identifications" does not survive.** By the definition
 published with this report — *the system put forward a specific film as the leading
 candidate and the answer key says it is the wrong film* — there are **five** across
-the 19 runs, and **twelve** if every candidate that named no film is counted as a
+the 28 runs, and **sixteen** if every candidate that named no film is counted as a
 misidentification too. Both numbers are published; `scripts/score_stability.py`
 carries the judgement calls in data, line by line, so a reader can disagree with a
 specific exclusion rather than with a total.

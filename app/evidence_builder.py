@@ -180,7 +180,7 @@ def build(compiled: CompiledEvidence, registry: CitationRegistry) -> BuiltEviden
 
     candidates: list[Candidate] = []
     for entry in compiled.candidates:
-        # A candidate slot is for a work. Measured over 19 runs, seven of the
+        # A candidate slot is for a work. Over the first 19 recorded runs, seven of the
         # things that landed here were not: a studio, a piece of leader, a
         # costume cluster, a restatement of the input. None of those can be
         # right or wrong about which film this is, so none of them may be

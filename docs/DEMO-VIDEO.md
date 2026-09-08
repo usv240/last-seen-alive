@@ -90,16 +90,16 @@ is worth more than one that shows it being right. Verify the shot against the li
 page before recording: the dossiers are real runs and a future recapture may move.
 
 **2:00–2:25 — the part most demos leave out**
-> We ran those five fragments nineteen times. Only one of the five gave the same
+> We ran those five fragments twenty-eight times. Only one of the five gave the same
 > verdict every time. One case returned four different answers in four runs.
 > Another returned the same wrong film three times out of four. Zero
 > false-confident identifications was true of one pass, not of this system —
-> across nineteen runs there are five.
+> across twenty-eight runs there are nine.
 
-Screen: the landing page's 19-run table, then `/v1/eval/stability` raw JSON for a
+Screen: the landing page's stability table, then `/v1/eval/stability` raw JSON for a
 beat so it is clear the number is served, not asserted.
 
-> What did hold: no run, in nineteen, ever claimed a probable identity. That
+> What did hold: no run, in twenty-eight, ever claimed a probable identity. That
 > needs a human, and the API cannot supply one.
 
 **2:25–2:45 — the review we could not get**
@@ -130,7 +130,7 @@ return inside the shot). Close on `/stack`.
 - [ ] The cut away from the running investigation carries its caption.
 - [ ] The refused citation is legible at 1080p, not just visible.
 - [ ] `/practice` shows an **Unanswered** entry on screen, not only answered ones.
-- [ ] The 19-run stability table is legible at 1080p. Do not cut it for time; cut
+- [ ] The stability table is legible at 1080p. Do not cut it for time; cut
       the prior-art or upload shots instead.
 - [ ] Captions or subtitles burned in.
 - [ ] Watch it once at 3:00 exactly and confirm the close lands inside.
@@ -146,5 +146,5 @@ the ones that went badly — are published: `/v1/eval/stability`, `/v1/dossiers`
 
 Because the alternative is a system that asks archivists to trust an identification
 while hiding that the same fragment gave a different answer on the previous run.
-The 19-run study is the most persuasive thing in the submission precisely because
+The stability study is the most persuasive thing in the submission precisely because
 nobody would publish it unless they meant the rest.
