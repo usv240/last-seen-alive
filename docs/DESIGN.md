@@ -68,9 +68,18 @@ logo row is a claim the interface cannot back up.
 
 ## 6. The wait is the explanation
 
-An investigation takes 40–120 seconds. A spinner for that long reads as a hang and
-teaches nothing. The run console names all six stages, says which agent owns each
-one and which Parallel surface it calls, and runs a real elapsed clock.
+An investigation takes 225–430 seconds, median 383, measured across the five
+development fragments with the credential attached. A spinner for six minutes reads
+as a hang and teaches nothing. The run console names all six stages, says which agent
+owns each one and which Parallel surface it calls, runs a real elapsed clock, and
+states the expected duration *before* the clock starts.
+
+That last part was a correction. The stage timings were first written from an
+estimate totalling 100 seconds; the measurement came in at nearly four times that,
+so the console reached its final stage in under two minutes and then sat on it for
+four more — producing exactly the hang-reading the console exists to prevent. The
+figures are now the original proportions rescaled to the measured median. A design
+that explains the wait has to be right about how long the wait is.
 
 The stage cadence is a timer, not a live trace — the API returns one response at
 the end, so there is no per-stage event to bind to. So the console describes the

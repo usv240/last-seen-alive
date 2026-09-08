@@ -374,6 +374,12 @@ select:hover,input:hover,textarea:hover{border-color:var(--ink-faint)}
 .run-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3)}
 .run-clock{font:650 var(--t-small)/1 var(--f-data);color:var(--ink-faint);font-variant-numeric:tabular-nums}
 
+/* The expected duration, stated before the clock starts. It sits between the
+   heading and the stage list because that is where a viewer looks first when
+   deciding whether to keep the tab open. */
+.run-note{margin:0;font:var(--t-small)/1.5 var(--f-body);color:var(--ink-soft)}
+.run-note b{color:var(--ink);font-weight:650}
+
 .stagelist{display:grid;gap:1px;margin:0;padding:0;list-style:none;background:var(--rule-soft);border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden}
 .stage{
   display:grid;grid-template-columns:22px 1fr;gap:var(--s3);align-items:start;

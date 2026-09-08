@@ -91,7 +91,7 @@
           </div>
 
           <button class="primary-button" type="submit" data-send>Send request</button>
-          <p class="small" data-warn hidden>An investigation runs five agents and several live Parallel calls. Expect 40–120 seconds, longer in deep mode.</p>
+          <p class="small" data-warn hidden>An investigation runs five agents and several live Parallel calls. Measured on the development split: 225–430 seconds, median 383. Longer in deep mode. Set your client timeout accordingly.</p>
         </form>
 
         <section class="card play-result" aria-live="polite">
@@ -161,7 +161,7 @@
         </article>
         <article class="card">
           <h3>Limits, stated honestly</h3>
-          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher — we would rather say that than imply a distributed quota we do not have. Investigations take 40–120 seconds; nothing is queued or cached.</p>
+          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher — we would rather say that than imply a distributed quota we do not have. Investigations took 225–430 seconds (median 383) across the development split; nothing is queued or cached, so every call pays that in full.</p>
         </article>
       </div>
     </section>

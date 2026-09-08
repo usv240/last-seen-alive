@@ -1,10 +1,12 @@
 /* The investigation console.
 
-   An investigation takes 40-120 seconds: five Gemini agents and several live
-   Parallel calls. A spinner for that long tells the viewer nothing and reads
-   as a hang. But the wait is also the single best opportunity this product
-   has to explain itself, because what it is doing during those 90 seconds
-   *is* the argument for the product.
+   An investigation is slow: five Gemini agents and several live Parallel
+   calls. Measured across the five development fragments with the credential
+   attached, a run takes 225s to 430s, median 383s (eval/reports/
+   arm-c-development.json). A spinner for six minutes tells the viewer nothing
+   and reads as a hang. But the wait is also the single best opportunity this
+   product has to explain itself, because what it is doing during those
+   minutes *is* the argument for the product.
 
    So the wait shows the six named stages, which agent owns each one, and
    which Parallel surface it is calling. Stages advance on a timer, which
@@ -12,7 +14,15 @@
    than a live trace — the API returns one response at the end, so there is
    no per-stage event to bind to. The elapsed clock is real, and the final
    state is replaced entirely by the response. Nothing here ever claims a
-   stage produced a result. */
+   stage produced a result.
+
+   These durations were first written from a pre-credential estimate that
+   totalled 100 seconds. Against the real measurement that was 4x optimistic,
+   so the console walked to the last stage in under two minutes and then sat
+   on it for four more — the exact hang-reading this file exists to prevent.
+   The per-stage figures below are the original proportions rescaled to the
+   measured median. They are a shape, not an instrument: only the clock and
+   the final response report anything measured about *this* run. */
 
 (() => {
   const el = (tag, text, cls) => {
@@ -23,13 +33,19 @@
   };
 
   const STAGES = [
-    ['Visual Examiner', 'Gemini reads the frames and transcribes any visible text verbatim', 11],
-    ['Phrase Hunter', 'Parallel Search hunts the rarest strings as literal quoted phrases', 20],
-    ['Holdings Researcher', 'Parallel Task and FindAll check alternate titles and name the catalogues', 26],
-    ['Skeptic', 'Parallel Search looks for evidence against its own candidates', 18],
-    ['Evidence Compiler', 'Gemini restates the findings as typed, citable claims', 10],
-    ['Verification', 'Parallel Extract re-opens every cited page, then the gate counts thresholds', 15],
+    ['Visual Examiner', 'Gemini reads the frames and transcribes any visible text verbatim', 42],
+    ['Phrase Hunter', 'Parallel Search hunts the rarest strings as literal quoted phrases', 77],
+    ['Holdings Researcher', 'Parallel Task and FindAll check alternate titles and name the catalogues', 100],
+    ['Skeptic', 'Parallel Search looks for evidence against its own candidates', 69],
+    ['Evidence Compiler', 'Gemini restates the findings as typed, citable claims', 38],
+    ['Verification', 'Parallel Extract re-opens every cited page, then the gate counts thresholds', 57],
   ];
+
+  //: The measured spread of a full run, in seconds, across the development
+  //: split. Shown before the clock starts so a long wait is an expectation
+  //: rather than a surprise.
+  const TYPICAL_LOW = 225;
+  const TYPICAL_HIGH = 430;
 
   class RunConsole {
     constructor(host) {
@@ -50,7 +66,7 @@
       const box = el('div', undefined, 'run-empty');
       box.append(el('span', '⌕', 'glyph'));
       box.append(el('b', message || 'No investigation running'));
-      box.append(el('p', 'Choose a fragment, or upload your own, and the workflow will run here. Nothing is sent until you press the button.'));
+      box.append(el('p', `Choose a fragment, or upload your own, and the workflow will run here. A run takes ${Math.round(TYPICAL_LOW / 60)}-${Math.ceil(TYPICAL_HIGH / 60)} minutes against live sources. Nothing is sent until you press the button.`));
       this.host.replaceChildren(box);
     }
 
@@ -62,6 +78,13 @@
       head.append(el('b', label, 'small'));
       this.clock = el('span', '0.0s', 'run-clock');
       head.append(this.clock);
+
+      // Say the cost before charging it. Six minutes is a long time to watch a
+      // clock you were not warned about, and a viewer who expects it reads a
+      // slow stage as work rather than as a failure.
+      const note = el('p', undefined, 'run-note');
+      note.append(el('b', `Typically ${Math.round(TYPICAL_LOW / 60)}-${Math.ceil(TYPICAL_HIGH / 60)} minutes.`));
+      note.append(el('span', ' Real archival research against live sources, not a cached answer. Leave this tab open; the dossier replaces this panel when it lands.'));
 
       const list = el('ol', undefined, 'stagelist');
       this.rows = STAGES.map(([name, detail], index) => {
@@ -75,7 +98,7 @@
         return row;
       });
 
-      this.host.replaceChildren(head, list);
+      this.host.replaceChildren(head, note, list);
 
       // Advance through the stages on the pipeline's usual cadence. If the
       // response comes back sooner, `finish` cancels the rest; if it takes
