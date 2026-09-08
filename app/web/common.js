@@ -249,17 +249,50 @@
     return row;
   }
 
+  /* A dossier can carry fourteen claims, each with several sources and a full
+     excerpt apiece. Rendered flat that is several screens of scrolling before a
+     reader reaches the audit, and the two things worth seeing first -- what was
+     refused, and what contradicts the leading candidate -- are buried in the
+     middle of it.
+
+     So each claim is a <details>. The summary carries everything needed to
+     decide whether to open it: stance, whether it can be decisive, the claim
+     itself, and how its sources fared in the live audit. Nothing is removed;
+     the excerpts are one click away and every one of them prints. */
+  function claimSummaryTag(claim) {
+    const n = claim.sources.length;
+    if (!n) return 'no source';
+    const confirmed = claim.sources.filter((s) => s.live_verified === true).length;
+    const refused = claim.sources.filter((s) => s.live_verified === false).length;
+    const parts = [`${n} source${n === 1 ? '' : 's'}`];
+    if (confirmed) parts.push(`${confirmed} confirmed`);
+    if (refused) parts.push(`${refused} refused`);
+    return parts.join(' · ');
+  }
+
   function claimCard(claim) {
-    const card = el('article', undefined, `claim ${claim.stance}`);
-    const top = el('div', undefined, 'claimtop');
-    top.append(el('span', claim.stance, `stance ${claim.stance}`));
-    top.append(el('span', claim.decisive_eligible ? 'decisive' : 'not decisive',
+    const card = el('details', undefined, `claim ${claim.stance}`);
+    const sum = el('summary', undefined, 'claimsum');
+    sum.append(el('span', claim.stance, `stance ${claim.stance}`));
+    sum.append(el('span', claim.decisive_eligible ? 'decisive' : 'not decisive',
       `decisive ${claim.decisive_eligible ? 'yes' : 'no'}`));
-    card.append(top);
-    card.append(el('p', claim.claim_text, 'claimtext'));
-    card.append(el('p', claim.confidence_basis, 'basis'));
-    if (claim.sources.length) claim.sources.forEach((s) => card.append(sourceRow(s)));
-    else card.append(el('p', 'No surviving source. This claim cannot be decisive.', 'nosrc'));
+    sum.append(el('span', claim.claim_text, 'claimtext'));
+    const refused = claim.sources.some((s) => s.live_verified === false);
+    const tag = el('span', claimSummaryTag(claim), 'srcsum');
+    if (refused) tag.classList.add('has-refused');
+    if (!claim.sources.length) tag.classList.add('has-none');
+    sum.append(tag);
+    card.append(sum);
+
+    const body = el('div', undefined, 'claimbody');
+    body.append(el('p', claim.confidence_basis, 'basis'));
+    if (claim.sources.length) claim.sources.forEach((s) => body.append(sourceRow(s)));
+    else body.append(el('p', 'No surviving source. This claim cannot be decisive.', 'nosrc'));
+    card.append(body);
+
+    // Opened by default only where the reader would otherwise miss the point:
+    // a citation the live audit threw out, or evidence against the candidate.
+    if (refused || claim.stance === 'contradicts') card.open = true;
     return card;
   }
 
@@ -277,15 +310,30 @@
     box.append(el('p',
       'Every decisive citation was re-opened and checked against the page as it stands today. A search snippet is Parallel’s summary of a page; this is the page itself.',
       'colnote'));
-    (audit.audited || []).forEach((entry) => {
+
+    // The per-page rows repeat URLs already shown against their claims, so the
+    // list collapses and the outcome -- which is the part that matters -- moves
+    // into the summary where it is readable without opening anything.
+    const rows = audit.audited || [];
+    const held = rows.filter((e) => e.excerpt_present_on_live_page).length;
+    const fold = el('details', undefined, 'auditfold');
+    if (held < rows.length) fold.open = true;
+    const sum = el('summary', undefined, 'auditsum');
+    sum.append(el('b', `${held} of ${rows.length} cited pages still carry their quotation`));
+    if (held < rows.length) {
+      sum.append(el('span', `${rows.length - held} refused`, 'auditbad'));
+    }
+    fold.append(sum);
+    rows.forEach((entry) => {
       const row = el('div', undefined, `auditrow ${entry.excerpt_present_on_live_page ? 'ok' : 'no'}`);
       row.append(el('span', entry.excerpt_present_on_live_page ? '✓' : '✕', 'gmark'));
       const body = el('div');
       body.append(el('b', entry.page_title || entry.url));
       body.append(el('span', entry.note, 'auditnote'));
       row.append(body);
-      box.append(row);
+      fold.append(row);
     });
+    box.append(fold);
     return box;
   }
 
@@ -409,6 +457,21 @@
     right.append(el('p', 'Supporting and contradicting claims are shown together. The Skeptic searches specifically for evidence against the leading candidate.', 'colnote'));
     const claims = ev.claims || [];
     if (!claims.length) right.append(el('p', 'No claim survived compilation. The gate abstained rather than guessing.', 'nosrc'));
+    if (claims.length) {
+      const decisive = claims.filter((c) => c.decisive_eligible).length;
+      const bar = el('div', undefined, 'claimbar');
+      bar.append(el('span', `${claims.length} claims · ${decisive} can be decisive`, 'claimcount'));
+      const toggle = el('button', 'Expand all', 'link-button');
+      toggle.type = 'button';
+      toggle.addEventListener('click', () => {
+        const cards = right.querySelectorAll('details.claim');
+        const opening = toggle.textContent === 'Expand all';
+        cards.forEach((d) => { d.open = opening; });
+        toggle.textContent = opening ? 'Collapse all' : 'Expand all';
+      });
+      bar.append(toggle);
+      right.append(bar);
+    }
     claims.forEach((c) => right.append(claimCard(c)));
     if ((ev.unresolved_questions || []).length) {
       right.append(el('h3', 'Unresolved questions'));
@@ -429,9 +492,15 @@
       const cold = el('section', undefined, 'auditbox');
       cold.append(el('h3', 'This fragment stays unidentified: keep looking'));
       cold.append(el('p', 'An abstention is the right answer today and the wrong answer forever. Archives digitise continuously. A Parallel Monitor leaves a standing weekly query on the strings visible in this frame.', 'colnote'));
+      const strings = data.cold_case.watchable_strings || [];
+      const fold = el('details', undefined, 'coldfold');
+      const sum = el('summary', undefined, 'auditsum');
+      sum.append(el('b', `${strings.length} string${strings.length === 1 ? '' : 's'} would be watched`));
+      fold.append(sum);
       const list = el('ul', undefined, 'qlist');
-      data.cold_case.watchable_strings.forEach((s) => list.append(el('li', s)));
-      cold.append(list);
+      strings.forEach((str) => list.append(el('li', str)));
+      fold.append(list);
+      cold.append(fold);
       const watch = el('button', 'Leave a standing watch', 'secondary-button');
       watch.addEventListener('click', async () => {
         watch.disabled = true; watch.textContent = 'Registering…';
@@ -452,8 +521,11 @@
       host.append(cold);
     }
 
-    const agents = el('section', undefined, 'agentstrip');
-    agents.append(el('h3', 'Five roles, separately inspectable'));
+    const agents = el('details', undefined, 'agentstrip');
+    const agentsum = el('summary', undefined, 'auditsum');
+    agentsum.append(el('b', 'Five roles, separately inspectable'));
+    agentsum.append(el('span', 'raw output from each agent in this run', 'colnote'));
+    agents.append(agentsum);
     const strip = el('div', undefined, 'strip');
     Object.entries(data.outputs || {}).forEach(([key, value], i) => {
       const spec = AGENT_COPY[key] || [key, ''];

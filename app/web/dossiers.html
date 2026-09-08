@@ -43,8 +43,8 @@
     <section class="masthead compact shell" aria-labelledby="page-title">
       <p class="eyebrow">REAL OUTPUT, INCLUDING THE FAILURES</p>
       <h1 id="page-title">What this product actually produced, without waiting for it.</h1>
-      <p class="deck">An investigation takes minutes. These are complete responses captured from real runs of this deployed service against the public demo fragments: every claim, every citation, which citations survived the live audit, and which of the gate's thresholds passed.</p>
-      <p class="lede">Nothing here is curated. No run was repeated to get a better result, and the abstentions are published beside the successes because an abstention is a correct outcome when the evidence does not support an identity. Held-out fragments are never captured.</p>
+      <p class="deck">Complete responses captured from real runs against the public demo fragments: every claim, every citation, which citations survived the live audit, and which thresholds passed.</p>
+      <p class="lede">Nothing is curated. No run was repeated to get a better result, and the abstentions sit beside the successes. Held-out fragments are never captured.</p>
     </section>
 
     <section class="section shell" aria-labelledby="pick-title">
@@ -67,19 +67,23 @@
     </section>
 
     <section class="section shell" aria-labelledby="variance-title">
-      <h2 id="variance-title">Two things to know before you read these</h2>
-      <div class="card">
-        <h3>The same fragment often does not give the same verdict</h3>
-        <p>This pipeline is not deterministic, and the instability is larger than we first reported. Five agents make live web calls against a web that changes, and Gemini is sampled rather than replayed. Over <b>28 recorded runs of these five fragments, only one case gave the same verdict every time</b>. D02 returned four different leading candidates in four runs; the dossier below is the one where it answered <code>Bray Studios Inc.</code>, the studio, not the film. D04 returned the same wrong film in three of four runs.</p>
-        <p>That is published rather than smoothed over, and it qualifies the headline numbers directly: <b>a single pass is a sample, not a measurement.</b> Across all 28 runs there were 9 false-confident identifications, not the zero one pass recorded. The full study is at <a href="/v1/eval/stability">/v1/eval/stability</a>, including the run that took 95 minutes.</p>
-        <p><b>These dossiers were captured before the two defects were fixed</b>, and they are kept that way on purpose: the D02 dossier below shows the candidate slot holding a studio, which is exactly the defect <code>app/works.py</code> now rejects. Each dossier reports the gate it was actually scored under. What changed afterwards, and what did not, is at <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a>: the non-films are gone; the wrong films are not.</p>
-        <p>One thing did not move. <b>No run, in 28, ever reached <code>probable</code></b>, because that threshold needs a human, and the API cannot supply one. The verdict boundary between <code>candidates</code> and <code>abstain</code> wobbles; the guarantee that the system will not assert an identity on its own does not.</p>
-      </div>
-      <div class="card">
-        <h3>An abstention is not a failure to answer</h3>
-        <p>It is a refusal to answer without evidence. On D04 the research worked (thirteen domains, the signage correctly transcribed), and then ten citations were rejected because the quoted text could not be re-found on the live page. No decisive claim survived, so the system abstained on a fragment whose answer key names a real film.</p>
-        <p>That is a real cost, kept on purpose, though it is not a guarantee: on other runs the same fragment produced <em>Un coin de Paris</em> (1900), which is the wrong film. The strictness reduces confident errors; it does not eliminate them, and the study says by how little.</p>
-      </div>
+      <h2 id="variance-title" class="visually-hidden">How to read these</h2>
+      <details class="card readnote">
+        <summary class="auditsum">
+          <b>One dossier is one run, and the next run may disagree with it</b>
+        </summary>
+        <p>Over <b>28 recorded runs of these five fragments, only one case gave the same verdict every time.</b> D02 returned four different leading candidates in four runs; the dossier here is the one where it answered <code>Bray Studios Inc.</code>, the studio rather than the film. Across all 28 runs there were 9 false-confident identifications, not the zero that a single pass recorded.</p>
+        <p><b>These captures predate the two fixes,</b> deliberately: the D02 dossier shows the candidate slot holding a studio, which is exactly the defect <code>app/works.py</code> now rejects. Each dossier reports the gate it was actually scored under.</p>
+        <p>One thing did not move. <b>No run, in 28, ever reached <code>probable</code></b>, because that threshold needs a human the API cannot supply. The boundary between <code>candidates</code> and <code>abstain</code> wobbles; the guarantee that the system will not assert an identity on its own does not.</p>
+        <p><a href="/evaluation">Every run, case by case, with the before and after of the fixes.</a></p>
+      </details>
+      <details class="card readnote">
+        <summary class="auditsum">
+          <b>An abstention is a correct answer, not a failure to produce one</b>
+        </summary>
+        <p>On D04 the research worked: thirteen domains, the signage correctly transcribed. Then ten citations were rejected because the quoted text could not be re-found on the live page. No decisive claim survived, so the system abstained on a fragment whose answer key names a real film.</p>
+        <p>That is a real cost, kept on purpose, and it is not a guarantee: on other runs the same fragment produced <em>Un coin de Paris</em> (1900), which is the wrong film. The strictness reduces confident errors without eliminating them, and <a href="/evaluation">the study says by how much</a>.</p>
+      </details>
     </section>
   </main>
 

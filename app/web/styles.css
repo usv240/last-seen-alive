@@ -791,3 +791,99 @@ select:hover,input:hover,textarea:hover{border-color:var(--ink-faint)}
 .pullquote figcaption{margin-top:var(--s3);font:var(--t-small)/1.6 var(--f-display);color:var(--ink-faint)}
 .pullquote cite{font-style:italic}
 @media print{.pullquote{background:#fff;border-left:3px solid #000}}
+
+/* ============ progressive disclosure inside a dossier ====================
+   A dossier can carry fourteen claims with several sourced excerpts each.
+   Rendered flat that was six screens of scrolling before a reader reached the
+   audit, and the two things worth seeing first, a refused citation and a
+   contradiction, sat in the middle of it.
+
+   Nothing is removed. Each claim is a <details> whose summary carries enough to
+   decide whether to open it, the ones that would otherwise be missed open
+   themselves, and everything unfolds for print. */
+
+.claimbar{
+  display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);
+  margin:var(--s3) 0 var(--s2);padding-bottom:var(--s2);border-bottom:1px solid var(--rule-soft);
+}
+.claimcount{font:650 var(--t-micro)/1 var(--f-display);letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-faint)}
+
+details.claim{
+  border:1px solid var(--rule);border-left-width:3px;border-radius:var(--r-md);
+  background:var(--card);margin-bottom:var(--s2);
+}
+details.claim.supports{border-left-color:var(--rule)}
+details.claim.contradicts{border-left-color:var(--crit)}
+details.claim.neutral{border-left-color:var(--ink-faint)}
+
+.claimsum{
+  display:grid;grid-template-columns:auto auto 1fr auto;gap:var(--s2) var(--s3);
+  align-items:baseline;padding:var(--s3) var(--s4);cursor:pointer;list-style:none;
+}
+.claimsum::-webkit-details-marker{display:none}
+.claimsum:hover{background:var(--sunk)}
+details.claim:focus-within>.claimsum{outline:2px solid var(--accent);outline-offset:-2px}
+.claimsum .claimtext{
+  font:var(--t-small)/1.5 var(--f-body);color:var(--ink);margin:0;
+  /* Two lines is enough to recognise a claim and short enough to scan a list. */
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.srcsum{
+  font:650 var(--t-micro)/1.3 var(--f-data);color:var(--ink-faint);white-space:nowrap;
+}
+.srcsum.has-refused{color:var(--crit)}
+.srcsum.has-none{color:var(--warn)}
+.claimbody{padding:0 var(--s4) var(--s4);border-top:1px solid var(--rule-soft)}
+.claimbody .basis{margin-top:var(--s3)}
+
+/* The audit repeats URLs already shown against their claims, so it folds and
+   puts its result in the summary. It opens itself when something was refused. */
+.auditfold,.coldfold{margin-top:var(--s3)}
+.auditsum{
+  display:flex;align-items:baseline;gap:var(--s3);cursor:pointer;list-style:none;
+  padding:var(--s3);border:1px solid var(--rule);border-radius:var(--r-md);
+  background:var(--paper);font:var(--t-small)/1.4 var(--f-display);
+}
+.auditsum::-webkit-details-marker{display:none}
+.auditsum::after{content:"show";margin-left:auto;font:650 var(--t-micro)/1 var(--f-display);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+details[open]>.auditsum::after{content:"hide"}
+.auditsum:hover{background:var(--sunk)}
+.auditbad{color:var(--crit);font-weight:650}
+
+@media print{
+  /* An archivist files the paper copy. Nothing may be hidden behind a control
+     that does not exist on paper, so every fold prints open. */
+  details.claim,.auditfold,.coldfold,.agentcard{display:block!important}
+  details.claim>.claimbody,.auditfold>*,.coldfold>*{display:block!important}
+  .claimsum{display:block;padding:0 0 4pt}
+  .claimsum .claimtext{-webkit-line-clamp:unset;display:block;overflow:visible}
+  .claimbar button,.auditsum::after{display:none!important}
+  .auditsum{border:0;padding:0;background:none;font-weight:700}
+}
+
+/* Context a reader needs once, not on every visit. Folded so it costs a line
+   rather than a screen, and the summary states the point so folding it does not
+   hide the caveat. */
+.readnote{padding:0;margin-bottom:var(--s3)}
+.readnote>.auditsum{border:0;border-radius:var(--r-md);background:var(--card);padding:var(--s4)}
+.readnote[open]>.auditsum{border-bottom:1px solid var(--rule-soft);border-radius:var(--r-md) var(--r-md) 0 0}
+.readnote>p{margin:var(--s3) var(--s5)}
+.readnote>p:last-child{margin-bottom:var(--s5)}
+@media print{.readnote>*{display:block!important}}
+
+/* A collapsed claim should cost one row, not three. One clamped line of the
+   claim itself is enough to recognise it; the rest is behind the fold. */
+.claimsum{padding:var(--s2) var(--s3);gap:var(--s2)}
+.claimsum .claimtext{-webkit-line-clamp:1;font-size:var(--t-small)}
+details.claim[open] .claimsum .claimtext{-webkit-line-clamp:unset;display:block;overflow:visible}
+.auditrow{padding:var(--s2) var(--s3)}
+.auditrow b{font-size:var(--t-small)}
+
+/* The five roles are identical on every dossier and explained on the overview,
+   so the strip folds and only its raw output costs height. */
+details.agentstrip{margin-top:var(--s4)}
+details.agentstrip>.auditsum{align-items:baseline}
+details.agentstrip .strip{margin-top:var(--s3)}
+@media print{details.agentstrip>*{display:block!important}}
