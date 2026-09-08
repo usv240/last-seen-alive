@@ -104,9 +104,9 @@ beat so it is clear the number is served, not asserted.
 
 **2:25–2:45 — the review we could not get**
 > No archivist has reviewed this. So instead of claiming otherwise, it publishes
-> twelve demands archivists have already made in print — including a peer-reviewed
+> fourteen demands archivists and analysts have already made in print — including a peer-reviewed
 > study where archive experts assessed AI cataloguing — and answers each one.
-> Three are unanswered. The missing review is the first of them.
+> Four are unanswered or only partly answered. The missing review is the first.
 
 Screen: `/practice`. Scroll so the **Unanswered** group is on screen first, with
 P5 legible. Do not scroll past it quickly; this section, and the one before it,

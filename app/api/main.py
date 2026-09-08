@@ -431,9 +431,9 @@ async def evaluation_stability() -> dict[str, object]:
         "No archivist has reviewed this project. This is the nearest honest substitute: "
         "demands made in peer-reviewed studies of AI cataloguing, in the FIAF manual, and in "
         "the Library of Congress's own account of how it identifies unidentified film -- each "
-        "quoted verbatim, cited, and paired with the mechanism here that answers it. Two "
-        "entries are marked not_met, including the missing archivist review itself. Nobody "
-        "cited has seen this system or endorses it."
+        "quoted verbatim, cited, and paired with the mechanism here that answers it. Four "
+        "entries are unanswered or only partly answered, including the missing archivist "
+        "review itself. Nobody cited has seen this system or endorses it."
     ),
 )
 async def practice() -> dict[str, object]:

@@ -81,6 +81,34 @@ SOURCES: dict[str, dict[str, str]] = {
         "kind": "national_archive_practice",
         "why_it_counts": "Describes the method the workshop uses, in the organiser's own words.",
     },
+    "heuer_ach": {
+        "citation": (
+            "Richards J. Heuer Jr., 'Psychology of Intelligence Analysis', Center for the Study "
+            "of Intelligence, CIA, 1999, chapter 8: Analysis of Competing Hypotheses; evaluated "
+            "in Mandeep K. Dhami, Ian K. Belton and David R. Mandel, 'The \"analysis of competing "
+            "hypotheses\" in intelligence analysis', Applied Cognitive Psychology 33(6), 2019."
+        ),
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/acp.3550",
+        "kind": "professional_standard",
+        "why_it_counts": (
+            "The structured analytic technique adopted by the intelligence community for "
+            "identification under uncertainty -- the same shape of problem, with the same "
+            "failure mode this system was found to have."
+        ),
+    },
+    "failing_to_falsify": {
+        "citation": (
+            "Ayush Rajesh Jhaveri, Anthony GX-Chen, Ilia Sucholutsky and Eunsol Choi, 'Failing "
+            "to Falsify: Evaluating and Mitigating Confirmation Bias in Language Models', "
+            "arXiv:2604.02485."
+        ),
+        "url": "https://arxiv.org/abs/2604.02485",
+        "kind": "peer_reviewed_study",
+        "why_it_counts": (
+            "Measures confirmation bias in language models during hypothesis exploration, which "
+            "is exactly the stage where this pipeline was failing."
+        ),
+    },
     "pierce_2013": {
         "citation": (
             "David Pierce, 'The Survival of American Silent Feature Films: 1912-1929', "
@@ -303,6 +331,55 @@ REGISTER: list[dict[str, Any]] = [
         ),
         "evidence": ["/v1/presets", "/v1/eval/arm-c"],
         "status": "met",
+    },
+    {
+        "id": "P13",
+        "source": "heuer_ach",
+        "demand": (
+            "Consider alternative hypotheses, and judge by inconsistent evidence rather than by "
+            "supporting evidence."
+        ),
+        "quote": (
+            "analysts must prioritize evidence diagnosticity rather than its availability or "
+            "volume"
+        ),
+        "how_this_system_answers": (
+            "This was a real failure before it was a feature. Nineteen recorded runs showed D04 "
+            "producing exactly one candidate every time and then agreeing with it fourteen "
+            "times, reaching five of seven thresholds on the wrong film in three of four runs. "
+            "The gate now carries competing_hypotheses>=2, because a hypothesis nothing opposes "
+            "cannot be discriminated against anything, and "
+            "leading_hypothesis_least_contradicted, which is Heuer's inversion: prefer the "
+            "hypothesis with the least inconsistent evidence, not the most supported one."
+        ),
+        "evidence": ["app/gates/identity.py", "/v1/eval/stability", "app/works.py"],
+        "status": "met",
+    },
+    {
+        "id": "P14",
+        "source": "failing_to_falsify",
+        "demand": (
+            "Confirmation bias in an agent shows up in which evidence gets selected, not in how "
+            "it is read, so a pipeline must be built to seek disconfirming evidence."
+        ),
+        "quote": (
+            "confirmation bias manifests not in how evidence is interpreted, but in how evidence "
+            "is selected"
+        ),
+        "how_this_system_answers": (
+            "A dedicated Skeptic agent runs before the compiler and is now asked to find a "
+            "rival identity that would explain the same clues, rather than only to attack the "
+            "incumbent. Its contradictions are compiled as first-class claims, and a "
+            "contradiction on the leading candidate fails a threshold. Whether that measurably "
+            "reduces the bias on this corpus is reported at /v1/eval/stability rather than "
+            "asserted here."
+        ),
+        "evidence": ["app/adk_app.py", "/v1/eval/stability"],
+        "status": "partially_met",
+        "what_would_close_it": (
+            "A measured reduction in false-confident identifications across enough passes to "
+            "state a rate. Roughly ten runs an era shows direction, not effect size."
+        ),
     },
     {
         "id": "P12",

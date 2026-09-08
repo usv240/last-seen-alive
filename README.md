@@ -152,7 +152,7 @@ support no rate at all. No claim to outperform expert archivists is made anywher
 project.
 
 **No archivist has reviewed this system.** Rather than leave that as a caveat, `/v1/practice`
-publishes twelve demands taken verbatim from published sources — a peer-reviewed evaluation in
+publishes fourteen demands taken verbatim from published sources — a peer-reviewed evaluation in
 which archive experts assessed AI-generated cataloguing ([ArchiveGPT, Abele et al.,
 arXiv:2507.07551](https://arxiv.org/abs/2507.07551)), the FIAF manual, and the Library of
 Congress's own account of its method — each paired with the mechanism here that answers it.
