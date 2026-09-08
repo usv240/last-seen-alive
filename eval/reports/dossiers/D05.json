@@ -1,0 +1,720 @@
+{
+  "ok": true,
+  "data": {
+    "status": "completed",
+    "session_id": "lsa_cc5207f50323",
+    "parallel_session_id": "lsa_ef4d0dc9816942789b48862e3bad7a33",
+    "sample_id": "D05",
+    "origin": "preset:D05",
+    "model": "gemini-2.5-flash",
+    "agent_runtime": "google-adk",
+    "depth": "standard",
+    "latency_ms": 234155,
+    "outputs": {
+      "visual_examiner": "```json\n{\n  \"intertitles\": [\n    {\n      \"text\": \"My dear Friends –\\nI know my baby is not seriously\\nill merely peevish, that is all, but\\nmy husband insists that I stay\\nat home all the time. I am nervous,\\ntired and need diversion.\\nSincerely\\nMrs. Nostrand\",\n      \"timestamp_range\": \"[00:21-00:37]\"\n    }\n  ],\n  \"proper_nouns\": [\n    \"Nostrand\"\n  ],\n  \"character_names\": [\n    \"Mrs. Nostrand\"\n  ],\n  \"logos\": [],\n  \"language\": [\n    \"English\"\n  ],\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": \"Observation: Women wear long dresses with high necklines and hats; one woman wears what appears to be a nurse's cap (0:06). Man wears a suit with a bow tie. Inference: Early 20th century (c. 1900-1915).\",\n  \"architecture\": \"Observation: Interior domestic settings. One room features wooden paneling and a metal-framed crib (0:00). Another room has ornate wooden furniture, patterned wall coverings, and double doors (0:20). Inference: Suggests a comfortable, possibly middle to upper-class, home typical of the late Victorian or Edwardian era.\",\n  \"possible_performers\": []\n}\n```",
+      "phrase_hunter": "Archival identification research objective: Identify any archival evidence related to the intertitle and character \"Mrs. Nostrand\" in fragment D05, especially in connection with the film title \"Those who pay\".\n\nNo specific archival evidence directly linking \"Mrs. Nostrand\" or the provided intertitle phrases to the film \"Those who pay\" or its historical context was found. However, the following instances of verbatim strings and proper nouns were identified in other contexts:\n\n**Candidate Identities:**\n\n*   **Nostrand:**\n    *   A person named \"Jo Ann Nostrand\" is mentioned in a 2007 article from The Newtown Bee.\n        *   **URL:** https://www.newtownbee.com/09142007/jo-ann-nostrand/\n        *   **Excerpt:** \"# Jo Ann Nostrand\\n## Leave a Reply Cancel reply\\n### Calendar\\nStory”,Conservation Commission meeting,Public Building & Site Commission meeting,Board of Selectmen meeting\\\") |[23](https://www.newtownbee.com/calendar/?calendar_day=2026-09-23&lang=/ticketf6a7b8c9.jscheck.net “SCAN Summer Show & Sale,Numerology with Audra Mace,SCAN Annual Open Studio Painters exhibition,Newtown Bridge Club Open\"\n\n**Factual Claims related to verbatim strings from the intertitle:**\n\n*   The phrase \"my husband insists that I stay at home all the time\" has thematic parallels with contemporary online discussions about husbands encouraging or insisting their wives stay at home.\n    *   A Reddit post from 2022 includes the line: \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n        *   **URL:** https://www.reddit.com/r/TrueOffMyChest/comments/zkngmu/my_husband_is_encouraging_me_to_be_a_stay_at_home/\n        *   **Excerpt:** \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n    *   Another Reddit post from 2023 contains the sentence: \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n        *   **URL:** https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/\n        *   **Excerpt:** \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n    *   A Slate article from 2024 has the title: \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\"\n        *   **URL:** https://slate.com/advice/2024/09/stay-at-home-mom-mental-health-friends-parenting-advice.html\n        *   **Excerpt:** \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\\n## He keeps making snide comments.\"\n\n*   The phrase \"my baby is not seriously ill merely peevish\" has a partial match in a modern article discussing baby health.\n    *   An article from anbbaby.com (2024) includes the phrase: \"you can be somewhat reassured that, for now, your baby is probably not seriously ill.\"\n        *   **URL:** https://www.anbbaby.com/blogs/articles/5-signs-your-baby-is-sick-and-how-to-help-them-feel-better-anb-baby\n        *   **Excerpt:** \"If you’re wondering, “Is my baby sick?” and all of their symptoms fall into the “encouraging” category, you can be somewhat reassured that, for now, your baby is probably not seriously ill. That said, their condition may change so continue to monitor your child’s condition frequently.\"",
+      "holdings_researcher": "Archival identification research objective: Identify any archival evidence related to the intertitle and character \"Mrs. Nostrand\" in fragment D05, especially in connection with the film title \"Those who pay\".\n\nNo specific archival evidence directly linking \"Mrs. Nostrand\" or the provided intertitle phrases to the film \"Those who pay\" or its historical context was found. However, the following instances of verbatim strings and proper nouns were identified in other contexts:\n\n**Candidate Identities:**\n\n*   **Nostrand:**\n    *   A person named \"Jo Ann Nostrand\" is mentioned in a 2007 article from The Newtown Bee.\n        *   **URL:** https://www.newtownbee.com/09142007/jo-ann-nostrand/\n        *   **Excerpt:** \"# Jo Ann Nostrand\\n## Leave a Reply Cancel reply\\n### Calendar\\nStory”,Conservation Commission meeting,Public Building & Site Commission meeting,Board of Selectmen meeting\\\") |[23](https://www.newtownbee.com/calendar/?calendar_day=2026-09-23&lang=/ticketf6a7b8c9.jscheck.net “SCAN Summer Show & Sale,Numerology with Audra Mace,SCAN Annual Open Studio Painters exhibition,Newtown Bridge Club Open\"\n\n**Factual Claims related to verbatim strings from the intertitle:**\n\n*   The phrase \"my husband insists that I stay at home all the time\" has thematic parallels with contemporary online discussions about husbands encouraging or insisting their wives stay at home.\n    *   A Reddit post from 2022 includes the line: \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n        *   **URL:** https://www.reddit.com/r/TrueOffMyChest/comments/zkngmu/my_husband_is_encouraging_me_to_be_a_stay_at_home/\n        *   **Excerpt:** \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n    *   Another Reddit post from 2023 contains the sentence: \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n        *   **URL:** https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/\n        *   **Excerpt:** \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n    *   A Slate article from 2024 has the title: \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\"\n        *   **URL:** https://slate.com/advice/2024/09/stay-at-home-mom-mental-health-friends-parenting-advice.html\n        *   **Excerpt:** \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\\n## He keeps making snide comments.\"\n\n*   The phrase \"my baby is not seriously ill merely peevish\" has a partial match in a modern article discussing baby health.\n    *   An article from anbbaby.com (2024) includes the phrase: \"you can be somewhat reassured that, for now, your baby is probably not seriously ill.\"\n        *   **URL:** https://www.anbbaby.com/blogs/articles/5-signs-your-baby-is-sick-and-how-to-help-them-feel-better-anb-baby\n        *   **Excerpt:** \"If you’re wondering, “Is my baby sick?” and all of their symptoms fall into the “encouraging” category, you can be somewhat reassured that, for now, your baby is probably not seriously ill. That said, their condition may change so continue to monitor your child’s condition frequently.\"\n\n**Film Title Identification:**\n\nResearch for the film \"Those who pay\" revealed the following:\n\n*   **Candidate Title:** \"Those who pay\".\n*   **Alternate Titles:** The Library of Congress (LOC) catalogue lists \"Through the breakers\" as the main title for a film, with \"Those who pay\" identified as an \"Other Title\". (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Studio/Producer/Performers:** No studio, producer, or performer information is stated in the consulted Library of Congress record. The synopsis refers to \"Mr. and Mrs. Normand\" but does not name the actors (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Release Year:** The release year is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Country:** The country of origin is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Restoration Notices:** No restoration notices were found in the relevant Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Holdings:** The Library of Congress holds an online-accessible film/video item associated with this title. The specific physical element or format is not stated (Observation, Citation: https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1).\n*   **Named Catalogues Searched:** Library of Congress film and video catalogue, Internet Archive silent-film guide, and IMDb film database.\n*   **Catalogue Census:** A census of named catalogues has been commissioned for \"Those who pay\" (findall_id: `findall_04216edfca9e45eca77ebc49111bc920`). This census is running in the background and its results are not yet available.\n*   **Coverage Gaps:** No additional holding was found across these named catalogues as of this search date: BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern. Their holdings and restoration records therefore remain unverified.",
+      "skeptic": "Here are the supported contradiction claims and unresolved questions based on the provided information and additional archival research:\n\n**Supported Contradiction Claims:**\n\n*   **Contradiction in Character Name (Mrs. Nostrand vs. Mr. and Mrs. Normand):** The intertitle clearly identifies a character as \"Mrs. Nostrand.\" However, the Library of Congress (LOC) synopsis for the film \"Those who pay\" refers to \"Mr. and Mrs. Normand\" as the protagonists. This presents a direct contradiction regarding the principal character's name between the film fragment and the likely candidate film's description. Without further evidence, it is highly improbable that \"Mrs. Nostrand\" from the fragment is the same character as \"Mrs. Normand\" from the LOC synopsis, suggesting the fragment might belong to a different film, or that the synopsis is incomplete/incorrect in this regard.\n\n    *   **Citation:** \"The synopsis refers to 'Mr. and Mrs. Normand' but does not name the actors (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n    *   **Citation:** \"Mrs. Nostrand\" (Intertitle text, [00:21-00:37]).\n\n*   **Contradiction in Film Title (Those who pay vs. Through the breakers):** While \"Those who pay\" is a candidate title, the Library of Congress catalogue explicitly lists \"Through the breakers\" as the main title, with \"Those who pay\" identified as an \"Other Title.\" This indicates that \"Those who pay\" might not be the primary or original title, introducing ambiguity in the title identification.\n\n    *   **Citation:** \"The Library of Congress (LOC) catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'. (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n\n*   **Irrelevance of Modern \"Nostrand\" Mentions:** The mention of \"Jo Ann Nostrand\" in a 2007 article from The Newtown Bee is irrelevant to the early 20th-century film context. This later reference does not provide any archival evidence for \"Mrs. Nostrand\" in the period relevant to the film fragment.\n\n    *   **Citation:** \"A person named 'Jo Ann Nostrand' is mentioned in a 2007 article from The Newtown Bee. URL: https://www.newtownbee.com/09142007/jo-ann-nostrand/\"\n    *   **Citation:** \"Inference: Early 20th century (c. 1900-1915).\" (Costume Period).\n\n*   **Intertitle Phrases Are Generic and Modern:** The phrases from the intertitle, such as \"my husband insists that I stay at home all the time\" and \"my baby is not seriously ill merely peevish,\" yielded matches predominantly in contemporary online discussions (Reddit posts from 2022, 2023, and Slate article from 2024, Anbbaby.com 2024). This strongly suggests these are generic expressions of common sentiments that are not unique to the film's historical context and thus do not provide specific archival evidence linking them to the film or its period of production.\n\n    *   **Citation:** Reddit (2022, 2023), Slate (2024) for \"my husband insists that I stay at home all the time\" (URLs provided in original output).\n    *   **Citation:** Anbbaby.com (2024) for \"my baby is not seriously ill\" (URL provided in original output).\n\n**Unresolved Questions:**\n\n*   **Film's Release Year:** The exact release year for the film \"Those who pay\" (or \"Through the breakers\") is not stated in the consulted Library of Congress record. This makes it difficult to definitively place the film within the estimated costume period (c. 1900-1915).\n*   **Studio/Producer/Performers:** Information regarding the studio, producer, and the actual performers (especially for Mr. and Mrs. Normand, or Mrs. Nostrand) is not provided in the LOC record for \"Those who pay.\" This absence prevents a match or mismatch based on cast or production company.\n*   **Country of Origin:** The country of origin for the film \"Those who pay\" is not stated in the consulted Library of Congress record.\n*   **Specific Archival Evidence for Mrs. Nostrand (Character):** Despite the name \"Mrs. Nostrand\" appearing in the intertitle, no direct archival evidence was found linking this specific character name to any film from the early 20th century, nor to the candidate film \"Those who pay.\"\n*   **Comprehensive Holdings and Restoration Records:** A full census of named catalogues for \"Those who pay\" has been commissioned but its results are not yet available. Moreover, holdings and restoration records from several key archives (BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern) remain unverified. This means it's still possible that additional information, including contradictory evidence or supporting details, could exist in these unsearched catalogues.",
+      "evidence_compiler": {
+        "candidates": [
+          {
+            "candidate_id": "those_who_pay",
+            "title": "Those who pay",
+            "year": "",
+            "score": 0.3,
+            "rationale": "The title 'Those who pay' exists as an 'Other Title' in a Library of Congress record, which also holds an online item associated with it. However, the record lists 'Through the breakers' as the main title and names the protagonists as 'Mr. and Mrs. Normand', directly contradicting the intertitle's 'Mrs. Nostrand'. Many key details like release year, studio, and performers are also missing, and the intertitle's phrases appear generic in modern contexts."
+          }
+        ],
+        "claims": [
+          {
+            "claim_text": "The intertitle character is 'Mrs. Nostrand', which contradicts the Library of Congress synopsis referring to 'Mr. and Mrs. Normand' as the protagonists of 'Those who pay'.",
+            "subject": "those_who_pay",
+            "stance": "contradicts",
+            "clue_family": "proper_noun",
+            "confidence_basis": "Direct contradiction between the film fragment's intertitle and the LOC synopsis for the candidate film.",
+            "sources": [
+              {
+                "url": "https://www.loc.gov/item/2014600156",
+                "excerpt": "The synopsis refers to 'Mr. and Mrs. Normand' but does not name the actors (Observation, Citation: https://www.loc.gov/item/2014600156)."
+              },
+              {
+                "url": "None",
+                "excerpt": "Mrs. Nostrand"
+              }
+            ]
+          },
+          {
+            "claim_text": "The Library of Congress catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'.",
+            "subject": "those_who_pay",
+            "stance": "contradicts",
+            "clue_family": "alternate_title",
+            "confidence_basis": "Explicit statement in the LOC catalogue.",
+            "sources": [
+              {
+                "url": "https://www.loc.gov/item/2014600156",
+                "excerpt": "The Library of Congress (LOC) catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'. (Observation, Citation: https://www.loc.gov/item/2014600156)."
+              }
+            ]
+          },
+          {
+            "claim_text": "No studio, producer, or performer information is stated in the consulted Library of Congress record for 'Those who pay'.",
+            "subject": "those_who_pay",
+            "stance": "neutral",
+            "clue_family": "studio_or_producer",
+            "confidence_basis": "Explicit observation from the research.",
+            "sources": [
+              {
+                "url": "https://www.loc.gov/item/2014600156",
+                "excerpt": "No studio, producer, or performer information is stated in the consulted Library of Congress record."
+              }
+            ]
+          },
+          {
+            "claim_text": "The release year for 'Those who pay' is not stated in the consulted Library of Congress record.",
+            "subject": "those_who_pay",
+            "stance": "neutral",
+            "clue_family": "release_date",
+            "confidence_basis": "Explicit observation from the research.",
+            "sources": [
+              {
+                "url": "https://www.loc.gov/item/2014600156",
+                "excerpt": "The release year is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156)."
+              }
+            ]
+          },
+          {
+            "claim_text": "The country of origin for the film 'Those who pay' is not stated in the consulted Library of Congress record.",
+            "subject": "those_who_pay",
+            "stance": "neutral",
+            "clue_family": "studio_or_producer",
+            "confidence_basis": "Explicit observation from the research.",
+            "sources": [
+              {
+                "url": "https://www.loc.gov/item/2014600156",
+                "excerpt": "The country of origin is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156)."
+              }
+            ]
+          },
+          {
+            "claim_text": "No restoration notices were found in the relevant Library of Congress record for 'Those who pay'.",
+            "subject": "those_who_pay",
+            "stance": "neutral",
+            "clue_family": "archive_holding",
+            "confidence_basis": "Explicit observation from the research.",
+            "sources": [
+              {
+                "url": "https://www.loc.gov/item/2014600156",
+                "excerpt": "No restoration notices were found in the relevant Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156)."
+              }
+            ]
+          },
+          {
+            "claim_text": "The Library of Congress holds an online-accessible film/video item associated with 'Those who pay'.",
+            "subject": "those_who_pay",
+            "stance": "supports",
+            "clue_family": "archive_holding",
+            "confidence_basis": "Explicit observation from the research.",
+            "sources": [
+              {
+                "url": "https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1",
+                "excerpt": "The Library of Congress holds an online-accessible film/video item associated with this title. The specific physical element or format is not stated (Observation, Citation: https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1)."
+              }
+            ]
+          },
+          {
+            "claim_text": "Named catalogues searched for 'Those who pay' include Library of Congress film and video catalogue, Internet Archive silent-film guide, and IMDb film database.",
+            "subject": "those_who_pay",
+            "stance": "neutral",
+            "clue_family": "archive_holding",
+            "confidence_basis": "Explicit statement from the research.",
+            "sources": [
+              {
+                "url": "None",
+                "excerpt": "Named Catalogues Searched: Library of Congress film and video catalogue, Internet Archive silent-film guide, and IMDb film database."
+              }
+            ]
+          },
+          {
+            "claim_text": "No additional holding was found across BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern.",
+            "subject": "those_who_pay",
+            "stance": "neutral",
+            "clue_family": "archive_holding",
+            "confidence_basis": "Explicit statement from the research.",
+            "sources": [
+              {
+                "url": "None",
+                "excerpt": "No additional holding was found across these named catalogues as of this search date: BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern."
+              }
+            ]
+          },
+          {
+            "claim_text": "The mention of 'Jo Ann Nostrand' in a 2007 article is irrelevant to the early 20th-century film context.",
+            "subject": "those_who_pay",
+            "stance": "contradicts",
+            "clue_family": "proper_noun",
+            "confidence_basis": "The date of the mention (2007) is incompatible with the film's estimated period (c. 1900-1915).",
+            "sources": [
+              {
+                "url": "https://www.newtownbee.com/09142007/jo-ann-nostrand/",
+                "excerpt": "A person named 'Jo Ann Nostrand' is mentioned in a 2007 article from The Newtown Bee."
+              },
+              {
+                "url": "None",
+                "excerpt": "Inference: Early 20th century (c. 1900-1915)."
+              }
+            ]
+          },
+          {
+            "claim_text": "Phrases from the intertitle like 'my husband insists that I stay at home all the time' and 'my baby is not seriously ill merely peevish' are generic and found in contemporary online discussions (2022-2024), suggesting they are not unique archival evidence for the film's historical context.",
+            "subject": "those_who_pay",
+            "stance": "contradicts",
+            "clue_family": "intertitle_text",
+            "confidence_basis": "Multiple modern online sources use similar phrasing, diminishing their value as specific archival evidence for this film.",
+            "sources": [
+              {
+                "url": "https://www.reddit.com/r/TrueOffMyChest/comments/zkngmu/my_husband_is_encouraging_me_to_be_a_stay_at_home/",
+                "excerpt": "My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me."
+              },
+              {
+                "url": "https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/",
+                "excerpt": "Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much."
+              },
+              {
+                "url": "https://slate.com/advice/2024/09/stay-at-home-mom-mental-health-friends-parenting-advice.html",
+                "excerpt": "# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day."
+              },
+              {
+                "url": "https://www.anbbaby.com/blogs/articles/5-signs-your-baby-is-sick-and-how-to-help-them-feel-better-anb-baby",
+                "excerpt": "If you’re wondering, “Is my baby sick?” and all of their symptoms fall into the “encouraging” category, you can be somewhat reassured that, for now, your baby is probably not seriously ill."
+              }
+            ]
+          }
+        ],
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_questions": [
+          "The exact release year for the film 'Those who pay' (or 'Through the breakers') is not stated in the consulted Library of Congress record. This makes it difficult to definitively place the film within the estimated costume period (c. 1900-1915).",
+          "Information regarding the studio, producer, and the actual performers (especially for Mr. and Mrs. Normand, or Mrs. Nostrand) is not provided in the LOC record for 'Those who pay.' This absence prevents a match or mismatch based on cast or production company.",
+          "The country of origin for the film 'Those who pay' is not stated in the consulted Library of Congress record.",
+          "Despite the name 'Mrs. Nostrand' appearing in the intertitle, no direct archival evidence was found linking this specific character name to any film from the early 20th century, nor to the candidate film 'Those who pay.'",
+          "A full census of named catalogues for 'Those who pay' has been commissioned but its results are not yet available. Moreover, holdings and restoration records from several key archives (BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern) remain unverified. This means it's still possible that additional information, including contradictory evidence or supporting details, could exist in these unsearched catalogues."
+        ]
+      }
+    },
+    "evidence": {
+      "candidates": [
+        {
+          "candidate_id": "those_who_pay",
+          "label": "Those who pay",
+          "score": 0.3,
+          "decisive_claim_ids": []
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "clm_8a7f2faddeb0c6d0d7a66ebc",
+          "claim_text": "The intertitle character is 'Mrs. Nostrand', which contradicts the Library of Congress synopsis referring to 'Mr. and Mrs. Normand' as the protagonists of 'Those who pay'.",
+          "subject": "those_who_pay",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Direct contradiction between the film fragment's intertitle and the LOC synopsis for the candidate film.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.loc.gov/item/2014600156",
+              "domain": "www.loc.gov",
+              "excerpt": "The synopsis refers to 'Mr. and Mrs. Normand' but does not name the actors (Observation, Citation: https://www.loc.gov/item/2014600156).",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_f6582cd65d59defd58c2ba84",
+          "claim_text": "The Library of Congress catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'.",
+          "subject": "those_who_pay",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicit statement in the LOC catalogue.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.loc.gov/item/2014600156",
+              "domain": "www.loc.gov",
+              "excerpt": "The Library of Congress (LOC) catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'. (Observation, Citation: https://www.loc.gov/item/2014600156).",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_38709bf1eb90d9ac5b84d99c",
+          "claim_text": "No studio, producer, or performer information is stated in the consulted Library of Congress record for 'Those who pay'.",
+          "subject": "those_who_pay",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicit observation from the research.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.loc.gov/item/2014600156",
+              "domain": "www.loc.gov",
+              "excerpt": "No studio, producer, or performer information is stated in the consulted Library of Congress record.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_c8fa68e527e4021d43381067",
+          "claim_text": "The release year for 'Those who pay' is not stated in the consulted Library of Congress record.",
+          "subject": "those_who_pay",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicit observation from the research.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.loc.gov/item/2014600156",
+              "domain": "www.loc.gov",
+              "excerpt": "The release year is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_c75cbc0517d9e318fe940a32",
+          "claim_text": "The country of origin for the film 'Those who pay' is not stated in the consulted Library of Congress record.",
+          "subject": "those_who_pay",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicit observation from the research.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.loc.gov/item/2014600156",
+              "domain": "www.loc.gov",
+              "excerpt": "The country of origin is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_1bdc0820201da6e7b932a719",
+          "claim_text": "No restoration notices were found in the relevant Library of Congress record for 'Those who pay'.",
+          "subject": "those_who_pay",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicit observation from the research.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.loc.gov/item/2014600156",
+              "domain": "www.loc.gov",
+              "excerpt": "No restoration notices were found in the relevant Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_4a5b5782b4bbd4152dfa323c",
+          "claim_text": "The Library of Congress holds an online-accessible film/video item associated with 'Those who pay'.",
+          "subject": "those_who_pay",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicit observation from the research.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1",
+              "domain": "www.loc.gov",
+              "excerpt": "The Library of Congress holds an online-accessible film/video item associated with this title. The specific physical element or format is not stated (Observation, Citation: https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1).",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_b955f453194c1ef54c2772d5",
+          "claim_text": "Named catalogues searched for 'Those who pay' include Library of Congress film and video catalogue, Internet Archive silent-film guide, and IMDb film database.",
+          "subject": "those_who_pay",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicit statement from the research.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_00ea4e8a26d2cffa1ef167e1",
+          "claim_text": "No additional holding was found across BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern.",
+          "subject": "those_who_pay",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicit statement from the research.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_0fefaea5105fb7f925818384",
+          "claim_text": "The mention of 'Jo Ann Nostrand' in a 2007 article is irrelevant to the early 20th-century film context.",
+          "subject": "those_who_pay",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The date of the mention (2007) is incompatible with the film's estimated period (c. 1900-1915).",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.newtownbee.com/09142007/jo-ann-nostrand/",
+              "domain": "www.newtownbee.com",
+              "excerpt": "A person named 'Jo Ann Nostrand' is mentioned in a 2007 article from The Newtown Bee.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_e09740214f78189d6a9b124b",
+          "claim_text": "Phrases from the intertitle like 'my husband insists that I stay at home all the time' and 'my baby is not seriously ill merely peevish' are generic and found in contemporary online discussions (2022-2024), suggesting they are not unique archival evidence for the film's historical context.",
+          "subject": "those_who_pay",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Multiple modern online sources use similar phrasing, diminishing their value as specific archival evidence for this film.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.reddit.com/r/TrueOffMyChest/comments/zkngmu/my_husband_is_encouraging_me_to_be_a_stay_at_home/",
+              "domain": "www.reddit.com",
+              "excerpt": "My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/",
+              "domain": "www.reddit.com",
+              "excerpt": "Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.",
+              "verified": true,
+              "live_verified": false,
+              "counts_toward_gate": false
+            },
+            {
+              "url": "https://slate.com/advice/2024/09/stay-at-home-mom-mental-health-friends-parenting-advice.html",
+              "domain": "slate.com",
+              "excerpt": "# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://www.anbbaby.com/blogs/articles/5-signs-your-baby-is-sick-and-how-to-help-them-feel-better-anb-baby",
+              "domain": "www.anbbaby.com",
+              "excerpt": "If you’re wondering, “Is my baby sick?” and all of their symptoms fall into the “encouraging” category, you can be somewhat reassured that, for now, your baby is probably not seriously ill.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        }
+      ],
+      "clue_families": [],
+      "rejected_citations": [
+        {
+          "url": "https://www.loc.gov/item/2014600156",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The intertitle character is 'Mrs. Nostrand', which contradicts the Library of Congress synopsis referring to 'Mr. and Mrs. Normand' as the protagonists of 'Thos"
+        },
+        {
+          "url": "None",
+          "reason": "not_returned_by_parallel_in_this_run",
+          "claim": "The intertitle character is 'Mrs. Nostrand', which contradicts the Library of Congress synopsis referring to 'Mr. and Mrs. Normand' as the protagonists of 'Thos"
+        },
+        {
+          "url": "https://www.loc.gov/item/2014600156",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The Library of Congress catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'."
+        },
+        {
+          "url": "https://www.loc.gov/item/2014600156",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "No studio, producer, or performer information is stated in the consulted Library of Congress record for 'Those who pay'."
+        },
+        {
+          "url": "https://www.loc.gov/item/2014600156",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The release year for 'Those who pay' is not stated in the consulted Library of Congress record."
+        },
+        {
+          "url": "https://www.loc.gov/item/2014600156",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The country of origin for the film 'Those who pay' is not stated in the consulted Library of Congress record."
+        },
+        {
+          "url": "https://www.loc.gov/item/2014600156",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "No restoration notices were found in the relevant Library of Congress record for 'Those who pay'."
+        },
+        {
+          "url": "https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The Library of Congress holds an online-accessible film/video item associated with 'Those who pay'."
+        },
+        {
+          "url": "None",
+          "reason": "not_returned_by_parallel_in_this_run",
+          "claim": "Named catalogues searched for 'Those who pay' include Library of Congress film and video catalogue, Internet Archive silent-film guide, and IMDb film database."
+        },
+        {
+          "url": "None",
+          "reason": "not_returned_by_parallel_in_this_run",
+          "claim": "No additional holding was found across BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era,"
+        },
+        {
+          "url": "https://www.newtownbee.com/09142007/jo-ann-nostrand/",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The mention of 'Jo Ann Nostrand' in a 2007 article is irrelevant to the early 20th-century film context."
+        },
+        {
+          "url": "None",
+          "reason": "not_returned_by_parallel_in_this_run",
+          "claim": "The mention of 'Jo Ann Nostrand' in a 2007 article is irrelevant to the early 20th-century film context."
+        },
+        {
+          "url": "https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/",
+          "reason": "quoted_text_absent_from_live_page",
+          "claim": "Phrases from the intertitle like 'my husband insists that I stay at home all the time' and 'my baby is not seriously ill merely peevish' are generic and found i"
+        }
+      ],
+      "unresolved_questions": [
+        "The exact release year for the film 'Those who pay' (or 'Through the breakers') is not stated in the consulted Library of Congress record. This makes it difficult to definitively place the film within the estimated costume period (c. 1900-1915).",
+        "Information regarding the studio, producer, and the actual performers (especially for Mr. and Mrs. Normand, or Mrs. Nostrand) is not provided in the LOC record for 'Those who pay.' This absence prevents a match or mismatch based on cast or production company.",
+        "The country of origin for the film 'Those who pay' is not stated in the consulted Library of Congress record.",
+        "Despite the name 'Mrs. Nostrand' appearing in the intertitle, no direct archival evidence was found linking this specific character name to any film from the early 20th century, nor to the candidate film 'Those who pay.'",
+        "A full census of named catalogues for 'Those who pay' has been commissioned but its results are not yet available. Moreover, holdings and restoration records from several key archives (BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern) remain unverified. This means it's still possible that additional information, including contradictory evidence or supporting details, could exist in these unsearched catalogues."
+      ],
+      "citation_policy": "a source not returned by Parallel in this run is discarded"
+    },
+    "parallel_retrieval": {
+      "session_id": "lsa_ef4d0dc9816942789b48862e3bad7a33",
+      "calls": [
+        {
+          "provider": "parallel_search_v1",
+          "retrieval_id": "search_e14b90cd586fa5481a1add5d2eb5e297",
+          "result_count": 6
+        },
+        {
+          "provider": "parallel_task_v1",
+          "retrieval_id": "trun_04e777c238664af9bfe59fb2f95ccef2",
+          "result_count": 18
+        },
+        {
+          "provider": "parallel_findall_v1beta",
+          "retrieval_id": "findall_04216edfca9e45eca77ebc49111bc920",
+          "result_count": 0
+        }
+      ],
+      "sources_returned": 11,
+      "independent_domains": [
+        "archive.org",
+        "slate.com",
+        "www.anbbaby.com",
+        "www.imdb.com",
+        "www.loc.gov",
+        "www.newtownbee.com",
+        "www.reddit.com",
+        "www.rileychildrens.org"
+      ],
+      "surfaces_used": [
+        "parallel_findall_v1beta",
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ]
+    },
+    "citation_audit": {
+      "provider": "parallel_extract_v1",
+      "status": "completed",
+      "extract_id": "extract_6605f82a202d8b1b14bba46129b035a2",
+      "session_id": "lsa_ef4d0dc9816942789b48862e3bad7a33",
+      "pages_requested": 4,
+      "pages_returned": 3,
+      "errors": [
+        "ExtractError(content=None, error_type='fetch_error', http_status_code=None, url='https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/')"
+      ],
+      "audited": [
+        {
+          "url": "https://www.reddit.com/r/TrueOffMyChest/comments/zkngmu/my_husband_is_encouraging_me_to_be_a_stay_at_home/",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Reddit - The heart of the internet",
+          "publish_date": null,
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/",
+          "excerpt_present_on_live_page": false,
+          "page_title": null,
+          "publish_date": null,
+          "note": "page could not be re-opened at audit time"
+        },
+        {
+          "url": "https://slate.com/advice/2024/09/stay-at-home-mom-mental-health-friends-parenting-advice.html",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Parenting advice: I'm a stay-at-home mom. My husband hates that I leave the house during the day.",
+          "publish_date": "2024-09-22",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://www.anbbaby.com/blogs/articles/5-signs-your-baby-is-sick-and-how-to-help-them-feel-better-anb-baby",
+          "excerpt_present_on_live_page": true,
+          "page_title": "5 Signs Your Baby Is Sick and How to Help Them Feel Better",
+          "publish_date": "2024-12-10",
+          "note": "quoted text found in the live page"
+        }
+      ]
+    },
+    "falsification": {
+      "provider": "parallel_task_group_v1",
+      "status": "not_requested",
+      "reason": "Send depth=deep to fan out one independent falsification run per candidate.",
+      "verdicts": []
+    },
+    "language_findings": [],
+    "supplied_title": {
+      "title": "1900, Library of Congress National Screening Room",
+      "title_type": "supplied_devised",
+      "authority": "cataloguer_supplied",
+      "is_identification": false,
+      "pattern": "FIAF A.2.5 five-Ws (who/what, what, where, when, source)",
+      "form_term": "",
+      "components": {
+        "when": "1900",
+        "source_collection": "Library of Congress National Screening Room"
+      },
+      "standard": "The FIAF Moving Image Cataloguing Manual (2016), A.2.5, pp. 93-96",
+      "note": "Assembled by deterministic code from observed clues only. It is a finding aid, not an identification, and names no film."
+    },
+    "cold_case": {
+      "eligible": true,
+      "watchable_strings": [
+        "```json\n{\n  \"intertitles\": [\n    {\n      \"text\": \"My dear Friends –\\nI know my baby is not seriously\\nill merely peevish, that is all, but\\nmy husband insists that I stay\\nat home "
+      ],
+      "how": "POST /v1/watch to leave a standing Parallel Monitor on these strings."
+    },
+    "transcript": [
+      {
+        "author": "VisualExaminer",
+        "text": "```json\n{\n  \"intertitles\": [\n    {\n      \"text\": \"My dear Friends –\\nI know my baby is not seriously\\nill merely peevish, that is all, but\\nmy husband insists that I stay\\nat home all the time. I am nervous,\\ntired and need diversion.\\nSincerely\\nMrs. Nostrand\",\n      \"timestamp_range\": \"[00:21-00:37]\"\n    }\n  ],\n  \"proper_nouns\": [\n    \"Nostrand\"\n  ],\n  \"character_names\": [\n    \"Mrs. Nostrand\"\n  ],\n  \"logos\": [],\n  \"language\": [\n    \"English\"\n  ],\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": \"Observation: Women wear long dresses with high necklines and hats; one woman wears what appears to be a nurse's cap (0:06). Man wears a suit with a bow tie. Inference: Early 20th century (c. 1900-1915).\",\n  \"architecture\": \"Observation: Interior domestic settings. One room features wooden paneling and a metal-framed crib (0:00). Another room has ornate wooden furniture, patterned wall coverings, and double doors (0:20). Inference: Suggests a comfortable, possibly middle to upper-class, home typical of the late Victorian or Edwardian era.\",\n  \"possible_performers\": []\n}\n```"
+      },
+      {
+        "author": "PhraseHunter",
+        "text": "Archival identification research objective: Identify any archival evidence related to the intertitle and character \"Mrs. Nostrand\" in fragment D05, especially in connection with the film title \"Those who pay\".\n\nNo specific archival evidence directly linking \"Mrs. Nostrand\" or the provided intertitle phrases to the film \"Those who pay\" or its historical context was found. However, the following instances of verbatim strings and proper nouns were identified in other contexts:\n\n**Candidate Identities:**\n\n*   **Nostrand:**\n    *   A person named \"Jo Ann Nostrand\" is mentioned in a 2007 article from The Newtown Bee.\n        *   **URL:** https://www.newtownbee.com/09142007/jo-ann-nostrand/\n        *   **Excerpt:** \"# Jo Ann Nostrand\\n## Leave a Reply Cancel reply\\n### Calendar\\nStory”,Conservation Commission meeting,Public Building & Site Commission meeting,Board of Selectmen meeting\\\") |[23](https://www.newtownbee.com/calendar/?calendar_day=2026-09-23&lang=/ticketf6a7b8c9.jscheck.net “SCAN Summer Show & Sale,Numerology with Audra Mace,SCAN Annual Open Studio Painters exhibition,Newtown Bridge Club Open\"\n\n**Factual Claims related to verbatim strings from the intertitle:**\n\n*   The phrase \"my husband insists that I stay at home all the time\" has thematic parallels with contemporary online discussions about husbands encouraging or insisting their wives stay at home.\n    *   A Reddit post from 2022 includes the line: \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n        *   **URL:** https://www.reddit.com/r/TrueOffMyChest/comments/zkngmu/my_husband_is_encouraging_me_to_be_a_stay_at_home/\n        *   **Excerpt:** \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n    *   Another Reddit post from 2023 contains the sentence: \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n        *   **URL:** https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/\n        *   **Excerpt:** \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n    *   A Slate article from 2024 has the title: \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\"\n        *   **URL:** https://slate.com/advice/2024/09/stay-at-home-mom-mental-health-friends-parenting-advice.html\n        *   **Excerpt:** \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\\n## He keeps making snide comments.\"\n\n*   The phrase \"my baby is not seriously ill merely peevish\" has a partial match in a modern article discussing baby health.\n    *   An article from anbbaby.com (2024) includes the phrase: \"you can be somewhat reassured that, for now, your baby is probably not seriously ill.\"\n        *   **URL:** https://www.anbbaby.com/blogs/articles/5-signs-your-baby-is-sick-and-how-to-help-them-feel-better-anb-baby\n        *   **Excerpt:** \"If you’re wondering, “Is my baby sick?” and all of their symptoms fall into the “encouraging” category, you can be somewhat reassured that, for now, your baby is probably not seriously ill. That said, their condition may change so continue to monitor your child’s condition frequently.\""
+      },
+      {
+        "author": "HoldingsResearcher",
+        "text": "Archival identification research objective: Identify any archival evidence related to the intertitle and character \"Mrs. Nostrand\" in fragment D05, especially in connection with the film title \"Those who pay\".\n\nNo specific archival evidence directly linking \"Mrs. Nostrand\" or the provided intertitle phrases to the film \"Those who pay\" or its historical context was found. However, the following instances of verbatim strings and proper nouns were identified in other contexts:\n\n**Candidate Identities:**\n\n*   **Nostrand:**\n    *   A person named \"Jo Ann Nostrand\" is mentioned in a 2007 article from The Newtown Bee.\n        *   **URL:** https://www.newtownbee.com/09142007/jo-ann-nostrand/\n        *   **Excerpt:** \"# Jo Ann Nostrand\\n## Leave a Reply Cancel reply\\n### Calendar\\nStory”,Conservation Commission meeting,Public Building & Site Commission meeting,Board of Selectmen meeting\\\") |[23](https://www.newtownbee.com/calendar/?calendar_day=2026-09-23&lang=/ticketf6a7b8c9.jscheck.net “SCAN Summer Show & Sale,Numerology with Audra Mace,SCAN Annual Open Studio Painters exhibition,Newtown Bridge Club Open\"\n\n**Factual Claims related to verbatim strings from the intertitle:**\n\n*   The phrase \"my husband insists that I stay at home all the time\" has thematic parallels with contemporary online discussions about husbands encouraging or insisting their wives stay at home.\n    *   A Reddit post from 2022 includes the line: \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n        *   **URL:** https://www.reddit.com/r/TrueOffMyChest/comments/zkngmu/my_husband_is_encouraging_me_to_be_a_stay_at_home/\n        *   **Excerpt:** \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n    *   Another Reddit post from 2023 contains the sentence: \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n        *   **URL:** https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/\n        *   **Excerpt:** \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n    *   A Slate article from 2024 has the title: \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\"\n        *   **URL:** https://slate.com/advice/2024/09/stay-at-home-mom-mental-health-friends-parenting-advice.html\n        *   **Excerpt:** \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\\n## He keeps making snide comments.\"\n\n*   The phrase \"my baby is not seriously ill merely peevish\" has a partial match in a modern article discussing baby health.\n    *   An article from anbbaby.com (2024) includes the phrase: \"you can be somewhat reassured that, for now, your baby is probably not seriously ill.\"\n        *   **URL:** https://www.anbbaby.com/blogs/articles/5-signs-your-baby-is-sick-and-how-to-help-them-feel-better-anb-baby\n        *   **Excerpt:** \"If you’re wondering, “Is my baby sick?” and all of their symptoms fall into the “encouraging” category, you can be somewhat reassured that, for now, your baby is probably not seriously ill. That said, their condition may change so continue to monitor your child’s condition frequently.\"\n\n**Film Title Identification:**\n\nResearch for the film \"Those who pay\" revealed the following:\n\n*   **Candidate Title:** \"Those who pay\".\n*   **Alternate Titles:** The Library of Congress (LOC) catalogue lists \"Through the breakers\" as the main title for a film, with \"Those who pay\" identified as an \"Other Title\". (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Studio/Producer/Performers:** No studio, producer, or performer information is stated in the consulted Library of Congress record. The synopsis refers to \"Mr. and Mrs. Normand\" but does not name the actors (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Release Year:** The release year is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Country:** The country of origin is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Restoration Notices:** No restoration notices were found in the relevant Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\n*   **Holdings:** The Library of Congress holds an online-accessible film/video item associated with this title. The specific physical element or format is not stated (Observation, Citation: https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1).\n*   **Named Catalogues Searched:** Library of Congress film and video catalogue, Internet Archive silent-film guide, and IMDb film database.\n*   **Catalogue Census:** A census of named catalogues has been commissioned for \"Those who pay\" (findall_id: `findall_04216edfca9e45eca77ebc49111bc920`). This census is running in the background and its results are not yet available.\n*   **Coverage Gaps:** No additional holding was found across these named catalogues as of this search date: BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern. Their holdings and restoration records therefore remain unverified."
+      },
+      {
+        "author": "Skeptic",
+        "text": "Here are the supported contradiction claims and unresolved questions based on the provided information and additional archival research:\n\n**Supported Contradiction Claims:**\n\n*   **Contradiction in Character Name (Mrs. Nostrand vs. Mr. and Mrs. Normand):** The intertitle clearly identifies a character as \"Mrs. Nostrand.\" However, the Library of Congress (LOC) synopsis for the film \"Those who pay\" refers to \"Mr. and Mrs. Normand\" as the protagonists. This presents a direct contradiction regarding the principal character's name between the film fragment and the likely candidate film's description. Without further evidence, it is highly improbable that \"Mrs. Nostrand\" from the fragment is the same character as \"Mrs. Normand\" from the LOC synopsis, suggesting the fragment might belong to a different film, or that the synopsis is incomplete/incorrect in this regard.\n\n    *   **Citation:** \"The synopsis refers to 'Mr. and Mrs. Normand' but does not name the actors (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n    *   **Citation:** \"Mrs. Nostrand\" (Intertitle text, [00:21-00:37]).\n\n*   **Contradiction in Film Title (Those who pay vs. Through the breakers):** While \"Those who pay\" is a candidate title, the Library of Congress catalogue explicitly lists \"Through the breakers\" as the main title, with \"Those who pay\" identified as an \"Other Title.\" This indicates that \"Those who pay\" might not be the primary or original title, introducing ambiguity in the title identification.\n\n    *   **Citation:** \"The Library of Congress (LOC) catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'. (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n\n*   **Irrelevance of Modern \"Nostrand\" Mentions:** The mention of \"Jo Ann Nostrand\" in a 2007 article from The Newtown Bee is irrelevant to the early 20th-century film context. This later reference does not provide any archival evidence for \"Mrs. Nostrand\" in the period relevant to the film fragment.\n\n    *   **Citation:** \"A person named 'Jo Ann Nostrand' is mentioned in a 2007 article from The Newtown Bee. URL: https://www.newtownbee.com/09142007/jo-ann-nostrand/\"\n    *   **Citation:** \"Inference: Early 20th century (c. 1900-1915).\" (Costume Period).\n\n*   **Intertitle Phrases Are Generic and Modern:** The phrases from the intertitle, such as \"my husband insists that I stay at home all the time\" and \"my baby is not seriously ill merely peevish,\" yielded matches predominantly in contemporary online discussions (Reddit posts from 2022, 2023, and Slate article from 2024, Anbbaby.com 2024). This strongly suggests these are generic expressions of common sentiments that are not unique to the film's historical context and thus do not provide specific archival evidence linking them to the film or its period of production.\n\n    *   **Citation:** Reddit (2022, 2023), Slate (2024) for \"my husband insists that I stay at home all the time\" (URLs provided in original output).\n    *   **Citation:** Anbbaby.com (2024) for \"my baby is not seriously ill\" (URL provided in original output).\n\n**Unresolved Questions:**\n\n*   **Film's Release Year:** The exact release year for the film \"Those who pay\" (or \"Through the breakers\") is not stated in the consulted Library of Congress record. This makes it difficult to definitively place the film within the estimated costume period (c. 1900-1915).\n*   **Studio/Producer/Performers:** Information regarding the studio, producer, and the actual performers (especially for Mr. and Mrs. Normand, or Mrs. Nostrand) is not provided in the LOC record for \"Those who pay.\" This absence prevents a match or mismatch based on cast or production company.\n*   **Country of Origin:** The country of origin for the film \"Those who pay\" is not stated in the consulted Library of Congress record.\n*   **Specific Archival Evidence for Mrs. Nostrand (Character):** Despite the name \"Mrs. Nostrand\" appearing in the intertitle, no direct archival evidence was found linking this specific character name to any film from the early 20th century, nor to the candidate film \"Those who pay.\"\n*   **Comprehensive Holdings and Restoration Records:** A full census of named catalogues for \"Those who pay\" has been commissioned but its results are not yet available. Moreover, holdings and restoration records from several key archives (BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern) remain unverified. This means it's still possible that additional information, including contradictory evidence or supporting details, could exist in these unsearched catalogues."
+      },
+      {
+        "author": "EvidenceCompiler",
+        "text": "{\n  \"candidates\": [\n    {\n      \"candidate_id\": \"those_who_pay\",\n      \"title\": \"Those who pay\",\n      \"year\": \"\",\n      \"score\": 0.3,\n      \"rationale\": \"The title 'Those who pay' exists as an 'Other Title' in a Library of Congress record, which also holds an online item associated with it. However, the record lists 'Through the breakers' as the main title and names the protagonists as 'Mr. and Mrs. Normand', directly contradicting the intertitle's 'Mrs. Nostrand'. Many key details like release year, studio, and performers are also missing, and the intertitle's phrases appear generic in modern contexts.\"\n    }\n  ],\n  \"claims\": [\n    {\n      \"claim_text\": \"The intertitle character is 'Mrs. Nostrand', which contradicts the Library of Congress synopsis referring to 'Mr. and Mrs. Normand' as the protagonists of 'Those who pay'.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"proper_noun\",\n      \"confidence_basis\": \"Direct contradiction between the film fragment's intertitle and the LOC synopsis for the candidate film.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.loc.gov/item/2014600156\",\n          \"excerpt\": \"The synopsis refers to 'Mr. and Mrs. Normand' but does not name the actors (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n        },\n        {\n          \"url\": \"None\",\n          \"excerpt\": \"Mrs. Nostrand\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The Library of Congress catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"alternate_title\",\n      \"confidence_basis\": \"Explicit statement in the LOC catalogue.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.loc.gov/item/2014600156\",\n          \"excerpt\": \"The Library of Congress (LOC) catalogue lists 'Through the breakers' as the main title for a film, with 'Those who pay' identified as an 'Other Title'. (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"No studio, producer, or performer information is stated in the consulted Library of Congress record for 'Those who pay'.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"studio_or_producer\",\n      \"confidence_basis\": \"Explicit observation from the research.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.loc.gov/item/2014600156\",\n          \"excerpt\": \"No studio, producer, or performer information is stated in the consulted Library of Congress record.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The release year for 'Those who pay' is not stated in the consulted Library of Congress record.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"release_date\",\n      \"confidence_basis\": \"Explicit observation from the research.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.loc.gov/item/2014600156\",\n          \"excerpt\": \"The release year is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The country of origin for the film 'Those who pay' is not stated in the consulted Library of Congress record.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"studio_or_producer\",\n      \"confidence_basis\": \"Explicit observation from the research.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.loc.gov/item/2014600156\",\n          \"excerpt\": \"The country of origin is not stated in the consulted Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"No restoration notices were found in the relevant Library of Congress record for 'Those who pay'.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"archive_holding\",\n      \"confidence_basis\": \"Explicit observation from the research.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.loc.gov/item/2014600156\",\n          \"excerpt\": \"No restoration notices were found in the relevant Library of Congress record (Observation, Citation: https://www.loc.gov/item/2014600156).\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The Library of Congress holds an online-accessible film/video item associated with 'Those who pay'.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"archive_holding\",\n      \"confidence_basis\": \"Explicit observation from the research.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1\",\n          \"excerpt\": \"The Library of Congress holds an online-accessible film/video item associated with this title. The specific physical element or format is not stated (Observation, Citation: https://www.loc.gov/film-and-videos?fa=subject%3Afiction+films&sp=1).\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"Named catalogues searched for 'Those who pay' include Library of Congress film and video catalogue, Internet Archive silent-film guide, and IMDb film database.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"archive_holding\",\n      \"confidence_basis\": \"Explicit statement from the research.\",\n      \"sources\": [\n        {\n          \"url\": \"None\",\n          \"excerpt\": \"Named Catalogues Searched: Library of Congress film and video catalogue, Internet Archive silent-film guide, and IMDb film database.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"No additional holding was found across BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"archive_holding\",\n      \"confidence_basis\": \"Explicit statement from the research.\",\n      \"sources\": [\n        {\n          \"url\": \"None\",\n          \"excerpt\": \"No additional holding was found across these named catalogues as of this search date: BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The mention of 'Jo Ann Nostrand' in a 2007 article is irrelevant to the early 20th-century film context.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"proper_noun\",\n      \"confidence_basis\": \"The date of the mention (2007) is incompatible with the film's estimated period (c. 1900-1915).\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.newtownbee.com/09142007/jo-ann-nostrand/\",\n          \"excerpt\": \"A person named 'Jo Ann Nostrand' is mentioned in a 2007 article from The Newtown Bee.\"\n        },\n        {\n          \"url\": \"None\",\n          \"excerpt\": \"Inference: Early 20th century (c. 1900-1915).\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"Phrases from the intertitle like 'my husband insists that I stay at home all the time' and 'my baby is not seriously ill merely peevish' are generic and found in contemporary online discussions (2022-2024), suggesting they are not unique archival evidence for the film's historical context.\",\n      \"subject\": \"those_who_pay\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"intertitle_text\",\n      \"confidence_basis\": \"Multiple modern online sources use similar phrasing, diminishing their value as specific archival evidence for this film.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.reddit.com/r/TrueOffMyChest/comments/zkngmu/my_husband_is_encouraging_me_to_be_a_stay_at_home/\",\n          \"excerpt\": \"My husband had mentioned this idea a few times recently and I have to admit I have been highly considering the idea but I just feel some anxiety around it. He wants me to be home because he feels it will be better for me.\"\n        },\n        {\n          \"url\": \"https://www.reddit.com/r/breakingmom/comments/16a2n14/my_husband_is_always_home/\",\n          \"excerpt\": \"Relatable! My husband started a new position a few months ago where he primarily WFH. This is the first time in ten years of marriage that he&#x27;s been home this much.\"\n        },\n        {\n          \"url\": \"https://slate.com/advice/2024/09/stay-at-home-mom-mental-health-friends-parenting-advice.html\",\n          \"excerpt\": \"# I’m a Stay-at-Home Mom. My Husband Hates That I Leave the House During the Day.\"\n        },\n        {\n          \"url\": \"https://www.anbbaby.com/blogs/articles/5-signs-your-baby-is-sick-and-how-to-help-them-feel-better-anb-baby\",\n          \"excerpt\": \"If you’re wondering, “Is my baby sick?” and all of their symptoms fall into the “encouraging” category, you can be somewhat reassured that, for now, your baby is probably not seriously ill.\"\n        }\n      ]\n    }\n  ],\n  \"temporal_compatibility\": false,\n  \"entity_compatibility\": false,\n  \"unresolved_questions\": [\n    \"The exact release year for the film 'Those who pay' (or 'Through the breakers') is not stated in the consulted Library of Congress record. This makes it difficult to definitively place the film within the estimated costume period (c. 1900-1915).\",\n    \"Information regarding the studio, producer, and the actual performers (especially for Mr. and Mrs. Normand, or Mrs. Nostrand) is not provided in the LOC record for 'Those who pay.' This absence prevents a match or mismatch based on cast or production company.\",\n    \"The country of origin for the film 'Those who pay' is not stated in the consulted Library of Congress record.\",\n    \"Despite the name 'Mrs. Nostrand' appearing in the intertitle, no direct archival evidence was found linking this specific character name to any film from the early 20th century, nor to the candidate film 'Those who pay.'\",\n    \"A full census of named catalogues for 'Those who pay' has been commissioned but its results are not yet available. Moreover, holdings and restoration records from several key archives (BFI, Eye Filmmuseum, Filmportal.de, Cinémathèque française, NFSA, European Film Gateway, Filmarchives Online, Silent Era, Media History Project, or Lantern) remain unverified. This means it's still possible that additional information, including contradictory evidence or supporting details, could exist in these unsearched catalogues.\"\n  ]\n}"
+      }
+    ],
+    "gate": {
+      "verdict": "abstain",
+      "reason": "No candidate reached the minimum evidence floor.",
+      "thresholds": {
+        "independent_source_domains>=3": false,
+        "distinct_clue_families>=2": false,
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_contradictions==0": false,
+        "every_decisive_claim_has_source": false,
+        "human_approved": false
+      },
+      "candidates": [
+        {
+          "candidate_id": "those_who_pay",
+          "label": "Those who pay",
+          "score": 0.3,
+          "decisive_claim_ids": []
+        }
+      ],
+      "requires_human": true,
+      "passed": [],
+      "failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "unresolved_contradictions==0",
+        "every_decisive_claim_has_source",
+        "human_approved"
+      ]
+    },
+    "requires_human": true
+  },
+  "meta": {
+    "verdict": "abstain",
+    "gate": {
+      "verdict": "abstain",
+      "reason": "No candidate reached the minimum evidence floor.",
+      "thresholds": {
+        "independent_source_domains>=3": false,
+        "distinct_clue_families>=2": false,
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_contradictions==0": false,
+        "every_decisive_claim_has_source": false,
+        "human_approved": false
+      },
+      "candidates": [
+        {
+          "candidate_id": "those_who_pay",
+          "label": "Those who pay",
+          "score": 0.3,
+          "decisive_claim_ids": []
+        }
+      ],
+      "requires_human": true,
+      "passed": [],
+      "failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "unresolved_contradictions==0",
+        "every_decisive_claim_has_source",
+        "human_approved"
+      ]
+    },
+    "requires_human": true,
+    "latency_ms": 234155,
+    "parallel_surfaces_used": [
+      "parallel_findall_v1beta",
+      "parallel_search_v1",
+      "parallel_task_v1"
+    ],
+    "usage": {
+      "used_today": 5,
+      "remaining_today": 1995
+    }
+  },
+  "captured": {
+    "at": "2026-09-08T01:04:42.775461+00:00",
+    "service": "https://last-seen-alive-109051079423.us-central1.run.app",
+    "elapsed_seconds": 234.3,
+    "note": "A real run of the deployed service on a public Library of Congress fragment. Not edited, not curated, not re-run to get a better result."
+  }
+}

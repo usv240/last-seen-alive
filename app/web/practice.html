@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="No archivist has reviewed this project. These are demands made in peer-reviewed studies and national-archive practice, quoted verbatim, and what this system does about each one.">
+  <title>Practice · Last Seen Alive</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d0b" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Practice · Last Seen Alive">
+  <meta property="og:description" content="Twelve published practitioner demands, answered or admitted.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/practice.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">LAST SEEN ALIVE</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/">Overview</a>
+      <a href="/presets">Demo fragments</a>
+      <a href="/dossiers">Dossiers</a>
+      <a href="/practice" aria-current="page">Practice</a>
+      <a href="/api">API</a>
+      <a href="/stack">Stack</a>
+    </nav>
+    <div class="header-actions" aria-label="Page settings">
+      <button type="button" class="quiet-button" data-theme-toggle>Dark</button>
+      <button type="button" class="stack-button" aria-controls="stack-panel" aria-expanded="false">
+        <span class="status-dot pending" aria-hidden="true"></span> Live stack
+      </button>
+    </div>
+  </header>
+  <div class="stack-ribbon" data-stack-ribbon aria-label="Sponsor services this product runs on"></div>
+
+  <main id="main">
+    <section class="masthead compact shell" aria-labelledby="page-title">
+      <p class="eyebrow">THE REVIEW WE COULD NOT GET</p>
+      <h1 id="page-title">No archivist has reviewed this. So we went and read what archivists published.</h1>
+      <p class="deck">A practitioner review is the right way to evaluate a tool like this, and there was no way to obtain one before the deadline. The next most honest thing is to take demands that domain experts have already put on the record — in a peer-reviewed study of AI cataloguing, in the FIAF manual, and in the Library of Congress's own account of how it identifies unidentified film — quote them verbatim, and answer each one.</p>
+      <p class="lede">Two of the twelve are marked <b>unanswered</b>, including the missing review itself. Nobody quoted here has seen this system, and nobody quoted here endorses it. The register is served from <a href="/v1/practice">/v1/practice</a> and every structural claim on it is checked by tests.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="tally-title">
+      <h2 id="tally-title" class="visually-hidden">Summary</h2>
+      <div class="metrics" data-practice-tally></div>
+    </section>
+
+    <section class="section shell" aria-labelledby="register-title">
+      <h2 id="register-title">The register</h2>
+      <div data-practice-register>
+        <p class="small">Loading the register…</p>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="method-title">
+      <h2 id="method-title">How these sources were found</h2>
+      <div class="card">
+        <p>Using this product's own Parallel Search surface. Two of the primary sources — the Library of Congress press releases and the ArchiveGPT paper — were unreachable to an ordinary scripted fetch, and Parallel retrieved them. The research pipeline this project ships was the pipeline that assembled the evidence base for this page.</p>
+        <p>Quotations are verbatim. Where a source could not be retrieved and read directly, it is not cited here at all.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>Citing a source is not being endorsed by it. See <a href="/v1/standards">/v1/standards</a> for the separate FIAF and EN 15907 conformance report.</p>
+  </footer>
+
+  <div class="stack-panel" id="stack-panel" hidden></div>
+</body>
+</html>

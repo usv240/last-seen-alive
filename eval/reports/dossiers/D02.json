@@ -1,0 +1,642 @@
+{
+  "ok": true,
+  "data": {
+    "status": "completed",
+    "session_id": "lsa_3800f1d0ac5e",
+    "parallel_session_id": "lsa_43ef1cd778914e4397f69ae4aa0630f5",
+    "sample_id": "D02",
+    "origin": "preset:D02",
+    "model": "gemini-2.5-flash",
+    "agent_runtime": "google-adk",
+    "depth": "standard",
+    "latency_ms": 335583,
+    "outputs": {
+      "visual_examiner": "```json\n{\n  \"intertitles\": [\n    \"\\\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\\\"\"\n  ],\n  \"proper_nouns\": [\n    \"Bray Studios Inc.\"\n  ],\n  \"character_names\": [],\n  \"logos\": [\n    \"BRAY STUDIOS Inc.\"\n  ],\n  \"language\": \"English\",\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": \"1920s-1940s (inferred from animated character's attire)\",\n  \"architecture\": [\n    \"Bedroom interior (bed, window with crescent moon, side table, lamp, chair)\",\n    \"Residential house exterior (two-story with porch and dormer windows, fence, road, trees, hills, crescent moon in sky)\",\n    \"Forest/wooded area (pine trees, rocks, log, crescent moon in sky)\"\n  ],\n  \"possible_performers\": []\n}\n```",
+      "phrase_hunter": "### Candidate Identities:\n\n*   **Bray Studios Inc.** (identified as the production company based on the logo)\n\n### Factual Claims:\n\n*   **Observation:** The intertitle `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` is present in the fragment.\n*   **Observation:** The logo \"BRAY STUDIOS Inc.\" is present in the fragment.\n*   Bray Studios Inc. was a pioneering American animation studio.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a **pioneering American animation studio founded by John Randolph Bray before 1912** that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   Bray Studios Inc. was founded by John Randolph Bray before 1912.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a pioneering American animation studio **founded by John Randolph Bray before 1912** that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   Bray Studios Inc. launched major talents such as Max and Dave Fleischer, Walter Lantz, and Paul Terry.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that **launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.**\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   The Bray Studios produced approximately 540 animated films between 1913 and 1936.\n    *   **Supporting Excerpt:** \"_The Bray Studios produced roughly 540 animated films between 1913 and 1936.\"\n    *   **Source URL:** https://brayanimation.weebly.com/the-project.html\n\n**Note:** The exact intertitle phrase `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` was not found in the provided search results.",
+      "holdings_researcher": "### Factual Claims:\n\n*   **Observation:** The intertitle `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` is present in the fragment.\n*   **Observation:** The logo \"BRAY STUDIOS Inc.\" is present in the fragment.\n*   Bray Studios Inc. was a pioneering American animation studio.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a **pioneering American animation studio founded by John Randolph Bray before 1912** that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   Bray Studios Inc. was founded by John Randolph Bray before 1912.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a pioneering American animation studio **founded by John Randolph Bray before 1912** that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   Bray Studios Inc. launched major talents such as Max and Dave Fleischer, Walter Lantz, and Paul Terry.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that **launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.**\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   The Bray Studios produced approximately 540 animated films between 1913 and 1936.\n    *   **Supporting Excerpt:** \"_The Bray Studios produced roughly 540 animated films between 1913 and 1936.\"\n    *   **Source URL:** https://brayanimation.weebly.com/the-project.html\n\n### Candidate Identities:\n\n*   **Bray Studios Inc.** (identified as the production company based on the logo)\n*   **The Tale of a Wag** (1920) (identified as a candidate film title produced by Bray Studios, based on its description featuring \"Jerry and his dog\" which aligns with the visual content of the fragment.)\n    *   **Supporting Excerpt:** '\"Tale of a Wag\" is a Jerry on the Job cartoon from Bray Studios.' (https://www.imdb.com/title/tt0147583/)\n    *   **Supporting Excerpt:** 'When the story begins, Jerry and his dog are shooting dice.' (https://www.imdb.com/title/tt0147583/)\n\n### Notes:\n\n*   The exact intertitle phrase `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` was not found in the search results or in the provided catalogue descriptions or transcripts.\n*   The Internet Archive, IMDb, AFI Catalog, and the University of Chicago animation glossary were consulted in the research.\n*   No additional holding was found across these named catalogues as of this search date.\n*   There are documented coverage gaps; the available Bray Studios collection is explicitly incomplete, with many films being lost or unavailable. Therefore, the absence of the intertitle in current records does not definitively mean it was not part of \"The Tale of a Wag\" or another Bray Studios production.\n*   No restoration or preservation notice was found specifically for \"The Tale of a Wag.\" \"Oh Boy!\" (1927), another Bray title, was preserved in collaboration with the New Zealand Film Archive and the George Eastman Museum.\n\nA census of world archive catalogues has been commissioned for \"The Tale of a Wag\" (1920). The census ID is `trun_403c9d2f2d9f4e248b11110edb893a00`.",
+      "skeptic": "**Contradiction Claims:**\n\n*   **Claim:** The intertitle `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` observed in the fragment is not found in the synopses or descriptions available for \"The Tale of a Wag\" (1920).\n    *   **Basis:** Search results for \"The Tale of a Wag\" from IMDb and TMDB provide plot summaries involving Jerry, his dog, and a mosquito, but none mention the specific intertitle.\n    *   **Supporting Excerpt:** \"When the story begins, Jerry and his dog are shooting dice. The boss gets Jerry because a pesky mosquito is bothering him....and Jerry gets the insane idea of tying a hammer to his dog\\'s tale and then having the dog hammer away the bug!\" (https://www.imdb.com/title/tt0147583/)\n    *   **Supporting Excerpt:** \"When railroad boss Mr. Givney needs a pesky mosquito exterminated, Jerry is on the job. But Jerry's efforts bug Givney more than the bug.\" (https://www.themoviedb.org/movie/296885-tale-of-a-wag)\n\n**Unresolved Questions:**\n\n*   Given the acknowledged coverage gaps for Bray Studios films (many are lost or unavailable), could the intertitle belong to \"The Tale of a Wag\" but simply not be present in currently available plot summaries or transcripts?\n*   Could the intertitle be from a different Bray Studios Inc. production, featuring a boy and a dog, for which detailed intertitle transcripts are not readily available?\n*   Is the phrase \"Jiminy gosh whiz\" or similar exclamations common in other Bray Studios or \"Jerry on the Job\" cartoons, which might suggest a thematic origin even if not an exact match for \"The Tale of a Wag\"?\n*   Could the fragment, including the intertitle, be part of a compilation or re-edited version of Bray Studios material, where intertitles might have been altered or added?",
+      "evidence_compiler": {
+        "candidates": [
+          {
+            "candidate_id": "bray_studios_inc",
+            "title": "Bray Studios Inc.",
+            "year": "",
+            "score": 0.8,
+            "rationale": "Bray Studios Inc. is directly identified by a logo on the intertitle slide."
+          },
+          {
+            "candidate_id": "the_tale_of_a_wag_1920",
+            "title": "The Tale of a Wag",
+            "year": "1920",
+            "score": 0.7,
+            "rationale": "The film features a boy and a dog, consistent with 'The Tale of a Wag' from Bray Studios, a 'Jerry on the Job' cartoon. However, the specific intertitle is not found in available synopses, creating a contradiction."
+          }
+        ],
+        "claims": [
+          {
+            "claim_text": "The intertitle \"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\" is present in the fragment.",
+            "subject": "D02_fragment",
+            "stance": "supports",
+            "clue_family": "intertitle_text",
+            "confidence_basis": "Direct observation from the visual content of the fragment.",
+            "sources": []
+          },
+          {
+            "claim_text": "The logo \"BRAY STUDIOS Inc.\" is present in the fragment.",
+            "subject": "bray_studios_inc",
+            "stance": "supports",
+            "clue_family": "studio_or_producer",
+            "confidence_basis": "Direct observation from the visual content of the fragment.",
+            "sources": []
+          },
+          {
+            "claim_text": "Bray Studios Inc. was a pioneering American animation studio.",
+            "subject": "bray_studios_inc",
+            "stance": "supports",
+            "clue_family": "studio_or_producer",
+            "confidence_basis": "Explicitly stated in the supporting excerpt.",
+            "sources": [
+              {
+                "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+                "excerpt": "Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others."
+              }
+            ]
+          },
+          {
+            "claim_text": "Bray Studios Inc. was founded by John Randolph Bray before 1912.",
+            "subject": "bray_studios_inc",
+            "stance": "supports",
+            "clue_family": "release_date",
+            "confidence_basis": "Explicitly stated in the supporting excerpt.",
+            "sources": [
+              {
+                "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+                "excerpt": "Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others."
+              }
+            ]
+          },
+          {
+            "claim_text": "Bray Studios Inc. launched major talents such as Max and Dave Fleischer, Walter Lantz, and Paul Terry.",
+            "subject": "bray_studios_inc",
+            "stance": "supports",
+            "clue_family": "studio_or_producer",
+            "confidence_basis": "Explicitly stated in the supporting excerpt.",
+            "sources": [
+              {
+                "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+                "excerpt": "Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others."
+              }
+            ]
+          },
+          {
+            "claim_text": "The Bray Studios produced approximately 540 animated films between 1913 and 1936.",
+            "subject": "bray_studios_inc",
+            "stance": "supports",
+            "clue_family": "release_date",
+            "confidence_basis": "Explicitly stated in the supporting excerpt.",
+            "sources": [
+              {
+                "url": "https://brayanimation.weebly.com/the-project.html",
+                "excerpt": "_The Bray Studios produced roughly 540 animated films between 1913 and 1936."
+              }
+            ]
+          },
+          {
+            "claim_text": "\"The Tale of a Wag\" is a Jerry on the Job cartoon from Bray Studios.",
+            "subject": "the_tale_of_a_wag_1920",
+            "stance": "supports",
+            "clue_family": "studio_or_producer",
+            "confidence_basis": "Explicitly stated in the supporting excerpt.",
+            "sources": [
+              {
+                "url": "https://www.imdb.com/title/tt0147583/",
+                "excerpt": "\"Tale of a Wag\" is a Jerry on the Job cartoon from Bray Studios."
+              }
+            ]
+          },
+          {
+            "claim_text": "\"The Tale of a Wag\" features Jerry and his dog.",
+            "subject": "the_tale_of_a_wag_1920",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Explicitly stated in the supporting excerpt, aligning with the visual content of the fragment.",
+            "sources": [
+              {
+                "url": "https://www.imdb.com/title/tt0147583/",
+                "excerpt": "When the story begins, Jerry and his dog are shooting dice."
+              }
+            ]
+          },
+          {
+            "claim_text": "The release year for \"The Tale of a Wag\" is 1920.",
+            "subject": "the_tale_of_a_wag_1920",
+            "stance": "supports",
+            "clue_family": "release_date",
+            "confidence_basis": "The IMDb entry clearly lists 1920 as the release year.",
+            "sources": [
+              {
+                "url": "https://www.imdb.com/title/tt0147583/",
+                "excerpt": "Tale of a Wag (1920)"
+              },
+              {
+                "url": "https://brayanimation.weebly.com/jerry-on-the-job.html",
+                "excerpt": "The Tale of a Wag 3/9/1920"
+              }
+            ]
+          },
+          {
+            "claim_text": "The intertitle \"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\" observed in the fragment is not found in the synopses or descriptions available for \"The Tale of a Wag\" (1920).",
+            "subject": "the_tale_of_a_wag_1920",
+            "stance": "contradicts",
+            "clue_family": "intertitle_text",
+            "confidence_basis": "Search results for \"The Tale of a Wag\" from IMDb and TMDB provide plot summaries but do not mention the specific intertitle.",
+            "sources": [
+              {
+                "url": "https://www.imdb.com/title/tt0147583/",
+                "excerpt": "When the story begins, Jerry and his dog are shooting dice. The boss gets Jerry because a pesky mosquito is bothering him....and Jerry gets the insane idea of tying a hammer to his dog's tale and then having the dog hammer away the bug!"
+              },
+              {
+                "url": "https://www.themoviedb.org/movie/296885-tale-of-a-wag",
+                "excerpt": "When railroad boss Mr. Givney needs a pesky mosquito exterminated, Jerry is on the job. But Jerry's efforts bug Givney more than the bug."
+              }
+            ]
+          }
+        ],
+        "temporal_compatibility": true,
+        "entity_compatibility": true,
+        "unresolved_questions": [
+          "Given the acknowledged coverage gaps for Bray Studios films (many are lost or unavailable), could the intertitle belong to \"The Tale of a Wag\" but simply not be present in currently available plot summaries or transcripts?",
+          "Could the intertitle be from a different Bray Studios Inc. production, featuring a boy and a dog, for which detailed intertitle transcripts are not readily available?",
+          "Is the phrase \"Jiminy gosh whiz\" or similar exclamations common in other Bray Studios or \"Jerry on the Job\" cartoons, which might suggest a thematic origin even if not an exact match for \"The Tale of a Wag\"?",
+          "Could the fragment, including the intertitle, be part of a compilation or re-edited version of Bray Studios material, where intertitles might have been altered or added?"
+        ]
+      }
+    },
+    "evidence": {
+      "candidates": [
+        {
+          "candidate_id": "bray_studios_inc",
+          "label": "Bray Studios Inc.",
+          "score": 0.8,
+          "decisive_claim_ids": [
+            "clm_b4be5cd93e8f8c95b3b05576"
+          ]
+        },
+        {
+          "candidate_id": "the_tale_of_a_wag_1920",
+          "label": "The Tale of a Wag (1920)",
+          "score": 0.7,
+          "decisive_claim_ids": [
+            "clm_736bb57e4ca46fe3ea4a54e5",
+            "clm_1a3895b2dda1919330aedb99",
+            "clm_7c1d8f70c39302f97fcfeaec"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "clm_fe32173f955603c9a206f9cd",
+          "claim_text": "The intertitle \"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\" is present in the fragment.",
+          "subject": "D02_fragment",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Direct observation from the visual content of the fragment.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_7497d431cb6ecd22ff11ec67",
+          "claim_text": "The logo \"BRAY STUDIOS Inc.\" is present in the fragment.",
+          "subject": "bray_studios_inc",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Direct observation from the visual content of the fragment.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_d0fe62991f4a8e6b225ac2df",
+          "claim_text": "Bray Studios Inc. was a pioneering American animation studio.",
+          "subject": "bray_studios_inc",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicitly stated in the supporting excerpt.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+              "domain": "www.avid.wiki",
+              "excerpt": "Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_6abf4aea943d5464ad7d8c65",
+          "claim_text": "Bray Studios Inc. was founded by John Randolph Bray before 1912.",
+          "subject": "bray_studios_inc",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicitly stated in the supporting excerpt.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+              "domain": "www.avid.wiki",
+              "excerpt": "Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_7922cf1265bf2129e875ec95",
+          "claim_text": "Bray Studios Inc. launched major talents such as Max and Dave Fleischer, Walter Lantz, and Paul Terry.",
+          "subject": "bray_studios_inc",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicitly stated in the supporting excerpt.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+              "domain": "www.avid.wiki",
+              "excerpt": "Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_b4be5cd93e8f8c95b3b05576",
+          "claim_text": "The Bray Studios produced approximately 540 animated films between 1913 and 1936.",
+          "subject": "bray_studios_inc",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicitly stated in the supporting excerpt.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://brayanimation.weebly.com/the-project.html",
+              "domain": "brayanimation.weebly.com",
+              "excerpt": "_The Bray Studios produced roughly 540 animated films between 1913 and 1936.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_736bb57e4ca46fe3ea4a54e5",
+          "claim_text": "\"The Tale of a Wag\" is a Jerry on the Job cartoon from Bray Studios.",
+          "subject": "the_tale_of_a_wag_1920",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicitly stated in the supporting excerpt.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.imdb.com/title/tt0147583/",
+              "domain": "www.imdb.com",
+              "excerpt": "\"Tale of a Wag\" is a Jerry on the Job cartoon from Bray Studios.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_1a3895b2dda1919330aedb99",
+          "claim_text": "\"The Tale of a Wag\" features Jerry and his dog.",
+          "subject": "the_tale_of_a_wag_1920",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Explicitly stated in the supporting excerpt, aligning with the visual content of the fragment.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.imdb.com/title/tt0147583/",
+              "domain": "www.imdb.com",
+              "excerpt": "When the story begins, Jerry and his dog are shooting dice.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_7c1d8f70c39302f97fcfeaec",
+          "claim_text": "The release year for \"The Tale of a Wag\" is 1920.",
+          "subject": "the_tale_of_a_wag_1920",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The IMDb entry clearly lists 1920 as the release year.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.imdb.com/title/tt0147583/",
+              "domain": "www.imdb.com",
+              "excerpt": "Tale of a Wag (1920)",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://brayanimation.weebly.com/jerry-on-the-job.html",
+              "domain": "brayanimation.weebly.com",
+              "excerpt": "The Tale of a Wag 3/9/1920",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_5998986e9a5f8cc87336ebf9",
+          "claim_text": "The intertitle \"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\" observed in the fragment is not found in the synopses or descriptions available for \"The Tale of a Wag\" (1920).",
+          "subject": "the_tale_of_a_wag_1920",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Search results for \"The Tale of a Wag\" from IMDb and TMDB provide plot summaries but do not mention the specific intertitle.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.imdb.com/title/tt0147583/",
+              "domain": "www.imdb.com",
+              "excerpt": "When the story begins, Jerry and his dog are shooting dice. The boss gets Jerry because a pesky mosquito is bothering him....and Jerry gets the insane idea of tying a hammer to his dog's tale and then having the dog hammer away the bug!",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        }
+      ],
+      "clue_families": [
+        "release_date"
+      ],
+      "rejected_citations": [
+        {
+          "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "Bray Studios Inc. was a pioneering American animation studio."
+        },
+        {
+          "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "Bray Studios Inc. was founded by John Randolph Bray before 1912."
+        },
+        {
+          "url": "https://www.avid.wiki/Bray_Studios_Inc.",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "Bray Studios Inc. launched major talents such as Max and Dave Fleischer, Walter Lantz, and Paul Terry."
+        },
+        {
+          "url": "https://www.themoviedb.org/movie/296885-tale-of-a-wag",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The intertitle \"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\" observed in the fragment is not found in the syno"
+        }
+      ],
+      "unresolved_questions": [
+        "Given the acknowledged coverage gaps for Bray Studios films (many are lost or unavailable), could the intertitle belong to \"The Tale of a Wag\" but simply not be present in currently available plot summaries or transcripts?",
+        "Could the intertitle be from a different Bray Studios Inc. production, featuring a boy and a dog, for which detailed intertitle transcripts are not readily available?",
+        "Is the phrase \"Jiminy gosh whiz\" or similar exclamations common in other Bray Studios or \"Jerry on the Job\" cartoons, which might suggest a thematic origin even if not an exact match for \"The Tale of a Wag\"?",
+        "Could the fragment, including the intertitle, be part of a compilation or re-edited version of Bray Studios material, where intertitles might have been altered or added?"
+      ],
+      "citation_policy": "a source not returned by Parallel in this run is discarded"
+    },
+    "parallel_retrieval": {
+      "session_id": "lsa_43ef1cd778914e4397f69ae4aa0630f5",
+      "calls": [
+        {
+          "provider": "parallel_search_v1",
+          "retrieval_id": "search_5c084873c21e98df51f8d5982b6c453a",
+          "result_count": 6
+        },
+        {
+          "provider": "parallel_task_v1",
+          "retrieval_id": "trun_04e777c238664af9a513af5d4bcf8f22",
+          "result_count": 21
+        },
+        {
+          "provider": "parallel_search_v1",
+          "retrieval_id": "search_5f5aed9617f9aab05cad12a9207b56ca",
+          "result_count": 6
+        }
+      ],
+      "sources_returned": 22,
+      "independent_domains": [
+        "aficatalog.afi.com",
+        "archive.org",
+        "brayanimation.weebly.com",
+        "catalog.afi.com",
+        "creativecommons.org",
+        "en.wikipedia.org",
+        "genius.com",
+        "gutenberg.org",
+        "mubi.com",
+        "www.avid.wiki",
+        "www.imdb.com",
+        "www.themoviedb.org"
+      ],
+      "surfaces_used": [
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ]
+    },
+    "citation_audit": {
+      "provider": "parallel_extract_v1",
+      "status": "completed",
+      "extract_id": "extract_b1d3e05d265639d89236af69fe6b6b64",
+      "session_id": "lsa_43ef1cd778914e4397f69ae4aa0630f5",
+      "pages_requested": 3,
+      "pages_returned": 3,
+      "errors": [],
+      "audited": [
+        {
+          "url": "https://brayanimation.weebly.com/the-project.html",
+          "excerpt_present_on_live_page": true,
+          "page_title": "The Project - The Bray Animation Project",
+          "publish_date": null,
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://www.imdb.com/title/tt0147583/",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Tale of a Wag (Short 1920) - IMDb",
+          "publish_date": "2026-06-01",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://brayanimation.weebly.com/jerry-on-the-job.html",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Jerry on the Job - The Bray Animation Project",
+          "publish_date": null,
+          "note": "quoted text found in the live page"
+        }
+      ]
+    },
+    "falsification": {
+      "provider": "parallel_task_group_v1",
+      "status": "not_requested",
+      "reason": "Send depth=deep to fan out one independent falsification run per candidate.",
+      "verdicts": []
+    },
+    "language_findings": [],
+    "supplied_title": {
+      "title": "Unidentified fragment D02, Library of Congress National Screening Room. Animation",
+      "title_type": "supplied_devised",
+      "authority": "cataloguer_supplied",
+      "is_identification": false,
+      "pattern": "FIAF A.2.5 five-Ws (who/what, what, where, when, source)",
+      "form_term": "Animation",
+      "components": {
+        "source_collection": "Library of Congress National Screening Room"
+      },
+      "standard": "The FIAF Moving Image Cataloguing Manual (2016), A.2.5, pp. 93-96",
+      "note": "Assembled by deterministic code from observed clues only. It is a finding aid, not an identification, and names no film."
+    },
+    "cold_case": {
+      "eligible": true,
+      "watchable_strings": [
+        "```json\n{\n  \"intertitles\": [\n    \"\\\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\\\"\"\n  ],\n  \"proper_nouns\": [\n    \"Bray Studios Inc."
+      ],
+      "how": "POST /v1/watch to leave a standing Parallel Monitor on these strings."
+    },
+    "transcript": [
+      {
+        "author": "VisualExaminer",
+        "text": "```json\n{\n  \"intertitles\": [\n    \"\\\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\\\"\"\n  ],\n  \"proper_nouns\": [\n    \"Bray Studios Inc.\"\n  ],\n  \"character_names\": [],\n  \"logos\": [\n    \"BRAY STUDIOS Inc.\"\n  ],\n  \"language\": \"English\",\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": \"1920s-1940s (inferred from animated character's attire)\",\n  \"architecture\": [\n    \"Bedroom interior (bed, window with crescent moon, side table, lamp, chair)\",\n    \"Residential house exterior (two-story with porch and dormer windows, fence, road, trees, hills, crescent moon in sky)\",\n    \"Forest/wooded area (pine trees, rocks, log, crescent moon in sky)\"\n  ],\n  \"possible_performers\": []\n}\n```"
+      },
+      {
+        "author": "PhraseHunter",
+        "text": "### Candidate Identities:\n\n*   **Bray Studios Inc.** (identified as the production company based on the logo)\n\n### Factual Claims:\n\n*   **Observation:** The intertitle `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` is present in the fragment.\n*   **Observation:** The logo \"BRAY STUDIOS Inc.\" is present in the fragment.\n*   Bray Studios Inc. was a pioneering American animation studio.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a **pioneering American animation studio founded by John Randolph Bray before 1912** that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   Bray Studios Inc. was founded by John Randolph Bray before 1912.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a pioneering American animation studio **founded by John Randolph Bray before 1912** that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   Bray Studios Inc. launched major talents such as Max and Dave Fleischer, Walter Lantz, and Paul Terry.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that **launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.**\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   The Bray Studios produced approximately 540 animated films between 1913 and 1936.\n    *   **Supporting Excerpt:** \"_The Bray Studios produced roughly 540 animated films between 1913 and 1936.\"\n    *   **Source URL:** https://brayanimation.weebly.com/the-project.html\n\n**Note:** The exact intertitle phrase `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` was not found in the provided search results."
+      },
+      {
+        "author": "HoldingsResearcher",
+        "text": "### Factual Claims:\n\n*   **Observation:** The intertitle `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` is present in the fragment.\n*   **Observation:** The logo \"BRAY STUDIOS Inc.\" is present in the fragment.\n*   Bray Studios Inc. was a pioneering American animation studio.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a **pioneering American animation studio founded by John Randolph Bray before 1912** that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   Bray Studios Inc. was founded by John Randolph Bray before 1912.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a pioneering American animation studio **founded by John Randolph Bray before 1912** that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   Bray Studios Inc. launched major talents such as Max and Dave Fleischer, Walter Lantz, and Paul Terry.\n    *   **Supporting Excerpt:** \"Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that **launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.**\"\n    *   **Source URL:** https://www.avid.wiki/Bray_Studios_Inc.\n*   The Bray Studios produced approximately 540 animated films between 1913 and 1936.\n    *   **Supporting Excerpt:** \"_The Bray Studios produced roughly 540 animated films between 1913 and 1936.\"\n    *   **Source URL:** https://brayanimation.weebly.com/the-project.html\n\n### Candidate Identities:\n\n*   **Bray Studios Inc.** (identified as the production company based on the logo)\n*   **The Tale of a Wag** (1920) (identified as a candidate film title produced by Bray Studios, based on its description featuring \"Jerry and his dog\" which aligns with the visual content of the fragment.)\n    *   **Supporting Excerpt:** '\"Tale of a Wag\" is a Jerry on the Job cartoon from Bray Studios.' (https://www.imdb.com/title/tt0147583/)\n    *   **Supporting Excerpt:** 'When the story begins, Jerry and his dog are shooting dice.' (https://www.imdb.com/title/tt0147583/)\n\n### Notes:\n\n*   The exact intertitle phrase `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` was not found in the search results or in the provided catalogue descriptions or transcripts.\n*   The Internet Archive, IMDb, AFI Catalog, and the University of Chicago animation glossary were consulted in the research.\n*   No additional holding was found across these named catalogues as of this search date.\n*   There are documented coverage gaps; the available Bray Studios collection is explicitly incomplete, with many films being lost or unavailable. Therefore, the absence of the intertitle in current records does not definitively mean it was not part of \"The Tale of a Wag\" or another Bray Studios production.\n*   No restoration or preservation notice was found specifically for \"The Tale of a Wag.\" \"Oh Boy!\" (1927), another Bray title, was preserved in collaboration with the New Zealand Film Archive and the George Eastman Museum.\n\nA census of world archive catalogues has been commissioned for \"The Tale of a Wag\" (1920). The census ID is `trun_403c9d2f2d9f4e248b11110edb893a00`."
+      },
+      {
+        "author": "Skeptic",
+        "text": "**Contradiction Claims:**\n\n*   **Claim:** The intertitle `\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\"` observed in the fragment is not found in the synopses or descriptions available for \"The Tale of a Wag\" (1920).\n    *   **Basis:** Search results for \"The Tale of a Wag\" from IMDb and TMDB provide plot summaries involving Jerry, his dog, and a mosquito, but none mention the specific intertitle.\n    *   **Supporting Excerpt:** \"When the story begins, Jerry and his dog are shooting dice. The boss gets Jerry because a pesky mosquito is bothering him....and Jerry gets the insane idea of tying a hammer to his dog\\'s tale and then having the dog hammer away the bug!\" (https://www.imdb.com/title/tt0147583/)\n    *   **Supporting Excerpt:** \"When railroad boss Mr. Givney needs a pesky mosquito exterminated, Jerry is on the job. But Jerry's efforts bug Givney more than the bug.\" (https://www.themoviedb.org/movie/296885-tale-of-a-wag)\n\n**Unresolved Questions:**\n\n*   Given the acknowledged coverage gaps for Bray Studios films (many are lost or unavailable), could the intertitle belong to \"The Tale of a Wag\" but simply not be present in currently available plot summaries or transcripts?\n*   Could the intertitle be from a different Bray Studios Inc. production, featuring a boy and a dog, for which detailed intertitle transcripts are not readily available?\n*   Is the phrase \"Jiminy gosh whiz\" or similar exclamations common in other Bray Studios or \"Jerry on the Job\" cartoons, which might suggest a thematic origin even if not an exact match for \"The Tale of a Wag\"?\n*   Could the fragment, including the intertitle, be part of a compilation or re-edited version of Bray Studios material, where intertitles might have been altered or added?"
+      },
+      {
+        "author": "EvidenceCompiler",
+        "text": "{\n  \"candidates\": [\n    {\n      \"candidate_id\": \"bray_studios_inc\",\n      \"title\": \"Bray Studios Inc.\",\n      \"year\": \"\",\n      \"score\": 0.8,\n      \"rationale\": \"Bray Studios Inc. is directly identified by a logo on the intertitle slide.\"\n    },\n    {\n      \"candidate_id\": \"the_tale_of_a_wag_1920\",\n      \"title\": \"The Tale of a Wag\",\n      \"year\": \"1920\",\n      \"score\": 0.7,\n      \"rationale\": \"The film features a boy and a dog, consistent with 'The Tale of a Wag' from Bray Studios, a 'Jerry on the Job' cartoon. However, the specific intertitle is not found in available synopses, creating a contradiction.\"\n    }\n  ],\n  \"claims\": [\n    {\n      \"claim_text\": \"The intertitle \\\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\\\" is present in the fragment.\",\n      \"subject\": \"D02_fragment\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"intertitle_text\",\n      \"confidence_basis\": \"Direct observation from the visual content of the fragment.\",\n      \"sources\": []\n    },\n    {\n      \"claim_text\": \"The logo \\\"BRAY STUDIOS Inc.\\\" is present in the fragment.\",\n      \"subject\": \"bray_studios_inc\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"studio_or_producer\",\n      \"confidence_basis\": \"Direct observation from the visual content of the fragment.\",\n      \"sources\": []\n    },\n    {\n      \"claim_text\": \"Bray Studios Inc. was a pioneering American animation studio.\",\n      \"subject\": \"bray_studios_inc\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"studio_or_producer\",\n      \"confidence_basis\": \"Explicitly stated in the supporting excerpt.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.avid.wiki/Bray_Studios_Inc.\",\n          \"excerpt\": \"Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"Bray Studios Inc. was founded by John Randolph Bray before 1912.\",\n      \"subject\": \"bray_studios_inc\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"release_date\",\n      \"confidence_basis\": \"Explicitly stated in the supporting excerpt.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.avid.wiki/Bray_Studios_Inc.\",\n          \"excerpt\": \"Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"Bray Studios Inc. launched major talents such as Max and Dave Fleischer, Walter Lantz, and Paul Terry.\",\n      \"subject\": \"bray_studios_inc\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"studio_or_producer\",\n      \"confidence_basis\": \"Explicitly stated in the supporting excerpt.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.avid.wiki/Bray_Studios_Inc.\",\n          \"excerpt\": \"Bray Studios Inc. was a pioneering American animation studio founded by John Randolph Bray before 1912 that launched major talents such as Max and Dave Fleischer, Walter Lantz, Paul Terry, and others.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The Bray Studios produced approximately 540 animated films between 1913 and 1936.\",\n      \"subject\": \"bray_studios_inc\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"release_date\",\n      \"confidence_basis\": \"Explicitly stated in the supporting excerpt.\",\n      \"sources\": [\n        {\n          \"url\": \"https://brayanimation.weebly.com/the-project.html\",\n          \"excerpt\": \"_The Bray Studios produced roughly 540 animated films between 1913 and 1936.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"\\\"The Tale of a Wag\\\" is a Jerry on the Job cartoon from Bray Studios.\",\n      \"subject\": \"the_tale_of_a_wag_1920\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"studio_or_producer\",\n      \"confidence_basis\": \"Explicitly stated in the supporting excerpt.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.imdb.com/title/tt0147583/\",\n          \"excerpt\": \"\\\"Tale of a Wag\\\" is a Jerry on the Job cartoon from Bray Studios.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"\\\"The Tale of a Wag\\\" features Jerry and his dog.\",\n      \"subject\": \"the_tale_of_a_wag_1920\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Explicitly stated in the supporting excerpt, aligning with the visual content of the fragment.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.imdb.com/title/tt0147583/\",\n          \"excerpt\": \"When the story begins, Jerry and his dog are shooting dice.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The release year for \\\"The Tale of a Wag\\\" is 1920.\",\n      \"subject\": \"the_tale_of_a_wag_1920\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"release_date\",\n      \"confidence_basis\": \"The IMDb entry clearly lists 1920 as the release year.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.imdb.com/title/tt0147583/\",\n          \"excerpt\": \"Tale of a Wag (1920)\"\n        },\n        {\n          \"url\": \"https://brayanimation.weebly.com/jerry-on-the-job.html\",\n          \"excerpt\": \"The Tale of a Wag 3/9/1920\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The intertitle \\\"Jiminy gosh whiz! I'll bet fifty million dollars they'll all be sorry when they find us gone!\\\" observed in the fragment is not found in the synopses or descriptions available for \\\"The Tale of a Wag\\\" (1920).\",\n      \"subject\": \"the_tale_of_a_wag_1920\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"intertitle_text\",\n      \"confidence_basis\": \"Search results for \\\"The Tale of a Wag\\\" from IMDb and TMDB provide plot summaries but do not mention the specific intertitle.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.imdb.com/title/tt0147583/\",\n          \"excerpt\": \"When the story begins, Jerry and his dog are shooting dice. The boss gets Jerry because a pesky mosquito is bothering him....and Jerry gets the insane idea of tying a hammer to his dog's tale and then having the dog hammer away the bug!\"\n        },\n        {\n          \"url\": \"https://www.themoviedb.org/movie/296885-tale-of-a-wag\",\n          \"excerpt\": \"When railroad boss Mr. Givney needs a pesky mosquito exterminated, Jerry is on the job. But Jerry's efforts bug Givney more than the bug.\"\n        }\n      ]\n    }\n  ],\n  \"temporal_compatibility\": true,\n  \"entity_compatibility\": true,\n  \"unresolved_questions\": [\n    \"Given the acknowledged coverage gaps for Bray Studios films (many are lost or unavailable), could the intertitle belong to \\\"The Tale of a Wag\\\" but simply not be present in currently available plot summaries or transcripts?\",\n    \"Could the intertitle be from a different Bray Studios Inc. production, featuring a boy and a dog, for which detailed intertitle transcripts are not readily available?\",\n    \"Is the phrase \\\"Jiminy gosh whiz\\\" or similar exclamations common in other Bray Studios or \\\"Jerry on the Job\\\" cartoons, which might suggest a thematic origin even if not an exact match for \\\"The Tale of a Wag\\\"?\",\n    \"Could the fragment, including the intertitle, be part of a compilation or re-edited version of Bray Studios material, where intertitles might have been altered or added?\"\n  ]\n}"
+      }
+    ],
+    "gate": {
+      "verdict": "candidates",
+      "reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, human_approved.",
+      "thresholds": {
+        "independent_source_domains>=3": false,
+        "distinct_clue_families>=2": false,
+        "temporal_compatibility": true,
+        "entity_compatibility": true,
+        "unresolved_contradictions==0": true,
+        "every_decisive_claim_has_source": true,
+        "human_approved": false
+      },
+      "candidates": [
+        {
+          "candidate_id": "bray_studios_inc",
+          "label": "Bray Studios Inc.",
+          "score": 0.8,
+          "decisive_claim_ids": [
+            "clm_b4be5cd93e8f8c95b3b05576"
+          ]
+        },
+        {
+          "candidate_id": "the_tale_of_a_wag_1920",
+          "label": "The Tale of a Wag (1920)",
+          "score": 0.7,
+          "decisive_claim_ids": [
+            "clm_736bb57e4ca46fe3ea4a54e5",
+            "clm_1a3895b2dda1919330aedb99",
+            "clm_7c1d8f70c39302f97fcfeaec"
+          ]
+        }
+      ],
+      "requires_human": true,
+      "passed": [
+        "temporal_compatibility",
+        "entity_compatibility",
+        "unresolved_contradictions==0",
+        "every_decisive_claim_has_source"
+      ],
+      "failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "human_approved"
+      ]
+    },
+    "requires_human": true
+  },
+  "meta": {
+    "verdict": "candidates",
+    "gate": {
+      "verdict": "candidates",
+      "reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, human_approved.",
+      "thresholds": {
+        "independent_source_domains>=3": false,
+        "distinct_clue_families>=2": false,
+        "temporal_compatibility": true,
+        "entity_compatibility": true,
+        "unresolved_contradictions==0": true,
+        "every_decisive_claim_has_source": true,
+        "human_approved": false
+      },
+      "candidates": [
+        {
+          "candidate_id": "bray_studios_inc",
+          "label": "Bray Studios Inc.",
+          "score": 0.8,
+          "decisive_claim_ids": [
+            "clm_b4be5cd93e8f8c95b3b05576"
+          ]
+        },
+        {
+          "candidate_id": "the_tale_of_a_wag_1920",
+          "label": "The Tale of a Wag (1920)",
+          "score": 0.7,
+          "decisive_claim_ids": [
+            "clm_736bb57e4ca46fe3ea4a54e5",
+            "clm_1a3895b2dda1919330aedb99",
+            "clm_7c1d8f70c39302f97fcfeaec"
+          ]
+        }
+      ],
+      "requires_human": true,
+      "passed": [
+        "temporal_compatibility",
+        "entity_compatibility",
+        "unresolved_contradictions==0",
+        "every_decisive_claim_has_source"
+      ],
+      "failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "human_approved"
+      ]
+    },
+    "requires_human": true,
+    "latency_ms": 335583,
+    "parallel_surfaces_used": [
+      "parallel_search_v1",
+      "parallel_task_v1"
+    ],
+    "usage": {
+      "used_today": 2,
+      "remaining_today": 1998
+    }
+  },
+  "captured": {
+    "at": "2026-09-08T00:54:51.777989+00:00",
+    "service": "https://last-seen-alive-109051079423.us-central1.run.app",
+    "elapsed_seconds": 335.7,
+    "note": "A real run of the deployed service on a public Library of Congress fragment. Not edited, not curated, not re-run to get a better result."
+  }
+}

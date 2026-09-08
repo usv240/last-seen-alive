@@ -1,0 +1,560 @@
+{
+  "ok": true,
+  "data": {
+    "status": "completed",
+    "session_id": "lsa_bd14dacf924b",
+    "parallel_session_id": "lsa_11367326ccee420c8e30f5510b962f15",
+    "sample_id": "D03",
+    "origin": "preset:D03",
+    "model": "gemini-2.5-flash",
+    "agent_runtime": "google-adk",
+    "depth": "standard",
+    "latency_ms": 100415,
+    "outputs": {
+      "visual_examiner": "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [],\n  \"character_names\": [],\n  \"logos\": [],\n  \"language\": null,\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": \"Observation: Men wear caps, long-sleeved shirts, trousers, and jackets/vests suitable for outdoor activities like riding. Inference: The general style suggests early to mid-20th century, but is not definitive due to low detail.\",\n  \"architecture\": \"None visible, scenes are set in wooded/forest areas.\",\n  \"possible_performers\": \"Not identifiable due to low image resolution and distance.\"\n}\n```",
+      "phrase_hunter": "Candidate identities: None.\n\nFactual claims:\n*   Observation: Men wear caps, long-sleeved shirts, trousers, and jackets/vests suitable for outdoor activities like riding.\n    *   Supporting evidence for \"riding\" attire includes:\n        *   \"A **riding habit** is women's [clothing](https://en.wikipedia.org/wiki/Clothing \"Clothing\") for [horseback riding](https://en.wikipedia.org/wiki/Horseback_riding \"Horseback riding\").\" from \"Riding habit - Wikipedia\" (https://en.wikipedia.org/wiki/Riding_habit).\n        *   \"History of Equestrian Fashion: 1920s to 1940s\" from \"History of Equestrian Fashion: 1920s to 1940s - Style My Ride\" (https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s).\n        *   \"Gertrude Remey with her horse, ca. 1920s. The complete **riding habit** in the Cornell Costume &amp; Textile Collection (items: #1286-**jacket**, #1289-**breeches**, #1453-**equestrian shirt**...)\" from \"Riding Apparel: Then and Now – Cornell Fashion + Textile Collection\" (https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/).\n    *   Supporting evidence for specific clothing items (jacket, shirt, trousers/breeches) includes:\n        *   \"The complete riding habit in the Cornell Costume &amp; Textile Collection (items: #1286-**jacket**, #1289-**breeches**, #1453-**equestrian shirt**...)\" from \"Riding Apparel: Then and Now – Cornell Fashion + Textile Collection\" (https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/).\n        *   \"By the early 19th century...a devantiere could describe any part of the riding habit, be it the skirt...or the **riding coat**.\" from \"Riding habit - Wikipedia\" (https://en.wikipedia.org/wiki/Riding_habit).\n        *   \"Masculine-styled **jacket** and **waistcoat**, c. 1680\" from \"Riding habit - Wikipedia\" (https://en.wikipedia.org/wiki/Riding_habit).\n*   Inference: The general style suggests early to mid-20th century.\n    *   Supporting evidence for this timeframe includes:\n        *   \"History of Equestrian Fashion: **1920s to 1940s**\" from \"History of Equestrian Fashion: 1920s to 1940s - Style My Ride\" (https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian_fashion-1920s-to-1940s).\n        *   \"Gertrude Remey with her horse, ca. **1920s**.\" from \"Riding Apparel: Then and Now – Cornell Fashion + Textile Collection\" (https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/).\n        *   \"Woman's riding suit, **1900–1910**, in the Staten Island Historical Society Online Collections Database\" from \"Riding habit - Wikipedia\" (https://en.wikipedia.org/wiki/Riding_habit).",
+      "holdings_researcher": "Given the lack of specific identifying information such as intertitles, proper nouns, character names, logos, or identifiable performers, no plausible candidate titles or individuals can be formed at this stage to initiate `deep_holdings_research` or `census_named_catalogues`. The current information is limited to observations about the costume period (early to mid-20th century riding attire) and the setting (wooded/forest areas).",
+      "skeptic": "```json\n{\n  \"contradiction_claims\": [\n    {\n      \"claim\": \"The observation that men wear caps, long-sleeved shirts, trousers, and jackets/vests is suitable *exclusively* for outdoor activities like riding.\",\n      \"contradiction_evidence\": [\n        \"The type of attire described (caps, shirts, trousers, and jackets/vests) was widely adopted for various men's outdoor activities and work during the early to mid-20th century, including hunting, camping, hiking, and general labor, not solely for riding. For example, 'flat caps (also called ivy or newsboy caps) donned working men’s heads' and 'Two pairs of trousers, 2-3 shirts, a vest, a light jacket, a heavy jacket, one or two caps...would have been a decent wardrobe for a [working-class man.]' ('Men\\\\'s Vintage Workwear Inspired Clothing' and '1910s Men\\\\'s Working Class Clothing' from vintagedancer.com). The article 'Men\\\\'s 1920s Camping, Hiking, Hunting Clothes' explicitly states that '1920s men’s outdoor wear for hiking, camping, riding, hunting, shooting, and fishing has become a popular topic recently,' indicating suitability for multiple outdoor pursuits. Similarly, the '1890s in Western fashion - Wikipedia' mentions 'Norfolk jacket... for shooting and rugged outdoor pursuits' and knickerbockers for 'bicycling or golf... or for hunting with sturdy boots.'\"\n      ],\n      \"original_inference_addressed\": \"Observation: Men wear caps, long-sleeved shirts, trousers, and jackets/vests suitable for outdoor activities like riding.\"\n    },\n    {\n      \"claim\": \"The general style of clothing definitively suggests an *exclusive* early to mid-20th century timeframe.\",\n      \"contradiction_evidence\": [\n        \"Similar styles of men's outdoor wear, including caps and jackets for rugged outdoor activities, were also prevalent in the late 19th century. For instance, the '1890s in Western fashion - Wikipedia' describes country clothes from the 1890s featuring breeches, boots, waistcoats, and coats, while the 'Edwardian Fashion Guide at Historical Emporium' mentions 'Mens Edwardian Clothing (1890s - 1920s)' being influenced by the rise in sports and outdoor activities, including the wearing of 'newsboy caps' by working men. This suggests the timeframe for such attire could extend earlier than the 'early 20th century' inferred.\"\n      ],\n      \"original_inference_addressed\": \"Inference: The general style suggests early to mid-20th century.\"\n    }\n  ],\n  \"unresolved_questions\": [\n    \"Given that the observed clothing was suitable for a variety of outdoor activities and work, how much does this general suitability weaken the specific inference that the men are engaged in 'riding' based solely on their attire, especially since they are clearly depicted on horseback in the footage?\",\n    \"Can more specific details from the clothing, even with the noted low image resolution, or from the type of horses and saddlery, help to further narrow down the exact activity or the timeframe within the broad late 19th to mid-20th century period?\",\n    \"Are there any subtle cues in the clothing or context that might point towards a particular *purpose* of riding (e.g., leisure, sport, work, military) that could offer more specific identification?\"\n  ]\n}\n```",
+      "evidence_compiler": {
+        "candidates": [],
+        "claims": [
+          {
+            "claim_text": "Men wear caps, long-sleeved shirts, trousers, and jackets/vests.",
+            "subject": "fragment_D03_visuals",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Direct visual observation of the footage.",
+            "sources": []
+          },
+          {
+            "claim_text": "The men's attire (caps, long-sleeved shirts, trousers, and jackets/vests) is suitable for outdoor activities like riding.",
+            "subject": "fragment_D03_visuals",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Archival evidence supports the suitability of such attire for horseback riding.",
+            "sources": [
+              {
+                "url": "https://en.wikipedia.org/wiki/Riding_habit",
+                "excerpt": "A **riding habit** is women's [clothing](https://en.wikipedia.org/wiki/Clothing \"Clothing\") for [horseback riding](https://en.wikipedia.org/wiki/Horseback_riding \"Horseback riding\") ."
+              },
+              {
+                "url": "https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s",
+                "excerpt": "# History of Equestrian Fashion: 1920s to 1940s"
+              },
+              {
+                "url": "https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/",
+                "excerpt": "Gertrude Remey with her horse, ca. 1920s. The complete **riding habit** in the Cornell Costume &amp; Textile Collection (items: #1286-**jacket**, #1289-**breeches**, #1453-**equestrian shirt**...)"
+              },
+              {
+                "url": "https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/",
+                "excerpt": "The complete riding habit in the Cornell Costume &amp; Textile Collection (items: #1286-**jacket**, #1289-**breeches**, #1453-**equestrian shirt**...)"
+              },
+              {
+                "url": "https://en.wikipedia.org/wiki/Riding_habit",
+                "excerpt": "By the early 19th century...a devantiere could describe any part of the riding habit, be it the skirt...or the **riding coat**."
+              },
+              {
+                "url": "https://en.wikipedia.org/wiki/Riding_habit",
+                "excerpt": "Masculine-styled **jacket** and **waistcoat**, c. 1680"
+              }
+            ]
+          },
+          {
+            "claim_text": "The general style of clothing suggests an early to mid-20th century timeframe.",
+            "subject": "fragment_D03_visuals",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Archival evidence links similar clothing styles to the early to mid-20th century.",
+            "sources": [
+              {
+                "url": "https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s",
+                "excerpt": "History of Equestrian Fashion: **1920s to 1940s**"
+              },
+              {
+                "url": "https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/",
+                "excerpt": "Gertrude Remey with her horse, ca. **1920s**."
+              },
+              {
+                "url": "https://en.wikipedia.org/wiki/Riding_habit",
+                "excerpt": "Woman's riding suit, **1900–1910**, in the Staten Island Historical Society Online Collections Database"
+              }
+            ]
+          },
+          {
+            "claim_text": "The observation that men wear caps, long-sleeved shirts, trousers, and jackets/vests is suitable *exclusively* for outdoor activities like riding is contradicted, as this attire was widely adopted for various men's outdoor activities and work during the early to mid-20th century.",
+            "subject": "fragment_D03_visuals",
+            "stance": "contradicts",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Archival evidence indicates similar clothing was worn for multiple outdoor pursuits and general work, not just riding.",
+            "sources": [
+              {
+                "url": "https://vintagedancer.com/vintage/mens-vintage-workwear-1920s-1930s-1940s-1950s/",
+                "excerpt": "The type of attire described (caps, shirts, trousers, and jackets/vests) was widely adopted for various men's outdoor activities and work during the early to mid-20th century, including hunting, camping, hiking, and general labor, not solely for riding. For example, 'flat caps (also called ivy or newsboy caps) donned working men’s heads' and 'Two pairs of trousers, 2-3 shirts, a vest, a light jacket, a heavy jacket, one or two caps...would have been a decent wardrobe for a [working-class man.]' ('Men\\'s Vintage Workwear Inspired Clothing' and '1910s Men\\'s Working Class Clothing' from vintagedancer.com). The article 'Men\\'s 1920s Camping, Hiking, Hunting Clothes' explicitly states that '1920s men’s outdoor wear for hiking, camping, riding, hunting, shooting, and fishing has become a popular topic recently,' indicating suitability for multiple outdoor pursuits. Similarly, the '1890s in Western fashion - Wikipedia' mentions 'Norfolk jacket... for shooting and rugged outdoor pursuits' and knickerbockers for 'bicycling or golf... or for hunting with sturdy boots.'"
+              },
+              {
+                "url": "https://vintagedancer.com/1900s/1910s-mens-working-class-clothing/",
+                "excerpt": "Two pairs of trousers, 2-3 shirts, a vest, a light jacket, a heavy jacket, one or two caps, suspenders or a belt, and a pair of boots would have been a decent wardrobe for a [working-class man.](https://vintagedancer.com/1920s/vintage-wardrobes-budgets/)"
+              },
+              {
+                "url": "https://vintagedancer.com/1920s/mens-1920s-camping-hiking-hunting-clothes/",
+                "excerpt": "1920s men’s outdoor wear for hiking, camping, riding, hunting, shooting, and fishing has become a popular topic recently."
+              },
+              {
+                "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+                "excerpt": "The [Norfolk jacket](https://en.wikipedia.org/wiki/Norfolk_jacket \"Norfolk jacket\") remained fashionable for shooting and rugged outdoor pursuits. It was made of sturdy tweed or similar fabric and featured paired box pleats over the chest and back, with a fabric belt."
+              },
+              {
+                "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+                "excerpt": "[knickerbockers](https://en.wikipedia.org/wiki/Knickerbockers_(clothing) \"Knickerbockers (clothing)\") ), it became the _Norfolk suit_ , suitable for bicycling or golf with knee-length stockings and low shoes, or for hunting with sturdy boots or shoes with leather [gaiters](https://en.wikipedia.org/wiki/Gaiters"
+              }
+            ]
+          },
+          {
+            "claim_text": "The general style of clothing definitively suggesting an *exclusive* early to mid-20th century timeframe is contradicted, as similar styles were prevalent in the late 19th century.",
+            "subject": "fragment_D03_visuals",
+            "stance": "contradicts",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Archival evidence indicates similar outdoor clothing styles were in use during the late 19th century, extending the potential timeframe.",
+            "sources": [
+              {
+                "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+                "excerpt": "Similar styles of men's outdoor wear, including caps and jackets for rugged outdoor activities, were also prevalent in the late 19th century. For instance, the '1890s in Western fashion - Wikipedia' describes country clothes from the 1890s featuring breeches, boots, waistcoats, and coats, while the 'Edwardian Fashion Guide at Historical Emporium' mentions 'Mens Edwardian Clothing (1890s - 1920s)' being influenced by the rise in sports and outdoor activities, including the wearing of 'newsboy caps' by working men. This suggests the timeframe for such attire could extend earlier than the 'early 20th century' inferred."
+              },
+              {
+                "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+                "excerpt": "[Country clothes:](https://en.wikipedia.org/wiki/File:Tissot_self_detail.jpg \"File:Tissot self detail.jpg\") [James Tissot](https://en.wikipedia.org/wiki/James_Tissot \"James Tissot\") wears breeches and high boots with a reddish collared waistcoat and a brown coat. Even with this casual outdoor costume, he wears a tie, 1898."
+              },
+              {
+                "url": "https://historicalemporium.com/pages/mens-edwardian-clothing-1890s-1920s",
+                "excerpt": "## Mens Edwardian Clothing (1890s - 1920s)"
+              },
+              {
+                "url": "https://historicalemporium.com/pages/mens-edwardian-clothing-1890s-1920s",
+                "excerpt": "Working men could be seen wearing all of these styles, in addition to the newsboy cap ."
+              }
+            ]
+          }
+        ],
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_questions": [
+          "Given that the observed clothing was suitable for a variety of outdoor activities and work, how much does this general suitability weaken the specific inference that the men are engaged in 'riding' based solely on their attire, especially since they are clearly depicted on horseback in the footage?",
+          "Can more specific details from the clothing, even with the noted low image resolution, or from the type of horses and saddlery, help to further narrow down the exact activity or the timeframe within the broad late 19th to mid-20th century period?",
+          "Are there any subtle cues in the clothing or context that might point towards a particular *purpose* of riding (e.g., leisure, sport, work, military) that could offer more specific identification?"
+        ]
+      }
+    },
+    "evidence": {
+      "candidates": [],
+      "claims": [
+        {
+          "claim_id": "clm_e76495d44516f1541185088d",
+          "claim_text": "Men wear caps, long-sleeved shirts, trousers, and jackets/vests.",
+          "subject": "fragment_D03_visuals",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Direct visual observation of the footage.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_1c179ef5aa9b5d2cea1401c7",
+          "claim_text": "The men's attire (caps, long-sleeved shirts, trousers, and jackets/vests) is suitable for outdoor activities like riding.",
+          "subject": "fragment_D03_visuals",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Archival evidence supports the suitability of such attire for horseback riding.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Riding_habit",
+              "domain": "en.wikipedia.org",
+              "excerpt": "A **riding habit** is women's [clothing](https://en.wikipedia.org/wiki/Clothing \"Clothing\") for [horseback riding](https://en.wikipedia.org/wiki/Horseback_riding \"Horseback riding\") .",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s",
+              "domain": "www.stylemyride.net",
+              "excerpt": "# History of Equestrian Fashion: 1920s to 1940s",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_b5cfd2ef53b98dd0c48fd5c8",
+          "claim_text": "The general style of clothing suggests an early to mid-20th century timeframe.",
+          "subject": "fragment_D03_visuals",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Archival evidence links similar clothing styles to the early to mid-20th century.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s",
+              "domain": "www.stylemyride.net",
+              "excerpt": "History of Equestrian Fashion: **1920s to 1940s**",
+              "verified": false,
+              "live_verified": true,
+              "counts_toward_gate": false
+            },
+            {
+              "url": "https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/",
+              "domain": "blogs.cornell.edu",
+              "excerpt": "Gertrude Remey with her horse, ca. **1920s**.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Riding_habit",
+              "domain": "en.wikipedia.org",
+              "excerpt": "Woman's riding suit, **1900–1910**, in the Staten Island Historical Society Online Collections Database",
+              "verified": false,
+              "live_verified": true,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_6ece52f731f93902fd292edd",
+          "claim_text": "The observation that men wear caps, long-sleeved shirts, trousers, and jackets/vests is suitable *exclusively* for outdoor activities like riding is contradicted, as this attire was widely adopted for various men's outdoor activities and work during the early to mid-20th century.",
+          "subject": "fragment_D03_visuals",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Archival evidence indicates similar clothing was worn for multiple outdoor pursuits and general work, not just riding.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://vintagedancer.com/1900s/1910s-mens-working-class-clothing/",
+              "domain": "vintagedancer.com",
+              "excerpt": "Two pairs of trousers, 2-3 shirts, a vest, a light jacket, a heavy jacket, one or two caps, suspenders or a belt, and a pair of boots would have been a decent wardrobe for a [working-class man.](https://vintagedancer.com/1920s/vintage-wardrobes-budgets/)",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://vintagedancer.com/1920s/mens-1920s-camping-hiking-hunting-clothes/",
+              "domain": "vintagedancer.com",
+              "excerpt": "1920s men’s outdoor wear for hiking, camping, riding, hunting, shooting, and fishing has become a popular topic recently.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+              "domain": "en.wikipedia.org",
+              "excerpt": "The [Norfolk jacket](https://en.wikipedia.org/wiki/Norfolk_jacket \"Norfolk jacket\") remained fashionable for shooting and rugged outdoor pursuits. It was made of sturdy tweed or similar fabric and featured paired box pleats over the chest and back, with a fabric belt.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+              "domain": "en.wikipedia.org",
+              "excerpt": "[knickerbockers](https://en.wikipedia.org/wiki/Knickerbockers_(clothing) \"Knickerbockers (clothing)\") ), it became the _Norfolk suit_ , suitable for bicycling or golf with knee-length stockings and low shoes, or for hunting with sturdy boots or shoes with leather [gaiters](https://en.wikipedia.org/wiki/Gaiters",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_e39f0317173968247dbc124c",
+          "claim_text": "The general style of clothing definitively suggesting an *exclusive* early to mid-20th century timeframe is contradicted, as similar styles were prevalent in the late 19th century.",
+          "subject": "fragment_D03_visuals",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Archival evidence indicates similar outdoor clothing styles were in use during the late 19th century, extending the potential timeframe.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+              "domain": "en.wikipedia.org",
+              "excerpt": "[Country clothes:](https://en.wikipedia.org/wiki/File:Tissot_self_detail.jpg \"File:Tissot self detail.jpg\") [James Tissot](https://en.wikipedia.org/wiki/James_Tissot \"James Tissot\") wears breeches and high boots with a reddish collared waistcoat and a brown coat. Even with this casual outdoor costume, he wears a tie, 1898.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://historicalemporium.com/pages/mens-edwardian-clothing-1890s-1920s",
+              "domain": "historicalemporium.com",
+              "excerpt": "## Mens Edwardian Clothing (1890s - 1920s)",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://historicalemporium.com/pages/mens-edwardian-clothing-1890s-1920s",
+              "domain": "historicalemporium.com",
+              "excerpt": "Working men could be seen wearing all of these styles, in addition to the newsboy cap .",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        }
+      ],
+      "clue_families": [],
+      "rejected_citations": [
+        {
+          "url": "https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The men's attire (caps, long-sleeved shirts, trousers, and jackets/vests) is suitable for outdoor activities like riding."
+        },
+        {
+          "url": "https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The men's attire (caps, long-sleeved shirts, trousers, and jackets/vests) is suitable for outdoor activities like riding."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Riding_habit",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The men's attire (caps, long-sleeved shirts, trousers, and jackets/vests) is suitable for outdoor activities like riding."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Riding_habit",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The men's attire (caps, long-sleeved shirts, trousers, and jackets/vests) is suitable for outdoor activities like riding."
+        },
+        {
+          "url": "https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The general style of clothing suggests an early to mid-20th century timeframe."
+        },
+        {
+          "url": "https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The general style of clothing suggests an early to mid-20th century timeframe."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Riding_habit",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The general style of clothing suggests an early to mid-20th century timeframe."
+        },
+        {
+          "url": "https://vintagedancer.com/vintage/mens-vintage-workwear-1920s-1930s-1940s-1950s/",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The observation that men wear caps, long-sleeved shirts, trousers, and jackets/vests is suitable *exclusively* for outdoor activities like riding is contradicte"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The general style of clothing definitively suggesting an *exclusive* early to mid-20th century timeframe is contradicted, as similar styles were prevalent in th"
+        }
+      ],
+      "unresolved_questions": [
+        "Given that the observed clothing was suitable for a variety of outdoor activities and work, how much does this general suitability weaken the specific inference that the men are engaged in 'riding' based solely on their attire, especially since they are clearly depicted on horseback in the footage?",
+        "Can more specific details from the clothing, even with the noted low image resolution, or from the type of horses and saddlery, help to further narrow down the exact activity or the timeframe within the broad late 19th to mid-20th century period?",
+        "Are there any subtle cues in the clothing or context that might point towards a particular *purpose* of riding (e.g., leisure, sport, work, military) that could offer more specific identification?"
+      ],
+      "citation_policy": "a source not returned by Parallel in this run is discarded"
+    },
+    "parallel_retrieval": {
+      "session_id": "lsa_11367326ccee420c8e30f5510b962f15",
+      "calls": [
+        {
+          "provider": "parallel_search_v1",
+          "retrieval_id": "search_830831f6069c19a4be6efd948e78ba98",
+          "result_count": 4
+        },
+        {
+          "provider": "parallel_search_v1",
+          "retrieval_id": "search_cbddd4fcf7ad4e4be4f336f4676c812f",
+          "result_count": 9
+        }
+      ],
+      "sources_returned": 13,
+      "independent_domains": [
+        "blogs.cornell.edu",
+        "ebay.com",
+        "en.wikipedia.org",
+        "fashionhistory.fitnyc.edu",
+        "historicalemporium.com",
+        "vintagedancer.com",
+        "www.ebay.com",
+        "www.outdoorgearlab.com",
+        "www.stylemyride.net"
+      ],
+      "surfaces_used": [
+        "parallel_search_v1"
+      ]
+    },
+    "citation_audit": {
+      "provider": "parallel_extract_v1",
+      "status": "completed",
+      "extract_id": "extract_7bed473e6fae5bd385c8ad4251ee7640",
+      "session_id": "lsa_11367326ccee420c8e30f5510b962f15",
+      "pages_requested": 6,
+      "pages_returned": 6,
+      "errors": [],
+      "audited": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Riding_habit",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Riding habit - Wikipedia",
+          "publish_date": "2025-12-31",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s",
+          "excerpt_present_on_live_page": true,
+          "page_title": "History of Equestrian Fashion: 1920s to 1940s",
+          "publish_date": "2015-08-31",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://vintagedancer.com/1900s/1910s-mens-working-class-clothing/",
+          "excerpt_present_on_live_page": true,
+          "page_title": "1910s Men's Working Class Clothing",
+          "publish_date": "2019-01-14",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://vintagedancer.com/1920s/mens-1920s-camping-hiking-hunting-clothes/",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Men's 1920s Camping, Hiking, Hunting Clothes",
+          "publish_date": "2022-01-28",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/1890s_in_Western_fashion",
+          "excerpt_present_on_live_page": true,
+          "page_title": "1890s in Western fashion - Wikipedia",
+          "publish_date": "2026-02-02",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://historicalemporium.com/pages/mens-edwardian-clothing-1890s-1920s",
+          "excerpt_present_on_live_page": true,
+          "page_title": "\n      Edwardian Fashion Guide at Historical Emporium\n",
+          "publish_date": null,
+          "note": "quoted text found in the live page"
+        }
+      ]
+    },
+    "falsification": {
+      "provider": "parallel_task_group_v1",
+      "status": "not_requested",
+      "reason": "Send depth=deep to fan out one independent falsification run per candidate.",
+      "verdicts": []
+    },
+    "language_findings": [],
+    "supplied_title": {
+      "title": "Unidentified fragment D03, Library of Congress National Screening Room",
+      "title_type": "supplied_devised",
+      "authority": "cataloguer_supplied",
+      "is_identification": false,
+      "pattern": "FIAF A.2.5 five-Ws (who/what, what, where, when, source)",
+      "form_term": "",
+      "components": {
+        "source_collection": "Library of Congress National Screening Room"
+      },
+      "standard": "The FIAF Moving Image Cataloguing Manual (2016), A.2.5, pp. 93-96",
+      "note": "Assembled by deterministic code from observed clues only. It is a finding aid, not an identification, and names no film."
+    },
+    "cold_case": {
+      "eligible": true,
+      "watchable_strings": [
+        "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [],\n  \"character_names\": [],\n  \"logos\": [],\n  \"language\": null,\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": \"Observation: Me"
+      ],
+      "how": "POST /v1/watch to leave a standing Parallel Monitor on these strings."
+    },
+    "transcript": [
+      {
+        "author": "VisualExaminer",
+        "text": "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [],\n  \"character_names\": [],\n  \"logos\": [],\n  \"language\": null,\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": \"Observation: Men wear caps, long-sleeved shirts, trousers, and jackets/vests suitable for outdoor activities like riding. Inference: The general style suggests early to mid-20th century, but is not definitive due to low detail.\",\n  \"architecture\": \"None visible, scenes are set in wooded/forest areas.\",\n  \"possible_performers\": \"Not identifiable due to low image resolution and distance.\"\n}\n```"
+      },
+      {
+        "author": "PhraseHunter",
+        "text": "Candidate identities: None.\n\nFactual claims:\n*   Observation: Men wear caps, long-sleeved shirts, trousers, and jackets/vests suitable for outdoor activities like riding.\n    *   Supporting evidence for \"riding\" attire includes:\n        *   \"A **riding habit** is women's [clothing](https://en.wikipedia.org/wiki/Clothing \"Clothing\") for [horseback riding](https://en.wikipedia.org/wiki/Horseback_riding \"Horseback riding\").\" from \"Riding habit - Wikipedia\" (https://en.wikipedia.org/wiki/Riding_habit).\n        *   \"History of Equestrian Fashion: 1920s to 1940s\" from \"History of Equestrian Fashion: 1920s to 1940s - Style My Ride\" (https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s).\n        *   \"Gertrude Remey with her horse, ca. 1920s. The complete **riding habit** in the Cornell Costume &amp; Textile Collection (items: #1286-**jacket**, #1289-**breeches**, #1453-**equestrian shirt**...)\" from \"Riding Apparel: Then and Now – Cornell Fashion + Textile Collection\" (https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/).\n    *   Supporting evidence for specific clothing items (jacket, shirt, trousers/breeches) includes:\n        *   \"The complete riding habit in the Cornell Costume &amp; Textile Collection (items: #1286-**jacket**, #1289-**breeches**, #1453-**equestrian shirt**...)\" from \"Riding Apparel: Then and Now – Cornell Fashion + Textile Collection\" (https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/).\n        *   \"By the early 19th century...a devantiere could describe any part of the riding habit, be it the skirt...or the **riding coat**.\" from \"Riding habit - Wikipedia\" (https://en.wikipedia.org/wiki/Riding_habit).\n        *   \"Masculine-styled **jacket** and **waistcoat**, c. 1680\" from \"Riding habit - Wikipedia\" (https://en.wikipedia.org/wiki/Riding_habit).\n*   Inference: The general style suggests early to mid-20th century.\n    *   Supporting evidence for this timeframe includes:\n        *   \"History of Equestrian Fashion: **1920s to 1940s**\" from \"History of Equestrian Fashion: 1920s to 1940s - Style My Ride\" (https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian_fashion-1920s-to-1940s).\n        *   \"Gertrude Remey with her horse, ca. **1920s**.\" from \"Riding Apparel: Then and Now – Cornell Fashion + Textile Collection\" (https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/).\n        *   \"Woman's riding suit, **1900–1910**, in the Staten Island Historical Society Online Collections Database\" from \"Riding habit - Wikipedia\" (https://en.wikipedia.org/wiki/Riding_habit)."
+      },
+      {
+        "author": "HoldingsResearcher",
+        "text": "Given the lack of specific identifying information such as intertitles, proper nouns, character names, logos, or identifiable performers, no plausible candidate titles or individuals can be formed at this stage to initiate `deep_holdings_research` or `census_named_catalogues`. The current information is limited to observations about the costume period (early to mid-20th century riding attire) and the setting (wooded/forest areas)."
+      },
+      {
+        "author": "Skeptic",
+        "text": "```json\n{\n  \"contradiction_claims\": [\n    {\n      \"claim\": \"The observation that men wear caps, long-sleeved shirts, trousers, and jackets/vests is suitable *exclusively* for outdoor activities like riding.\",\n      \"contradiction_evidence\": [\n        \"The type of attire described (caps, shirts, trousers, and jackets/vests) was widely adopted for various men's outdoor activities and work during the early to mid-20th century, including hunting, camping, hiking, and general labor, not solely for riding. For example, 'flat caps (also called ivy or newsboy caps) donned working men’s heads' and 'Two pairs of trousers, 2-3 shirts, a vest, a light jacket, a heavy jacket, one or two caps...would have been a decent wardrobe for a [working-class man.]' ('Men\\\\'s Vintage Workwear Inspired Clothing' and '1910s Men\\\\'s Working Class Clothing' from vintagedancer.com). The article 'Men\\\\'s 1920s Camping, Hiking, Hunting Clothes' explicitly states that '1920s men’s outdoor wear for hiking, camping, riding, hunting, shooting, and fishing has become a popular topic recently,' indicating suitability for multiple outdoor pursuits. Similarly, the '1890s in Western fashion - Wikipedia' mentions 'Norfolk jacket... for shooting and rugged outdoor pursuits' and knickerbockers for 'bicycling or golf... or for hunting with sturdy boots.'\"\n      ],\n      \"original_inference_addressed\": \"Observation: Men wear caps, long-sleeved shirts, trousers, and jackets/vests suitable for outdoor activities like riding.\"\n    },\n    {\n      \"claim\": \"The general style of clothing definitively suggests an *exclusive* early to mid-20th century timeframe.\",\n      \"contradiction_evidence\": [\n        \"Similar styles of men's outdoor wear, including caps and jackets for rugged outdoor activities, were also prevalent in the late 19th century. For instance, the '1890s in Western fashion - Wikipedia' describes country clothes from the 1890s featuring breeches, boots, waistcoats, and coats, while the 'Edwardian Fashion Guide at Historical Emporium' mentions 'Mens Edwardian Clothing (1890s - 1920s)' being influenced by the rise in sports and outdoor activities, including the wearing of 'newsboy caps' by working men. This suggests the timeframe for such attire could extend earlier than the 'early 20th century' inferred.\"\n      ],\n      \"original_inference_addressed\": \"Inference: The general style suggests early to mid-20th century.\"\n    }\n  ],\n  \"unresolved_questions\": [\n    \"Given that the observed clothing was suitable for a variety of outdoor activities and work, how much does this general suitability weaken the specific inference that the men are engaged in 'riding' based solely on their attire, especially since they are clearly depicted on horseback in the footage?\",\n    \"Can more specific details from the clothing, even with the noted low image resolution, or from the type of horses and saddlery, help to further narrow down the exact activity or the timeframe within the broad late 19th to mid-20th century period?\",\n    \"Are there any subtle cues in the clothing or context that might point towards a particular *purpose* of riding (e.g., leisure, sport, work, military) that could offer more specific identification?\"\n  ]\n}\n```"
+      },
+      {
+        "author": "EvidenceCompiler",
+        "text": "{\n  \"candidates\": [],\n  \"claims\": [\n    {\n      \"claim_text\": \"Men wear caps, long-sleeved shirts, trousers, and jackets/vests.\",\n      \"subject\": \"fragment_D03_visuals\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Direct visual observation of the footage.\",\n      \"sources\": []\n    },\n    {\n      \"claim_text\": \"The men's attire (caps, long-sleeved shirts, trousers, and jackets/vests) is suitable for outdoor activities like riding.\",\n      \"subject\": \"fragment_D03_visuals\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Archival evidence supports the suitability of such attire for horseback riding.\",\n      \"sources\": [\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/Riding_habit\",\n          \"excerpt\": \"A **riding habit** is women's [clothing](https://en.wikipedia.org/wiki/Clothing \\\"Clothing\\\") for [horseback riding](https://en.wikipedia.org/wiki/Horseback_riding \\\"Horseback riding\\\") .\"\n        },\n        {\n          \"url\": \"https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s\",\n          \"excerpt\": \"# History of Equestrian Fashion: 1920s to 1940s\"\n        },\n        {\n          \"url\": \"https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/\",\n          \"excerpt\": \"Gertrude Remey with her horse, ca. 1920s. The complete **riding habit** in the Cornell Costume &amp; Textile Collection (items: #1286-**jacket**, #1289-**breeches**, #1453-**equestrian shirt**...)\"\n        },\n        {\n          \"url\": \"https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/\",\n          \"excerpt\": \"The complete riding habit in the Cornell Costume &amp; Textile Collection (items: #1286-**jacket**, #1289-**breeches**, #1453-**equestrian shirt**...)\"\n        },\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/Riding_habit\",\n          \"excerpt\": \"By the early 19th century...a devantiere could describe any part of the riding habit, be it the skirt...or the **riding coat**.\"\n        },\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/Riding_habit\",\n          \"excerpt\": \"Masculine-styled **jacket** and **waistcoat**, c. 1680\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The general style of clothing suggests an early to mid-20th century timeframe.\",\n      \"subject\": \"fragment_D03_visuals\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Archival evidence links similar clothing styles to the early to mid-20th century.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.stylemyride.net/single-post/2015/08/31/history-of-equestrian-fashion-1920s-to-1940s\",\n          \"excerpt\": \"History of Equestrian Fashion: **1920s to 1940s**\"\n        },\n        {\n          \"url\": \"https://blogs.cornell.edu/cornellcostume/2018/03/21/riding-apparel-then-and-now/\",\n          \"excerpt\": \"Gertrude Remey with her horse, ca. **1920s**.\"\n        },\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/Riding_habit\",\n          \"excerpt\": \"Woman's riding suit, **1900–1910**, in the Staten Island Historical Society Online Collections Database\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The observation that men wear caps, long-sleeved shirts, trousers, and jackets/vests is suitable *exclusively* for outdoor activities like riding is contradicted, as this attire was widely adopted for various men's outdoor activities and work during the early to mid-20th century.\",\n      \"subject\": \"fragment_D03_visuals\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Archival evidence indicates similar clothing was worn for multiple outdoor pursuits and general work, not just riding.\",\n      \"sources\": [\n        {\n          \"url\": \"https://vintagedancer.com/vintage/mens-vintage-workwear-1920s-1930s-1940s-1950s/\",\n          \"excerpt\": \"The type of attire described (caps, shirts, trousers, and jackets/vests) was widely adopted for various men's outdoor activities and work during the early to mid-20th century, including hunting, camping, hiking, and general labor, not solely for riding. For example, 'flat caps (also called ivy or newsboy caps) donned working men’s heads' and 'Two pairs of trousers, 2-3 shirts, a vest, a light jacket, a heavy jacket, one or two caps...would have been a decent wardrobe for a [working-class man.]' ('Men\\\\'s Vintage Workwear Inspired Clothing' and '1910s Men\\\\'s Working Class Clothing' from vintagedancer.com). The article 'Men\\\\'s 1920s Camping, Hiking, Hunting Clothes' explicitly states that '1920s men’s outdoor wear for hiking, camping, riding, hunting, shooting, and fishing has become a popular topic recently,' indicating suitability for multiple outdoor pursuits. Similarly, the '1890s in Western fashion - Wikipedia' mentions 'Norfolk jacket... for shooting and rugged outdoor pursuits' and knickerbockers for 'bicycling or golf... or for hunting with sturdy boots.'\"\n        },\n        {\n          \"url\": \"https://vintagedancer.com/1900s/1910s-mens-working-class-clothing/\",\n          \"excerpt\": \"Two pairs of trousers, 2-3 shirts, a vest, a light jacket, a heavy jacket, one or two caps, suspenders or a belt, and a pair of boots would have been a decent wardrobe for a [working-class man.](https://vintagedancer.com/1920s/vintage-wardrobes-budgets/)\"\n        },\n        {\n          \"url\": \"https://vintagedancer.com/1920s/mens-1920s-camping-hiking-hunting-clothes/\",\n          \"excerpt\": \"1920s men’s outdoor wear for hiking, camping, riding, hunting, shooting, and fishing has become a popular topic recently.\"\n        },\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/1890s_in_Western_fashion\",\n          \"excerpt\": \"The [Norfolk jacket](https://en.wikipedia.org/wiki/Norfolk_jacket \\\"Norfolk jacket\\\") remained fashionable for shooting and rugged outdoor pursuits. It was made of sturdy tweed or similar fabric and featured paired box pleats over the chest and back, with a fabric belt.\"\n        },\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/1890s_in_Western_fashion\",\n          \"excerpt\": \"[knickerbockers](https://en.wikipedia.org/wiki/Knickerbockers_(clothing) \\\"Knickerbockers (clothing)\\\") ), it became the _Norfolk suit_ , suitable for bicycling or golf with knee-length stockings and low shoes, or for hunting with sturdy boots or shoes with leather [gaiters](https://en.wikipedia.org/wiki/Gaiters\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The general style of clothing definitively suggesting an *exclusive* early to mid-20th century timeframe is contradicted, as similar styles were prevalent in the late 19th century.\",\n      \"subject\": \"fragment_D03_visuals\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Archival evidence indicates similar outdoor clothing styles were in use during the late 19th century, extending the potential timeframe.\",\n      \"sources\": [\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/1890s_in_Western_fashion\",\n          \"excerpt\": \"Similar styles of men's outdoor wear, including caps and jackets for rugged outdoor activities, were also prevalent in the late 19th century. For instance, the '1890s in Western fashion - Wikipedia' describes country clothes from the 1890s featuring breeches, boots, waistcoats, and coats, while the 'Edwardian Fashion Guide at Historical Emporium' mentions 'Mens Edwardian Clothing (1890s - 1920s)' being influenced by the rise in sports and outdoor activities, including the wearing of 'newsboy caps' by working men. This suggests the timeframe for such attire could extend earlier than the 'early 20th century' inferred.\"\n        },\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/1890s_in_Western_fashion\",\n          \"excerpt\": \"[Country clothes:](https://en.wikipedia.org/wiki/File:Tissot_self_detail.jpg \\\"File:Tissot self detail.jpg\\\") [James Tissot](https://en.wikipedia.org/wiki/James_Tissot \\\"James Tissot\\\") wears breeches and high boots with a reddish collared waistcoat and a brown coat. Even with this casual outdoor costume, he wears a tie, 1898.\"\n        },\n        {\n          \"url\": \"https://historicalemporium.com/pages/mens-edwardian-clothing-1890s-1920s\",\n          \"excerpt\": \"## Mens Edwardian Clothing (1890s - 1920s)\"\n        },\n        {\n          \"url\": \"https://historicalemporium.com/pages/mens-edwardian-clothing-1890s-1920s\",\n          \"excerpt\": \"Working men could be seen wearing all of these styles, in addition to the newsboy cap .\"\n        }\n      ]\n    }\n  ],\n  \"temporal_compatibility\": false,\n  \"entity_compatibility\": false,\n  \"unresolved_questions\": [\n    \"Given that the observed clothing was suitable for a variety of outdoor activities and work, how much does this general suitability weaken the specific inference that the men are engaged in 'riding' based solely on their attire, especially since they are clearly depicted on horseback in the footage?\",\n    \"Can more specific details from the clothing, even with the noted low image resolution, or from the type of horses and saddlery, help to further narrow down the exact activity or the timeframe within the broad late 19th to mid-20th century period?\",\n    \"Are there any subtle cues in the clothing or context that might point towards a particular *purpose* of riding (e.g., leisure, sport, work, military) that could offer more specific identification?\"\n  ]\n}"
+      }
+    ],
+    "gate": {
+      "verdict": "abstain",
+      "reason": "No candidate reached the minimum evidence floor.",
+      "thresholds": {
+        "independent_source_domains>=3": false,
+        "distinct_clue_families>=2": false,
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_contradictions==0": true,
+        "every_decisive_claim_has_source": false,
+        "human_approved": false
+      },
+      "candidates": [],
+      "requires_human": true,
+      "passed": [
+        "unresolved_contradictions==0"
+      ],
+      "failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "every_decisive_claim_has_source",
+        "human_approved"
+      ]
+    },
+    "requires_human": true
+  },
+  "meta": {
+    "verdict": "abstain",
+    "gate": {
+      "verdict": "abstain",
+      "reason": "No candidate reached the minimum evidence floor.",
+      "thresholds": {
+        "independent_source_domains>=3": false,
+        "distinct_clue_families>=2": false,
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_contradictions==0": true,
+        "every_decisive_claim_has_source": false,
+        "human_approved": false
+      },
+      "candidates": [],
+      "requires_human": true,
+      "passed": [
+        "unresolved_contradictions==0"
+      ],
+      "failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "every_decisive_claim_has_source",
+        "human_approved"
+      ]
+    },
+    "requires_human": true,
+    "latency_ms": 100415,
+    "parallel_surfaces_used": [
+      "parallel_search_v1"
+    ],
+    "usage": {
+      "used_today": 3,
+      "remaining_today": 1997
+    }
+  },
+  "captured": {
+    "at": "2026-09-08T00:56:32.552804+00:00",
+    "service": "https://last-seen-alive-109051079423.us-central1.run.app",
+    "elapsed_seconds": 100.8,
+    "note": "A real run of the deployed service on a public Library of Congress fragment. Not edited, not curated, not re-run to get a better result."
+  }
+}

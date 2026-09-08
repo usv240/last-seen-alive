@@ -1,0 +1,66 @@
+{
+  "captured_at": "2026-09-08T01:04:42.778670+00:00",
+  "service": "https://last-seen-alive-109051079423.us-central1.run.app",
+  "split": "dev",
+  "dossiers": [
+    {
+      "case_id": "D01",
+      "title": null,
+      "verdict": "candidates",
+      "expected_outcome": "abstain",
+      "elapsed_seconds": 103.9,
+      "thresholds_passed": 2,
+      "parallel_surfaces_used": [
+        "parallel_search_v1"
+      ]
+    },
+    {
+      "case_id": "D02",
+      "title": null,
+      "verdict": "candidates",
+      "expected_outcome": "identify",
+      "elapsed_seconds": 335.7,
+      "thresholds_passed": 4,
+      "parallel_surfaces_used": [
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ]
+    },
+    {
+      "case_id": "D03",
+      "title": null,
+      "verdict": "abstain",
+      "expected_outcome": "candidates",
+      "elapsed_seconds": 100.8,
+      "thresholds_passed": 1,
+      "parallel_surfaces_used": [
+        "parallel_search_v1"
+      ]
+    },
+    {
+      "case_id": "D04",
+      "title": null,
+      "verdict": "candidates",
+      "expected_outcome": "identify",
+      "elapsed_seconds": 255.9,
+      "thresholds_passed": 5,
+      "parallel_surfaces_used": [
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ]
+    },
+    {
+      "case_id": "D05",
+      "title": null,
+      "verdict": "abstain",
+      "expected_outcome": "contradict",
+      "elapsed_seconds": 234.3,
+      "thresholds_passed": 0,
+      "parallel_surfaces_used": [
+        "parallel_findall_v1beta",
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ]
+    }
+  ]
+}

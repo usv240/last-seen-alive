@@ -119,6 +119,11 @@ if it shows the full system never gets past its own gate.**
 
 ## Arm C — the full system, measured 2026-09-07
 
+> **Read the stability section below before quoting any number in this table.**
+> This arm is a *single pass*. Later passes over the same five fragments disagreed
+> with it on four of five verdicts and reproduced neither correct identity. The
+> table stands as the record of what that pass did; it is not this system's result.
+
 The Parallel credential arrived, so the third arm exists. Same five fragments,
 `standard` depth, `gemini-2.5-flash`, all six Parallel surfaces live.
 
@@ -127,7 +132,7 @@ The Parallel credential arrived, so the third arm exists. Same five fragments,
 | Correct identities surfaced | **0** of 3 | 0 of 3 | **2** of 3 |
 | False-confident identifications | 0 | 0 | **0** |
 | Identifications with no citable source | 7 of 7 | — | **0** |
-| Answers unstable across repeats | 3 of 3 cases | — | not re-run |
+| Answers unstable across repeats | 3 of 3 cases | — | **4 of 5 verdicts moved** (see below) |
 | Median latency | 15 s | 15 s | **383 s** |
 
 Per case, against the sealed answer key:
@@ -161,6 +166,42 @@ or erroneous" behaving as intended.
 **Neither result was reachable without the open web.** These are 1909 and 1919
 titles whose evidence lives in trade papers and catalogue records, not in model
 weights.
+
+### The stability problem, found afterwards
+
+Capturing dossiers for the site meant running these five fragments a second time.
+The second pass disagreed with the table above on **four of five verdicts**:
+
+| Case | Arm C pass | Second pass | Answer key |
+|---|---|---|---|
+| D01 | `abstain` | `candidates` — *An unidentified film fragment* | *Ghosts* (1915) |
+| D02 | `candidates` — **Dud Leaves Home (1919)** ✓ | `candidates` — *Bray Studios Inc.* | *Dud leaves home* (1919) |
+| D03 | `candidates` — *costume cluster* | `abstain` | *The rival brothers' patriotism* (1911) |
+| D04 | `abstain` | `candidates` — *Un coin de Paris (1900)* | *Buying a cow* (1908) |
+| D05 | `candidates` — **Through the Breakers (1909)** ✓ | `abstain` — *Those who pay* | *Through the breakers* (1909) |
+
+Two things follow, and neither is comfortable.
+
+**Neither correct identity reproduced.** The two results this ablation leads with
+were not repeatable on the next run. On D02 the leading candidate came back as the
+studio rather than the film.
+
+**"Zero false-confident identifications" does not survive.** By the definition
+published with this report — *the system put forward a specific film as the leading
+candidate and the answer key says it is the wrong film* — the second pass has
+**one**: D04 returned *Un coin de Paris (1900)*, alone, at five of seven thresholds,
+where the key says *Buying a cow*. That is scored as a false-confident
+identification in `eval/reports/stability.json` rather than argued away.
+
+**What did hold.** No run, in any pass, reached `probable`. Every one of these
+results was returned as `candidates` or `abstain`, with the failing thresholds
+attached — including the wrong one, where `unresolved_contradictions==0` failed
+because the Skeptic had found the contradiction. The defensible claim is not "this
+system is not wrong". It is "this system does not assert what it cannot support,
+and shows you why" — which is weaker, and true.
+
+The full study, every pass including the bad ones, is at `/v1/eval/stability`
+(`scripts/run_stability.py`, scored by `scripts/score_stability.py`).
 
 ### The miss, and why it is the right kind
 

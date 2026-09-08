@@ -12,7 +12,11 @@
     "sponsor_stack": "/stack",
     "openapi": "/openapi.json",
     "stack_json": "/v1/stack",
-    "integration_health": "/health/integrations"
+    "integration_health": "/health/integrations",
+    "dossier_archive": "/dossiers",
+    "practitioner_register": "/practice",
+    "dossiers_json": "/v1/dossiers",
+    "practice_json": "/v1/practice"
   },
   "google_runtime": {
     "status": "verified",
@@ -162,5 +166,47 @@
     "was_failing_now_conforms": 1,
     "finding": "FIAF A.2.5 requires an unidentifiable entity still receive a supplied/devised title. Abstention previously returned no title; app/devised_title.py now supplies one.",
     "limitation": "No archivist has reviewed this system. Conformance testing is weaker evidence than a practitioner review and is not a substitute for one."
+  },
+  "practitioner_review": {
+    "status": "not_obtained",
+    "statement": "No archivist has reviewed this system. Rather than leave that as a caveat, the project publishes a register of demands taken verbatim from published sources and answers each one, including two it cannot answer.",
+    "endpoint": "/v1/practice",
+    "page": "/practice",
+    "module": "app/practice.py",
+    "tests": "tests/test_practitioner_objections.py",
+    "entries": 12,
+    "unanswered": 2,
+    "unanswered_ids": [
+      "P5 (no archivist review)",
+      "P6 (no domain-specific fine-tuning)"
+    ],
+    "primary_source": "Abele, Anders, Aydin, Buder, Fischer, Kimmel and Huff, 'ArchiveGPT: A human-centered evaluation of using a vision language model for image cataloguing', arXiv:2507.07551 (2025); Humanities and Social Sciences Communications (2026). A peer-reviewed study in which archive and archaeology experts evaluated machine-generated catalogue descriptions.",
+    "method": "Sources were retrieved using this project's own Parallel Search surface, which reached pages an ordinary scripted fetch could not. Quotations are verbatim. Nobody cited has seen this system or endorses it.",
+    "behavioural_claims_executed": [
+      "P1: `probable` is unreachable without human approval - asserted against the real gate.",
+      "P7: a claim with no source cannot carry a threshold - asserted against the real gate."
+    ]
+  },
+  "impact_case": {
+    "document": "docs/IMPACT.md",
+    "page_section": "/ (the scale section)",
+    "survival": "14% of ~11,000 American silent feature films survive in original format; 5% of survivors incomplete; 26% found abroad. David Pierce, 'The Survival of American Silent Feature Films: 1912-1929', CLIR / Library of Congress for the National Film Preservation Board, December 2013.",
+    "human_baseline": "The Library of Congress 'Mostly Lost' identification workshop identified 23% (2016), 29% (2017) and 30% (2018) of the titles it screened during each event.",
+    "comparison_disclaimer": "Cited as context, not as a scoreboard. The corpora are not comparable, n=5 supports no rate, and no claim to outperform expert archivists is made anywhere in this project."
+  },
+  "dossier_archive": {
+    "endpoint": "/v1/dossiers",
+    "page": "/dossiers",
+    "capture_script": "scripts/capture_dossiers.py",
+    "tests": "tests/test_dossier_archive.py",
+    "split": "dev",
+    "statement": "Complete, unedited responses captured from real runs of the deployed service, so the product can be read without waiting four to seven minutes for a run. Rendered by the same renderer a live run uses. Held-out cases are never captured."
+  },
+  "measured_latency": {
+    "source": "eval/reports/arm-c-development.json",
+    "min_seconds": 225,
+    "median_seconds": 383,
+    "max_seconds": 430,
+    "note": "The run console's stage timings were originally written from a pre-credential estimate totalling 100 seconds and were 4x optimistic. Corrected, and bound to the measurement by tests/test_published_latency_is_honest.py."
   }
 }

@@ -1,0 +1,542 @@
+{
+  "ok": true,
+  "data": {
+    "status": "completed",
+    "session_id": "lsa_90529641f8e1",
+    "parallel_session_id": "lsa_63b8269ca3e54b1ca9ca1c00bd556d99",
+    "sample_id": "D01",
+    "origin": "preset:D01",
+    "model": "gemini-2.5-flash",
+    "agent_runtime": "google-adk",
+    "depth": "standard",
+    "latency_ms": 103772,
+    "outputs": {
+      "visual_examiner": "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [],\n  \"character_names\": [],\n  \"logos\": [],\n  \"language\": null,\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": null,\n  \"architecture\": null,\n  \"performers\": []\n}\n```",
+      "phrase_hunter": "Observation: The `VisualExaminer` tool did not identify any intertitles, proper nouns, character names, logos, language, film stock edge marks, costume period, architecture, or performers in fragment D01.\n\nCandidate Identities:\n*   An unidentified film fragment.\n*   A section of black film leader.\n*   A piece of abstract or degraded film.\n\nFactual Claims and Supporting Evidence:\n\n*   **Factual Claim:** Film archives commonly contain unidentified film footage.\n    *   **URL:** https://www.eastman.org/unidentified-films\n    *   **Excerpt:** \"Every major film archive has unidentified films—hundreds of them, sometimes thousands.\"\n\n*   **Factual Claim:** The visual characteristics of fragment D01, particularly its significant black sections, are consistent with descriptions of various types of film leader, which can be referred to by many terms.\n    *   **URL:** https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak\n    *   **Excerpt:** \"This film product may also be referred to as polyester leader, film start leader, tail leader, leader tape, 16mm spacing, 16mm spacer, head leader, black film, black leader, emulsion leader, emulsion film, black emulsion, colored film leader, scratch leader, light struck, lightstruck, lab leader, processing leader, animation leader, fade out leader, threading film, bande amorce, filmvorspann, animation leader, and editorial leader.\"\n\n*   **Factual Claim:** Black film leader is typically used in specific contexts such as \"scratch leader for student animation projects.\"\n    *   **URL:** https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak\n    *   **Excerpt:** \"Typically used as scratch leader for student animation projects.\"\n\n*   **Factual Claim:** The existence of materials explicitly labeled \"Lost and Unidentified Film Fragments\" underscores that the identification of such footage is a recognized challenge in archival contexts.\n    *   **URL:** https://www.youtube.com/watch?v=1Uzf1XQiJy4\n    *   **Excerpt:** \"Lost and Unidentified Film Fragments - Part 5 - YouTube\"",
+      "holdings_researcher": "Observation: The `VisualExaminer` tool did not identify any intertitles, proper nouns, character names, logos, language, film stock edge marks, costume period, architecture, or performers in fragment D01.\n\nCandidate Identities:\n*   An unidentified film fragment.\n*   A section of black film leader.\n*   A piece of abstract or degraded film.\n\nFactual Claims and Supporting Evidence:\n\n*   **Factual Claim:** Film archives commonly contain unidentified film footage.\n    *   **URL:** https://www.eastman.org/unidentified-films\n    *   **Excerpt:** \"Every major film archive has unidentified films—hundreds of them, sometimes thousands.\"\n\n*   **Factual Claim:** The visual characteristics of fragment D01, particularly its significant black sections, are consistent with descriptions of various types of film leader, which can be referred to by many terms.\n    *   **URL:** https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak\n    *   **Excerpt:** \"This film product may also be referred to as polyester leader, film start leader, tail leader, leader tape, 16mm spacing, 16mm spacer, head leader, black film, black leader, emulsion leader, emulsion film, black emulsion, colored film leader, scratch leader, light struck, lightstruck, lab leader, processing leader, animation leader, fade out leader, threading film, bande amorce, filmvorspann, animation leader, and editorial leader.\"\n\n*   **Factual Claim:** Black film leader is typically used in specific contexts such as \"scratch leader for student animation projects.\"\n    *   **URL:** https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-leader-black-emulsion-kodak\n    *   **Excerpt:** \"Typically used as scratch leader for student animation projects.\"\n\n*   **Factual Claim:** The existence of materials explicitly labeled \"Lost and Unidentified Film Fragments\" underscores that the identification of such footage is a recognized challenge in archival contexts.\n    *   **URL:** https://www.youtube.com/watch?v=1Uzf1XQiJy4\n    *   **Excerpt:** \"Lost and Unidentified Film Fragments - Part 5 - YouTube\"\n\nNo further `deep_holdings_research` or `census_named_catalogues` can be performed at this time because the visual analysis of fragment D01 provided no specific identifying elements such as titles, dates, studios, or performers that are required to formulate a research question for these tools. The fragment's characteristics are consistent with generic film materials like black film leader or an unidentifiable piece of film.",
+      "skeptic": "I will attempt to disprove the presented candidate identities for fragment D01 by searching for archival evidence that contradicts their core assertions.\n\nHere's my plan to investigate potential contradictions:\n\n1.  **Disproving \"A section of black film leader\":**\n    *   **Basis for contradiction:** The visual analysis shows substantial portions of the fragment containing vague, grey, textured patterns that resemble obscured architectural elements, rather than being uniformly black or containing only technical markings typical of black film leader.\n    *   **Research objective:** To ascertain if typical black film leader includes such vague, pictorial, non-black content.\n    *   **Search queries:**\n        *   \"typical visual characteristics black film leader\"\n        *   \"black film leader with non-technical imagery\"\n        *   \"distinguishing film leader from degraded film footage\"\n        *   \"film leader content standards\"\n\n2.  **Disproving \"An unidentified film fragment\" (by arguing it *is* a known type of leader or clearly abstract/degraded film):**\n    *   **Basis for contradiction:** If the visual patterns are definitively identifiable as a known type of film leader, or clearly intentional abstract art, or distinctly characteristic of a specific type of degradation that points to a non-unidentified origin, then the broad category of \"unidentified film fragment\" might be too general.\n    *   **Research objective:** To find descriptions of film leader or abstract/degraded film that precisely match the visual elements of D01, thereby giving it a more specific identity than merely \"unidentified.\"\n    *   **Search queries:**\n        *   \"film degradation visual patterns\"\n        *   \"early abstract film visual motifs\"\n        *   \"visual characteristics of deteriorated film\"\n        *   \"is scratch leader always blank\"\n\n3.  **Disproving \"A piece of abstract or degraded film\" (by arguing it is clearly identifiable non-abstract content, or solely film leader):**\n    *   **Basis for contradiction:** If the vague patterns can be resolved into clearly discernible, non-abstract objects or scenes, or if the entire fragment (including the non-black parts) can be definitively classified as a type of film leader, this would contradict the \"abstract or degraded film\" identity.\n    *   **Research objective:** To identify if the vague patterns are clearly discernible realistic content, or if they are entirely consistent with known types of film leader, including those used for non-standard purposes like \"scratch leader.\"\n    *   **Search queries:**\n        *   \"identifying blurred architectural film footage\"\n        *   \"intentional abstract film characteristics\"\n        *   \"unintentional film damage patterns\"\n        *   \"film leader for creative purposes\"\n\nLet's begin by searching for information that would contradict the idea that the entire fragment is \"black film leader.\"\n```json\n[\n  {\n    \"contradiction_claim\": \"The fragment D01 is not solely 'a section of black film leader' because significant portions (00:00-00:15 and 00:20-00:49) contain vague, grey, textured patterns resembling obscured pictorial content, which is atypical of the primary function and visual characteristics of black film leader.\",\n    \"supporting_evidence\": [\n      {\n        \"url\": \"https://grokipedia.com/page/Film_leader\",\n        \"excerpt\": \"A film leader is a length of unexposed or blank film stock attached to the head (beginning) or tail (end) of a motion picture reel... These leaders are typically attached to the head or tail of film reels to safeguard the actual content from damage... Painted leaders consist of opaque, colored film stock , often in black, red, white, or other solid hues, designed to block stray light and enhance visibility during projector threading.\"\n      },\n      {\n        \"url\": \"https://en.wikipedia.org/wiki/Film_leader\",\n        \"excerpt\": \"\\\"Film leader\\\", used generically, refers to different types manufactured for many editorial and laboratory uses... \\\"Painted leader\\\" is perforated film in overall colors, usually white, black, red, blue, or green. These are used for protective head and tail leaders to keep the body of the program material from being damaged.\"\n      },\n      {\n        \"url\": \"https://jacrofilm.com/35mm-and-16mm-film-leader-slitting-and-perforating/\",\n        \"excerpt\": \"We have good stock of different film leaders, including black framed, countdown, archival, clear, black and coloured film leader... We have super opaque black film leader in both 16mm and 35mm.\"\n      },\n      {\n        \"observation\": \"Visual analysis of fragment D01 shows that while a section (00:15-00:20) is solid black, other substantial portions (00:00-00:15 and 00:20-00:49) display indistinct grey patterns that appear to be non-blank, non-technical visual content, such as blurred architectural forms. This content differs from the described blankness or opaque, light-blocking nature of standard black film leader.\"\n      }\n    ]\n  }\n]\n```\n**Unresolved Questions:**\n\n*   Are the vague, grey, textured patterns in fragment D01 indicative of severely degraded pictorial film, or are they an intentional abstract film composition? The current visual evidence alone does not provide enough information to definitively distinguish between intentional abstraction and unintentional degradation.\n*   Given that a portion of the fragment is solid black leader and other portions contain vague imagery, is fragment D01 a single, coherent piece of film, or is it a composite of different film types (e.g., black leader spliced with degraded/abstract film)?",
+      "evidence_compiler": {
+        "candidates": [
+          {
+            "candidate_id": "unidentified_film_fragment",
+            "title": "An unidentified film fragment",
+            "year": "",
+            "score": 0.5,
+            "rationale": "The fragment lacks specific identifying elements, and archival sources indicate the commonality of unidentified film footage."
+          },
+          {
+            "candidate_id": "black_film_leader",
+            "title": "A section of black film leader",
+            "year": "",
+            "score": 0.5,
+            "rationale": "Portions of the fragment are solid black, consistent with film leader, but other parts contain non-blank imagery, complicating this identification."
+          },
+          {
+            "candidate_id": "abstract_or_degraded_film",
+            "title": "A piece of abstract or degraded film",
+            "year": "",
+            "score": 0.5,
+            "rationale": "The vague, grey, textured patterns could suggest either intentional abstract content or severely degraded pictorial film, a common archival challenge."
+          }
+        ],
+        "claims": [
+          {
+            "claim_text": "Film archives commonly contain unidentified film footage.",
+            "subject": "unidentified_film_fragment",
+            "stance": "supports",
+            "clue_family": "archive_holding",
+            "confidence_basis": "Archival sources confirm the widespread presence of unidentified films in collections.",
+            "sources": [
+              {
+                "url": "https://www.eastman.org/unidentified-films",
+                "excerpt": "Every major film archive has unidentified films—hundreds of them, sometimes thousands."
+              }
+            ]
+          },
+          {
+            "claim_text": "The visual characteristics of fragment D01, particularly its significant black sections, are consistent with descriptions of various types of film leader, which can be referred to by many terms.",
+            "subject": "black_film_leader",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Descriptions of various types of film leader match the black sections observed in the fragment.",
+            "sources": [
+              {
+                "url": "https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak",
+                "excerpt": "This film product may also be referred to as polyester leader, film start leader, tail leader, leader tape, 16mm spacing, 16mm spacer, head leader, black film, black leader, emulsion leader, emulsion film, black emulsion, colored film leader, scratch leader, light struck, lightstruck, lab leader, processing leader, animation leader, fade out leader, threading film, bande amorce, filmvorspann, animation leader, and editorial leader."
+              }
+            ]
+          },
+          {
+            "claim_text": "Black film leader is typically used in specific contexts such as 'scratch leader for student animation projects'.",
+            "subject": "black_film_leader",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "A specific application for black film leader is cited in a product description.",
+            "sources": [
+              {
+                "url": "https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak",
+                "excerpt": "Typically used as scratch leader for student animation projects."
+              }
+            ]
+          },
+          {
+            "claim_text": "The existence of materials explicitly labeled 'Lost and Unidentified Film Fragments' underscores that the identification of such footage is a recognized challenge in archival contexts.",
+            "subject": "unidentified_film_fragment",
+            "stance": "supports",
+            "clue_family": "archive_holding",
+            "confidence_basis": "Publicly available media acknowledge the ongoing challenge of identifying film fragments.",
+            "sources": [
+              {
+                "url": "https://www.youtube.com/watch?v=1Uzf1XQiJy4",
+                "excerpt": "Lost and Unidentified Film Fragments - Part 5 - YouTube"
+              }
+            ]
+          },
+          {
+            "claim_text": "The VisualExaminer tool did not identify any intertitles, proper nouns, character names, logos, language, film stock edge marks, costume period, architecture, or performers in fragment D01.",
+            "subject": "unidentified_film_fragment",
+            "stance": "neutral",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "The `VisualExaminer` tool's direct analysis of the fragment yielded no specific identifying elements.",
+            "sources": []
+          },
+          {
+            "claim_text": "The fragment D01 is not solely 'a section of black film leader' because significant portions (00:00-00:15 and 00:20-00:49) contain vague, grey, textured patterns resembling obscured pictorial content, which is atypical of the primary function and visual characteristics of black film leader.",
+            "subject": "black_film_leader",
+            "stance": "contradicts",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Expert visual analysis of D01 reveals non-blank, non-technical imagery in substantial portions, contrasting with the descriptions of typical black film leader.",
+            "sources": [
+              {
+                "url": "https://grokipedia.com/page/Film_leader",
+                "excerpt": "A film leader is a length of unexposed or blank film stock attached to the head (beginning) or tail (end) of a motion picture reel... These leaders are typically attached to the head or tail of film reels to safeguard the actual content from damage... Painted leaders consist of opaque, colored film stock , often in black, red, white, or other solid hues, designed to block stray light and enhance visibility during projector threading."
+              },
+              {
+                "url": "https://en.wikipedia.org/wiki/Film_leader",
+                "excerpt": "\"Film leader\", used generically, refers to different types manufactured for many editorial and laboratory uses... \"Painted leader\" is perforated film in overall colors, usually white, black, red, blue, or green. These are used for protective head and tail leaders to keep the body of the program material from being damaged."
+              },
+              {
+                "url": "https://jacrofilm.com/35mm-and-16mm-film-leader-slitting-and-perforating/",
+                "excerpt": "We have good stock of different film leaders, including black framed, countdown, archival, clear, black and coloured film leader... We have super opaque black film leader in both 16mm and 35mm."
+              }
+            ]
+          }
+        ],
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_questions": [
+          "Are the vague, grey, textured patterns in fragment D01 indicative of severely degraded pictorial film, or are they an intentional abstract film composition?",
+          "Given that a portion of the fragment is solid black leader and other portions contain vague imagery, is fragment D01 a single, coherent piece of film, or is it a composite of different film types (e.g., black leader spliced with degraded/abstract film)?"
+        ]
+      }
+    },
+    "evidence": {
+      "candidates": [
+        {
+          "candidate_id": "unidentified_film_fragment",
+          "label": "An unidentified film fragment",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_3883438cdd8093bdb187ac8b"
+          ]
+        },
+        {
+          "candidate_id": "black_film_leader",
+          "label": "A section of black film leader",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_87fdb403cbe7a099c97cbd1c",
+            "clm_ed1c7bad6eb4b9f1d7683256"
+          ]
+        },
+        {
+          "candidate_id": "abstract_or_degraded_film",
+          "label": "A piece of abstract or degraded film",
+          "score": 0.5,
+          "decisive_claim_ids": []
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "clm_3883438cdd8093bdb187ac8b",
+          "claim_text": "Film archives commonly contain unidentified film footage.",
+          "subject": "unidentified_film_fragment",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Archival sources confirm the widespread presence of unidentified films in collections.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.eastman.org/unidentified-films",
+              "domain": "www.eastman.org",
+              "excerpt": "Every major film archive has unidentified films—hundreds of them, sometimes thousands.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_87fdb403cbe7a099c97cbd1c",
+          "claim_text": "The visual characteristics of fragment D01, particularly its significant black sections, are consistent with descriptions of various types of film leader, which can be referred to by many terms.",
+          "subject": "black_film_leader",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Descriptions of various types of film leader match the black sections observed in the fragment.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak",
+              "domain": "hollywoodfilmsupplies.com",
+              "excerpt": "This film product may also be referred to as polyester leader, film start leader, tail leader, leader tape, 16mm spacing, 16mm spacer, head leader, black film, black leader, emulsion leader, emulsion film, black emulsion, colored film leader, scratch leader, light struck, lightstruck, lab leader, processing leader, animation leader, fade out leader, threading film, bande amorce, filmvorspann, animation leader, and editorial leader.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_ed1c7bad6eb4b9f1d7683256",
+          "claim_text": "Black film leader is typically used in specific contexts such as 'scratch leader for student animation projects'.",
+          "subject": "black_film_leader",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "A specific application for black film leader is cited in a product description.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak",
+              "domain": "hollywoodfilmsupplies.com",
+              "excerpt": "Typically used as scratch leader for student animation projects.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_d7012e70b412ffda6b5b2382",
+          "claim_text": "The existence of materials explicitly labeled 'Lost and Unidentified Film Fragments' underscores that the identification of such footage is a recognized challenge in archival contexts.",
+          "subject": "unidentified_film_fragment",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Publicly available media acknowledge the ongoing challenge of identifying film fragments.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://www.youtube.com/watch?v=1Uzf1XQiJy4",
+              "domain": "www.youtube.com",
+              "excerpt": "Lost and Unidentified Film Fragments - Part 5 - YouTube",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_6e9895202df6a516a0b6f581",
+          "claim_text": "The VisualExaminer tool did not identify any intertitles, proper nouns, character names, logos, language, film stock edge marks, costume period, architecture, or performers in fragment D01.",
+          "subject": "unidentified_film_fragment",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The `VisualExaminer` tool's direct analysis of the fragment yielded no specific identifying elements.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_3bb197032892a84f73f73bc0",
+          "claim_text": "The fragment D01 is not solely 'a section of black film leader' because significant portions (00:00-00:15 and 00:20-00:49) contain vague, grey, textured patterns resembling obscured pictorial content, which is atypical of the primary function and visual characteristics of black film leader.",
+          "subject": "black_film_leader",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Expert visual analysis of D01 reveals non-blank, non-technical imagery in substantial portions, contrasting with the descriptions of typical black film leader.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://grokipedia.com/page/Film_leader",
+              "domain": "grokipedia.com",
+              "excerpt": "A film leader is a length of unexposed or blank film stock attached to the head (beginning) or tail (end) of a motion picture reel... These leaders are typically attached to the head or tail of film reels to safeguard the actual content from damage... Painted leaders consist of opaque, colored film stock , often in black, red, white, or other solid hues, designed to block stray light and enhance visibility during projector threading.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Film_leader",
+              "domain": "en.wikipedia.org",
+              "excerpt": "\"Film leader\", used generically, refers to different types manufactured for many editorial and laboratory uses... \"Painted leader\" is perforated film in overall colors, usually white, black, red, blue, or green. These are used for protective head and tail leaders to keep the body of the program material from being damaged.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            },
+            {
+              "url": "https://jacrofilm.com/35mm-and-16mm-film-leader-slitting-and-perforating/",
+              "domain": "jacrofilm.com",
+              "excerpt": "We have good stock of different film leaders, including black framed, countdown, archival, clear, black and coloured film leader... We have super opaque black film leader in both 16mm and 35mm.",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        }
+      ],
+      "clue_families": [
+        "archive_holding"
+      ],
+      "rejected_citations": [
+        {
+          "url": "https://www.youtube.com/watch?v=1Uzf1XQiJy4",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The existence of materials explicitly labeled 'Lost and Unidentified Film Fragments' underscores that the identification of such footage is a recognized challen"
+        },
+        {
+          "url": "https://grokipedia.com/page/Film_leader",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The fragment D01 is not solely 'a section of black film leader' because significant portions (00:00-00:15 and 00:20-00:49) contain vague, grey, textured pattern"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Film_leader",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The fragment D01 is not solely 'a section of black film leader' because significant portions (00:00-00:15 and 00:20-00:49) contain vague, grey, textured pattern"
+        },
+        {
+          "url": "https://jacrofilm.com/35mm-and-16mm-film-leader-slitting-and-perforating/",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The fragment D01 is not solely 'a section of black film leader' because significant portions (00:00-00:15 and 00:20-00:49) contain vague, grey, textured pattern"
+        }
+      ],
+      "unresolved_questions": [
+        "Are the vague, grey, textured patterns in fragment D01 indicative of severely degraded pictorial film, or are they an intentional abstract film composition?",
+        "Given that a portion of the fragment is solid black leader and other portions contain vague imagery, is fragment D01 a single, coherent piece of film, or is it a composite of different film types (e.g., black leader spliced with degraded/abstract film)?"
+      ],
+      "citation_policy": "a source not returned by Parallel in this run is discarded"
+    },
+    "parallel_retrieval": {
+      "session_id": "lsa_63b8269ca3e54b1ca9ca1c00bd556d99",
+      "calls": [
+        {
+          "provider": "parallel_search_v1",
+          "retrieval_id": "search_b450cb40ccec92cf84e7b417e92996dd",
+          "result_count": 7
+        },
+        {
+          "provider": "parallel_search_v1",
+          "retrieval_id": "search_0d0de2ad5af7666c82d9396423f92792",
+          "result_count": 6
+        }
+      ],
+      "sources_returned": 12,
+      "independent_domains": [
+        "en.wikipedia.org",
+        "encyclopedia2.thefreedictionary.com",
+        "grokipedia.com",
+        "guides.libraries.psu.edu",
+        "hollywoodfilmsupplies.com",
+        "jacrofilm.com",
+        "muse.jhu.edu",
+        "www.eastman.org",
+        "www.imdb.com",
+        "www.youtube.com"
+      ],
+      "surfaces_used": [
+        "parallel_search_v1"
+      ]
+    },
+    "citation_audit": {
+      "provider": "parallel_extract_v1",
+      "status": "completed",
+      "extract_id": "extract_c2611c5bb7ace1756d6950aa3ba597fb",
+      "session_id": "lsa_63b8269ca3e54b1ca9ca1c00bd556d99",
+      "pages_requested": 2,
+      "pages_returned": 2,
+      "errors": [],
+      "audited": [
+        {
+          "url": "https://www.eastman.org/unidentified-films",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Unidentified Films | George Eastman Museum",
+          "publish_date": null,
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak",
+          "excerpt_present_on_live_page": true,
+          "page_title": "16mm Black Emulsion Film Leader - Mylar / Polyester (Emulsion Coated) — HollywoodFilmSupplies.com",
+          "publish_date": null,
+          "note": "quoted text found in the live page"
+        }
+      ]
+    },
+    "falsification": {
+      "provider": "parallel_task_group_v1",
+      "status": "not_requested",
+      "reason": "Send depth=deep to fan out one independent falsification run per candidate.",
+      "verdicts": []
+    },
+    "language_findings": [],
+    "supplied_title": {
+      "title": "Unidentified fragment D01, Library of Congress National Screening Room",
+      "title_type": "supplied_devised",
+      "authority": "cataloguer_supplied",
+      "is_identification": false,
+      "pattern": "FIAF A.2.5 five-Ws (who/what, what, where, when, source)",
+      "form_term": "",
+      "components": {
+        "source_collection": "Library of Congress National Screening Room"
+      },
+      "standard": "The FIAF Moving Image Cataloguing Manual (2016), A.2.5, pp. 93-96",
+      "note": "Assembled by deterministic code from observed clues only. It is a finding aid, not an identification, and names no film."
+    },
+    "cold_case": {
+      "eligible": true,
+      "watchable_strings": [
+        "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [],\n  \"character_names\": [],\n  \"logos\": [],\n  \"language\": null,\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": null,\n  \"archite"
+      ],
+      "how": "POST /v1/watch to leave a standing Parallel Monitor on these strings."
+    },
+    "transcript": [
+      {
+        "author": "VisualExaminer",
+        "text": "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [],\n  \"character_names\": [],\n  \"logos\": [],\n  \"language\": null,\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": null,\n  \"architecture\": null,\n  \"performers\": []\n}\n```"
+      },
+      {
+        "author": "PhraseHunter",
+        "text": "Observation: The `VisualExaminer` tool did not identify any intertitles, proper nouns, character names, logos, language, film stock edge marks, costume period, architecture, or performers in fragment D01.\n\nCandidate Identities:\n*   An unidentified film fragment.\n*   A section of black film leader.\n*   A piece of abstract or degraded film.\n\nFactual Claims and Supporting Evidence:\n\n*   **Factual Claim:** Film archives commonly contain unidentified film footage.\n    *   **URL:** https://www.eastman.org/unidentified-films\n    *   **Excerpt:** \"Every major film archive has unidentified films—hundreds of them, sometimes thousands.\"\n\n*   **Factual Claim:** The visual characteristics of fragment D01, particularly its significant black sections, are consistent with descriptions of various types of film leader, which can be referred to by many terms.\n    *   **URL:** https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak\n    *   **Excerpt:** \"This film product may also be referred to as polyester leader, film start leader, tail leader, leader tape, 16mm spacing, 16mm spacer, head leader, black film, black leader, emulsion leader, emulsion film, black emulsion, colored film leader, scratch leader, light struck, lightstruck, lab leader, processing leader, animation leader, fade out leader, threading film, bande amorce, filmvorspann, animation leader, and editorial leader.\"\n\n*   **Factual Claim:** Black film leader is typically used in specific contexts such as \"scratch leader for student animation projects.\"\n    *   **URL:** https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak\n    *   **Excerpt:** \"Typically used as scratch leader for student animation projects.\"\n\n*   **Factual Claim:** The existence of materials explicitly labeled \"Lost and Unidentified Film Fragments\" underscores that the identification of such footage is a recognized challenge in archival contexts.\n    *   **URL:** https://www.youtube.com/watch?v=1Uzf1XQiJy4\n    *   **Excerpt:** \"Lost and Unidentified Film Fragments - Part 5 - YouTube\""
+      },
+      {
+        "author": "HoldingsResearcher",
+        "text": "Observation: The `VisualExaminer` tool did not identify any intertitles, proper nouns, character names, logos, language, film stock edge marks, costume period, architecture, or performers in fragment D01.\n\nCandidate Identities:\n*   An unidentified film fragment.\n*   A section of black film leader.\n*   A piece of abstract or degraded film.\n\nFactual Claims and Supporting Evidence:\n\n*   **Factual Claim:** Film archives commonly contain unidentified film footage.\n    *   **URL:** https://www.eastman.org/unidentified-films\n    *   **Excerpt:** \"Every major film archive has unidentified films—hundreds of them, sometimes thousands.\"\n\n*   **Factual Claim:** The visual characteristics of fragment D01, particularly its significant black sections, are consistent with descriptions of various types of film leader, which can be referred to by many terms.\n    *   **URL:** https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak\n    *   **Excerpt:** \"This film product may also be referred to as polyester leader, film start leader, tail leader, leader tape, 16mm spacing, 16mm spacer, head leader, black film, black leader, emulsion leader, emulsion film, black emulsion, colored film leader, scratch leader, light struck, lightstruck, lab leader, processing leader, animation leader, fade out leader, threading film, bande amorce, filmvorspann, animation leader, and editorial leader.\"\n\n*   **Factual Claim:** Black film leader is typically used in specific contexts such as \"scratch leader for student animation projects.\"\n    *   **URL:** https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-leader-black-emulsion-kodak\n    *   **Excerpt:** \"Typically used as scratch leader for student animation projects.\"\n\n*   **Factual Claim:** The existence of materials explicitly labeled \"Lost and Unidentified Film Fragments\" underscores that the identification of such footage is a recognized challenge in archival contexts.\n    *   **URL:** https://www.youtube.com/watch?v=1Uzf1XQiJy4\n    *   **Excerpt:** \"Lost and Unidentified Film Fragments - Part 5 - YouTube\"\n\nNo further `deep_holdings_research` or `census_named_catalogues` can be performed at this time because the visual analysis of fragment D01 provided no specific identifying elements such as titles, dates, studios, or performers that are required to formulate a research question for these tools. The fragment's characteristics are consistent with generic film materials like black film leader or an unidentifiable piece of film."
+      },
+      {
+        "author": "Skeptic",
+        "text": "I will attempt to disprove the presented candidate identities for fragment D01 by searching for archival evidence that contradicts their core assertions.\n\nHere's my plan to investigate potential contradictions:\n\n1.  **Disproving \"A section of black film leader\":**\n    *   **Basis for contradiction:** The visual analysis shows substantial portions of the fragment containing vague, grey, textured patterns that resemble obscured architectural elements, rather than being uniformly black or containing only technical markings typical of black film leader.\n    *   **Research objective:** To ascertain if typical black film leader includes such vague, pictorial, non-black content.\n    *   **Search queries:**\n        *   \"typical visual characteristics black film leader\"\n        *   \"black film leader with non-technical imagery\"\n        *   \"distinguishing film leader from degraded film footage\"\n        *   \"film leader content standards\"\n\n2.  **Disproving \"An unidentified film fragment\" (by arguing it *is* a known type of leader or clearly abstract/degraded film):**\n    *   **Basis for contradiction:** If the visual patterns are definitively identifiable as a known type of film leader, or clearly intentional abstract art, or distinctly characteristic of a specific type of degradation that points to a non-unidentified origin, then the broad category of \"unidentified film fragment\" might be too general.\n    *   **Research objective:** To find descriptions of film leader or abstract/degraded film that precisely match the visual elements of D01, thereby giving it a more specific identity than merely \"unidentified.\"\n    *   **Search queries:**\n        *   \"film degradation visual patterns\"\n        *   \"early abstract film visual motifs\"\n        *   \"visual characteristics of deteriorated film\"\n        *   \"is scratch leader always blank\"\n\n3.  **Disproving \"A piece of abstract or degraded film\" (by arguing it is clearly identifiable non-abstract content, or solely film leader):**\n    *   **Basis for contradiction:** If the vague patterns can be resolved into clearly discernible, non-abstract objects or scenes, or if the entire fragment (including the non-black parts) can be definitively classified as a type of film leader, this would contradict the \"abstract or degraded film\" identity.\n    *   **Research objective:** To identify if the vague patterns are clearly discernible realistic content, or if they are entirely consistent with known types of film leader, including those used for non-standard purposes like \"scratch leader.\"\n    *   **Search queries:**\n        *   \"identifying blurred architectural film footage\"\n        *   \"intentional abstract film characteristics\"\n        *   \"unintentional film damage patterns\"\n        *   \"film leader for creative purposes\"\n\nLet's begin by searching for information that would contradict the idea that the entire fragment is \"black film leader.\"\n"
+      },
+      {
+        "author": "Skeptic",
+        "text": "```json\n[\n  {\n    \"contradiction_claim\": \"The fragment D01 is not solely 'a section of black film leader' because significant portions (00:00-00:15 and 00:20-00:49) contain vague, grey, textured patterns resembling obscured pictorial content, which is atypical of the primary function and visual characteristics of black film leader.\",\n    \"supporting_evidence\": [\n      {\n        \"url\": \"https://grokipedia.com/page/Film_leader\",\n        \"excerpt\": \"A film leader is a length of unexposed or blank film stock attached to the head (beginning) or tail (end) of a motion picture reel... These leaders are typically attached to the head or tail of film reels to safeguard the actual content from damage... Painted leaders consist of opaque, colored film stock , often in black, red, white, or other solid hues, designed to block stray light and enhance visibility during projector threading.\"\n      },\n      {\n        \"url\": \"https://en.wikipedia.org/wiki/Film_leader\",\n        \"excerpt\": \"\\\"Film leader\\\", used generically, refers to different types manufactured for many editorial and laboratory uses... \\\"Painted leader\\\" is perforated film in overall colors, usually white, black, red, blue, or green. These are used for protective head and tail leaders to keep the body of the program material from being damaged.\"\n      },\n      {\n        \"url\": \"https://jacrofilm.com/35mm-and-16mm-film-leader-slitting-and-perforating/\",\n        \"excerpt\": \"We have good stock of different film leaders, including black framed, countdown, archival, clear, black and coloured film leader... We have super opaque black film leader in both 16mm and 35mm.\"\n      },\n      {\n        \"observation\": \"Visual analysis of fragment D01 shows that while a section (00:15-00:20) is solid black, other substantial portions (00:00-00:15 and 00:20-00:49) display indistinct grey patterns that appear to be non-blank, non-technical visual content, such as blurred architectural forms. This content differs from the described blankness or opaque, light-blocking nature of standard black film leader.\"\n      }\n    ]\n  }\n]\n```\n**Unresolved Questions:**\n\n*   Are the vague, grey, textured patterns in fragment D01 indicative of severely degraded pictorial film, or are they an intentional abstract film composition? The current visual evidence alone does not provide enough information to definitively distinguish between intentional abstraction and unintentional degradation.\n*   Given that a portion of the fragment is solid black leader and other portions contain vague imagery, is fragment D01 a single, coherent piece of film, or is it a composite of different film types (e.g., black leader spliced with degraded/abstract film)?"
+      },
+      {
+        "author": "EvidenceCompiler",
+        "text": "{\n  \"candidates\": [\n    {\n      \"candidate_id\": \"unidentified_film_fragment\",\n      \"title\": \"An unidentified film fragment\",\n      \"score\": 0.5,\n      \"rationale\": \"The fragment lacks specific identifying elements, and archival sources indicate the commonality of unidentified film footage.\"\n    },\n    {\n      \"candidate_id\": \"black_film_leader\",\n      \"title\": \"A section of black film leader\",\n      \"score\": 0.5,\n      \"rationale\": \"Portions of the fragment are solid black, consistent with film leader, but other parts contain non-blank imagery, complicating this identification.\"\n    },\n    {\n      \"candidate_id\": \"abstract_or_degraded_film\",\n      \"title\": \"A piece of abstract or degraded film\",\n      \"score\": 0.5,\n      \"rationale\": \"The vague, grey, textured patterns could suggest either intentional abstract content or severely degraded pictorial film, a common archival challenge.\"\n    }\n  ],\n  \"claims\": [\n    {\n      \"claim_text\": \"Film archives commonly contain unidentified film footage.\",\n      \"subject\": \"unidentified_film_fragment\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"archive_holding\",\n      \"confidence_basis\": \"Archival sources confirm the widespread presence of unidentified films in collections.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.eastman.org/unidentified-films\",\n          \"excerpt\": \"Every major film archive has unidentified films—hundreds of them, sometimes thousands.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The visual characteristics of fragment D01, particularly its significant black sections, are consistent with descriptions of various types of film leader, which can be referred to by many terms.\",\n      \"subject\": \"black_film_leader\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Descriptions of various types of film leader match the black sections observed in the fragment.\",\n      \"sources\": [\n        {\n          \"url\": \"https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak\",\n          \"excerpt\": \"This film product may also be referred to as polyester leader, film start leader, tail leader, leader tape, 16mm spacing, 16mm spacer, head leader, black film, black leader, emulsion leader, emulsion film, black emulsion, colored film leader, scratch leader, light struck, lightstruck, lab leader, processing leader, animation leader, fade out leader, threading film, bande amorce, filmvorspann, animation leader, and editorial leader.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"Black film leader is typically used in specific contexts such as 'scratch leader for student animation projects'.\",\n      \"subject\": \"black_film_leader\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"A specific application for black film leader is cited in a product description.\",\n      \"sources\": [\n        {\n          \"url\": \"https://hollywoodfilmsupplies.com/film-supplies/16mm-film-leader-polyester-black-emulsion-kodak\",\n          \"excerpt\": \"Typically used as scratch leader for student animation projects.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The existence of materials explicitly labeled 'Lost and Unidentified Film Fragments' underscores that the identification of such footage is a recognized challenge in archival contexts.\",\n      \"subject\": \"unidentified_film_fragment\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"archive_holding\",\n      \"confidence_basis\": \"Publicly available media acknowledge the ongoing challenge of identifying film fragments.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.youtube.com/watch?v=1Uzf1XQiJy4\",\n          \"excerpt\": \"Lost and Unidentified Film Fragments - Part 5 - YouTube\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The VisualExaminer tool did not identify any intertitles, proper nouns, character names, logos, language, film stock edge marks, costume period, architecture, or performers in fragment D01.\",\n      \"subject\": \"unidentified_film_fragment\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"The `VisualExaminer` tool's direct analysis of the fragment yielded no specific identifying elements.\",\n      \"sources\": []\n    },\n    {\n      \"claim_text\": \"The fragment D01 is not solely 'a section of black film leader' because significant portions (00:00-00:15 and 00:20-00:49) contain vague, grey, textured patterns resembling obscured pictorial content, which is atypical of the primary function and visual characteristics of black film leader.\",\n      \"subject\": \"black_film_leader\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Expert visual analysis of D01 reveals non-blank, non-technical imagery in substantial portions, contrasting with the descriptions of typical black film leader.\",\n      \"sources\": [\n        {\n          \"url\": \"https://grokipedia.com/page/Film_leader\",\n          \"excerpt\": \"A film leader is a length of unexposed or blank film stock attached to the head (beginning) or tail (end) of a motion picture reel... These leaders are typically attached to the head or tail of film reels to safeguard the actual content from damage... Painted leaders consist of opaque, colored film stock , often in black, red, white, or other solid hues, designed to block stray light and enhance visibility during projector threading.\"\n        },\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/Film_leader\",\n          \"excerpt\": \"\\\"Film leader\\\", used generically, refers to different types manufactured for many editorial and laboratory uses... \\\"Painted leader\\\" is perforated film in overall colors, usually white, black, red, blue, or green. These are used for protective head and tail leaders to keep the body of the program material from being damaged.\"\n        },\n        {\n          \"url\": \"https://jacrofilm.com/35mm-and-16mm-film-leader-slitting-and-perforating/\",\n          \"excerpt\": \"We have good stock of different film leaders, including black framed, countdown, archival, clear, black and coloured film leader... We have super opaque black film leader in both 16mm and 35mm.\"\n        }\n      ]\n    }\n  ],\n  \"temporal_compatibility\": false,\n  \"entity_compatibility\": false,\n  \"unresolved_questions\": [\n    \"Are the vague, grey, textured patterns in fragment D01 indicative of severely degraded pictorial film, or are they an intentional abstract film composition?\",\n    \"Given that a portion of the fragment is solid black leader and other portions contain vague imagery, is fragment D01 a single, coherent piece of film, or is it a composite of different film types (e.g., black leader spliced with degraded/abstract film)?\"\n  ]\n}"
+      }
+    ],
+    "gate": {
+      "verdict": "candidates",
+      "reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, temporal_compatibility, entity_compatibility, human_approved.",
+      "thresholds": {
+        "independent_source_domains>=3": false,
+        "distinct_clue_families>=2": false,
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_contradictions==0": true,
+        "every_decisive_claim_has_source": true,
+        "human_approved": false
+      },
+      "candidates": [
+        {
+          "candidate_id": "unidentified_film_fragment",
+          "label": "An unidentified film fragment",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_3883438cdd8093bdb187ac8b"
+          ]
+        },
+        {
+          "candidate_id": "black_film_leader",
+          "label": "A section of black film leader",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_87fdb403cbe7a099c97cbd1c",
+            "clm_ed1c7bad6eb4b9f1d7683256"
+          ]
+        },
+        {
+          "candidate_id": "abstract_or_degraded_film",
+          "label": "A piece of abstract or degraded film",
+          "score": 0.5,
+          "decisive_claim_ids": []
+        }
+      ],
+      "requires_human": true,
+      "passed": [
+        "unresolved_contradictions==0",
+        "every_decisive_claim_has_source"
+      ],
+      "failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "human_approved"
+      ]
+    },
+    "requires_human": true
+  },
+  "meta": {
+    "verdict": "candidates",
+    "gate": {
+      "verdict": "candidates",
+      "reason": "Evidence remains below the probable-identity gate: independent_source_domains>=3, distinct_clue_families>=2, temporal_compatibility, entity_compatibility, human_approved.",
+      "thresholds": {
+        "independent_source_domains>=3": false,
+        "distinct_clue_families>=2": false,
+        "temporal_compatibility": false,
+        "entity_compatibility": false,
+        "unresolved_contradictions==0": true,
+        "every_decisive_claim_has_source": true,
+        "human_approved": false
+      },
+      "candidates": [
+        {
+          "candidate_id": "unidentified_film_fragment",
+          "label": "An unidentified film fragment",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_3883438cdd8093bdb187ac8b"
+          ]
+        },
+        {
+          "candidate_id": "black_film_leader",
+          "label": "A section of black film leader",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_87fdb403cbe7a099c97cbd1c",
+            "clm_ed1c7bad6eb4b9f1d7683256"
+          ]
+        },
+        {
+          "candidate_id": "abstract_or_degraded_film",
+          "label": "A piece of abstract or degraded film",
+          "score": 0.5,
+          "decisive_claim_ids": []
+        }
+      ],
+      "requires_human": true,
+      "passed": [
+        "unresolved_contradictions==0",
+        "every_decisive_claim_has_source"
+      ],
+      "failed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "human_approved"
+      ]
+    },
+    "requires_human": true,
+    "latency_ms": 103772,
+    "parallel_surfaces_used": [
+      "parallel_search_v1"
+    ],
+    "usage": {
+      "used_today": 1,
+      "remaining_today": 1999
+    }
+  },
+  "captured": {
+    "at": "2026-09-08T00:49:16.065541+00:00",
+    "service": "https://last-seen-alive-109051079423.us-central1.run.app",
+    "elapsed_seconds": 103.9,
+    "note": "A real run of the deployed service on a public Library of Congress fragment. Not edited, not curated, not re-run to get a better result."
+  }
+}

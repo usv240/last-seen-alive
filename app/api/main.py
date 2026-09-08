@@ -18,6 +18,7 @@ from pydantic import BaseModel, Field
 
 from agentic_core.api import ApiHooks, MemoryApiKeyStore, create_app
 from agentic_core.api.keys import ApiKeyRecord
+from app import practice as practice_register
 from app import presets as preset_catalog
 from app import stack as stack_catalog
 from app import standards as standards_catalog
@@ -25,6 +26,7 @@ from app.partners import parallel_client
 
 WEB_DIR = Path(__file__).resolve().parents[1] / "web"
 EVAL_DIR = Path(__file__).resolve().parents[2] / "eval"
+DOSSIER_DIR = EVAL_DIR / "reports" / "dossiers"
 PROJECT = os.environ.get("GOOGLE_CLOUD_PROJECT", "agentic-fleet-2026")
 LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION", "us-central1")
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
@@ -194,6 +196,16 @@ async def api_page() -> FileResponse:
 @api.get("/stack", include_in_schema=False)
 async def stack_page() -> FileResponse:
     return _page("stack.html")
+
+
+@api.get("/practice", include_in_schema=False)
+async def practice_page() -> FileResponse:
+    return _page("practice.html")
+
+
+@api.get("/dossiers", include_in_schema=False)
+async def dossiers_page() -> FileResponse:
+    return _page("dossiers.html")
 
 
 # ------------------------------------------------------------------- the stack
@@ -382,6 +394,98 @@ async def evaluation_ablation() -> dict[str, object]:
 )
 async def standards() -> dict[str, object]:
     return {"ok": True, "data": standards_catalog.conformance_report()}
+
+
+@api.get(
+    "/v1/eval/stability",
+    tags=["Evaluation"],
+    summary="How stable the verdict is when the input does not change",
+    description=(
+        "The Arm C figures are a single pass. A second pass over the same five fragments "
+        "disagreed with it on four of five verdicts and reproduced neither of its two correct "
+        "identities. This reports every pass ever run on the development split, including the "
+        "bad ones, so that a single flattering sample cannot be mistaken for a measurement. "
+        "The property that did hold across every run: `probable` was never reached, because "
+        "that threshold requires a human the API cannot supply."
+    ),
+)
+async def evaluation_stability() -> dict[str, object]:
+    report = EVAL_DIR / "reports" / "stability.json"
+    if not report.exists():
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "code": "stability_not_measured",
+                "message": "No stability study has been run for this deployment.",
+                "fix": "Run scripts/run_stability.py --write and redeploy.",
+            },
+        )
+    return {"ok": True, "data": json.loads(report.read_text(encoding="utf-8"))}
+
+
+@api.get(
+    "/v1/practice",
+    tags=["Evaluation"],
+    summary="Published practitioner objections, and how this system answers them",
+    description=(
+        "No archivist has reviewed this project. This is the nearest honest substitute: "
+        "demands made in peer-reviewed studies of AI cataloguing, in the FIAF manual, and in "
+        "the Library of Congress's own account of how it identifies unidentified film -- each "
+        "quoted verbatim, cited, and paired with the mechanism here that answers it. Two "
+        "entries are marked not_met, including the missing archivist review itself. Nobody "
+        "cited has seen this system or endorses it."
+    ),
+)
+async def practice() -> dict[str, object]:
+    return {"ok": True, "data": practice_register.register()}
+
+
+@api.get(
+    "/v1/dossiers",
+    tags=["Evaluation"],
+    summary="Complete dossiers from real runs on the development split",
+    description=(
+        "The full output of an investigation takes minutes to produce. These are captured "
+        "from real runs of this deployed service against the public demo fragments, "
+        "unedited, so the product can be read without waiting for one. Held-out cases are "
+        "never included."
+    ),
+)
+async def dossiers() -> dict[str, object]:
+    index = DOSSIER_DIR / "index.json"
+    if not index.exists():
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "code": "dossiers_not_captured",
+                "message": "No dossiers have been captured for this deployment.",
+                "fix": "Run scripts/capture_dossiers.py and redeploy.",
+            },
+        )
+    return {"ok": True, "data": json.loads(index.read_text(encoding="utf-8"))}
+
+
+@api.get(
+    "/v1/dossiers/{case_id}",
+    tags=["Evaluation"],
+    summary="One complete captured dossier",
+    description=(
+        "The entire response from a real run, including every claim, every citation, which "
+        "citations survived the live audit, and the seven gate thresholds."
+    ),
+)
+async def dossier(case_id: str) -> dict[str, object]:
+    path = DOSSIER_DIR / f"{case_id.upper()}.json"
+    if not path.is_file() or path.parent != DOSSIER_DIR:
+        raise HTTPException(
+            status_code=404,
+            detail={
+                "code": "dossier_not_found",
+                "message": "No captured dossier for that case.",
+                "fix": "GET /v1/dossiers to list what has been captured.",
+            },
+        )
+    return {"ok": True, "data": json.loads(path.read_text(encoding="utf-8"))}
 
 
 @api.get(

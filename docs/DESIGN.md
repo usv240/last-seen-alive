@@ -130,6 +130,43 @@ its URL is worthless five years later.
 - The layout works from 320px up; the ribbon stops being sticky on small screens
   rather than eating a third of the viewport.
 
+## 11. The product must be readable without running it
+
+The single worst thing about this interface was invisible for weeks: the only way
+to see what the product produces was to run it, and running it takes four to seven
+minutes. Effectively, the output was unreadable. A reader who will not wait — which
+is most readers, including most evaluators — saw the argument for the product and
+never saw the product.
+
+`/dossiers` fixes that by serving complete, unedited responses captured from real
+runs of the deployed service. Two rules keep it honest:
+
+**It uses the live renderer.** The archive calls the same `LSA.renderBoard` a live
+run calls. If the archive drew its own tidier version of a dossier it would be a
+mock-up of the product rather than the product, and the two would drift apart the
+first time either changed.
+
+**It publishes the failures.** The abstentions sit beside the identifications with
+the same prominence, and the page states up front that the pipeline is
+non-deterministic — the capture disagreed with the published evaluation on four of
+five verdicts, and the page says so in the second paragraph rather than in a
+footnote. A page that only showed the good runs would be a screenshot, and this
+project's entire argument is that a screenshot is not evidence.
+
+## 12. An admission is a surface, not a footnote
+
+"No archivist has reviewed this system" was true, and it was buried in a
+limitations file where it functioned as legal cover rather than as information.
+
+`/practice` promotes it to a page. Twelve demands taken verbatim from published
+sources, each answered — and the two that are *not* answered are rendered first,
+in their own group, above everything the system does well. The tally counts
+"archivists consulted: 0" in the warning colour, next to the metrics that flatter
+it.
+
+This is a design decision, not a disclaimer. Where a limitation is placed on a
+page says how much the author wants it read.
+
 ---
 
 ## Tokens

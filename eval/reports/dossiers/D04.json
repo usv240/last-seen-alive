@@ -1,0 +1,789 @@
+{
+  "ok": true,
+  "data": {
+    "status": "completed",
+    "session_id": "lsa_7b0b24d7a077",
+    "parallel_session_id": "lsa_b158dc7e193147728fbe374fba4a03b4",
+    "sample_id": "D04",
+    "origin": "preset:D04",
+    "model": "gemini-2.5-flash",
+    "agent_runtime": "google-adk",
+    "depth": "standard",
+    "latency_ms": 255568,
+    "outputs": {
+      "visual_examiner": "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [\n    {\n      \"value\": \"LOUVRE\",\n      \"citation\": \"Visible on the side of the double-decker omnibus (00:00-00:17).\"\n    },\n    {\n      \"value\": \"PHARMACIE\",\n      \"citation\": \"Partially visible on a building facade in the background (00:18-00:49).\"\n    }\n  ],\n  \"character_names\": [],\n  \"logos\": [\n    {\n      \"value\": \"LOUVRE (omnibus signage)\",\n      \"citation\": \"Clearly visible on the side of the double-decker omnibus (00:00-00:17).\"\n    },\n    {\n      \"value\": \"Metro entrance design\",\n      \"citation\": \"Distinctive architectural style of the subway entrance (00:18-00:49).\"\n    }\n  ],\n  \"language\": [\n    {\n      \"value\": \"French\",\n      \"citation\": \"Evident from signage: 'LOUVRE', 'TAILLE S__', 'SORTIE', 'ENTREE', 'PHARMACIE'.\"\n    }\n  ],\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": {\n    \"inferred\": \"Late 19th to early 20th century, based on the styles of men's suits, top hats, and women's long dresses and hats.\"\n  },\n  \"architecture\": {\n    \"observed\": \"Urban European architecture with multi-story buildings, cobblestone streets, and a distinctive Metro entrance structure. Specific signs include 'TAILLE S__', 'SORTIE', 'ENTREE', 'PHARMACIE'.\",\n    \"inferred\": \"Consistent with Parisian street scenes, especially given the French signage and Metro entrance style.\"\n  },\n  \"performers\": []\n}\n```",
+      "phrase_hunter": "**Candidate Identities:**\n\n*   **Paris, France**: This location is strongly indicated by the prevalence of \"Paris\" in the search results and the specific details about the Louvre and its associated metro stations.\n*   **Louvre Museum/Area**: The \"LOUVRE\" signage on the omnibus and the frequent mentions of \"Louvre\" in relation to Paris Metro stations suggest a connection to the famous museum or its surrounding area.\n*   **Paris Métro (Hector Guimard entrances)**: The distinctive Metro entrance design observed in the fragment is highly consistent with the Art Nouveau style entrances of the Paris Métro designed by Hector Guimard in the early 20th century.\n\n**Factual Claims with Supporting Evidence:**\n\n*   **Factual Claim:** The presence of \"LOUVRE\" on an omnibus points to a potential connection with the Louvre Museum or routes leading to it in Paris.\n    *   **URL:** `https://collections.louvre.fr/en/ark:/53355/cl020036815`\n    *   **Excerpt:** `\"# 'Dans l'omnibus'\"`\n    *   **URL:** `https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro`\n    *   **Excerpt:** `\"Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \"Louvre – Rivoli (Paris Métro)\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \"André\\n\\n...\")\"`\n    *   **URL:** `https://planmetro.paris/metro-musee-du-louvre`\n    *   **Excerpt:** `\"Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) ).\"`\n\n*   **Factual Claim:** The distinctive Metro entrance architecture aligns with the Art Nouveau designs created for the Paris Métro by Hector Guimard between 1900 and 1913.\n    *   **URL:** `https://en.wikipedia.org/wiki/Paris_Metro_entrances_by_Hector_Guimard`\n    *   **Excerpt:** `\"Between 1900 and 1913, [Hector Guimard](https://en.wikipedia.org/wiki/Hector_Guimard \"Hector Guimard\") was responsible for the first generation of entrances to the underground stations of the [Paris Metro](https://en.wikipedia.org/wiki/Paris_Metro \"Paris Metro\") .\"`\n    *   **URL:** `https://www.parisperfect.com/blog/2019/08/paris-metro-station-entrances`\n    *   **Excerpt:** `\"His elegant cast-iron and glass creations, with eye-catching lettering, were designed in the Art Nouveau style and became known as the _style Métro_ .\"`\n    *   **URL:** `http://peoplesgdarchive.org/item/16344/paris-metro-entrance`\n    *   **Excerpt:** `\"Tags\\n* architecture\\n* Art Nouveau\\n* subway\\n* Paris\\n* Metropolitain\\n* Iconic\\n* pavilions\\n* gate\\n* Hector Guimard\\n* France\"`\n\n*   **Factual Claim:** The sign \"PHARMACIE\" is a common indication for a pharmacy in Paris, France.\n    *   **URL:** `https://www.pharmacie-paris-citypharma.fr/`\n    *   **Excerpt:** `\"Bienvenue à notre **pharmacie Citypharma,** située en plein cœur du quartier commerçant de **Saint-Germain-des-Prés** **,** à l’angle de la rue du Four et de la rue Bonaparte, dans le **6 e arrondissement de Paris** .\"`\n\n*   **Factual Claim:** \"SORTIE\" and \"ENTREE\" are standard French terms for exit and entrance, respectively, commonly found on directional signage for public transport, such as the Paris Metro.\n    *   **URL:** `https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro`\n    *   **Excerpt:** `\"Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \"Louvre – Rivoli (Paris Métro)\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \"André\\n\\n...\")\"`\n    *   **URL:** `https://planmetro.paris/metro-musee-du-louvre`\n    *   **Excerpt:** `\"Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) ).\"`",
+      "holdings_researcher": "No single, strong candidate title that fully encompasses all the unique elements observed in fragment D04 (specifically the cow entering the Metro) was found. The `deep_holdings_research` identified \"Un coin de Paris\" (1900) as the closest matching title based on general Paris street scenes and the presence of an omnibus, but its description does not include the distinctive elements of the cow, the Metro, or the Louvre. Therefore, a census of named catalogues cannot be commissioned at this time.\n\n**Findings from `deep_holdings_research`:**\n\n*   **Candidate Title:** Un coin de Paris\n*   **Release Year:** 1900\n*   **Studio or Producer:** Not identified in the available record.\n*   **Alternate Titles:** No alternate, foreign, working, or reissue titles were found for \"Un coin de Paris\".\n*   **Restoration Notices:** No restoration notice or restoration status was found.\n*   **Country:** France (inferred from the French-language title and general French-film context; not explicitly stated in the record).\n*   **Contradicting Evidence:** The description for \"Un coin de Paris\" details a busy Paris intersection with tramways, omnibuses, cars, and pedestrians. However, it *does not* mention the cow, the Metro entrance, or the Louvre, which are prominent features in fragment D04. This makes the match uncertain for this specific fragment.\n*   **Coverage Gaps:** No direct record was found that combines all the visual clues from the fragment, including the cow, Paris Metro, Louvre, and omnibus. The accessible Pathé 1900 record provided bibliographic metadata rather than a detailed plot entry.\n*   **Holdings:** No named catalogue record in the available evidence reports a surviving print, negative, or other element for \"Un coin de Paris\".\n*   **Named Catalogues Searched:**\n    *   Library of Congress, Early and Silent Film – French & Francophone Film\n    *   IMDb record for Un coin de Paris\n    *   Internet Archive, Omnibus Catalogue\n    *   Pathé 1900: fragments d’une filmographie analytique du cinéma des premiers temps\n\n**Conclusion on Candidate Strength:** While \"Un coin de Paris\" aligns with the general setting and period, the explicit lack of the cow and Metro elements in its description means it is not a strong match for the specific visual narrative of fragment D04. Therefore, further investigation would be required to identify a title that fully corresponds to the fragment's content.",
+      "skeptic": "```json\n{\n  \"contradiction_claims\": [\n    {\n      \"claim\": \"The candidate title \\\"Un coin de Paris\\\" (1900) does not mention the distinctive visual elements of a cow, a Paris Metro entrance, or the specific context of the Louvre area within its described plot, despite these being prominent features in fragment D04.\",\n      \"evidence\": \"The `deep_holdings_research` for \\\"Un coin de Paris\\\" states that its description details 'a busy Paris intersection with tramways, omnibuses, cars, and pedestrians' but explicitly notes it 'does not mention the cow, the Metro entrance, or the Louvre, which are prominent features in fragment D04.'\",\n      \"citation\": \"https://www.imdb.com/fr/title/tt34696569/\"\n    }\n  ],\n  \"unresolved_questions\": [\n    {\n      \"question\": \"Does a film exist with a title and plot description that explicitly combines the elements of a cow, a Paris Metro entrance (specifically a Hector Guimard design), an omnibus with 'LOUVRE' signage, and the general setting of Paris around the early 20th century?\",\n      \"reasoning\": \"The `deep_holdings_research` indicates that 'No direct record was found that combines all the visual clues from the fragment, including the cow, Paris Metro, Louvre, and omnibus.'\",\n      \"evidence\": [\n        \"https://archive.org/details/pathe1900fragmen0000unse\",\n        \"https://www.imdb.com/fr/title/tt34696569/\"\n      ]\n    },\n    {\n      \"question\": \"What are the complete plot details for the film \\\"Un coin de Paris\\\" (1900)?\",\n      \"reasoning\": \"The available record for \\\"Un coin de Paris\\\" provides bibliographic metadata but lacks a detailed plot entry sufficient to confirm or deny the presence of specific narrative elements seen in fragment D04, beyond general Paris street scenes.\",\n      \"evidence\": [\n        \"https://archive.org/details/pathe1900fragmen0000unse\",\n        \"https://www.imdb.com/fr/title/tt34696569/\"\n      ]\n    },\n    {\n      \"question\": \"What is the precise location of the Metro station entrance depicted in fragment D04?\",\n      \"reasoning\": \"While the Metro entrance is identified as a Hector Guimard design, and connections to Louvre-related stations (Louvre-Rivoli, Palais-Royal – Musée du Louvre) are noted, the exact station shown in the fragment is not conclusively identified by the search results.\",\n      \"evidence\": [\n        \"https://en.wikipedia.org/wiki/Paris_Metro_entrances_by_Hector_Guimard\",\n        \"https://planmetro.paris/metro-musee-du-louvre\",\n        \"https://www.parisperfect.com/blog/2019/08/paris-metro-station-entrances\"\n      ]\n    }\n  ]\n}\n```",
+      "evidence_compiler": {
+        "candidates": [
+          {
+            "candidate_id": "un_coin_de_paris_1900",
+            "title": "Un coin de Paris",
+            "year": "1900",
+            "score": 0.5,
+            "rationale": "Identified as the closest matching title by deep holdings research based on general Paris street scenes and the presence of an omnibus, but its description does not include the distinctive elements of the cow, the Metro, or the Louvre, making the match uncertain for specific visual narrative elements."
+          }
+        ],
+        "claims": [
+          {
+            "claim_text": "The language in the film is French, as evidenced by signs like 'LOUVRE', 'TAILLE S__', 'SORTIE', 'ENTREE', 'PHARMACIE'.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "The visual examiner observed French text on multiple signs within the fragment.",
+            "sources": []
+          },
+          {
+            "claim_text": "The costume period is inferred to be late 19th to early 20th century, based on the styles of men's suits, top hats, and women's long dresses and hats.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "The visual examiner provided an inference about the costume period based on observed clothing styles.",
+            "sources": []
+          },
+          {
+            "claim_text": "The architecture observed is urban European with multi-story buildings, cobblestone streets, and a distinctive Metro entrance structure, consistent with Parisian street scenes.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "The visual examiner observed specific architectural elements and inferred consistency with Parisian street scenes.",
+            "sources": []
+          },
+          {
+            "claim_text": "The presence of 'LOUVRE' on an omnibus points to a potential connection with the Louvre Museum or routes leading to it in Paris.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "proper_noun",
+            "confidence_basis": "The 'LOUVRE' signage is directly visible and contextualized by search results relating to the Louvre and Parisian transport.",
+            "sources": [
+              {
+                "url": "https://collections.louvre.fr/en/ark:/53355/cl020036815",
+                "excerpt": "# 'Dans l'omnibus'"
+              },
+              {
+                "url": "https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro",
+                "excerpt": "Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \"Louvre – Rivoli (Paris Métro)\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \"André\n\n...\")"
+              },
+              {
+                "url": "https://planmetro.paris/metro-musee-du-louvre",
+                "excerpt": "Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) )."
+              }
+            ]
+          },
+          {
+            "claim_text": "The distinctive Metro entrance architecture aligns with the Art Nouveau designs created for the Paris Métro by Hector Guimard between 1900 and 1913.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Multiple sources confirm the design style and timeframe of Hector Guimard's Paris Metro entrances.",
+            "sources": [
+              {
+                "url": "https://en.wikipedia.org/wiki/Paris_Metro_entrances_by_Hector_Guimard",
+                "excerpt": "Between 1900 and 1913, [Hector Guimard](https://en.wikipedia.org/wiki/Hector_Guimard \"Hector Guimard\") was responsible for the first generation of entrances to the underground stations of the [Paris Metro](https://en.wikipedia.org/wiki/Paris_Metro \"Paris Metro\") ."
+              },
+              {
+                "url": "https://www.parisperfect.com/blog/2019/08/paris-metro-station-entrances",
+                "excerpt": "His elegant cast-iron and glass creations, with eye-catching lettering, were designed in the Art Nouveau style and became known as the _style Métro_ ."
+              },
+              {
+                "url": "http://peoplesgdarchive.org/item/16344/paris-metro-entrance",
+                "excerpt": "Tags\n* architecture\n* Art Nouveau\n* subway\n* Paris\n* Metropolitain\n* Iconic\n* pavilions\n* gate\n* Hector Guimard\n* France"
+              }
+            ]
+          },
+          {
+            "claim_text": "The sign 'PHARMACIE' is a common indication for a pharmacy in Paris, France.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "proper_noun",
+            "confidence_basis": "A specific example of a pharmacy in Paris with this signage is provided.",
+            "sources": [
+              {
+                "url": "https://www.pharmacie-paris-citypharma.fr/",
+                "excerpt": "Bienvenue à notre **pharmacie Citypharma,** située en plein cœur du quartier commerçant de **Saint-Germain-des-Prés** **,** à l’angle de la rue du Four et de la rue Bonaparte, dans le **6 e arrondissement de Paris** ."
+              }
+            ]
+          },
+          {
+            "claim_text": "'SORTIE' and 'ENTREE' are standard French terms for exit and entrance, respectively, commonly found on directional signage for public transport, such as the Paris Metro.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "These terms are standard French and are explicitly mentioned in contexts related to the Paris Metro and the Louvre.",
+            "sources": [
+              {
+                "url": "https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro",
+                "excerpt": "Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \"Louvre – Rivoli (Paris Métro)\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \"André\n\n...\")"
+              },
+              {
+                "url": "https://planmetro.paris/metro-musee-du-louvre",
+                "excerpt": "Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) )."
+              }
+            ]
+          },
+          {
+            "claim_text": "A cow is prominently featured in the fragment, seen near the omnibus and later approaching the Metro entrance.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "Direct visual observation of the fragment confirms the presence and action of the cow.",
+            "sources": []
+          },
+          {
+            "claim_text": "The candidate film 'Un coin de Paris' has a release year of 1900.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "release_date",
+            "confidence_basis": "The IMDb record for 'Un coin de Paris' explicitly states its release year.",
+            "sources": [
+              {
+                "url": "https://www.imdb.com/fr/title/tt34696569/",
+                "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine."
+              }
+            ]
+          },
+          {
+            "claim_text": "The studio or producer for 'Un coin de Paris' is not identified in the available record.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "neutral",
+            "clue_family": "studio_or_producer",
+            "confidence_basis": "The deep holdings research explicitly states that the studio or producer is not identified in the available record.",
+            "sources": [
+              {
+                "url": "https://www.imdb.com/fr/title/tt34696569/",
+                "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine."
+              }
+            ]
+          },
+          {
+            "claim_text": "No alternate, foreign, working, or reissue titles were found for 'Un coin de Paris'.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "neutral",
+            "clue_family": "alternate_title",
+            "confidence_basis": "The deep holdings research found no alternate titles for 'Un coin de Paris'.",
+            "sources": [
+              {
+                "url": "https://www.imdb.com/fr/title/tt34696569/",
+                "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine."
+              }
+            ]
+          },
+          {
+            "claim_text": "The film 'Un coin de Paris' is inferred to be from France based on its French-language title and general French-film context.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "supports",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "The country attribution for 'Un coin de Paris' is an inference drawn from the French title and historical context of early French cinema.",
+            "sources": [
+              {
+                "url": "https://guides.loc.gov/french-and-francophone-film/movements-and-genres/early-silent-film",
+                "excerpt": "Early and Silent Film - French & Francophone Film Feb 4, 2026 — The bibliography below lists films and resources covering the era of early and silent films in France."
+              },
+              {
+                "url": "https://www.imdb.com/fr/title/tt34696569/",
+                "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine."
+              }
+            ]
+          },
+          {
+            "claim_text": "No named catalogue record reports a surviving print, negative, or other element for 'Un coin de Paris'.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "neutral",
+            "clue_family": "archive_holding",
+            "confidence_basis": "The deep holdings research explicitly states that no holdings were found for 'Un coin de Paris'.",
+            "sources": [
+              {
+                "url": "https://archive.org/details/pathe1900fragmen0000unse",
+                "excerpt": "Pathé 1900 : fragments d'une filmographie analytique du cinéma des premiers temps Publication date 1993 Topics Pathé frères (France) -- Catalogs, National Film Archive (Great Britain) -- Catalogs, Pathé frères (France) -- Catalogues, National Film Archive (Great Britain) -- Catalogues, Silent films -- Catalogs, Films muets -- Catalogues"
+              }
+            ]
+          },
+          {
+            "claim_text": "The candidate title \"Un coin de Paris\" (1900) does not mention the distinctive visual elements of a cow, a Paris Metro entrance, or the specific context of the Louvre area within its described plot, despite these being prominent features in fragment D04.",
+            "subject": "un_coin_de_paris_1900",
+            "stance": "contradicts",
+            "clue_family": "visual_or_material",
+            "confidence_basis": "The description for \"Un coin de Paris\" provided by deep_holdings_research lists general Paris street scenes but explicitly omits these key visual elements present in the fragment.",
+            "sources": [
+              {
+                "url": "https://www.imdb.com/fr/title/tt34696569/",
+                "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine."
+              }
+            ]
+          }
+        ],
+        "temporal_compatibility": true,
+        "entity_compatibility": true,
+        "unresolved_questions": [
+          "Does a film exist with a title and plot description that explicitly combines the elements of a cow, a Paris Metro entrance (specifically a Hector Guimard design), an omnibus with 'LOUVRE' signage, and the general setting of Paris around the early 20th century?",
+          "What are the complete plot details for the film \"Un coin de Paris\" (1900)?",
+          "What is the precise location of the Metro station entrance depicted in fragment D04?"
+        ]
+      }
+    },
+    "evidence": {
+      "candidates": [
+        {
+          "candidate_id": "un_coin_de_paris_1900",
+          "label": "Un coin de Paris (1900)",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_d26583a33be5d2f19b59cf38",
+            "clm_f353dcd1cbb4f96997018be7",
+            "clm_7fa1edfaafa1653f98511df7",
+            "clm_3eff038ac04c7c029d91801e"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "clm_f24c1e9ad342351861724419",
+          "claim_text": "The language in the film is French, as evidenced by signs like 'LOUVRE', 'TAILLE S__', 'SORTIE', 'ENTREE', 'PHARMACIE'.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The visual examiner observed French text on multiple signs within the fragment.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_5c0a46affc23eaf230a0a8cf",
+          "claim_text": "The costume period is inferred to be late 19th to early 20th century, based on the styles of men's suits, top hats, and women's long dresses and hats.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The visual examiner provided an inference about the costume period based on observed clothing styles.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_4f0d89953c3c061d41515945",
+          "claim_text": "The architecture observed is urban European with multi-story buildings, cobblestone streets, and a distinctive Metro entrance structure, consistent with Parisian street scenes.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The visual examiner observed specific architectural elements and inferred consistency with Parisian street scenes.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_137d2970e0ec47be7ec2dd2a",
+          "claim_text": "The presence of 'LOUVRE' on an omnibus points to a potential connection with the Louvre Museum or routes leading to it in Paris.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The 'LOUVRE' signage is directly visible and contextualized by search results relating to the Louvre and Parisian transport.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://collections.louvre.fr/en/ark:/53355/cl020036815",
+              "domain": "collections.louvre.fr",
+              "excerpt": "# 'Dans l'omnibus'",
+              "verified": true,
+              "live_verified": false,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_d26583a33be5d2f19b59cf38",
+          "claim_text": "The distinctive Metro entrance architecture aligns with the Art Nouveau designs created for the Paris Métro by Hector Guimard between 1900 and 1913.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Multiple sources confirm the design style and timeframe of Hector Guimard's Paris Metro entrances.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Paris_Metro_entrances_by_Hector_Guimard",
+              "domain": "en.wikipedia.org",
+              "excerpt": "Between 1900 and 1913, [Hector Guimard](https://en.wikipedia.org/wiki/Hector_Guimard \"Hector Guimard\") was responsible for the first generation of entrances to the underground stations of the [Paris Metro](https://en.wikipedia.org/wiki/Paris_Metro \"Paris Metro\") .",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://www.parisperfect.com/blog/2019/08/paris-metro-station-entrances",
+              "domain": "www.parisperfect.com",
+              "excerpt": "His elegant cast-iron and glass creations, with eye-catching lettering, were designed in the Art Nouveau style and became known as the _style Métro_ .",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "http://peoplesgdarchive.org/item/16344/paris-metro-entrance",
+              "domain": "peoplesgdarchive.org",
+              "excerpt": "Tags\n* architecture\n* Art Nouveau\n* subway\n* Paris\n* Metropolitain\n* Iconic\n* pavilions\n* gate\n* Hector Guimard\n* France",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_f353dcd1cbb4f96997018be7",
+          "claim_text": "The sign 'PHARMACIE' is a common indication for a pharmacy in Paris, France.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "A specific example of a pharmacy in Paris with this signage is provided.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.pharmacie-paris-citypharma.fr/",
+              "domain": "www.pharmacie-paris-citypharma.fr",
+              "excerpt": "Bienvenue à notre **pharmacie Citypharma,** située en plein cœur du quartier commerçant de **Saint-Germain-des-Prés** **,** à l’angle de la rue du Four et de la rue Bonaparte, dans le **6 e arrondissement de Paris** .",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_c56a4bfbd1aea91db3c036b1",
+          "claim_text": "'SORTIE' and 'ENTREE' are standard French terms for exit and entrance, respectively, commonly found on directional signage for public transport, such as the Paris Metro.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "These terms are standard French and are explicitly mentioned in contexts related to the Paris Metro and the Louvre.",
+          "decisive_eligible": false,
+          "sources": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro",
+              "domain": "en.wikipedia.org",
+              "excerpt": "Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \"Louvre – Rivoli (Paris Métro)\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \"André\n\n...\")",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            },
+            {
+              "url": "https://planmetro.paris/metro-musee-du-louvre",
+              "domain": "planmetro.paris",
+              "excerpt": "Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) ).",
+              "verified": false,
+              "live_verified": null,
+              "counts_toward_gate": false
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_d479c0b88eb4396fc94a7619",
+          "claim_text": "A cow is prominently featured in the fragment, seen near the omnibus and later approaching the Metro entrance.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "Direct visual observation of the fragment confirms the presence and action of the cow.",
+          "decisive_eligible": false,
+          "sources": []
+        },
+        {
+          "claim_id": "clm_7fa1edfaafa1653f98511df7",
+          "claim_text": "The candidate film 'Un coin de Paris' has a release year of 1900.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The IMDb record for 'Un coin de Paris' explicitly states its release year.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.imdb.com/fr/title/tt34696569/",
+              "domain": "www.imdb.com",
+              "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_de75d0f7819f33128ba198b6",
+          "claim_text": "The studio or producer for 'Un coin de Paris' is not identified in the available record.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The deep holdings research explicitly states that the studio or producer is not identified in the available record.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.imdb.com/fr/title/tt34696569/",
+              "domain": "www.imdb.com",
+              "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_4c1de6b9dda9610a9a9ab0e2",
+          "claim_text": "No alternate, foreign, working, or reissue titles were found for 'Un coin de Paris'.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The deep holdings research found no alternate titles for 'Un coin de Paris'.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.imdb.com/fr/title/tt34696569/",
+              "domain": "www.imdb.com",
+              "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_3eff038ac04c7c029d91801e",
+          "claim_text": "The film 'Un coin de Paris' is inferred to be from France based on its French-language title and general French-film context.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "supports",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The country attribution for 'Un coin de Paris' is an inference drawn from the French title and historical context of early French cinema.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://guides.loc.gov/french-and-francophone-film/movements-and-genres/early-silent-film",
+              "domain": "guides.loc.gov",
+              "excerpt": "Early and Silent Film - French & Francophone Film Feb 4, 2026 — The bibliography below lists films and resources covering the era of early and silent films in France.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            },
+            {
+              "url": "https://www.imdb.com/fr/title/tt34696569/",
+              "domain": "www.imdb.com",
+              "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_182cc38d1daebae7c40672f9",
+          "claim_text": "No named catalogue record reports a surviving print, negative, or other element for 'Un coin de Paris'.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "neutral",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The deep holdings research explicitly states that no holdings were found for 'Un coin de Paris'.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://archive.org/details/pathe1900fragmen0000unse",
+              "domain": "archive.org",
+              "excerpt": "Pathé 1900 : fragments d'une filmographie analytique du cinéma des premiers temps Publication date 1993 Topics Pathé frères (France) -- Catalogs, National Film Archive (Great Britain) -- Catalogs, Pathé frères (France) -- Catalogues, National Film Archive (Great Britain) -- Catalogues, Silent films -- Catalogs, Films muets -- Catalogues",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        },
+        {
+          "claim_id": "clm_f8f9256b8af0c76a679891b0",
+          "claim_text": "The candidate title \"Un coin de Paris\" (1900) does not mention the distinctive visual elements of a cow, a Paris Metro entrance, or the specific context of the Louvre area within its described plot, despite these being prominent features in fragment D04.",
+          "subject": "un_coin_de_paris_1900",
+          "stance": "contradicts",
+          "agent_id": "EvidenceCompiler",
+          "confidence_basis": "The description for \"Un coin de Paris\" provided by deep_holdings_research lists general Paris street scenes but explicitly omits these key visual elements present in the fragment.",
+          "decisive_eligible": true,
+          "sources": [
+            {
+              "url": "https://www.imdb.com/fr/title/tt34696569/",
+              "domain": "www.imdb.com",
+              "excerpt": "Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.",
+              "verified": true,
+              "live_verified": true,
+              "counts_toward_gate": true
+            }
+          ]
+        }
+      ],
+      "clue_families": [
+        "proper_noun",
+        "release_date",
+        "visual_or_material"
+      ],
+      "rejected_citations": [
+        {
+          "url": "https://collections.louvre.fr/en/ark:/53355/cl020036815",
+          "reason": "quoted_text_absent_from_live_page",
+          "claim": "The presence of 'LOUVRE' on an omnibus points to a potential connection with the Louvre Museum or routes leading to it in Paris."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The presence of 'LOUVRE' on an omnibus points to a potential connection with the Louvre Museum or routes leading to it in Paris."
+        },
+        {
+          "url": "https://planmetro.paris/metro-musee-du-louvre",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "The presence of 'LOUVRE' on an omnibus points to a potential connection with the Louvre Museum or routes leading to it in Paris."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "'SORTIE' and 'ENTREE' are standard French terms for exit and entrance, respectively, commonly found on directional signage for public transport, such as the Par"
+        },
+        {
+          "url": "https://planmetro.paris/metro-musee-du-louvre",
+          "reason": "excerpt_not_found_in_retrieved_text",
+          "claim": "'SORTIE' and 'ENTREE' are standard French terms for exit and entrance, respectively, commonly found on directional signage for public transport, such as the Par"
+        }
+      ],
+      "unresolved_questions": [
+        "Does a film exist with a title and plot description that explicitly combines the elements of a cow, a Paris Metro entrance (specifically a Hector Guimard design), an omnibus with 'LOUVRE' signage, and the general setting of Paris around the early 20th century?",
+        "What are the complete plot details for the film \"Un coin de Paris\" (1900)?",
+        "What is the precise location of the Metro station entrance depicted in fragment D04?"
+      ],
+      "citation_policy": "a source not returned by Parallel in this run is discarded"
+    },
+    "parallel_retrieval": {
+      "session_id": "lsa_b158dc7e193147728fbe374fba4a03b4",
+      "calls": [
+        {
+          "provider": "parallel_search_v1",
+          "retrieval_id": "search_d5a608241656922e5632d95deac372a9",
+          "result_count": 10
+        },
+        {
+          "provider": "parallel_task_v1",
+          "retrieval_id": "trun_04e777c238664af98b201d615377d77c",
+          "result_count": 16
+        }
+      ],
+      "sources_returned": 14,
+      "independent_domains": [
+        "archive.org",
+        "collections.louvre.fr",
+        "en.wikipedia.org",
+        "guides.loc.gov",
+        "peoplesgdarchive.org",
+        "planmetro.paris",
+        "www.hippopx.com",
+        "www.imdb.com",
+        "www.parisdesignagenda.com",
+        "www.parisinsidersguide.com",
+        "www.parisperfect.com",
+        "www.pharmacie-paris-citypharma.fr"
+      ],
+      "surfaces_used": [
+        "parallel_search_v1",
+        "parallel_task_v1"
+      ]
+    },
+    "citation_audit": {
+      "provider": "parallel_extract_v1",
+      "status": "completed",
+      "extract_id": "extract_cb88ceb6d7e0581df865562de2b31e1c",
+      "session_id": "lsa_b158dc7e193147728fbe374fba4a03b4",
+      "pages_requested": 8,
+      "pages_returned": 8,
+      "errors": [],
+      "audited": [
+        {
+          "url": "https://collections.louvre.fr/en/ark:/53355/cl020036815",
+          "excerpt_present_on_live_page": false,
+          "page_title": null,
+          "publish_date": null,
+          "note": "page could not be re-opened at audit time"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Paris_Metro_entrances_by_Hector_Guimard",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Paris Metro entrances by Hector Guimard - Wikipedia",
+          "publish_date": "2026-07-25",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://www.parisperfect.com/blog/2019/08/paris-metro-station-entrances",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Guide to the Most Picture Perfect Paris Métro Station Entrances - Paris Perfect",
+          "publish_date": "2019-08-17",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "http://peoplesgdarchive.org/item/16344/paris-metro-entrance",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Paris Métro Entrance | People’s Graphic Design Archive",
+          "publish_date": "2025-01-25",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://www.pharmacie-paris-citypharma.fr/",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Pharmacie Citypharma, pharmacie et parapharmacie à Paris 6",
+          "publish_date": "2014-09-22",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://www.imdb.com/fr/title/tt34696569/",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Un coin de Paris (Court-métrage 1900) - IMDb",
+          "publish_date": "2026-09-08",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://guides.loc.gov/french-and-francophone-film/movements-and-genres/early-silent-film",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Early and Silent Film - French & Francophone Film:  A Research Guide - Research Guides at Library of Congress",
+          "publish_date": "2021-06-22",
+          "note": "quoted text found in the live page"
+        },
+        {
+          "url": "https://archive.org/details/pathe1900fragmen0000unse",
+          "excerpt_present_on_live_page": true,
+          "page_title": "Pathé 1900 : fragments d'une filmographie analytique du cinéma des premiers temps : Free Download, Borrow, and Streaming : Internet Archive",
+          "publish_date": "2014-12-31",
+          "note": "quoted text found in the live page"
+        }
+      ]
+    },
+    "falsification": {
+      "provider": "parallel_task_group_v1",
+      "status": "not_requested",
+      "reason": "Send depth=deep to fan out one independent falsification run per candidate.",
+      "verdicts": []
+    },
+    "language_findings": [],
+    "supplied_title": {
+      "title": "Unidentified fragment D04, Library of Congress National Screening Room",
+      "title_type": "supplied_devised",
+      "authority": "cataloguer_supplied",
+      "is_identification": false,
+      "pattern": "FIAF A.2.5 five-Ws (who/what, what, where, when, source)",
+      "form_term": "",
+      "components": {
+        "source_collection": "Library of Congress National Screening Room"
+      },
+      "standard": "The FIAF Moving Image Cataloguing Manual (2016), A.2.5, pp. 93-96",
+      "note": "Assembled by deterministic code from observed clues only. It is a finding aid, not an identification, and names no film."
+    },
+    "cold_case": {
+      "eligible": true,
+      "watchable_strings": [
+        "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [\n    {\n      \"value\": \"LOUVRE\",\n      \"citation\": \"Visible on the side of the double-decker omnibus (00:00-00:17).\"\n    },\n    {\n "
+      ],
+      "how": "POST /v1/watch to leave a standing Parallel Monitor on these strings."
+    },
+    "transcript": [
+      {
+        "author": "VisualExaminer",
+        "text": "```json\n{\n  \"intertitles\": [],\n  \"proper_nouns\": [\n    {\n      \"value\": \"LOUVRE\",\n      \"citation\": \"Visible on the side of the double-decker omnibus (00:00-00:17).\"\n    },\n    {\n      \"value\": \"PHARMACIE\",\n      \"citation\": \"Partially visible on a building facade in the background (00:18-00:49).\"\n    }\n  ],\n  \"character_names\": [],\n  \"logos\": [\n    {\n      \"value\": \"LOUVRE (omnibus signage)\",\n      \"citation\": \"Clearly visible on the side of the double-decker omnibus (00:00-00:17).\"\n    },\n    {\n      \"value\": \"Metro entrance design\",\n      \"citation\": \"Distinctive architectural style of the subway entrance (00:18-00:49).\"\n    }\n  ],\n  \"language\": [\n    {\n      \"value\": \"French\",\n      \"citation\": \"Evident from signage: 'LOUVRE', 'TAILLE S__', 'SORTIE', 'ENTREE', 'PHARMACIE'.\"\n    }\n  ],\n  \"film_stock_edge_marks\": [],\n  \"costume_period\": {\n    \"inferred\": \"Late 19th to early 20th century, based on the styles of men's suits, top hats, and women's long dresses and hats.\"\n  },\n  \"architecture\": {\n    \"observed\": \"Urban European architecture with multi-story buildings, cobblestone streets, and a distinctive Metro entrance structure. Specific signs include 'TAILLE S__', 'SORTIE', 'ENTREE', 'PHARMACIE'.\",\n    \"inferred\": \"Consistent with Parisian street scenes, especially given the French signage and Metro entrance style.\"\n  },\n  \"performers\": []\n}\n```"
+      },
+      {
+        "author": "PhraseHunter",
+        "text": "**Candidate Identities:**\n\n*   **Paris, France**: This location is strongly indicated by the prevalence of \"Paris\" in the search results and the specific details about the Louvre and its associated metro stations.\n*   **Louvre Museum/Area**: The \"LOUVRE\" signage on the omnibus and the frequent mentions of \"Louvre\" in relation to Paris Metro stations suggest a connection to the famous museum or its surrounding area.\n*   **Paris Métro (Hector Guimard entrances)**: The distinctive Metro entrance design observed in the fragment is highly consistent with the Art Nouveau style entrances of the Paris Métro designed by Hector Guimard in the early 20th century.\n\n**Factual Claims with Supporting Evidence:**\n\n*   **Factual Claim:** The presence of \"LOUVRE\" on an omnibus points to a potential connection with the Louvre Museum or routes leading to it in Paris.\n    *   **URL:** `https://collections.louvre.fr/en/ark:/53355/cl020036815`\n    *   **Excerpt:** `\"# 'Dans l'omnibus'\"`\n    *   **URL:** `https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro`\n    *   **Excerpt:** `\"Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \"Louvre – Rivoli (Paris Métro)\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \"André\\n\\n...\")\"`\n    *   **URL:** `https://planmetro.paris/metro-musee-du-louvre`\n    *   **Excerpt:** `\"Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) ).\"`\n\n*   **Factual Claim:** The distinctive Metro entrance architecture aligns with the Art Nouveau designs created for the Paris Métro by Hector Guimard between 1900 and 1913.\n    *   **URL:** `https://en.wikipedia.org/wiki/Paris_Metro_entrances_by_Hector_Guimard`\n    *   **Excerpt:** `\"Between 1900 and 1913, [Hector Guimard](https://en.wikipedia.org/wiki/Hector_Guimard \"Hector Guimard\") was responsible for the first generation of entrances to the underground stations of the [Paris Metro](https://en.wikipedia.org/wiki/Paris_Metro \"Paris Metro\") .\"`\n    *   **URL:** `https://www.parisperfect.com/blog/2019/08/paris-metro-station-entrances`\n    *   **Excerpt:** `\"His elegant cast-iron and glass creations, with eye-catching lettering, were designed in the Art Nouveau style and became known as the _style Métro_ .\"`\n    *   **URL:** `http://peoplesgdarchive.org/item/16344/paris-metro-entrance`\n    *   **Excerpt:** `\"Tags\\n* architecture\\n* Art Nouveau\\n* subway\\n* Paris\\n* Metropolitain\\n* Iconic\\n* pavilions\\n* gate\\n* Hector Guimard\\n* France\"`\n\n*   **Factual Claim:** The sign \"PHARMACIE\" is a common indication for a pharmacy in Paris, France.\n    *   **URL:** `https://www.pharmacie-paris-citypharma.fr/`\n    *   **Excerpt:** `\"Bienvenue à notre **pharmacie Citypharma,** située en plein cœur du quartier commerçant de **Saint-Germain-des-Prés** **,** à l’angle de la rue du Four et de la rue Bonaparte, dans le **6 e arrondissement de Paris** .\"`\n\n*   **Factual Claim:** \"SORTIE\" and \"ENTREE\" are standard French terms for exit and entrance, respectively, commonly found on directional signage for public transport, such as the Paris Metro.\n    *   **URL:** `https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro`\n    *   **Excerpt:** `\"Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \"Louvre – Rivoli (Paris Métro)\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \"André\\n\\n...\")\"`\n    *   **URL:** `https://planmetro.paris/metro-musee-du-louvre`\n    *   **Excerpt:** `\"Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) ).\"`"
+      },
+      {
+        "author": "HoldingsResearcher",
+        "text": "No single, strong candidate title that fully encompasses all the unique elements observed in fragment D04 (specifically the cow entering the Metro) was found. The `deep_holdings_research` identified \"Un coin de Paris\" (1900) as the closest matching title based on general Paris street scenes and the presence of an omnibus, but its description does not include the distinctive elements of the cow, the Metro, or the Louvre. Therefore, a census of named catalogues cannot be commissioned at this time.\n\n**Findings from `deep_holdings_research`:**\n\n*   **Candidate Title:** Un coin de Paris\n*   **Release Year:** 1900\n*   **Studio or Producer:** Not identified in the available record.\n*   **Alternate Titles:** No alternate, foreign, working, or reissue titles were found for \"Un coin de Paris\".\n*   **Restoration Notices:** No restoration notice or restoration status was found.\n*   **Country:** France (inferred from the French-language title and general French-film context; not explicitly stated in the record).\n*   **Contradicting Evidence:** The description for \"Un coin de Paris\" details a busy Paris intersection with tramways, omnibuses, cars, and pedestrians. However, it *does not* mention the cow, the Metro entrance, or the Louvre, which are prominent features in fragment D04. This makes the match uncertain for this specific fragment.\n*   **Coverage Gaps:** No direct record was found that combines all the visual clues from the fragment, including the cow, Paris Metro, Louvre, and omnibus. The accessible Pathé 1900 record provided bibliographic metadata rather than a detailed plot entry.\n*   **Holdings:** No named catalogue record in the available evidence reports a surviving print, negative, or other element for \"Un coin de Paris\".\n*   **Named Catalogues Searched:**\n    *   Library of Congress, Early and Silent Film – French & Francophone Film\n    *   IMDb record for Un coin de Paris\n    *   Internet Archive, Omnibus Catalogue\n    *   Pathé 1900: fragments d’une filmographie analytique du cinéma des premiers temps\n\n**Conclusion on Candidate Strength:** While \"Un coin de Paris\" aligns with the general setting and period, the explicit lack of the cow and Metro elements in its description means it is not a strong match for the specific visual narrative of fragment D04. Therefore, further investigation would be required to identify a title that fully corresponds to the fragment's content."
+      },
+      {
+        "author": "Skeptic",
+        "text": "```json\n{\n  \"contradiction_claims\": [\n    {\n      \"claim\": \"The candidate title \\\"Un coin de Paris\\\" (1900) does not mention the distinctive visual elements of a cow, a Paris Metro entrance, or the specific context of the Louvre area within its described plot, despite these being prominent features in fragment D04.\",\n      \"evidence\": \"The `deep_holdings_research` for \\\"Un coin de Paris\\\" states that its description details 'a busy Paris intersection with tramways, omnibuses, cars, and pedestrians' but explicitly notes it 'does not mention the cow, the Metro entrance, or the Louvre, which are prominent features in fragment D04.'\",\n      \"citation\": \"https://www.imdb.com/fr/title/tt34696569/\"\n    }\n  ],\n  \"unresolved_questions\": [\n    {\n      \"question\": \"Does a film exist with a title and plot description that explicitly combines the elements of a cow, a Paris Metro entrance (specifically a Hector Guimard design), an omnibus with 'LOUVRE' signage, and the general setting of Paris around the early 20th century?\",\n      \"reasoning\": \"The `deep_holdings_research` indicates that 'No direct record was found that combines all the visual clues from the fragment, including the cow, Paris Metro, Louvre, and omnibus.'\",\n      \"evidence\": [\n        \"https://archive.org/details/pathe1900fragmen0000unse\",\n        \"https://www.imdb.com/fr/title/tt34696569/\"\n      ]\n    },\n    {\n      \"question\": \"What are the complete plot details for the film \\\"Un coin de Paris\\\" (1900)?\",\n      \"reasoning\": \"The available record for \\\"Un coin de Paris\\\" provides bibliographic metadata but lacks a detailed plot entry sufficient to confirm or deny the presence of specific narrative elements seen in fragment D04, beyond general Paris street scenes.\",\n      \"evidence\": [\n        \"https://archive.org/details/pathe1900fragmen0000unse\",\n        \"https://www.imdb.com/fr/title/tt34696569/\"\n      ]\n    },\n    {\n      \"question\": \"What is the precise location of the Metro station entrance depicted in fragment D04?\",\n      \"reasoning\": \"While the Metro entrance is identified as a Hector Guimard design, and connections to Louvre-related stations (Louvre-Rivoli, Palais-Royal – Musée du Louvre) are noted, the exact station shown in the fragment is not conclusively identified by the search results.\",\n      \"evidence\": [\n        \"https://en.wikipedia.org/wiki/Paris_Metro_entrances_by_Hector_Guimard\",\n        \"https://planmetro.paris/metro-musee-du-louvre\",\n        \"https://www.parisperfect.com/blog/2019/08/paris-metro-station-entrances\"\n      ]\n    }\n  ]\n}\n```"
+      },
+      {
+        "author": "EvidenceCompiler",
+        "text": "{\n  \"candidates\": [\n    {\n      \"candidate_id\": \"un_coin_de_paris_1900\",\n      \"title\": \"Un coin de Paris\",\n      \"year\": \"1900\",\n      \"score\": 0.5,\n      \"rationale\": \"Identified as the closest matching title by deep holdings research based on general Paris street scenes and the presence of an omnibus, but its description does not include the distinctive elements of the cow, the Metro, or the Louvre, making the match uncertain for specific visual narrative elements.\"\n    }\n  ],\n  \"claims\": [\n    {\n      \"claim_text\": \"The language in the film is French, as evidenced by signs like 'LOUVRE', 'TAILLE S__', 'SORTIE', 'ENTREE', 'PHARMACIE'.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"The visual examiner observed French text on multiple signs within the fragment.\",\n      \"sources\": []\n    },\n    {\n      \"claim_text\": \"The costume period is inferred to be late 19th to early 20th century, based on the styles of men's suits, top hats, and women's long dresses and hats.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"The visual examiner provided an inference about the costume period based on observed clothing styles.\",\n      \"sources\": []\n    },\n    {\n      \"claim_text\": \"The architecture observed is urban European with multi-story buildings, cobblestone streets, and a distinctive Metro entrance structure, consistent with Parisian street scenes.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"The visual examiner observed specific architectural elements and inferred consistency with Parisian street scenes.\",\n      \"sources\": []\n    },\n    {\n      \"claim_text\": \"The presence of 'LOUVRE' on an omnibus points to a potential connection with the Louvre Museum or routes leading to it in Paris.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"proper_noun\",\n      \"confidence_basis\": \"The 'LOUVRE' signage is directly visible and contextualized by search results relating to the Louvre and Parisian transport.\",\n      \"sources\": [\n        {\n          \"url\": \"https://collections.louvre.fr/en/ark:/53355/cl020036815\",\n          \"excerpt\": \"# 'Dans l'omnibus'\"\n        },\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro\",\n          \"excerpt\": \"Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \\\"Louvre – Rivoli (Paris Métro)\\\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \\\"André\\n\\n...\\\")\"\n        },\n        {\n          \"url\": \"https://planmetro.paris/metro-musee-du-louvre\",\n          \"excerpt\": \"Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) ).\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The distinctive Metro entrance architecture aligns with the Art Nouveau designs created for the Paris Métro by Hector Guimard between 1900 and 1913.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Multiple sources confirm the design style and timeframe of Hector Guimard's Paris Metro entrances.\",\n      \"sources\": [\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/Paris_Metro_entrances_by_Hector_Guimard\",\n          \"excerpt\": \"Between 1900 and 1913, [Hector Guimard](https://en.wikipedia.org/wiki/Hector_Guimard \\\"Hector Guimard\\\") was responsible for the first generation of entrances to the underground stations of the [Paris Metro](https://en.wikipedia.org/wiki/Paris_Metro \\\"Paris Metro\\\") .\"\n        },\n        {\n          \"url\": \"https://www.parisperfect.com/blog/2019/08/paris-metro-station-entrances\",\n          \"excerpt\": \"His elegant cast-iron and glass creations, with eye-catching lettering, were designed in the Art Nouveau style and became known as the _style Métro_ .\"\n        },\n        {\n          \"url\": \"http://peoplesgdarchive.org/item/16344/paris-metro-entrance\",\n          \"excerpt\": \"Tags\\n* architecture\\n* Art Nouveau\\n* subway\\n* Paris\\n* Metropolitain\\n* Iconic\\n* pavilions\\n* gate\\n* Hector Guimard\\n* France\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The sign 'PHARMACIE' is a common indication for a pharmacy in Paris, France.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"proper_noun\",\n      \"confidence_basis\": \"A specific example of a pharmacy in Paris with this signage is provided.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.pharmacie-paris-citypharma.fr/\",\n          \"excerpt\": \"Bienvenue à notre **pharmacie Citypharma,** située en plein cœur du quartier commerçant de **Saint-Germain-des-Prés** **,** à l’angle de la rue du Four et de la rue Bonaparte, dans le **6 e arrondissement de Paris** .\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"'SORTIE' and 'ENTREE' are standard French terms for exit and entrance, respectively, commonly found on directional signage for public transport, such as the Paris Metro.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"These terms are standard French and are explicitly mentioned in contexts related to the Paris Metro and the Louvre.\",\n      \"sources\": [\n        {\n          \"url\": \"https://en.wikipedia.org/wiki/Architecture_of_the_Paris_M%C3%A9tro\",\n          \"excerpt\": \"Louvre station (known since 1989 as [Louvre – Rivoli](https://en.wikipedia.org/wiki/Louvre_%E2%80%93_Rivoli_(Paris_M%C3%A9tro) \\\"Louvre – Rivoli (Paris Métro)\\\") ) was the first station to receive such a makeover, on the initiative of culture minister [André Malraux](https://en.wikipedia.org/wiki/Andr%C3%A9_Malraux \\\"André\\n\\n...\\\")\"\n        },\n        {\n          \"url\": \"https://planmetro.paris/metro-musee-du-louvre\",\n          \"excerpt\": \"Dans le [métro parisien](https://planmetro.paris/metro-parisien-2/) , le musée est desservi par la station [Palais-Royal – Musée du Louvre](https://planmetro.paris/plan-metro-paris/metro-palais-royal-musee-du-louvre-2/) ( [ligne 1](https://planmetro.paris/lignes-1/) ).\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"A cow is prominently featured in the fragment, seen near the omnibus and later approaching the Metro entrance.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"Direct visual observation of the fragment confirms the presence and action of the cow.\",\n      \"sources\": []\n    },\n    {\n      \"claim_text\": \"The candidate film 'Un coin de Paris' has a release year of 1900.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"release_date\",\n      \"confidence_basis\": \"The IMDb record for 'Un coin de Paris' explicitly states its release year.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.imdb.com/fr/title/tt34696569/\",\n          \"excerpt\": \"Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The studio or producer for 'Un coin de Paris' is not identified in the available record.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"studio_or_producer\",\n      \"confidence_basis\": \"The deep holdings research explicitly states that the studio or producer is not identified in the available record.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.imdb.com/fr/title/tt34696569/\",\n          \"excerpt\": \"Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"No alternate, foreign, working, or reissue titles were found for 'Un coin de Paris'.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"alternate_title\",\n      \"confidence_basis\": \"The deep holdings research found no alternate titles for 'Un coin de Paris'.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.imdb.com/fr/title/tt34696569/\",\n          \"excerpt\": \"Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The film 'Un coin de Paris' is inferred to be from France based on its French-language title and general French-film context.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"supports\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"The country attribution for 'Un coin de Paris' is an inference drawn from the French title and historical context of early French cinema.\",\n      \"sources\": [\n        {\n          \"url\": \"https://guides.loc.gov/french-and-francophone-film/movements-and-genres/early-silent-film\",\n          \"excerpt\": \"Early and Silent Film - French & Francophone Film Feb 4, 2026 — The bibliography below lists films and resources covering the era of early and silent films in France.\"\n        },\n        {\n          \"url\": \"https://www.imdb.com/fr/title/tt34696569/\",\n          \"excerpt\": \"Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"No named catalogue record reports a surviving print, negative, or other element for 'Un coin de Paris'.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"neutral\",\n      \"clue_family\": \"archive_holding\",\n      \"confidence_basis\": \"The deep holdings research explicitly states that no holdings were found for 'Un coin de Paris'.\",\n      \"sources\": [\n        {\n          \"url\": \"https://archive.org/details/pathe1900fragmen0000unse\",\n          \"excerpt\": \"Pathé 1900 : fragments d'une filmographie analytique du cinéma des premiers temps Publication date 1993 Topics Pathé frères (France) -- Catalogs, National Film Archive (Great Britain) -- Catalogs, Pathé frères (France) -- Catalogues, National Film Archive (Great Britain) -- Catalogues, Silent films -- Catalogs, Films muets -- Catalogues\"\n        }\n      ]\n    },\n    {\n      \"claim_text\": \"The candidate title \\\"Un coin de Paris\\\" (1900) does not mention the distinctive visual elements of a cow, a Paris Metro entrance, or the specific context of the Louvre area within its described plot, despite these being prominent features in fragment D04.\",\n      \"subject\": \"un_coin_de_paris_1900\",\n      \"stance\": \"contradicts\",\n      \"clue_family\": \"visual_or_material\",\n      \"confidence_basis\": \"The description for \\\"Un coin de Paris\\\" provided by deep_holdings_research lists general Paris street scenes but explicitly omits these key visual elements present in the fragment.\",\n      \"sources\": [\n        {\n          \"url\": \"https://www.imdb.com/fr/title/tt34696569/\",\n          \"excerpt\": \"Un coin de Paris: Une des places les plus animées de Paris par le passages des tramways, des omnibus, des voitures et des piétons qui se croisent dans tous les sens, formant un des noeuds de circulation entre la rive droite et la rive gauche de la Seine.\"\n        }\n      ]\n    }\n  ],\n  \"temporal_compatibility\": true,\n  \"entity_compatibility\": true,\n  \"unresolved_questions\": [\n    \"Does a film exist with a title and plot description that explicitly combines the elements of a cow, a Paris Metro entrance (specifically a Hector Guimard design), an omnibus with 'LOUVRE' signage, and the general setting of Paris around the early 20th century?\",\n    \"What are the complete plot details for the film \\\"Un coin de Paris\\\" (1900)?\",\n    \"What is the precise location of the Metro station entrance depicted in fragment D04?\"\n  ]\n}"
+      }
+    ],
+    "gate": {
+      "verdict": "candidates",
+      "reason": "Evidence remains below the probable-identity gate: unresolved_contradictions==0, human_approved.",
+      "thresholds": {
+        "independent_source_domains>=3": true,
+        "distinct_clue_families>=2": true,
+        "temporal_compatibility": true,
+        "entity_compatibility": true,
+        "unresolved_contradictions==0": false,
+        "every_decisive_claim_has_source": true,
+        "human_approved": false
+      },
+      "candidates": [
+        {
+          "candidate_id": "un_coin_de_paris_1900",
+          "label": "Un coin de Paris (1900)",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_d26583a33be5d2f19b59cf38",
+            "clm_f353dcd1cbb4f96997018be7",
+            "clm_7fa1edfaafa1653f98511df7",
+            "clm_3eff038ac04c7c029d91801e"
+          ]
+        }
+      ],
+      "requires_human": true,
+      "passed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "every_decisive_claim_has_source"
+      ],
+      "failed": [
+        "unresolved_contradictions==0",
+        "human_approved"
+      ]
+    },
+    "requires_human": true
+  },
+  "meta": {
+    "verdict": "candidates",
+    "gate": {
+      "verdict": "candidates",
+      "reason": "Evidence remains below the probable-identity gate: unresolved_contradictions==0, human_approved.",
+      "thresholds": {
+        "independent_source_domains>=3": true,
+        "distinct_clue_families>=2": true,
+        "temporal_compatibility": true,
+        "entity_compatibility": true,
+        "unresolved_contradictions==0": false,
+        "every_decisive_claim_has_source": true,
+        "human_approved": false
+      },
+      "candidates": [
+        {
+          "candidate_id": "un_coin_de_paris_1900",
+          "label": "Un coin de Paris (1900)",
+          "score": 0.5,
+          "decisive_claim_ids": [
+            "clm_d26583a33be5d2f19b59cf38",
+            "clm_f353dcd1cbb4f96997018be7",
+            "clm_7fa1edfaafa1653f98511df7",
+            "clm_3eff038ac04c7c029d91801e"
+          ]
+        }
+      ],
+      "requires_human": true,
+      "passed": [
+        "independent_source_domains>=3",
+        "distinct_clue_families>=2",
+        "temporal_compatibility",
+        "entity_compatibility",
+        "every_decisive_claim_has_source"
+      ],
+      "failed": [
+        "unresolved_contradictions==0",
+        "human_approved"
+      ]
+    },
+    "requires_human": true,
+    "latency_ms": 255568,
+    "parallel_surfaces_used": [
+      "parallel_search_v1",
+      "parallel_task_v1"
+    ],
+    "usage": {
+      "used_today": 4,
+      "remaining_today": 1996
+    }
+  },
+  "captured": {
+    "at": "2026-09-08T01:00:48.447829+00:00",
+    "service": "https://last-seen-alive-109051079423.us-central1.run.app",
+    "elapsed_seconds": 255.9,
+    "note": "A real run of the deployed service on a public Library of Congress fragment. Not edited, not curated, not re-run to get a better result."
+  }
+}

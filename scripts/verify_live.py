@@ -68,8 +68,10 @@ def check(name, condition, detail=""):
 
 
 # ---------------------------------------------------------------- surfaces
-for path in ("/", "/presets", "/api", "/stack", "/docs", "/openapi.json",
+for path in ("/", "/presets", "/api", "/stack", "/practice", "/dossiers",
+             "/docs", "/openapi.json",
              "/static/styles.css", "/static/common.js", "/static/console.js",
+             "/static/dossiers.js", "/static/practice.js",
              "/static/favicon.svg"):
     status, _, _ = call(path, raw=True)
     check(f"page {path}", status == 200, f"HTTP {status}")
@@ -248,11 +250,57 @@ check("conformance names its primary sources",
 check("conformance does not claim an archivist review",
       "No archivist has reviewed" in std.get("data", {}).get("disclaimer", ""))
 
+# ------------------------------------------------------- practitioner register
+# The project's answer to having no archivist review. It is only worth anything
+# if it publishes what it fails, so that is what is checked.
+s, _, prac = call("/v1/practice")
+pdata = prac.get("data", {})
+entries = pdata.get("entries", [])
+check("practitioner register is published", len(entries) >= 10, str(len(entries)))
+check("register admits at least one unanswered objection",
+      pdata.get("tally", {}).get("not_met", 0) >= 1, str(pdata.get("tally")))
+check("register does not claim an endorsement",
+      "Nobody cited endorses this system" in pdata.get("disclaimer", ""))
+check("the missing archivist review is published as unanswered",
+      any(e["id"] == "P5" and e["status"] == "not_met" for e in entries))
+check("every objection quotes and cites a real source",
+      all(e.get("quote") and e.get("source", {}).get("url", "").startswith("https://")
+          for e in entries))
+check("register cites a peer-reviewed evaluation by domain experts",
+      any(e["source"]["kind"] == "peer_reviewed_study" for e in entries))
+
+# ------------------------------------------------------------- dossier archive
+# Real output, readable without waiting six minutes for a run.
+s, _, arch = call("/v1/dossiers")
+adata = arch.get("data", {})
+rows = adata.get("dossiers", [])
+check("captured dossiers are published", s == 200 and len(rows) >= 3, f"HTTP {s} n={len(rows)}")
+check("the archive is development-split only", adata.get("split") == "dev")
+check("no held-out case appears in the archive",
+      all(row["case_id"].startswith("D") for row in rows),
+      str([row["case_id"] for row in rows]))
+check("no captured dossier claims a probable identity",
+      all(row["verdict"] != "probable" for row in rows),
+      str({row["case_id"]: row["verdict"] for row in rows}))
+
+if rows:
+    case = rows[0]["case_id"]
+    s, _, one = call(f"/v1/dossiers/{case}")
+    body = one.get("data", {})
+    check(f"{case} dossier is the whole response", s == 200 and "meta" in body and "data" in body)
+    check(f"{case} dossier carries its capture provenance",
+          body.get("captured", {}).get("service", "").startswith("https://"))
+    check(f"{case} dossier still carries all seven gate thresholds",
+          len(body.get("meta", {}).get("gate", {}).get("thresholds", {})) == 7)
+    check("a held-out dossier is not retrievable by guessing the id",
+          call("/v1/dossiers/H01")[0] == 404)
+
 # ---------------------------------------------------------------- openapi
 s, _, spec = call("/openapi.json")
 paths = set(spec["paths"])
 for required in ("/v1/keys", "/v1/identify", "/v1/investigate", "/v1/watch",
                  "/v1/presets", "/v1/stack", "/v1/example/dossier",
+                 "/v1/practice", "/v1/dossiers",
                  "/health/integrations", "/v1/eval/manifest"):
     check(f"openapi documents {required}", required in paths)
 check("openapi describes the abstention contract",

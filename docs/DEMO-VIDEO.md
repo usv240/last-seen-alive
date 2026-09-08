@@ -7,76 +7,103 @@ or Vimeo. English, or English subtitles.
 the fail-closed state would show the product refusing to work, which is honest
 but is not what three minutes should be spent on.
 
-## Rules constraints that shape the edit
+## The constraint that shapes this edit
+
+An investigation takes **225–430 seconds**, median 383 — measured, published at
+`/v1/eval/arm-c`, and stated on screen by the product itself. **You cannot show a
+complete live run inside a three-minute video.** An earlier version of this script
+said "let the run console play, do not cut away from it". That is no longer
+possible and pretending otherwise would mean either faking a fast run or spending
+the entire video on a progress bar.
+
+So the run is shown *starting*, honestly, with the product's own "typically 4–7
+minutes" notice visible — and then the finished dossier comes from `/dossiers`,
+which serves complete, unedited output captured from real runs of the deployed
+service. Nothing is faked; two shots are simply separated by a cut and a caption
+that says so.
+
+## Rules constraints
 
 - No third-party advertising, slogan, logo or trademark on screen. The stack
   ribbon uses **plain text names, not vendor logos**, partly for this reason —
   keep it that way and do not cut to any sponsor's own site or console.
 - Nothing owned by a third party. Every frame of film in this video must be the
   Library of Congress public-domain demo material, on screen with its credit.
-- Show it *working on the platform it was built for*: real browser, real URL
-  visible, real latency. Do not speed up an investigation without saying so.
+- Show it working on the platform it was built for: real browser, real URL
+  visible, real latency, no speed-ramps without a caption.
 
 ## Script (voiced over screen capture)
 
-**0:00–0:20 — the problem**
-> Film archives hold material nobody can name. This is a fifty-second fragment
-> from the Library of Congress. No title card, no paperwork.
+**0:00–0:25 — the problem, at its real size**
+> Of the American silent feature films ever made, fourteen percent survive in
+> their original format. What does survive often arrives like this: a can with no
+> name. And a film nobody can identify is not catalogued, not searchable, and not
+> funded for preservation.
 
-Screen: the landing page, then scroll to the illustrated frame. Let the demo
-video on `/presets` play for two or three seconds so real archival footage is on
-screen with its credit line visible.
+Screen: landing page, scroll to the **scale** section. Let the Billington pull
+quote and the Mostly Lost table sit on screen — the cited numbers are the whole
+argument for why this matters, and they read in two seconds.
 
-**0:20–0:40 — why the obvious answer fails**
-> A screenshot matcher only works when the answer is already in a reference set.
-> That is exactly the case that does not apply here. And a confident wrong answer
-> is worse than none: a plausible catalogue entry propagates for thirty years.
+**0:25–0:45 — why the obvious answer fails**
+> A screenshot matcher only works when the answer is already in a reference set,
+> which is exactly the case that does not apply. And a confident wrong answer is
+> worse than none — a plausible catalogue entry propagates for thirty years.
 
-Screen: `/presets`, scrolling the ten cases. Pause on the badges — land on the
+Screen: `/presets`, scrolling the ten cases. Pause on the badges and land on the
 fact that **five of the ten must not be identified**.
 
-**0:40–1:10 — what it does instead**
+**0:45–1:10 — what it does instead, and what that costs**
 > Five agents research. Gemini reads the frame. Parallel Search hunts the rarest
 > phrase literally. Parallel Task and FindAll check alternate titles and name the
-> catalogues. A Skeptic looks for evidence against its own candidates.
+> catalogues. A Skeptic looks for evidence against its own candidates. It takes
+> about six minutes, and the product says so before you start it.
 
-Screen: press **Investigate** on D02 and let the run console play. This is the
-shot the console was designed for — six named stages, each showing which agent
-and which Parallel surface, with a real clock. Do not cut away from it; it is
-the clearest explanation of the architecture in the whole video.
+Screen: press **Investigate** on D02. Hold on the run console long enough to read
+the six named stages, the agent and Parallel surface on each, the live clock, and
+the "typically 4–7 minutes" line. **Then cut**, with the caption:
 
-**1:10–1:55 — the part that matters**
+> `A full run takes 4–7 minutes. The dossier below is the real output of this run, served from /dossiers.`
+
+**1:10–2:00 — the part that matters**
 > Then code takes over. Every citation is checked against what Parallel actually
-> returned. Then Parallel Extract re-opens each cited page and looks for the
-> quotation in the live document — this one failed, so the gate refuses it. And a
-> deterministic function counts seven thresholds.
+> returned. Parallel Extract re-opens each cited page and looks for the quotation
+> in the live document. This one failed — so the gate refuses it. Then a
+> deterministic function counts seven thresholds, and one of them is a human.
 
-Screen: the dossier. Land on, in order:
-1. a claim with its verified source,
-2. **the refused citation** — the single most persuasive thing on screen,
-3. the seven-threshold gate with its passes and failures.
+Screen: `/dossiers`, select **D02**. Land on, in order:
+1. a claim with its verified source — the LOC record for *Dud Leaves Home* (1919),
+2. **the refused citation** — the single most persuasive thing in the video,
+3. the seven-threshold gate, with `human_approved` failing.
 
-**1:55–2:20 — uncertainty as a result**
+Say the last point out loud: the system got this one right and still would not
+assert it.
+
+**2:00–2:20 — uncertainty as a result**
 > It will not say "last surviving copy" — searching every catalogue you can name
-> can never tell you no other print exists. And when the evidence is not there it
-> abstains, then leaves a standing watch, because archives digitise continuously.
+> can never tell you no other print exists. When the evidence is not there it
+> abstains. And because archives digitise continuously, it can leave a standing
+> watch on the exact phrase it transcribed.
 
-Screen: run **D01**, the abstention case, or cut to it prepared. Show the abstain
-verdict and the cold-case watch button.
+Screen: switch to **D03** in the archive — a real abstention — then the cold-case
+watch control.
 
-**2:20–2:50 — it is a product, not a demo**
-> No signup. The page mints itself a real API key and calls the same public
-> endpoints you would. Bring your own fragment, or put it in your own catalogue
-> tooling.
+**2:20–2:40 — the review we could not get**
+> No archivist has reviewed this. So instead of claiming otherwise, it publishes
+> twelve demands that archivists have already made in print — including a
+> peer-reviewed study where archive experts assessed AI cataloguing — and answers
+> each one. Two are marked unanswered. The missing review is the first of them.
 
-Screen: `/api` — mint a key, send one live request, show the response. Then the
-upload tab for two seconds.
+Screen: `/practice`. Scroll so the **Unanswered** group is on screen first, with
+P5 legible. Do not scroll past it quickly; this section is the credibility of
+everything before it.
 
-**2:50–3:00 — close**
-> Triage, not attribution. An archivist approves every identification. This page
-> never does.
+**2:40–3:00 — it is a product, not a demo**
+> No signup. Mint a key, call the same public endpoints, put it in your own
+> catalogue tooling.
 
-Screen: `/stack`, scrolled so several surfaces and their call sites are visible.
+Screen: `/api` — mint a key and send one live `GET` (not an investigation; it must
+return inside the shot). Close on `/stack` scrolled so several surfaces and their
+call sites are visible.
 
 ## Capture checklist
 
@@ -85,6 +112,15 @@ Screen: `/stack`, scrolled so several surfaces and their call sites are visible.
 - [ ] URL bar visible at least once, showing the real Cloud Run domain.
 - [ ] The LOC credit line legible whenever archival footage is on screen.
 - [ ] No console, no editor, no cloud dashboards, no sponsor logos.
-- [ ] Investigation timings real, or a caption saying the wait was trimmed.
+- [ ] The cut away from the running investigation carries its caption.
+- [ ] The refused citation is legible at 1080p, not just visible.
+- [ ] `/practice` shows an **Unanswered** entry on screen, not only answered ones.
 - [ ] Captions or subtitles burned in.
 - [ ] Watch it once at 3:00 exactly and confirm the close lands inside.
+
+## What to say if asked "did you cut the wait?"
+
+Yes, and the video says so on screen. The run in the video is real, the dossier
+shown is the real output of a real run of the deployed service, and both the
+measured latency distribution and every captured dossier are published:
+`/v1/eval/arm-c` and `/v1/dossiers`.

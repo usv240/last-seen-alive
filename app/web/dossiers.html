@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Complete, unedited dossiers from real runs of Last Seen Alive on public Library of Congress fragments, including the runs that abstained.">
+  <title>Dossiers · Last Seen Alive</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d0b" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Dossiers · Last Seen Alive">
+  <meta property="og:description" content="Real output from real runs, including the failures.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/dossiers.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">LAST SEEN ALIVE</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/">Overview</a>
+      <a href="/presets">Demo fragments</a>
+      <a href="/dossiers" aria-current="page">Dossiers</a>
+      <a href="/practice">Practice</a>
+      <a href="/api">API</a>
+      <a href="/stack">Stack</a>
+    </nav>
+    <div class="header-actions" aria-label="Page settings">
+      <button type="button" class="quiet-button" data-theme-toggle>Dark</button>
+      <button type="button" class="stack-button" aria-controls="stack-panel" aria-expanded="false">
+        <span class="status-dot pending" aria-hidden="true"></span> Live stack
+      </button>
+    </div>
+  </header>
+  <div class="stack-ribbon" data-stack-ribbon aria-label="Sponsor services this product runs on"></div>
+
+  <main id="main">
+    <section class="masthead compact shell" aria-labelledby="page-title">
+      <p class="eyebrow">REAL OUTPUT, INCLUDING THE FAILURES</p>
+      <h1 id="page-title">What this product actually produced, without waiting for it.</h1>
+      <p class="deck">An investigation takes minutes. These are complete responses captured from real runs of this deployed service against the public demo fragments — every claim, every citation, which citations survived the live audit, and which of the seven thresholds passed.</p>
+      <p class="lede">Nothing here is curated. No run was repeated to get a better result, and the abstentions are published beside the successes because an abstention is a correct outcome when the evidence does not support an identity. Held-out fragments are never captured.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="pick-title">
+      <h2 id="pick-title">Choose a fragment</h2>
+      <div data-dossier-list class="dossier-list" role="list">
+        <p class="small">Loading captured dossiers…</p>
+      </div>
+      <p class="small" data-capture-note></p>
+    </section>
+
+    <section class="section shell" aria-labelledby="board-title">
+      <h2 id="board-title" class="visually-hidden">Dossier</h2>
+      <div data-dossier-board>
+        <div class="run-empty">
+          <span class="glyph" aria-hidden="true">⌕</span>
+          <b>No dossier selected</b>
+          <p>Pick a fragment above to read its complete evidence dossier.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="variance-title">
+      <h2 id="variance-title">Two things to know before you read these</h2>
+      <div class="card">
+        <h3>The same fragment often does not give the same verdict</h3>
+        <p>This pipeline is not deterministic, and the instability is larger than we first reported. Five agents make live web calls against a web that changes, and Gemini is sampled rather than replayed. Capturing these dossiers was a second pass over the same five fragments as the published Arm C evaluation, and it <b>disagreed with that evaluation on four of the five verdicts</b>. Neither of the two correct identities Arm C surfaced reappeared here: on D02 the leading candidate came back as <code>Bray Studios Inc.</code> — the studio, not the film.</p>
+        <p>That is published rather than smoothed over, and it qualifies the Arm C numbers directly: <b>a single pass is a sample, not a measurement.</b> The full characterisation is at <a href="/v1/eval/stability">/v1/eval/stability</a>, which reports every pass ever run on these fragments including the ones that went badly.</p>
+        <p>One thing did not move. <b>No run, in any pass, ever reached <code>probable</code></b> — that threshold needs a human, and the API cannot supply one. The verdict boundary between <code>candidates</code> and <code>abstain</code> wobbles; the guarantee that the system will not assert an identity on its own does not.</p>
+      </div>
+      <div class="card">
+        <h3>An abstention is not a failure to answer</h3>
+        <p>It is a refusal to answer without evidence. On D04 the research worked — thirteen domains, the signage correctly transcribed — and then ten citations were rejected because the quoted text could not be re-found on the live page. No decisive claim survived, so the system abstained on a fragment whose answer key names a real film.</p>
+        <p>That is a real cost, kept on purpose. The same strictness is why no run in the evaluation produced a confidently wrong identification.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>Fragments courtesy of the Library of Congress National Screening Room, public domain. Dossiers captured from the deployed service, unedited.</p>
+  </footer>
+
+  <div class="stack-panel" id="stack-panel" hidden></div>
+</body>
+</html>

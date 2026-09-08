@@ -16,6 +16,39 @@ The held-out benchmark contains fragments with known answers and therefore under
 difficulty of genuinely unidentified material. Evaluation reports must say this beside every
 headline number.
 
+## The verdict is not stable across runs
+
+This is the most important limitation on the page and it was found late, by running
+the development split a second time to capture dossiers for the site.
+
+**Four of five verdicts moved between the first pass and the second.** Neither of
+the two correct identities the published ablation leads with reappeared. On D02 the
+leading candidate came back as *Bray Studios Inc.* — the studio, not the film. On
+D04 a pass returned *Un coin de Paris (1900)* as its sole leading candidate where
+the answer key says *Buying a cow* (1908); by the definition this project published,
+that is a false-confident identification, and it is scored as one.
+
+The causes are structural, not a bug to be fixed before the deadline: five agents
+make live calls against a web that changes between runs, and the model is sampled
+rather than replayed.
+
+Consequences a reader should hold onto:
+
+- **A single pass is a sample, not a measurement.** Any figure quoted from one
+  pass — including every number in the Arm C column — carries that caveat.
+- **"Zero false-confident identifications" is a property of one pass, not of the
+  system.** Across all recorded passes it is not zero.
+- **Four passes over five fragments is a disclosure, not a rate.** It is nowhere
+  near enough to state a false-confident percentage, and none is stated.
+
+What did hold across every recorded run: **`probable` was never reached.** That
+threshold requires human approval the API cannot supply, so every result above —
+including the wrong one — was returned as `candidates` or `abstain` with its failing
+thresholds attached. The defensible claim is not that this system is not wrong. It
+is that it does not assert what it cannot support, and shows its working.
+
+Full study, every pass: `/v1/eval/stability`.
+
 
 ## Limits of the verification steps
 

@@ -23,6 +23,8 @@ explicit human approval.
 | Product | https://last-seen-alive-109051079423.us-central1.run.app |
 | Demo fragments | [`/presets`](https://last-seen-alive-109051079423.us-central1.run.app/presets) — watch, download, and run all ten |
 | API | [`/api`](https://last-seen-alive-109051079423.us-central1.run.app/api) — mint a key and run a live call in the browser |
+| Dossiers | [`/dossiers`](https://last-seen-alive-109051079423.us-central1.run.app/dossiers) — complete output from real runs, read it without waiting |
+| Practice | [`/practice`](https://last-seen-alive-109051079423.us-central1.run.app/practice) — published practitioner objections, answered or admitted |
 | Stack | [`/stack`](https://last-seen-alive-109051079423.us-central1.run.app/stack) — every sponsor surface with its call site and live status |
 | OpenAPI | [`/docs`](https://last-seen-alive-109051079423.us-central1.run.app/docs) |
 | Local | `uvicorn app.api.main:app --reload` |
@@ -109,6 +111,28 @@ deterministic code, because each exists to check or outlast the model's own work
 Nothing silently falls back. Without `PARALLEL_API_KEY`, every surface raises
 `ParallelNotConfigured`, the investigation stops, and the stack ribbon on every page reports the
 integration unavailable. `tests/test_parallel_surfaces.py` proves this for all six.
+
+## The case for it, and the review it has not had
+
+`docs/IMPACT.md` makes the argument from cited sources rather than assertion. The short
+version: the Library of Congress census found that **14%** of American silent feature films
+survive in their original format, and the Library's own annual identification workshop
+identifies **23–30%** of the films it screens each year. Identification is expert-scarce,
+happens four days a year in Virginia, and does not scale. This runs continuously, through an
+API, and produces a dossier an archivist can audit rather than an answer they must trust.
+
+That comparison is context, not a scoreboard: the corpora are not comparable and five cases
+support no rate at all. No claim to outperform expert archivists is made anywhere in this
+project.
+
+**No archivist has reviewed this system.** Rather than leave that as a caveat, `/v1/practice`
+publishes twelve demands taken verbatim from published sources — a peer-reviewed evaluation in
+which archive experts assessed AI-generated cataloguing ([ArchiveGPT, Abele et al.,
+arXiv:2507.07551](https://arxiv.org/abs/2507.07551)), the FIAF manual, and the Library of
+Congress's own account of its method — each paired with the mechanism here that answers it.
+**Two are marked `not_met`, including the missing review itself.** Every structural claim in
+the register is asserted by `tests/test_practitioner_objections.py`, and the two load-bearing
+behavioural claims are executed against the real gate rather than described.
 
 ## Why not just use a screenshot matcher?
 
