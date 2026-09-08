@@ -43,6 +43,9 @@ Consequences a reader should hold onto:
   is nowhere near enough to state a false-confident percentage, and none is stated.
 - **Reliability is part of this.** Of 20 attempted runs one took 95 minutes and one
   returned HTTP 502. Both are kept in the study, because a caller experiences them.
+  The 502 is not a lost investigation so much as a lost answer: Cloud Run logged it
+  about 100ms after the application had logged `200 OK` for the same request. Retrying
+  costs a second full run and a second set of partner calls.
 
 What did hold across all 19 runs: **`probable` was never reached.** That
 threshold requires human approval the API cannot supply, so every result above —

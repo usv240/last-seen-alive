@@ -241,6 +241,10 @@ server's 900s timeout (61s–430s, median 299s), one took 95 minutes, and one
 returned HTTP 502. Those two are kept in the report rather than dropped as
 outliers, because a caller experiences them.
 
+A caller that sees a 502 has probably not lost the work, only the answer: Cloud Run logged these failures roughly 100ms *after* the application logged `200 OK` for the same request. The investigation completed and the response was not delivered. Two later failures were traced to deploying a new revision while a
+measurement was in flight — those are an artifact of how this was run, not of the
+service, and are annotated as such rather than counted against it.
+
 The full study, every pass including the bad ones, is at `/v1/eval/stability`
 (`scripts/run_stability.py`, scored by `scripts/score_stability.py`).
 

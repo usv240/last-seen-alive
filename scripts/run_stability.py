@@ -130,7 +130,25 @@ def main() -> int:
                                    body={"sample_id": case_id})
             elapsed = time.time() - started
             if status != 200:
+                # Recorded, not skipped. A failed run is a run the caller paid
+                # for and did not get, so dropping it would make the service
+                # look more reliable than it is. Cloud Run logs show these
+                # arriving ~100ms *after* the application logged "200 OK": the
+                # investigation completes and the response is not delivered.
                 print(f"HTTP {status} after {elapsed:.0f}s")
+                observations[case_id].append({
+                    "source": f"stability pass {index + 1}",
+                    "verdict": "delivery_failed",
+                    "http_status": status,
+                    "top_candidate": None,
+                    "thresholds_passed": None,
+                    "latency_seconds": round(elapsed, 1),
+                    "note": (
+                        "The service did not deliver a response. Cloud Run logs for these "
+                        "show the application returning 200 shortly before, so the work is "
+                        "usually done and lost rather than never done."
+                    ),
+                })
                 continue
             top = top_candidate(payload)
             meta = payload["meta"]
