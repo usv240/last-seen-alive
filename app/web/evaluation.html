@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Every recorded run of Last Seen Alive on the development split, including the ones where it named the wrong film. Twenty-eight runs, scored against a sealed answer key.">
+  <title>Evaluation · Last Seen Alive</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d0b" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Evaluation · Last Seen Alive">
+  <meta property="og:description" content="Twenty-eight runs, published in full, including the failures.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/common.js" defer></script>
+  <script src="/static/evaluation.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">LAST SEEN ALIVE</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/">Overview</a>
+      <a href="/presets">Fragments</a>
+      <a href="/dossiers">Dossiers</a>
+      <a href="/evaluation" aria-current="page">Evaluation</a>
+      <a href="/practice">Practice</a>
+      <a href="/api">API</a>
+      <a href="/stack">Stack</a>
+    </nav>
+    <div class="header-actions" aria-label="Page settings">
+      <button type="button" class="quiet-button" data-theme-toggle>Dark</button>
+      <button type="button" class="stack-button" aria-controls="stack-panel" aria-expanded="false">
+        <span class="status-dot pending" aria-hidden="true"></span> Live stack
+      </button>
+    </div>
+  </header>
+  <div class="stack-ribbon" data-stack-ribbon aria-label="Sponsor services this product runs on"></div>
+
+  <main id="main">
+    <section class="masthead compact shell" aria-labelledby="page-title">
+      <p class="eyebrow">EVERY RUN, INCLUDING THE BAD ONES</p>
+      <h1 id="page-title">We ran it twenty-eight times and published all of it.</h1>
+      <p class="deck">One pass over five fragments is a sample, not a measurement. We found that out the hard way: our first published result recorded zero false-confident identifications, and repeating it showed that figure was one lucky pass.</p>
+      <p class="lede">This page is the whole record, rendered from the same JSON the tests assert against. Nothing on it has been selected to flatter the system.</p>
+    </section>
+
+    <section class="section shell" aria-labelledby="headline-title">
+      <h2 id="headline-title">Across every recorded run</h2>
+      <div class="metrics" data-eval-headline></div>
+      <p class="small" data-eval-source></p>
+    </section>
+
+    <section class="section shell" aria-labelledby="percase-title">
+      <h2 id="percase-title">Every run, case by case</h2>
+      <p class="lede">Five fragments from the Library of Congress, each with a sealed answer key. A run is one complete investigation. <b>Nothing here is averaged or omitted.</b></p>
+      <div data-eval-cases>
+        <p class="small">Loading the study...</p>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="fix-title">
+      <h2 id="fix-title">What changed when we fixed the defects we found</h2>
+      <p class="lede">The study exposed two: candidates that were not films at all, and hypotheses that nothing ever competed against. Both were fixed in code. <b>Only one of them improved the results</b>, and the other outcome is the more interesting one.</p>
+      <div data-eval-fix></div>
+    </section>
+
+    <section class="section shell" aria-labelledby="arms-title">
+      <h2 id="arms-title">Measured against the alternative, not against nothing</h2>
+      <p class="lede">Before measuring this system we measured what a capable model does without it: same five fragments, same model, no web access and no gate.</p>
+      <div data-eval-arms></div>
+    </section>
+
+    <section class="section shell" aria-labelledby="method-title">
+      <h2 id="method-title">How a run is scored, and where we made a judgement call</h2>
+      <div data-eval-method></div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <p>Raw data: <a href="/v1/eval/stability">/v1/eval/stability</a> · <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a> · <a href="/v1/eval/arm-c">/v1/eval/arm-c</a> · <a href="/v1/eval/ablation">/v1/eval/ablation</a>. The held-out split stays sealed until the workflow is tagged; its manifest hashes are published at <a href="/v1/eval/manifest">/v1/eval/manifest</a> so the set cannot be quietly changed.</p>
+  </footer>
+
+  <div class="stack-panel" id="stack-panel" hidden></div>
+</body>
+</html>

@@ -25,8 +25,9 @@
     <a class="wordmark" href="/">LAST SEEN ALIVE</a>
     <nav class="site-nav" aria-label="Sections">
       <a href="/" aria-current="page">Overview</a>
-      <a href="/presets">Demo fragments</a>
+      <a href="/presets">Fragments</a>
       <a href="/dossiers">Dossiers</a>
+      <a href="/evaluation">Evaluation</a>
       <a href="/practice">Practice</a>
       <a href="/api">API</a>
       <a href="/stack">Stack</a>
@@ -57,7 +58,7 @@
       </div>
       <dl class="fact-strip">
         <div><dt>Decision owner</dt><dd>Archivist</dd></div>
-        <div><dt>Primary metric</dt><dd>0 false-confident IDs</dd></div>
+        <div><dt>Primary metric</dt><dd>0 identities asserted</dd></div>
         <div><dt>Web evidence</dt><dd>Parallel at runtime</dd></div>
         <div><dt>Outcome</dt><dd>Probable · candidates · abstain</dd></div>
       </dl>
@@ -225,7 +226,7 @@
       <p class="lede">Arm C is a <strong>single pass</strong>. Six passes over the same five fragments, <strong>28 runs in total</strong>, say something quite different, and we would rather you heard it from us.</p>
       <div class="table-scroll">
         <table class="reftable">
-          <caption>Every recorded run on the development split, including the ones that went badly. Raw: <a href="/v1/eval/stability">/v1/eval/stability</a> &middot; before and after the fixes: <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a>.</caption>
+          <caption><a href="/evaluation">See every run, case by case</a>, including the ones that went badly. Raw data: <a href="/v1/eval/stability">/v1/eval/stability</a> &middot; <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a>.</caption>
           <thead><tr><th scope="col">Across 28 runs</th><th scope="col">Count</th></tr></thead>
           <tbody>
             <tr><td>Cases that gave the same verdict every time</td><td><strong>1 of 5</strong></td></tr>
@@ -241,7 +242,7 @@
       <p class="lede">We could have shipped the good pass and said nothing. Publishing this is the only position consistent with everything else on this page. And one thing did hold across all 19: <strong>no run ever reached <code>probable</code></strong>, because that threshold needs a human the API cannot supply. Every wrong answer above arrived as <code>candidates</code> with its failing thresholds attached. The defensible claim is not that this system is not wrong. It is that it does not assert what it cannot support, and shows its working.</p>
 
       <h3 class="subhead">The miss, and why we are keeping it</h3>
-      <p class="lede">D04 abstained where the answer key says <em>Buying a cow</em>. The research worked: 13 domains, &ldquo;LOUVRE&rdquo; and &ldquo;TABAC&rdquo; correctly transcribed. Then ten citations were rejected: eight because the compiler paraphrased instead of quoting Parallel verbatim, two because Extract could not find the quote on the live page. No decisive claim survived, so it abstained. <strong>The strictness that produces zero false-confident identifications is the same strictness that cost this one.</strong> We are not loosening it; a system that accepts paraphrased citations has given up the only thing it offers.</p>
+      <p class="lede">D04 abstained where the answer key says <em>Buying a cow</em>. The research worked: 13 domains, &ldquo;LOUVRE&rdquo; and &ldquo;TABAC&rdquo; correctly transcribed. Then ten citations were rejected: eight because the compiler paraphrased instead of quoting Parallel verbatim, two because Extract could not find the quote on the live page. No decisive claim survived, so it abstained. <strong>The strictness that stops this system asserting an identity on its own is the same strictness that cost this one.</strong> We are not loosening it; a system that accepts paraphrased citations has given up the only thing it offers.</p>
 
       <h3 class="subhead">Held-out split &middot; still sealed</h3>
       <div class="metric-grid">

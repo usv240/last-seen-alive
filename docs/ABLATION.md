@@ -258,8 +258,8 @@ verbatim, two because Parallel Extract could not find the quoted text on the liv
 page. Zero decisive claims survived, so the gate abstained.
 
 That is the citation registry doing exactly what it was built to do, and it cost
-us a recall point. **The strictness that produces zero false-confident
-identifications is the same strictness that produced this miss.** We are not
+us a recall point. **The strictness that stops this system asserting an identity on its own is the
+same strictness that produced this miss.** We are not
 going to loosen it to improve the number; a system that accepts paraphrased
 citations has given up the only thing it was offering.
 

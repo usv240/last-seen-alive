@@ -30,7 +30,7 @@ def api() -> TestClient:
 
 # ---------------------------------------------------------------- the pages
 
-@pytest.mark.parametrize("path", ["/dossiers", "/practice"])
+@pytest.mark.parametrize("path", ["/dossiers", "/practice", "/evaluation"])
 def test_the_new_pages_are_served(api: TestClient, path: str) -> None:
     response = api.get(path)
     assert response.status_code == 200
@@ -39,7 +39,7 @@ def test_the_new_pages_are_served(api: TestClient, path: str) -> None:
 
 @pytest.mark.parametrize(
     "page", ["index.html", "presets.html", "api.html", "stack.html",
-             "dossiers.html", "practice.html"]
+             "dossiers.html", "practice.html", "evaluation.html"]
 )
 def test_every_page_links_to_every_other_page(page: str) -> None:
     """A page nothing links to is a page nobody finds."""
@@ -47,7 +47,8 @@ def test_every_page_links_to_every_other_page(page: str) -> None:
 
     html = (WEB_DIR / page).read_text(encoding="utf-8")
     for destination in ('href="/"', 'href="/presets"', 'href="/dossiers"',
-                        'href="/practice"', 'href="/api"', 'href="/stack"'):
+                        'href="/evaluation"', 'href="/practice"', 'href="/api"',
+                        'href="/stack"'):
         assert destination in html, f"{page} does not link to {destination}"
 
 

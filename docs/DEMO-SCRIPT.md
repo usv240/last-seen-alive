@@ -10,6 +10,10 @@ Open two tabs before you start:
 1. `https://last-seen-alive-109051079423.us-central1.run.app`
 2. the same URL at `/dossiers#D04`
 
+The top nav is: Overview · Fragments · Dossiers · Evaluation · Practice · API ·
+Stack. Every page in this script is one click from any other; you never need to
+type a URL on camera.
+
 ---
 
 ## Why this script is shaped this way
@@ -129,8 +133,14 @@ without sounding like a sponsor list.*
 **Buys: Quality of the Idea, and the credibility of everything above**
 
 **NAVIGATE:** landing page, section *"We measured the alternative before we
-measured ourselves."* Scroll to the **stability table**.
-**THEN:** open `/v1/eval/stability` for two seconds of raw JSON.
+measured ourselves."* Scroll to the **28-run table**.
+**THEN:** click the caption link **"See every run, case by case"**, which opens
+**/evaluation**. Scroll to **D04** and let its five-row table sit on screen: one
+row per run, with the leading candidate and how each was scored.
+
+*Click the link, do not type a URL. Everything in this video is reachable by
+clicking, and /evaluation is a designed page rather than raw JSON. It is in the
+top nav too, if you would rather go straight there.*
 
 > **"We ran these same five fragments twenty-eight times. Only one of the five
 > gave the same verdict every time. Our own published headline, zero

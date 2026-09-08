@@ -69,9 +69,10 @@ def check(name, condition, detail=""):
 
 # ---------------------------------------------------------------- surfaces
 for path in ("/", "/presets", "/api", "/stack", "/practice", "/dossiers",
+             "/evaluation",
              "/docs", "/openapi.json",
              "/static/styles.css", "/static/common.js", "/static/console.js",
-             "/static/dossiers.js", "/static/practice.js",
+             "/static/dossiers.js", "/static/practice.js", "/static/evaluation.js",
              "/static/favicon.svg"):
     status, _, _ = call(path, raw=True)
     check(f"page {path}", status == 200, f"HTTP {status}")

@@ -33,6 +33,7 @@ SURFACES = [
     "STATUS.md",
     "app/web/index.html",
     "app/web/dossiers.html",
+    "app/web/evaluation.html",
     "docs/ABLATION.md",
     "docs/LIMITATIONS.md",
     "docs/DEMO-SCRIPT.md",
@@ -106,6 +107,24 @@ def test_no_surface_understates_the_false_confident_count(surface: str, study: d
 
 
 WORDS_REVERSED = {word: value for value, word in WORDS.items()}
+
+
+def test_the_landing_page_does_not_still_advertise_a_falsified_metric() -> None:
+    """The most prominent number on the site, and the study disproved it.
+
+    The masthead fact strip read "0 false-confident IDs" for days after the
+    stability study recorded nine. It was the first thing a visitor saw and the
+    first thing a judge would have checked. What replaced it is the claim that
+    every measurement has actually supported: the system never asserts an
+    identity on its own.
+    """
+    text = (ROOT / "app/web/index.html").read_text(encoding="utf-8")
+    assert "0 false-confident IDs" not in text, (
+        "the landing page advertises a metric the stability study falsified"
+    )
+    assert "<dd>0 identities asserted</dd>" in text, (
+        "the fact strip should carry the guarantee that held, not the one that did not"
+    )
 
 
 def test_the_probable_guarantee_is_never_softened(study: dict) -> None:

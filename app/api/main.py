@@ -208,6 +208,11 @@ async def dossiers_page() -> FileResponse:
     return _page("dossiers.html")
 
 
+@api.get("/evaluation", include_in_schema=False)
+async def evaluation_page() -> FileResponse:
+    return _page("evaluation.html")
+
+
 # ------------------------------------------------------------------- the stack
 
 @api.get(
