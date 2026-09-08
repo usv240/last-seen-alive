@@ -48,13 +48,13 @@ the contradictions found against it, and a deterministic gate showing exactly
 which evidence thresholds passed. An abstention is a valid, successful outcome
 and returns HTTP 200.
 
-**Access** — `POST /v1/keys` with `{"tier":"judge"}` returns a 60-day key with no
+**Access.** `POST /v1/keys` with `{"tier":"judge"}` returns a 60-day key with no
 email and no signup. Send it as `Authorization: Bearer <key>`.
 
-**Two ways in** — run one of the ten public Library of Congress demo fragments
+**Two ways in.** Run one of the ten public Library of Congress demo fragments
 via `POST /v1/identify`, or send your own file to `POST /v1/investigate`.
 
-**What this is not** — it is not an attribution authority. Every identification
+**What this is not.** It is not an attribution authority. Every identification
 requires an archivist; the API can never return a confirmed identity.
 """.strip()
 
@@ -335,7 +335,7 @@ async def preset_media(case_id: str, download: bool = False) -> FileResponse:
         "**This is not a real investigation.** The fragment is invented, the candidate film does "
         "not exist, and every source is an RFC 2606 reserved domain that can never resolve. It is "
         "built by the same evidence builder and the same deterministic gate that serve a live run, "
-        "so the schema and every threshold are genuinely computed — the example cannot drift away "
+        "so the schema and every threshold are genuinely computed, so the example cannot drift away "
         "from what the software actually does. `meta.example` and `data.example` are both `true`."
     ),
 )
@@ -527,7 +527,7 @@ async def dossier(case_id: str) -> dict[str, object]:
     description=(
         "An investigation commissions a Parallel FindAll census of the archives whose own "
         "catalogues list the leading candidate. That genuinely takes minutes to an hour, so the "
-        "dossier does not block on it — it returns a handle and you collect the result here. "
+        "dossier does not block on it: it returns a handle and you collect the result here. "
         "Poll until `status` is no longer active."
     ),
 )
@@ -700,7 +700,7 @@ async def identify(
         "the same dossier the presets produce.\n\n"
         "The file is held in memory for the length of the request and is never written to disk, "
         "logged, or used to train anything. Excerpts of it do travel to Google Cloud (Gemini "
-        "reads the frames) and text drawn from it travels to Parallel as search queries — that "
+        "reads the frames) and text drawn from it travels to Parallel as search queries. That "
         "is what the investigation is. Do not upload material you are not free to send to those "
         "two services.\n\n"
         "Limits: 48 MB, and one of mp4, mov, webm, mkv, jpeg, png, webp."

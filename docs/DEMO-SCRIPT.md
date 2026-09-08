@@ -62,9 +62,9 @@ than the rest. Every beat after this is proof of it.*
 **Buys: Quality of the Idea**
 
 **NAVIGATE:** `/presets`
-**POINT AT:** the badges under each case. They read *Probable identity*,
-*Abstain*, *Ranked candidates only*, *Contradict the supplied label*. Scroll so
-several are visible at once.
+**POINT AT:** the badges under each case, set in small caps: PROBABLE IDENTITY,
+ABSTAIN, RANKED CANDIDATES ONLY, CONTRADICT THE SUPPLIED LABEL, and SEALED on the
+five held-out cases. Scroll so several are visible at once.
 
 > **"Ten Library of Congress fragments. Only five should ever get a probable
 > identity. For the other five the right answer is to abstain, list candidates, or

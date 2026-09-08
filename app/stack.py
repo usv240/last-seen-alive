@@ -99,7 +99,7 @@ PARALLEL: list[dict[str, Any]] = [
         "call_site": "app/partners/parallel_research.py::deep_holdings_research",
         "used_by": "Holdings Researcher",
         "role": "Multi-hop research into alternate titles, foreign releases, studio, performers and surviving elements, returned against a JSON output schema rather than as prose.",
-        "creative_note": "A source policy points this one surface at library, archive, .gov and .edu domains — holdings are an institutional question — while Search deliberately stays open to the whole web.",
+        "creative_note": "A source policy points this one surface at library, archive, .gov and .edu domains, because holdings are an institutional question, while Search deliberately stays open to the whole web.",
         "health_key": "parallel_search",
     },
     {
@@ -113,7 +113,7 @@ PARALLEL: list[dict[str, Any]] = [
         "call_site": "app/partners/parallel_verify.py::audit_citations_with_extract",
         "used_by": "Citation audit (deterministic code)",
         "role": "Re-opens the pages that decisive claims cite and looks for the quoted text in the live document.",
-        "creative_note": "This is the difference between 'a search snippet contained this' and 'the page still says this'. A citation that fails the audit is shown to the archivist but is refused by the gate — it can only ever weaken a verdict.",
+        "creative_note": "This is the difference between 'a search snippet contained this' and 'the page still says this'. A citation that fails the audit is shown to the archivist but is refused by the gate: it can only ever weaken a verdict.",
         "health_key": "parallel_search",
     },
     {
@@ -127,7 +127,7 @@ PARALLEL: list[dict[str, Any]] = [
         "call_site": "app/partners/parallel_research.py::census_named_catalogues",
         "used_by": "Holdings Researcher",
         "role": "Enumerates the film archives, cinematheques and library catalogues worldwide whose own records list a candidate title.",
-        "creative_note": "This product is forbidden from saying 'last surviving copy'. The only sentence it may write is 'no additional holding was found across these named catalogues' — and FindAll is what produces the named list that sentence depends on.",
+        "creative_note": "This product is forbidden from saying 'last surviving copy'. The only sentence it may write is 'no additional holding was found across these named catalogues', and FindAll is what produces the named list that sentence depends on.",
         "health_key": "parallel_search",
     },
     {
@@ -155,7 +155,7 @@ PARALLEL: list[dict[str, Any]] = [
         "call_site": "app/partners/parallel_verify.py::open_cold_case_monitor",
         "used_by": "Cold-case watch (archivist action)",
         "role": "Leaves a standing weekly query on the open web for the fragment's rarest transcribed strings.",
-        "creative_note": "An abstention is the right answer today and the wrong answer forever — archives digitise continuously. This turns 'we cannot identify it' into 'we are still looking', which is the difference between triage and a dead end.",
+        "creative_note": "An abstention is the right answer today and the wrong answer forever, because archives digitise continuously. This turns 'we cannot identify it' into 'we are still looking', which is the difference between triage and a dead end.",
         "health_key": "parallel_search",
     },
 ]

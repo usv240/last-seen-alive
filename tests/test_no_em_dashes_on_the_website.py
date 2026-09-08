@@ -21,16 +21,45 @@ from pathlib import Path
 
 import pytest
 
-WEB = Path(__file__).resolve().parents[1] / "app" / "web"
+ROOT = Path(__file__).resolve().parents[1]
+WEB = ROOT / "app" / "web"
+
+#: Python modules whose strings are served to the browser and rendered as page
+#: text. The first sweep missed these entirely, and a browser walkthrough found
+#: em dashes still on /presets and /stack because of it: the pages were clean and
+#: the data feeding them was not.
+SERVED_DATA = [
+    ROOT / "app" / "presets.py",
+    ROOT / "app" / "stack.py",
+    ROOT / "app" / "standards.py",
+    ROOT / "app" / "practice.py",
+    ROOT / "app" / "api" / "main.py",
+]
+
 PAGES = sorted(
     [path for path in WEB.iterdir() if path.suffix in {".html", ".js", ".css"}],
     key=lambda p: p.name,
-)
+) + [path for path in SERVED_DATA if path.exists()]
+
+
+#: The same character in every spelling that has actually got through. The
+#: literal survived the first sweep inside Python data files that feed the API,
+#: `&mdash;` survived the second in HTML, and the JS escape survived the third
+#: inside a template string in common.js. A check that knows one spelling is not
+#: a check, and each of those reached the deployed site.
+ESCAPES = ("\\u2014", "\\U00002014", "&#8212;", "&#x2014;")
+
+
+def decoded(page: Path) -> str:
+    text = html.unescape(page.read_text(encoding="utf-8"))
+    for escape in ESCAPES:
+        text = text.replace(escape, "\u2014")
+    return text
 
 
 @pytest.mark.parametrize("page", PAGES, ids=lambda p: p.name)
 def test_no_em_dash_survives_on_any_served_file(page: Path) -> None:
-    text = html.unescape(page.read_text(encoding="utf-8"))
+    text = decoded(page)
     if "\u2014" not in text:
         return
 
@@ -49,4 +78,4 @@ def test_no_em_dash_survives_on_any_served_file(page: Path) -> None:
 
 def test_the_pages_were_actually_checked() -> None:
     """A parametrised test over an empty list passes and proves nothing."""
-    assert len(PAGES) >= 10, f"expected the full website, found {len(PAGES)} files"
+    assert len(PAGES) >= 15, f"expected the website and its data, found {len(PAGES)} files"

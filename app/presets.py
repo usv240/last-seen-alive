@@ -63,7 +63,7 @@ PUBLIC_NOTES: dict[str, dict[str, str]] = {
         ),
         "why_it_matters": (
             "This is the case a confident system fails. The only correct behaviour is to "
-            "abstain and say why — an archivist who is handed a guess here has been actively "
+            "abstain and say why. An archivist who is handed a guess here has been actively "
             "misled."
         ),
     },
@@ -93,7 +93,7 @@ PUBLIC_NOTES: dict[str, dict[str, str]] = {
         "headline": "A premise strange enough to be searchable, with no title card.",
         "challenge": (
             "Nothing readable, but an unusual thing happening in an identifiable place and "
-            "period — the sort of detail a contemporary review would have mentioned."
+            "period: the sort of detail a contemporary review would have mentioned."
         ),
         "why_it_matters": (
             "Tests whether visual description can be turned into a productive text query at "

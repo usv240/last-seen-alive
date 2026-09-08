@@ -547,7 +547,7 @@
     card.append(top);
     const quote = el('p', undefined, 'stackrow-note');
     quote.append(el('q', r.quote));
-    quote.append(el('span', ' \u2014 ' + r.citation, 'cmeta'));
+    quote.append(el('span', ' \u00b7 ' + r.citation, 'cmeta'));
     card.append(quote);
     card.append(el('p', r.how, 'stackrow-role'));
     if (r.tests.length) {

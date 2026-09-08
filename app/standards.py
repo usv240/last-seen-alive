@@ -26,7 +26,7 @@ SOURCES: list[dict[str, str]] = [
     },
     {
         "id": "en15907",
-        "title": "EN 15907:2010 — Film identification: enhancing interoperability of metadata",
+        "title": "EN 15907:2010, Film identification: enhancing interoperability of metadata",
         "author": "CEN",
         "publisher": "European Committee for Standardization",
         "year": "2010",
@@ -63,8 +63,8 @@ REQUIREMENTS: list[dict[str, Any]] = [
         "citation": "FIAF Manual, §3, p. 12",
         "status": "partial",
         "how": (
-            "Every source is a structured record — URL, host, verbatim excerpt, retrieval "
-            "provider and id, timestamp, and two verification states — applied identically. It "
+            "Every source is a structured record: URL, host, verbatim excerpt, retrieval "
+            "provider and id, timestamp, and two verification states, applied identically. It "
             "is consistent and machine-readable, but it is not a citation style a cataloguer "
             "could paste into a record. Producing Chicago-style strings alongside would conform "
             "fully; the system does not."
@@ -83,7 +83,7 @@ REQUIREMENTS: list[dict[str, Any]] = [
         "how": (
             "A supplied catalogue label is passed into the workflow and the Skeptic looks for "
             "evidence for and against it. The Tier E benchmark case requires the conflict to be "
-            "surfaced, never silently replaced — which is what the control arm did on one run."
+            "surfaced, never silently replaced, which is what the control arm did on one run."
         ),
         "tests": [
             "test_r3_a_supplied_label_reaches_the_workflow",
@@ -122,7 +122,7 @@ REQUIREMENTS: list[dict[str, Any]] = [
         "status": "was_failing_now_conforms",
         "how": (
             "This is what the exercise found. An abstention used to return no title at all, "
-            "leaving the archivist a fragment they could not file, search for or refer to — the "
+            "leaving the archivist a fragment they could not file, search for or refer to: the "
             "precise problem A.2.5 exists to solve. `app/devised_title.py` now returns a title "
             "on every abstain and candidates verdict, built to the five-Ws pattern, assembled by "
             "deterministic code from observed clues only, and marked "

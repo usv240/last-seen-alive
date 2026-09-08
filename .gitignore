@@ -13,3 +13,6 @@ htmlcov/
 eval/.taint-ledger.json
 uploads/
 
+
+# Screenshots from scripts/walk_demo.py: regenerated on every run, not evidence.
+eval/reports/demo-walk/

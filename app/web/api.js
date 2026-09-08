@@ -2,6 +2,12 @@
    copy-paste snippets in step with whatever endpoint is selected. */
 
 (() => {
+  //: Declared here rather than beside the tab handler because syncForm()
+  //: calls renderSnippet() during initialisation, and a `let` below that
+  //: point put it in the temporal dead zone: the snippet panel threw
+  //: "Cannot access 'language' before initialization" on every page load
+  //: and rendered nothing.
+  let language = 'curl';
   const { el, mintKey, readKey, renderBoard } = window.LSA;
 
   const out = document.querySelector('[data-out]');
@@ -90,7 +96,6 @@
   bodyField.addEventListener('input', renderSnippet);
 
   /* ---- snippets ------------------------------------------------------- */
-  let language = 'curl';
   document.querySelectorAll('[data-lang]').forEach((tab) => {
     tab.addEventListener('click', () => {
       language = tab.dataset.lang;
