@@ -22,7 +22,6 @@ from __future__ import annotations
 import pytest
 from test_identity_gate import complete_context, sourced_claim
 
-from agentic_core.evidence import Claim, Source, stable_claim_id
 from app import works
 from app.gates import IdentityGate
 
@@ -124,35 +123,45 @@ def test_the_same_case_passes_once_a_rival_exists() -> None:
     assert result.thresholds["competing_hypotheses>=2"] is True
 
 
-def test_the_leading_hypothesis_must_not_be_the_most_contradicted() -> None:
-    """Heuer's inversion: prefer the least inconsistent hypothesis, not the best supported."""
+def test_evidence_that_fits_the_rival_equally_well_is_not_diagnostic() -> None:
+    """Heuer's diagnosticity, which is the threshold that actually bites.
+
+    Everything else here passes. The leading candidate simply holds no *kind* of
+    evidence the rival does not also hold, so nothing in the dossier can tell the
+    two apart, and volume of support does not fix that.
+    """
     claims = [sourced_claim(f"archive{i}.example.org") for i in range(3)]
-    contradiction = Claim(
-        claim_id=stable_claim_id("film-42", "contradicts", "rebuttal.example.org"),
-        claim_text="The release date is incompatible with the stock.",
-        subject="film-42",
-        agent_id="skeptic",
-        stance="contradicts",
-        sources=(
-            Source(
-                url="https://rebuttal.example.org/record",
-                domain="rebuttal.example.org",
-                excerpt="The stock was manufactured after the claimed release.",
-                retrieved_at=claims[0].sources[0].retrieved_at,
-                verified=True,
-            ),
-        ),
-        confidence_basis="A dated source contradicts the leading candidate.",
-    )
-
     context = dict(complete_context(claims))
-    result = IdentityGate().evaluate([*claims, contradiction], context)
+    context["decisive_clue_families_by_candidate"] = {
+        "film-42": frozenset({"intertitle", "performer"}),
+        "film-77": frozenset({"intertitle", "performer"}),
+    }
 
-    assert result.thresholds["leading_hypothesis_least_contradicted"] is False, (
-        "the leading candidate carries a contradiction its rival does not, and the gate "
-        "did not notice"
+    result = IdentityGate().evaluate(claims, context)
+    assert result.thresholds["leading_hypothesis_has_diagnostic_evidence"] is False, (
+        "every clue family is shared with the rival, so none of it discriminates"
     )
     assert result.verdict != "probable"
+
+
+def test_the_replaced_threshold_could_never_have_fired_alone() -> None:
+    """Why `leading_hypothesis_least_contradicted` was removed rather than kept.
+
+    It asked whether the leading candidate had no more contradictions than any
+    rival. But `unresolved_contradictions==0` already requires the leading
+    candidate to have none, and zero is never greater than a rival's count -- so
+    the two could only ever fail together. A threshold that cannot fail on its
+    own adds a number to the tally and nothing to the decision.
+    """
+    for leading_contradictions in range(4):
+        for rival_contradictions in range(4):
+            unresolved_zero = leading_contradictions == 0
+            least_contradicted = leading_contradictions <= rival_contradictions
+            if unresolved_zero:
+                assert least_contradicted, (
+                    "a candidate with no contradictions was somehow more contradicted "
+                    "than a rival"
+                )
 
 
 def test_the_gate_publishes_nine_thresholds() -> None:
@@ -160,5 +169,5 @@ def test_the_gate_publishes_nine_thresholds() -> None:
     claims = [sourced_claim(f"archive{i}.example.org") for i in range(3)]
     result = IdentityGate().evaluate(claims, complete_context(claims))
     assert len(result.thresholds) == 9
-    for required in ("competing_hypotheses>=2", "leading_hypothesis_least_contradicted"):
+    for required in ("competing_hypotheses>=2", "leading_hypothesis_has_diagnostic_evidence"):
         assert required in result.thresholds

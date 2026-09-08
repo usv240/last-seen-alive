@@ -39,10 +39,12 @@ class BuiltEvidence:
         clue_families: set[str],
         rejected: list[dict[str, str]],
         compiled: CompiledEvidence,
+        families_by_candidate: dict[str, frozenset[str]] | None = None,
     ) -> None:
         self.claims = claims
         self.candidates = candidates
         self.clue_families = clue_families
+        self.families_by_candidate = families_by_candidate or {}
         self.rejected = rejected
         self.compiled = compiled
 
@@ -50,6 +52,7 @@ class BuiltEvidence:
         return {
             "candidates": self.candidates,
             "decisive_clue_families": tuple(sorted(self.clue_families)),
+            "decisive_clue_families_by_candidate": self.families_by_candidate,
             "temporal_compatibility": self.compiled.temporal_compatibility,
             "entity_compatibility": self.compiled.entity_compatibility,
             "human_approved": human_approved,
@@ -215,10 +218,22 @@ def build(compiled: CompiledEvidence, registry: CitationRegistry) -> BuiltEviden
         if claim_id in family_by_claim
     }
 
+    # Per candidate, so the gate can ask Heuer's real question: is any of this
+    # evidence actually *diagnostic*, or would it fit the rival equally well?
+    families_by_candidate = {
+        candidate.candidate_id: frozenset(
+            family_by_claim[claim_id]
+            for claim_id in candidate.decisive_claim_ids
+            if claim_id in family_by_claim
+        )
+        for candidate in candidates
+    }
+
     return BuiltEvidence(
         claims=claims,
         candidates=tuple(candidates),
         clue_families=clue_families,
+        families_by_candidate=families_by_candidate,
         rejected=rejected,
         compiled=compiled,
     )

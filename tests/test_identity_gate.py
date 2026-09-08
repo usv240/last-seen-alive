@@ -50,6 +50,13 @@ def complete_context(claims: list[Claim]) -> dict[str, object]:
             ),
         ],
         "decisive_clue_families": ["intertitle", "performer"],
+        # The leading candidate holds a kind of evidence the rival does not.
+        # Without that the gate cannot tell the two apart, which is the whole
+        # point of Heuer's diagnosticity test.
+        "decisive_clue_families_by_candidate": {
+            "film-42": frozenset({"intertitle", "performer"}),
+            "film-77": frozenset({"performer"}),
+        },
         "temporal_compatibility": True,
         "entity_compatibility": True,
         "human_approved": True,
