@@ -85,7 +85,13 @@
         button.setAttribute('aria-pressed', 'false');
 
         button.append(el('b', row.case_id, 'dossier-id'));
-        button.append(el('span', row.title || '', 'dossier-title'));
+        const OUTCOME = {
+          identify: 'should reach a probable identity',
+          candidates: 'should return ranked candidates only',
+          abstain: 'should abstain',
+          contradict: 'should contradict its supplied label',
+        };
+        button.append(el('span', row.title || OUTCOME[row.expected_outcome] || '', 'dossier-title'));
         const verdict = el('span', VERDICT_WORD[row.verdict] || row.verdict, 'dossier-verdict');
         verdict.dataset.verdict = row.verdict;
         button.append(verdict);
