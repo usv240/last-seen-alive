@@ -15,7 +15,7 @@
    So the wait shows the six named stages, which agent owns each one, and
    which Parallel surface it is calling. Stages advance on a timer, which
    means the display is an honest description of the pipeline's shape rather
-   than a live trace — the API returns one response at the end, so there is
+   than a live trace. The API returns one response at the end, so there is
    no per-stage event to bind to. The elapsed clock is real, and the final
    state is replaced entirely by the response. Nothing here ever claims a
    stage produced a result.
@@ -23,7 +23,7 @@
    These durations were first written from a pre-credential estimate that
    totalled 100 seconds. Against the real measurement that was 4x optimistic,
    so the console walked to the last stage in under two minutes and then sat
-   on it for four more — the exact hang-reading this file exists to prevent.
+   on it for four more, which is the exact hang-reading this file exists to prevent.
    The per-stage figures below are the original proportions rescaled to the
    measured median. They are a shape, not an instrument: only the clock and
    the final response report anything measured about *this* run. */

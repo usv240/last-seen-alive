@@ -90,7 +90,7 @@
       // Status is carried by a coloured dot and a tooltip, and neither reaches
       // a screen-reader or keyboard user. Write it into the accessible name.
       item.setAttribute('aria-label', `${entry.vendor} ${entry.name}: ${STATUS_WORD[entry.status] || entry.status}. ${entry.role}`);
-      item.title = `${entry.name} — ${entry.status}\n${entry.role}\n${entry.call_site}`;
+      item.title = `${entry.name}: ${entry.status}\n${entry.role}\n${entry.call_site}`;
       list.append(item);
     });
     group.append(list);
@@ -208,10 +208,10 @@
   function verdictBanner(verdict, reason) {
     const box = el('div', undefined, `verdict verdict-${verdict}`);
     const copy = {
-      probable: 'Probable identity — pending archivist approval',
-      candidates: 'Candidates only — the evidence gate did not pass',
-      abstain: 'Insufficient evidence — no identification offered',
-      contradicted: 'Contradicted — the leading candidate was disproved',
+      probable: 'Probable identity, pending archivist approval',
+      candidates: 'Candidates only: the evidence gate did not pass',
+      abstain: 'Insufficient evidence: no identification offered',
+      contradicted: 'Contradicted: the leading candidate was disproved',
       confirmed: 'Confirmed',
     };
     box.append(el('strong', copy[verdict] || verdict));
@@ -237,7 +237,7 @@
     head.append(el('span', source.domain, 'dom'));
     let flag;
     if (source.live_verified === true) flag = 'confirmed on the live page';
-    else if (source.live_verified === false) flag = 'not on the live page — refused by the gate';
+    else if (source.live_verified === false) flag = 'not on the live page, refused by the gate';
     else if (source.verified) flag = 'verified against Parallel output';
     else flag = 'not found in retrieved text';
     head.append(el('span', flag, 'vflag'));
@@ -352,7 +352,7 @@
     if (isExample) {
       const banner = el('div', undefined, 'example-banner');
       banner.setAttribute('role', 'note');
-      banner.append(el('b', 'Worked example — not a real investigation'));
+      banner.append(el('b', 'Worked example, not a real investigation'));
       banner.append(el('span', payload.meta?.disclaimer || data.disclaimer || ''));
       host.append(banner);
     }
@@ -427,7 +427,7 @@
 
     if (data.cold_case?.eligible) {
       const cold = el('section', undefined, 'auditbox');
-      cold.append(el('h3', 'This fragment stays unidentified — keep looking'));
+      cold.append(el('h3', 'This fragment stays unidentified: keep looking'));
       cold.append(el('p', 'An abstention is the right answer today and the wrong answer forever. Archives digitise continuously. A Parallel Monitor leaves a standing weekly query on the strings visible in this frame.', 'colnote'));
       const list = el('ul', undefined, 'qlist');
       data.cold_case.watchable_strings.forEach((s) => list.append(el('li', s)));

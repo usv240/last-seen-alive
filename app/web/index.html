@@ -48,7 +48,7 @@
     <section class="masthead shell" aria-labelledby="page-title">
       <p class="eyebrow">ARCHIVAL IDENTIFICATION TRIAGE</p>
       <h1 id="page-title">Before an unidentified reel is discarded, investigate what it might be.</h1>
-      <p class="deck" data-mode="plain">Last Seen Alive finds clues inside a nameless film fragment, searches historical records, tries to prove itself wrong, and shows an archivist exactly what the evidence can—and cannot—establish.</p>
+      <p class="deck" data-mode="plain">Last Seen Alive finds clues inside a nameless film fragment, searches historical records, tries to prove itself wrong, and shows an archivist exactly what the evidence can, and cannot, establish.</p>
       <p class="deck" data-mode="technical">A five-role Google ADK workflow extracts typed multimodal clues, researches through six Parallel surfaces, re-opens every cited page to confirm the quotation, attempts falsification, then passes structured evidence to a pure deterministic gate with mandatory human approval.</p>
       <div class="cta-row">
         <a class="primary-button" href="#try">Run a fragment now</a>
@@ -82,14 +82,14 @@
     <section class="section shell prose" aria-labelledby="user-title">
       <p class="eyebrow">WHO THIS IS FOR</p>
       <h2 id="user-title">An archivist triaging unidentified material.</h2>
-      <p data-mode="plain">The tool does the broad, repetitive investigation and hands over a dossier. The archivist—not the model—decides whether the evidence is strong enough to act on.</p>
+      <p data-mode="plain">The tool does the broad, repetitive investigation and hands over a dossier. The archivist, not the model, decides whether the evidence is strong enough to act on.</p>
       <p data-mode="technical">The gate requires three independent domains, two distinct clue families, temporal and entity compatibility, no unresolved contradiction, cited decisive claims, and explicit human approval.</p>
     </section>
 
     <section class="section shell" aria-labelledby="scale-title">
       <p class="eyebrow">THE SCALE, FROM THE PEOPLE WHO COUNTED IT</p>
       <h2 id="scale-title">Most of it is already gone. What survives is often nameless.</h2>
-      <p class="lede">The Library of Congress commissioned a census. Of roughly 11,000 American silent feature films, <b>14 percent</b> — about 1,575 titles — survive in their original format. Another 26 percent of survivors were found abroad.</p>
+      <p class="lede">The Library of Congress commissioned a census. Of roughly 11,000 American silent feature films, <b>14 percent</b>, about 1,575 titles, survive in their original format. Another 26 percent of survivors were found abroad.</p>
       <figure class="pullquote">
         <blockquote><p>“The loss of American silent-era feature films constitutes an alarming and irreversible loss to our nation’s cultural record.”</p></blockquote>
         <figcaption>James H. Billington, Librarian of Congress, on the publication of David Pierce’s <cite>The Survival of American Silent Feature Films: 1912–1929</cite> (CLIR / Library of Congress, 2013). <a href="https://www.clir.org/2013/12/clir-and-lc-publish-report-on-americas-endangered-silent-film-heritage/" rel="noopener">Source</a></figcaption>
@@ -99,7 +99,7 @@
 
       <div class="table-scroll">
         <table class="reftable">
-          <caption>“Mostly Lost”, Library of Congress Packard Campus — films identified during the event. Further identifications follow afterwards: 46 more in 2017, 24 more in 2018.</caption>
+          <caption>“Mostly Lost”, Library of Congress Packard Campus: films identified during the event. Further identifications follow afterwards: 46 more in 2017, 24 more in 2018.</caption>
           <thead><tr><th scope="col">Year</th><th scope="col">Titles screened</th><th scope="col">Identified at the event</th></tr></thead>
           <tbody>
             <tr><td>2016</td><td>142</td><td>32 &middot; <b>23%</b></td></tr>
@@ -109,7 +109,7 @@
         </table>
       </div>
 
-      <p class="small"><b>This is context, not a scoreboard.</b> Their corpus is 187 films chosen because they are hard; ours is five with a sealed answer key. The two are not comparable, five cases support no rate at all, and this project makes no claim to outperform expert archivists. It is cited so a reader knows that the people who do this for a living identify well under half of what they screen — and that anyone promising near-certainty on this task is selling something. <a href="/practice">See the full register</a>.</p>
+      <p class="small"><b>This is context, not a scoreboard.</b> Their corpus is 187 films chosen because they are hard; ours is five with a sealed answer key. The two are not comparable, five cases support no rate at all, and this project makes no claim to outperform expert archivists. It is cited so a reader knows that the people who do this for a living identify well under half of what they screen, and that anyone promising near-certainty on this task is selling something. <a href="/practice">See the full register</a>.</p>
     </section>
 
     <section class="section shell" id="try" aria-labelledby="try-title">
@@ -135,7 +135,7 @@
               <a class="link-button" data-preset-download download>Download this fragment</a>
               <a class="link-button" href="/presets">All ten cases →</a>
             </div>
-            <label class="check"><input type="checkbox" name="depth" value="deep"> Deep mode — fan out one independent Parallel Task Group run per candidate</label>
+            <label class="check"><input type="checkbox" name="depth" value="deep"> Deep mode: fan out one independent Parallel Task Group run per candidate</label>
             <button class="primary-button" type="submit">Investigate this fragment</button>
             <p class="small">Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division. United States public domain.</p>
           </form>
@@ -145,11 +145,11 @@
             <input type="file" id="own" name="fragment" accept="video/mp4,video/quicktime,video/webm,video/x-matroska,image/jpeg,image/png,image/webp" required>
             <video class="preset-video" data-upload-preview controls preload="metadata" playsinline muted hidden></video>
             <label for="label">Catalogue label, if it already has one</label>
-            <input type="text" id="label" name="provided_label" maxlength="160" placeholder="e.g. “Those who pay” — leave blank if unlabelled">
+            <input type="text" id="label" name="provided_label" maxlength="160" placeholder="e.g. “Those who pay”, or leave blank if unlabelled">
             <p class="small">Supplying a label is the interesting case: the workflow tries to contradict it with evidence rather than inherit it.</p>
-            <label class="check"><input type="checkbox" name="depth" value="deep"> Deep mode — independent falsification per candidate</label>
+            <label class="check"><input type="checkbox" name="depth" value="deep"> Deep mode: independent falsification per candidate</label>
             <button class="primary-button" type="submit">Investigate my fragment</button>
-            <p class="small privacy">A 30–60 second excerpt works best; 48&nbsp;MB maximum. Your file is held in memory for the request and never written to disk or logged. Frames do travel to Gemini on Vertex AI, and text read off them travels to Parallel as search queries — that is the investigation. Do not upload material you are not free to send to those two services.</p>
+            <p class="small privacy">A 30–60 second excerpt works best; 48&nbsp;MB maximum. Your file is held in memory for the request and never written to disk or logged. Frames do travel to Gemini on Vertex AI, and text read off them travels to Parallel as search queries. That is the investigation. Do not upload material you are not free to send to those two services.</p>
           </form>
         </div>
 
@@ -157,7 +157,8 @@
           <h3 id="run-title">Investigation</h3>
           <div data-run-events aria-live="polite"></div>
           <p class="small">An investigation runs five agents and several live Parallel calls, so it takes
-            40&ndash;120 seconds. Nothing is queued or cached &mdash; every run is real.</p>
+            61 to 444 seconds, median 304 over 27 measured runs. Nothing is queued
+            or cached, so every run is real.</p>
           <button type="button" class="secondary-button" data-show-example>See a worked example dossier</button>
         </section>
       </div>
@@ -195,8 +196,8 @@
     <section class="section shell prose" aria-labelledby="limits-title">
       <p class="eyebrow">WHAT IT WILL NOT DO</p>
       <h2 id="limits-title">Uncertainty is an output.</h2>
-      <p>It never says “last surviving copy.” Searching every catalogue you can name tells you where a print is; it can never tell you no other print exists. The only permitted sentence is: “No additional holding was found across these named catalogues as of this search date” — followed by the names. Sentences that break that rule are caught in code and shown to you as violations rather than published as findings.</p>
-      <p>A fragment without legible, discriminating clues may remain unidentified, and the system will abstain. That is a result, not a failure — and you can leave a standing watch on it.</p>
+      <p>It never says “last surviving copy.” Searching every catalogue you can name tells you where a print is; it can never tell you no other print exists. The only permitted sentence is: “No additional holding was found across these named catalogues as of this search date”, followed by the names. Sentences that break that rule are caught in code and shown to you as violations rather than published as findings.</p>
+      <p>A fragment without legible, discriminating clues may remain unidentified, and the system will abstain. That is a result, not a failure, and you can leave a standing watch on it.</p>
     </section>
 
     <section class="section shell" aria-labelledby="eval-title">
@@ -211,17 +212,17 @@
           <tbody>
             <tr><td><strong>Correct identities surfaced</strong></td><td>0 of 3</td><td>0 of 3</td><td><strong>2 of 3</strong> <small>(this pass)</small></td></tr>
             <tr><td><strong>False-confident identifications</strong></td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
-            <tr><td>Identifications with no citable source</td><td>7 of 7</td><td>&mdash;</td><td>0</td></tr>
-            <tr><td>Answers unstable across repeats</td><td>3 of 3 cases</td><td>&mdash;</td><td><strong>4 of 5 cases moved</strong> over 28 runs</td></tr>
+            <tr><td>Identifications with no citable source</td><td>7 of 7</td><td>n/a</td><td>0</td></tr>
+            <tr><td>Answers unstable across repeats</td><td>3 of 3 cases</td><td>n/a</td><td><strong>4 of 5 cases moved</strong> over 28 runs</td></tr>
             <tr><td>Median latency</td><td>15 s</td><td>15 s</td><td>383 s <small>(this pass; 299 s over 18)</small></td></tr>
           </tbody>
         </table>
       </div>
 
-      <p class="lede" style="margin-top:var(--s5)">Two results carry it. <strong>D02:</strong> the control returned three different Bray cartoons across three runs, every one at high confidence, none sourced, all wrong. The full system returned <em>Dud Leaves Home</em> (1919) &mdash; the answer key exactly &mdash; on 9 decisive claims across 9 domains, citing the very Library of Congress record the benchmark was built from. <strong>D05</strong> arrives mislabelled <em>&ldquo;Those who pay&rdquo;</em>; the control replaced it with two different wrong films, the full system surfaced <em>Through the Breakers</em> (1909), the documented correction, with a contradiction claim.</p>
+      <p class="lede" style="margin-top:var(--s5)">Two results carry it. <strong>D02:</strong> the control returned three different Bray cartoons across three runs, every one at high confidence, none sourced, all wrong. The full system returned <em>Dud Leaves Home</em> (1919), the answer key exactly, on 9 decisive claims across 9 domains, citing the very Library of Congress record the benchmark was built from. <strong>D05</strong> arrives mislabelled <em>&ldquo;Those who pay&rdquo;</em>; the control replaced it with two different wrong films, the full system surfaced <em>Through the Breakers</em> (1909), the documented correction, with a contradiction claim.</p>
 
       <h3 class="subhead">Then we ran it 28 times, and the column above did not survive</h3>
-      <p class="lede">Arm C is a <strong>single pass</strong>. Six passes over the same five fragments &mdash; <strong>28 runs in total</strong> &mdash; say something quite different, and we would rather you heard it from us.</p>
+      <p class="lede">Arm C is a <strong>single pass</strong>. Six passes over the same five fragments, <strong>28 runs in total</strong>, say something quite different, and we would rather you heard it from us.</p>
       <div class="table-scroll">
         <table class="reftable">
           <caption>Every recorded run on the development split, including the ones that went badly. Raw: <a href="/v1/eval/stability">/v1/eval/stability</a> &middot; before and after the fixes: <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a>.</caption>
@@ -230,17 +231,17 @@
             <tr><td>Cases that gave the same verdict every time</td><td><strong>1 of 5</strong></td></tr>
             <tr><td>Correct identities</td><td>3</td></tr>
             <tr><td><strong>False-confident identifications</strong></td><td><strong>9</strong> <small>(16 on the strictest reading)</small></td></tr>
-            <tr><td>Candidates that were not a film at all</td><td>7 <small>(now 0 &mdash; fixed)</small></td></tr>
+            <tr><td>Candidates that were not a film at all</td><td>7 <small>(now 0, fixed)</small></td></tr>
             <tr><td><strong>Runs that reached <code>probable</code></strong></td><td><strong>0</strong></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="lede">Two findings hurt. <strong>D02 returned four different leading candidates in four runs</strong> &mdash; the correct film once, the studio once, and two other films. And <strong>D04 returned the same wrong film, <em>Un coin de Paris</em> (1900), in three of four runs at five of seven thresholds</strong>: not noise, a reproducible misidentification. <strong>&ldquo;Zero false-confident identifications&rdquo; is a property of one pass, not of this system</strong>, and every surface that quoted it now says so.</p>
-      <p class="lede">We fixed both defects and measured again, and only one of them went away. Candidates that named no film went from 7 to <strong>0</strong>. False-confident identifications did <strong>not</strong> improve &mdash; constraining the candidate type turned disguised failures into visible wrong answers rather than removing them. <strong>The error rate was always this high; the non-films were hiding it.</strong> Both eras are published at <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a>.</p>
-      <p class="lede">We could have shipped the good pass and said nothing. Publishing this is the only position consistent with everything else on this page. And one thing did hold across all 19: <strong>no run ever reached <code>probable</code></strong>, because that threshold needs a human the API cannot supply. Every wrong answer above arrived as <code>candidates</code> with its failing thresholds attached. The defensible claim is not that this system is not wrong &mdash; it is that it does not assert what it cannot support, and shows its working.</p>
+      <p class="lede">Two findings hurt. <strong>D02 returned four different leading candidates in four runs</strong>: the correct film once, the studio once, and two other films. And <strong>D04 returned the same wrong film, <em>Un coin de Paris</em> (1900), in three of four runs at five of seven thresholds</strong>: not noise, a reproducible misidentification. <strong>&ldquo;Zero false-confident identifications&rdquo; is a property of one pass, not of this system</strong>, and every surface that quoted it now says so.</p>
+      <p class="lede">We fixed both defects and measured again, and only one of them went away. Candidates that named no film went from 7 to <strong>0</strong>. False-confident identifications did <strong>not</strong> improve. Constraining the candidate type turned disguised failures into visible wrong answers rather than removing them. <strong>The error rate was always this high; the non-films were hiding it.</strong> Both eras are published at <a href="/v1/eval/fix-comparison">/v1/eval/fix-comparison</a>.</p>
+      <p class="lede">We could have shipped the good pass and said nothing. Publishing this is the only position consistent with everything else on this page. And one thing did hold across all 19: <strong>no run ever reached <code>probable</code></strong>, because that threshold needs a human the API cannot supply. Every wrong answer above arrived as <code>candidates</code> with its failing thresholds attached. The defensible claim is not that this system is not wrong. It is that it does not assert what it cannot support, and shows its working.</p>
 
       <h3 class="subhead">The miss, and why we are keeping it</h3>
-      <p class="lede">D04 abstained where the answer key says <em>Buying a cow</em>. The research worked &mdash; 13 domains, &ldquo;LOUVRE&rdquo; and &ldquo;TABAC&rdquo; correctly transcribed. Then ten citations were rejected: eight because the compiler paraphrased instead of quoting Parallel verbatim, two because Extract could not find the quote on the live page. No decisive claim survived, so it abstained. <strong>The strictness that produces zero false-confident identifications is the same strictness that cost this one.</strong> We are not loosening it; a system that accepts paraphrased citations has given up the only thing it offers.</p>
+      <p class="lede">D04 abstained where the answer key says <em>Buying a cow</em>. The research worked: 13 domains, &ldquo;LOUVRE&rdquo; and &ldquo;TABAC&rdquo; correctly transcribed. Then ten citations were rejected: eight because the compiler paraphrased instead of quoting Parallel verbatim, two because Extract could not find the quote on the live page. No decisive claim survived, so it abstained. <strong>The strictness that produces zero false-confident identifications is the same strictness that cost this one.</strong> We are not loosening it; a system that accepts paraphrased citations has given up the only thing it offers.</p>
 
       <h3 class="subhead">Held-out split &middot; still sealed</h3>
       <div class="metric-grid">

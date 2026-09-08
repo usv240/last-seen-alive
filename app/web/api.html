@@ -45,7 +45,7 @@
       <p class="eyebrow">FOR DEVELOPERS AND ARCHIVES</p>
       <h1 id="page-title">Put evidence-first identification triage inside your own catalogue.</h1>
       <p class="deck">One POST returns the whole dossier: typed claims, the source behind each one, what contradicted it, which citations failed a live re-check, and the deterministic gate that refused or allowed a verdict.</p>
-      <p class="lede">No signup, no email, no sales call. Mint a key below, run a real call from this page, then copy the snippet into your own code. The site itself has no privileged path — every button on this product calls these same endpoints.</p>
+      <p class="lede">No signup, no email, no sales call. Mint a key below, run a real call from this page, then copy the snippet into your own code. The site itself has no privileged path: every button on this product calls these same endpoints.</p>
     </section>
 
     <section class="section shell" aria-labelledby="key-title">
@@ -58,7 +58,7 @@
         </div>
         <output class="keyout" data-key-output>No key yet.</output>
         <dl class="keyfacts" data-key-facts hidden></dl>
-        <p class="small">The key is signed, not stored. It carries its own tier and expiry, verifies on every Cloud Run instance, and survives restarts — so it cannot 401 because you happened to reach a different instance than the one that minted it. Nothing server-side can list or recover it, so copy it now. Rotating the signing pepper invalidates every outstanding key at once.</p>
+        <p class="small">The key is signed, not stored. It carries its own tier and expiry, verifies on every Cloud Run instance, and survives restarts, so it cannot 401 because you happened to reach a different instance than the one that minted it. Nothing server-side can list or recover it, so copy it now. Rotating the signing pepper invalidates every outstanding key at once.</p>
       </div>
     </section>
 
@@ -71,13 +71,13 @@
         <form class="card play-form" data-play-form>
           <label for="endpoint">Endpoint</label>
           <select id="endpoint" data-endpoint>
-            <option value="GET /health/integrations">GET /health/integrations — is every sponsor runtime reachable?</option>
-            <option value="GET /v1/stack">GET /v1/stack — every service, its call site, its status</option>
-            <option value="GET /v1/presets">GET /v1/presets — the ten demo fragments</option>
-            <option value="GET /v1/eval/corpus">GET /v1/eval/corpus — benchmark state</option>
-            <option value="POST /v1/identify" selected>POST /v1/identify — investigate a demo fragment</option>
-            <option value="POST /v1/investigate">POST /v1/investigate — investigate your own file</option>
-            <option value="GET /v1/eval/latest">GET /v1/eval/latest — frozen held-out report</option>
+            <option value="GET /health/integrations">GET /health/integrations: is every sponsor runtime reachable?</option>
+            <option value="GET /v1/stack">GET /v1/stack: every service, its call site, its status</option>
+            <option value="GET /v1/presets">GET /v1/presets: the ten demo fragments</option>
+            <option value="GET /v1/eval/corpus">GET /v1/eval/corpus: benchmark state</option>
+            <option value="POST /v1/identify" selected>POST /v1/identify: investigate a demo fragment</option>
+            <option value="POST /v1/investigate">POST /v1/investigate: investigate your own file</option>
+            <option value="GET /v1/eval/latest">GET /v1/eval/latest: frozen held-out report</option>
           </select>
 
           <div data-body-wrap>
@@ -128,14 +128,14 @@
           <caption>Full OpenAPI at <a href="/openapi.json">/openapi.json</a>, browsable at <a href="/docs">/docs</a>.</caption>
           <thead><tr><th scope="col">Endpoint</th><th scope="col">Key</th><th scope="col">What it does</th></tr></thead>
           <tbody>
-            <tr><td><code>POST /v1/keys</code></td><td>—</td><td>Mint a key. <code>{"tier":"judge"}</code> needs no email.</td></tr>
-            <tr><td><code>GET /health</code></td><td>—</td><td>Liveness.</td></tr>
-            <tr><td><code>GET /health/integrations</code></td><td>—</td><td>Whether Vertex AI and Parallel are genuinely reachable right now.</td></tr>
-            <tr><td><code>GET /v1/stack</code></td><td>—</td><td>Every sponsor service, the function that calls it, and its live status.</td></tr>
-            <tr><td><code>GET /v1/presets</code></td><td>—</td><td>The ten demo fragments with tier, required behaviour and hashes.</td></tr>
-            <tr><td><code>GET /v1/presets/{id}/media</code></td><td>—</td><td>Watch or download a fragment. Range requests supported. Held-out cases return 423.</td></tr>
-            <tr><td><code>GET /v1/eval/corpus</code></td><td>—</td><td>Benchmark composition and whether the holdout has been opened.</td></tr>
-            <tr><td><code>GET /v1/eval/manifest</code></td><td>—</td><td>The unedited manifest as a download.</td></tr>
+            <tr><td><code>POST /v1/keys</code></td><td>None</td><td>Mint a key. <code>{"tier":"judge"}</code> needs no email.</td></tr>
+            <tr><td><code>GET /health</code></td><td>None</td><td>Liveness.</td></tr>
+            <tr><td><code>GET /health/integrations</code></td><td>None</td><td>Whether Vertex AI and Parallel are genuinely reachable right now.</td></tr>
+            <tr><td><code>GET /v1/stack</code></td><td>None</td><td>Every sponsor service, the function that calls it, and its live status.</td></tr>
+            <tr><td><code>GET /v1/presets</code></td><td>None</td><td>The ten demo fragments with tier, required behaviour and hashes.</td></tr>
+            <tr><td><code>GET /v1/presets/{id}/media</code></td><td>None</td><td>Watch or download a fragment. Range requests supported. Held-out cases return 423.</td></tr>
+            <tr><td><code>GET /v1/eval/corpus</code></td><td>None</td><td>Benchmark composition and whether the holdout has been opened.</td></tr>
+            <tr><td><code>GET /v1/eval/manifest</code></td><td>None</td><td>The unedited manifest as a download.</td></tr>
             <tr><td><code>POST /v1/identify</code></td><td>Bearer</td><td>Investigate a demo fragment. <code>depth: "deep"</code> adds independent falsification per candidate.</td></tr>
             <tr><td><code>POST /v1/investigate</code></td><td>Bearer</td><td>Investigate your own file. multipart/form-data, 48 MB.</td></tr>
             <tr><td><code>POST /v1/watch</code></td><td>Bearer</td><td>Leave a standing Parallel Monitor on a fragment that could not be identified.</td></tr>
@@ -163,7 +163,7 @@
         </article>
         <article class="card">
           <h3>Limits, stated honestly</h3>
-          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher — we would rather say that than imply a distributed quota we do not have. Investigations took 61–430 seconds (median 299) across 18 runs, with one 95-minute outlier and one 502 in 20 attempts; nothing is queued or cached, so every call pays that in full. The full distribution is at <a href="/v1/eval/stability">/v1/eval/stability</a>.</p>
+          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher, and we would rather say that than imply a distributed quota we do not have. Investigations took 61–430 seconds (median 299) across 18 runs, with one 95-minute outlier and one 502 in 20 attempts; nothing is queued or cached, so every call pays that in full. The full distribution is at <a href="/v1/eval/stability">/v1/eval/stability</a>.</p>
         </article>
       </div>
     </section>

@@ -49,7 +49,7 @@
     link.href = entry.source.url;
     link.rel = 'noopener';
     cite.append(link);
-    cite.append(el('span', ` — ${KIND_WORD[entry.source.kind] || entry.source.kind}`, 'obj-kind'));
+    cite.append(el('span', ` \u00b7 ${KIND_WORD[entry.source.kind] || entry.source.kind}`, 'obj-kind'));
     quote.append(cite);
     card.append(quote);
 

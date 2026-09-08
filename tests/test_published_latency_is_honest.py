@@ -135,12 +135,21 @@ def test_the_excluded_outliers_are_still_published(measured) -> None:
 
 
 @pytest.mark.parametrize(
-    "page", ["app/web/api.html", "app/web/index.html", "docs/DESIGN.md"]
+    "page", ["app/web/api.html", "app/web/index.html", "app/web/dossiers.html",
+             "app/web/presets.html", "docs/DESIGN.md"]
 )
 def test_no_page_still_quotes_the_pre_credential_estimate(page: str) -> None:
-    """The estimate that was wrong, in the exact forms it was written in."""
-    text = (ROOT / page).read_text(encoding="utf-8")
-    for stale in ("40-120", "40–120"):
+    """The estimate that was wrong, in every form it could be written in.
+
+    The first version of this test checked only for the literal characters, and
+    `index.html` quietly kept the stale figure for days written as the HTML
+    entity `40&ndash;120`. A check that a human can defeat by typing the same
+    thing a different way is not a check, so the text is unescaped first.
+    """
+    import html
+
+    text = html.unescape((ROOT / page).read_text(encoding="utf-8"))
+    for stale in ("40-120", "40–120", "40—120", "40 to 120"):
         assert stale not in text, (
             f"{page} still quotes the pre-credential estimate {stale!r}; "
             "the measured range is in eval/reports/stability.json"
