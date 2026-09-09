@@ -7,6 +7,7 @@
 | **Live product** | https://last-seen-alive-109051079423.us-central1.run.app |
 | **Track** | Parallel |
 | **Judge access** | `POST /v1/keys` with `{"tier":"judge"}`. No email, no signup. |
+| **Bring your own data** | Upload any clip or still on the [**Bring your own**](https://last-seen-alive-109051079423.us-central1.run.app/#try) tab, or `POST /v1/investigate`. mp4, mov, webm, mkv, jpeg, png, webp. |
 | **Run locally** | `uvicorn app.api.main:app --reload` |
 
 ---
@@ -20,6 +21,8 @@ Three pages, in this order. They take about four minutes.
 | 1 | [`/presets`](https://last-seen-alive-109051079423.us-central1.run.app/presets) | Ten real Library of Congress fragments. **Five should be identified, five should not.** Watch or download any of them. |
 | 2 | [`/dossiers`](https://last-seen-alive-109051079423.us-central1.run.app/dossiers) | A finished investigation, without waiting five minutes for one. Every claim, its source, and **the citations that were thrown out**. |
 | 3 | [`/evaluation`](https://last-seen-alive-109051079423.us-central1.run.app/evaluation) | **All 28 recorded runs, including the nine where it named the wrong film.** |
+
+**Or test it on your own footage.** Open the [**Bring your own**](https://last-seen-alive-109051079423.us-central1.run.app/#try) tab, drop in any clip or still, and it runs the same five agents against it. No account, no key needed from the browser.
 
 Everything else: [`/practice`](https://last-seen-alive-109051079423.us-central1.run.app/practice) (published practitioner demands, answered or admitted) · [`/stack`](https://last-seen-alive-109051079423.us-central1.run.app/stack) (every sponsor surface with the line of code that calls it) · [`/api`](https://last-seen-alive-109051079423.us-central1.run.app/api) (mint a key and call it from the browser).
 
