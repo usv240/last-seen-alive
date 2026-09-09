@@ -74,29 +74,23 @@ def main() -> int:
         # 1 ------------------------------------------------- the cover
         go("/")
         shot("01-what-it-is",
-             "Last Seen Alive: investigate what a nameless film fragment might be, "
-             "and refuse to name it when the evidence will not carry it.")
+             "A reel arrives with no name. This works out what it might be, and says so only when the evidence holds up.")
 
         # 2 ------------------------------------------------- the route
         frame("#path-title", top=170)
         shot("02-start-here",
-             "A first-time visitor is given a route, not a menu: watch a fragment, "
-             "read what it found, then see where it was wrong.")
+             "Three pages, in order. Watch a fragment, read what it found, then see where it got things wrong.")
 
         # 3 ------------------------------------------------- the cited problem
         frame("#scale-title", top=170)
         shot("03-the-problem",
-             "Only 14% of American silent feature films survive in their original format "
-             "(Library of Congress, 2013). The Library's own identification workshop "
-             "identifies 23-30% of what it screens.")
+             "Only 14% of American silent features survive. The experts who identify them get under a third of what they screen.")
 
         # 4 ------------------------------------------------- the corpus
         go("/presets")
         frame(".presetcard", top=180)
         shot("04-ten-fragments",
-             "Ten real Library of Congress fragments. Five should be identified and five "
-             "should not: the right answer is abstain, a ranked list, or a correction to "
-             "the supplied label. Five more stay sealed.")
+             "Ten real fragments. Five should be identified, five should not, and five more stay sealed so results cannot be tuned.")
 
         # 5 ------------------------------------------------- real footage
         go("/presets")
@@ -104,8 +98,7 @@ def main() -> int:
             frame("video", top=170)
             page.wait_for_timeout(900)
             shot("05-real-footage",
-                 "Every demo fragment is watchable and downloadable in the browser, with "
-                 "its Library of Congress credit and a published SHA-256 hash.")
+             "Every fragment plays in the browser, downloads in one click, and carries its Library of Congress credit.")
         except Exception as exc:
             print("  skipped 05 (no video element):", exc)
 
@@ -113,16 +106,13 @@ def main() -> int:
         go("/dossiers#D04", settle=2600)
         frame(".verdict", top=150)
         shot("06-the-verdict",
-             "A dossier, not an answer. The verdict, what the run cost, and the nine "
-             "thresholds shown whether they passed or failed.")
+             "A dossier, not an answer. Nine thresholds, each shown whether it passed or failed, decided by code.")
 
         # 7 ------------------------------------------------- the refused citation
         try:
             frame(".boardcol h3", top=170, nth=1)   # the "Rejected citations" heading
             shot("07-refused-citation",
-                 "Every cited page is re-opened and checked for the exact quoted words. "
-                 "This one was not there, so the gate refused it. A fabricated citation "
-                 "can only ever weaken a result here.")
+             "Every cited page is reopened and checked for the quoted words. These were not there, so the gate threw them out.")
         except Exception as exc:
             print("  skipped 07:", exc)
 
@@ -130,8 +120,7 @@ def main() -> int:
         try:
             frame("details.claim[open]", top=180, nth=1)
             shot("08-evidence-both-ways",
-                 "Claims that support and claims that contradict, side by side, each with "
-                 "its source and whether that source survived the live audit.")
+             "Evidence for and against, side by side. One source confirmed on the live page, one refused, both left visible.")
         except Exception as exc:
             print("  skipped 08:", exc)
 
@@ -139,16 +128,13 @@ def main() -> int:
         go("/evaluation", settle=2600)
         frame("#headline-title", top=170)
         shot("09-28-runs",
-             "We ran the same five fragments 28 times and published every run: nine wrong "
-             "films, one stable case in five, and zero that ever claimed a probable identity.")
+             "We ran it 28 times and published every run. Nine named the wrong film. None ever claimed a probable identity.")
 
         # 10 ------------------------------------------------ per case
         try:
             frame("[data-eval-cases] .card", top=170, nth=3)
             shot("10-every-run",
-                 "Every run, case by case, with the leading candidate it produced and how "
-                 "each was scored against the sealed answer key. Nothing averaged, nothing "
-                 "omitted.")
+             "Every run, case by case, with the candidate it produced and how that scored against the sealed answer key.")
         except Exception as exc:
             print("  skipped 10:", exc)
 
@@ -156,8 +142,7 @@ def main() -> int:
         try:
             frame("#fix-title", top=170)
             shot("11-fix-comparison",
-                 "Two defects found and fixed. Only one improved the results, and the other "
-                 "outcome is published rather than corrected away.")
+             "Two defects found and fixed. Only one improved the results, and we published the one that did not.")
         except Exception as exc:
             print("  skipped 11:", exc)
 
@@ -165,16 +150,13 @@ def main() -> int:
         go("/practice", settle=2400)
         frame("#register-title", top=170)
         shot("12-practitioner-register",
-             "No archivist has reviewed this. So 14 demands archivists and analysts have "
-             "already published are quoted and answered, with the four we do not meet "
-             "rendered first.")
+             "No archivist has reviewed this, so we answered 14 demands they already published. The four we miss come first.")
 
         # 13 ------------------------------------------------ the stack
         go("/stack", settle=2000)
         frame(".stackrow", top=180)
         shot("13-eleven-surfaces",
-             "Eleven sponsor surfaces, each with the job it does, the line of code that "
-             "calls it, and whether it is reachable right now.")
+             "Eleven sponsor surfaces, each with the job it does, the code that calls it, and whether it is live right now.")
 
         # 14 ------------------------------------------------ it is a product
         go("/api", settle=1600)
@@ -184,8 +166,7 @@ def main() -> int:
         page.wait_for_timeout(4000)
         frame("#play-title", top=170)
         shot("14-live-api",
-             "No signup: mint a 60-day key with no email and call the same public endpoints "
-             "this page calls.")
+             "No signup. Mint a key with no email and call the same public endpoints this page calls.")
 
         # optional ------------------------------------------ the run console
         if with_run:
@@ -196,8 +177,7 @@ def main() -> int:
             page.wait_for_timeout(9000)
             frame("#run-title", top=170)
             shot("15-run-console",
-                 "The wait is the explanation: six named stages, which agent owns each one "
-                 "and which Parallel surface it calls, with a real elapsed clock.")
+             "The wait explains itself: six named stages, which agent owns each one, and a real elapsed clock.")
 
         browser.close()
 
