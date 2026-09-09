@@ -403,8 +403,17 @@
     card.append(body);
 
     // Opened by default only where the reader would otherwise miss the point:
-    // a citation the live audit threw out, or evidence against the candidate.
+    // a citation the live audit threw out, evidence against the candidate, and
+    // exactly one claim whose source was confirmed. That last one matters
+    // because the whole argument is that a good citation and a bad one look
+    // different, and a reader who only ever sees the bad one has been shown
+    // half of it.
+    const confirmed = claim.sources.some((s) => s.live_verified === true);
     if (refused || claim.stance === 'contradicts') card.open = true;
+    else if (confirmed && !claimCard.shownConfirmed) {
+      card.open = true;
+      claimCard.shownConfirmed = true;
+    }
     return card;
   }
 
@@ -568,6 +577,7 @@
     right.append(withExplainer(el('h3', 'Claims and their sources'), 'stance'));
     right.append(el('p', 'Supporting and contradicting claims are shown together. The Skeptic searches specifically for evidence against the leading candidate.', 'colnote'));
     const claims = ev.claims || [];
+    claimCard.shownConfirmed = false;
     if (!claims.length) right.append(el('p', 'No claim survived compilation. The gate abstained rather than guessing.', 'nosrc'));
     if (claims.length) {
       const decisive = claims.filter((c) => c.decisive_eligible).length;

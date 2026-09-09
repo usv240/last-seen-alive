@@ -61,7 +61,10 @@ than the rest. Every beat after this is proof of it.*
 ## 0:25–0:42 · Why it is hard
 **Buys: Quality of the Idea**
 
-**NAVIGATE:** `/presets`
+**NAVIGATE:** back at the top of the landing page there is a numbered
+three-step route. **Click card 1, "Watch a fragment".** That is worth doing on
+camera rather than using the nav bar: it shows a first-time visitor is given a
+path, not a menu.
 **POINT AT:** the badges under each case, set in small caps: PROBABLE IDENTITY,
 ABSTAIN, RANKED CANDIDATES ONLY, CONTRADICT THE SUPPLIED LABEL, and SEALED on the
 five held-out cases. Scroll so several are visible at once.
@@ -111,10 +114,18 @@ without sounding like a sponsor list.*
 **Buys: Technological Implementation + Design**
 
 **NAVIGATE:** `/dossiers`, click **D04**.
+
+Three of the fourteen claims are already open when the page loads, chosen so you
+do not have to hunt: one whose citation the audit **refused**, one whose sources
+were **confirmed**, and the one that **contradicts** the candidate. The other
+eleven are one click each, or use **Expand all**.
+
 **POINT AT, in this order:**
-1. a claim with its confirmed source,
-2. **the refused citation**, hold on this,
-3. the threshold panel, with `human_approved` failing.
+1. the claim reading *"The distinctive Metro entrance architecture..."*, whose
+   three sources all say CONFIRMED ON THE LIVE PAGE,
+2. **the refused citation** in the *"Rejected citations"* panel on the left, and
+   the claim above it marked NOT ON THE LIVE PAGE, REFUSED BY THE GATE. Hold here.
+3. the threshold panel, with **An archivist has approved the identity** unticked.
 
 > **"Then code takes over. Every citation is re-opened by Parallel Extract and
 > checked against the live page. This one failed, so the gate refuses it."**
