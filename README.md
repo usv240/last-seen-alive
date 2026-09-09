@@ -1,242 +1,217 @@
 # Last Seen Alive
 
-Before an unidentified reel is discarded, investigate whether its clues support a probable
-identity—and show exactly where the evidence stops.
-
-> Build status: deployed and fully live. Google ADK/Gemini and all six Parallel surfaces are
-> running against real credentials. The five development fragments have been investigated
-> end to end; the held-out result remains intentionally unpublished.
-
-## The 60-second explanation
-
-Film archives receive fragments with missing or unreliable labels. Last Seen Alive transcribes
-rare visible clues, searches historical sources, checks worldwide holdings and alternate titles,
-re-opens every page it cites to confirm the quotation is really there, and tries to disprove its
-own candidates. It gives an archivist an evidence dossier, not an answer from a chatbot. Pure
-code decides whether each evidence threshold passed, and a probable identity always requires
-explicit human approval.
-
-## Live product and public API
+**Film archives hold reels nobody can name. This investigates what one might be, and refuses to name it when the evidence will not carry it.**
 
 | | |
 |---|---|
-| Product | https://last-seen-alive-109051079423.us-central1.run.app |
-| Demo fragments | [`/presets`](https://last-seen-alive-109051079423.us-central1.run.app/presets) — watch, download, and run all ten |
-| API | [`/api`](https://last-seen-alive-109051079423.us-central1.run.app/api) — mint a key and run a live call in the browser |
-| Dossiers | [`/dossiers`](https://last-seen-alive-109051079423.us-central1.run.app/dossiers) — complete output from real runs, read it without waiting |
-| Practice | [`/practice`](https://last-seen-alive-109051079423.us-central1.run.app/practice) — published practitioner objections, answered or admitted |
-| Stability | [`/v1/eval/stability`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/stability) — 28 runs of the same five fragments, including the bad ones |
-| Stack | [`/stack`](https://last-seen-alive-109051079423.us-central1.run.app/stack) — every sponsor surface with its call site and live status |
-| OpenAPI | [`/docs`](https://last-seen-alive-109051079423.us-central1.run.app/docs) |
-| Local | `uvicorn app.api.main:app --reload` |
+| **Live product** | https://last-seen-alive-109051079423.us-central1.run.app |
+| **Track** | Parallel |
+| **Judge access** | `POST /v1/keys` with `{"tier":"judge"}`. No email, no signup. |
+| **Run locally** | `uvicorn app.api.main:app --reload` |
 
-Judge access: `POST /v1/keys` with `{"tier":"judge"}` returns a 60-day key. No email, no signup.
-Start with [`JUDGING.md`](JUDGING.md) and the machine-readable
-[`submission-evidence.json`](submission-evidence.json).
+---
 
-Every identification response exposes `meta.gate.passed`, `meta.gate.failed`, latency, source
-coverage and abstention reason. **An abstention is HTTP 200 because it is a valid outcome.**
+## Start here
 
-## Three ways to use it
+Three pages, in this order. They take about four minutes.
 
-1. **Ten public demo fragments.** Library of Congress material, US public domain, watchable and
-   downloadable at `/presets`. Five are runnable; five are sealed holdouts listed with their
-   hashes so the set cannot be quietly changed. The media endpoint refuses to serve a holdout.
-2. **Your own material.** `POST /v1/investigate` takes a short excerpt (48 MB, mp4/mov/webm/
-   mkv/jpeg/png/webp) and returns the same dossier. The file is held in memory for the request
-   and never written to disk or logged. Frames do travel to Gemini on Vertex AI, and text read
-   off them travels to Parallel as search queries — that is the investigation.
-3. **As an API in your own catalogue tooling.** Signed stateless keys, a stable error contract,
-   and a runnable playground at `/api` that fires real requests from the browser.
+| | Page | What you will see |
+|---|---|---|
+| 1 | [`/presets`](https://last-seen-alive-109051079423.us-central1.run.app/presets) | Ten real Library of Congress fragments. **Five should be identified, five should not.** Watch or download any of them. |
+| 2 | [`/dossiers`](https://last-seen-alive-109051079423.us-central1.run.app/dossiers) | A finished investigation, without waiting five minutes for one. Every claim, its source, and **the citations that were thrown out**. |
+| 3 | [`/evaluation`](https://last-seen-alive-109051079423.us-central1.run.app/evaluation) | **All 28 recorded runs, including the nine where it named the wrong film.** |
 
-## Architecture
+Everything else: [`/practice`](https://last-seen-alive-109051079423.us-central1.run.app/practice) (published practitioner demands, answered or admitted) · [`/stack`](https://last-seen-alive-109051079423.us-central1.run.app/stack) (every sponsor surface with the line of code that calls it) · [`/api`](https://last-seen-alive-109051079423.us-central1.run.app/api) (mint a key and call it from the browser).
 
-```text
-fragment
-   │
-   ▼
-Visual Examiner (Gemini multimodal) ──── typed, verbatim clues
-   │
-   ▼
-Phrase Hunter (Parallel Search) ──────── cited historical excerpts
-   │
-   ▼
-Holdings Researcher (Parallel Task + FindAll) ── titles, regions, named catalogues
-   │
-   ▼
-Skeptic (Gemini + Parallel Search) ───── cited contradiction attempts
-   │
-   ▼
-Evidence Compiler (Gemini, schema-constrained) ── typed claims
-   │
-   ▼ ─── code from here down; no model can change any of it ───
-Citation registry ───── discard every URL Parallel did not return this run
-Citation audit (Parallel Extract) ── re-open each cited page, check the quotation
-Falsification fan-out (Parallel Task Group) ── one independent attacker per candidate
-Language gate ───────── refuse survival claims catalogue searching cannot support
-IdentityGate ────────── probable / candidates / abstain
-   │
-   ▼
-archivist approval + evidence dossier
-   │
-   └─ if abstained: Parallel Monitor leaves a standing watch on the fragment's rarest strings
+---
+
+## The problem
+
+Only **14% of American silent feature films survive in their original format**, about 1,575 of roughly 11,000 ([Pierce, CLIR / Library of Congress, 2013](https://www.clir.org/2013/12/clir-and-lc-publish-report-on-americas-endangered-silent-film-heritage/)). Of what survives, much arrives unlabelled.
+
+The Library of Congress runs a workshop for exactly this, and publishes its hit rate: **23%, 29% and 30%** of the films screened in 2016, 2017 and 2018 ([Mostly Lost](https://www.loc.gov/item/prn-19-057/librarys-cinematic-quest-for-mostly-lost-films/2019-05-23/)). Identification is expert-scarce and happens four days a year.
+
+The dangerous failure here is not a wrong answer. It is a **plausible** one: a catalogue entry that looks researched, propagates for thirty years, and quietly misattributes a film. So this system is built to show its evidence rather than to sound confident.
+
+---
+
+## How it works
+
+```mermaid
+flowchart TD
+    A["Fragment<br/>(video or image)"] --> B
+
+    subgraph MODEL ["The model researches"]
+      direction TB
+      B["1 · Visual Examiner<br/>Gemini reads the frame,<br/>transcribes text verbatim"]
+      C["2 · Phrase Hunter<br/>Parallel Search, rare<br/>strings as literal quotes"]
+      D["3 · Holdings Researcher<br/>Parallel Task + FindAll,<br/>alternate titles, catalogues"]
+      E["4 · Skeptic<br/>Parallel Search, evidence<br/>AGAINST its own candidate"]
+      F["5 · Evidence Compiler<br/>Gemini, typed claims only,<br/>no tools"]
+      B --> C --> D --> E --> F
+    end
+
+    F --> G
+
+    subgraph CODE ["Then code decides, not the model"]
+      direction TB
+      G["Citation registry<br/>discards any URL Parallel<br/>never returned"]
+      H["Parallel Extract<br/>re-opens every cited page,<br/>checks the quote is there"]
+      I["Identity gate<br/>counts 9 thresholds"]
+      G --> H --> I
+    end
+
+    I --> J{"Verdict"}
+    J --> K["abstain<br/>not enough evidence"]
+    J --> L["candidates<br/>possibilities + reasoning"]
+    J --> M["probable<br/>needs an archivist"]
+
+    M -.->|"unreachable<br/>through the API"| N["Archivist approves"]
+
+    style CODE fill:#e1ece6
+    style MODEL fill:#e6eaf7
+    style M stroke-dasharray: 5 5
 ```
 
-Generated prose is a view over immutable claims; it is never the source of truth.
-See [the full architecture](docs/ARCHITECTURE.md).
+**The model gathers evidence. It never decides what the evidence is worth.** `probable` requires human approval, which is one of the nine thresholds and which no API call can satisfy. The strongest thing the API can return is `candidates`.
 
-## Google Cloud runtime use
+---
 
-| Service | Runtime call site | Why it is required |
-|---|---|---|
-| Google ADK | `app/adk_app.py` | Runs the fixed five-role workflow and preserves each output in state. |
-| Gemini on Vertex AI | `app/adk_runtime.py`, `app/adk_app.py` | Reads multimodal clues and performs adversarial interpretation; never owns the verdict. |
-| Vertex controlled generation | `app/evidence_schema.py` | Forces a typed claim structure. Prose cannot be gated; a schema can. |
-| Cloud Run | `Dockerfile`, `infra/deploy.sh` | Hosts the API, product surface and demo media. |
-| Secret Manager | `infra/deploy.sh` | Holds the Parallel credential and the API-key signing pepper. |
+## What you get back
 
-## Parallel runtime use — all six surfaces
+A dossier, not an answer:
 
-Three are agent tools, because *when* to research is a judgement call. Three are called by
-deterministic code, because each exists to check or outlast the model's own work.
+- **Every claim with its source** and the exact quoted excerpt
+- **Contradictions against the leading candidate**, shown beside the evidence for it
+- **Which citations were refused**, and why
+- **Nine thresholds**, each shown whether it passed or failed
+- **A standing watch** when a fragment stays unidentified, because archives digitise continuously
 
-| Surface | Call site | What it does here |
-|---|---|---|
-| **Search API** | `parallel_research.py::search_archival_evidence` | Every open-web fact. Rare intertitles searched as literal quoted strings with long excerpts. Content-recycling domains are excluded at the source-policy level so "three independent domains" cannot be three mirrors of one plot summary. |
-| **Task API** | `parallel_research.py::deep_holdings_research` | Multi-hop holdings and alternate-title research against a JSON output schema, with a source policy pointing it at library, archive, `.gov` and `.edu` domains. |
-| **FindAll API** | `parallel_research.py::census_named_catalogues` | Enumerates the archives and catalogues whose own records list a candidate. This product may never write "last surviving copy"; the only permitted sentence names the catalogues searched, and FindAll produces that list. |
-| **Extract API** | `parallel_verify.py::audit_citations_with_extract` | Re-opens every page a decisive claim cites and looks for the quoted text in the live document. A citation that fails is shown to the archivist and refused by the gate. |
-| **Task Group API** | `parallel_verify.py::falsify_candidates_with_task_group` | One independent falsification run per candidate. The Skeptic agent inherits its own earlier conclusions inside one context window; these runs cannot. |
-| **Monitor API** | `parallel_verify.py::open_cold_case_monitor` | An abstention is right today and wrong forever — archives digitise continuously. Leaves a standing weekly query on the fragment's rarest transcribed strings. |
+You can send your own footage (`POST /v1/investigate`, or the "Bring your own" tab), or run one of the ten public demo fragments (`POST /v1/identify`).
 
-Nothing silently falls back. Without `PARALLEL_API_KEY`, every surface raises
-`ParallelNotConfigured`, the investigation stops, and the stack ribbon on every page reports the
-integration unavailable. `tests/test_parallel_surfaces.py` proves this for all six.
+---
 
-## Read this before quoting any evaluation number
+## What the evaluation says
 
-**The published Arm C figures are a single pass and they do not hold.** Running the
-same five development fragments six times — **28 runs** — gives a different and
-worse picture:
+We ran the same five development fragments **28 times** and published every run.
 
 | Across 28 runs | |
 |---|---:|
 | Cases giving the same verdict every time | **1 of 5** |
-| Correct identities | 2 |
-| **False-confident identifications** | **5** (12 on the strictest reading) |
-| Candidates that named no film at all | 7 |
-| **Runs that reached `probable`** | **0** |
+| Correct identities | 3 |
+| **Named the wrong film** | **9** |
+| Candidates that were not a film at all | 7 |
+| **Ever claimed a probable identity** | **0** |
 
-D02 returned four different leading candidates in four runs. D04 returned the same
-wrong film, *Un coin de Paris* (1900), in three of four runs at five of seven
-thresholds — a reproducible misidentification, not noise. Full study, every run
-including the 95-minute one and the 502: [`/v1/eval/stability`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/stability).
+Our first measured pass recorded two correct identities and zero false-confident identifications. **Repeating it disagreed.** One case returned four different leading candidates in four runs; another returned the same wrong film three times out of four.
 
-What did hold: **no run ever reached `probable`**, because that threshold requires
-human approval the API cannot supply. Every wrong answer arrived as `candidates`
-with its failing thresholds attached. The claim this project defends is not that it
-is never wrong — it is that it never asserts what it cannot support, and shows its
-working.
+That is published rather than smoothed over, at [`/v1/eval/stability`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/stability), because a system that asks an archivist to trust it cannot hide the runs where it was wrong.
 
-## The case for it, and the review it has not had
+The property that held across all 28 runs: **it never once claimed a probable identity.** Every wrong answer arrived as `candidates` with its failing thresholds attached. That is a weaker claim than "never wrong", and it is the true one.
 
-`docs/IMPACT.md` makes the argument from cited sources rather than assertion. The short
-version: the Library of Congress census found that **14%** of American silent feature films
-survive in their original format, and the Library's own annual identification workshop
-identifies **23–30%** of the films it screens each year. Identification is expert-scarce,
-happens four days a year in Virginia, and does not scale. This runs continuously, through an
-API, and produces a dossier an archivist can audit rather than an answer they must trust.
+Full method: [`docs/ABLATION.md`](docs/ABLATION.md) · before and after the fixes: [`/v1/eval/fix-comparison`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/fix-comparison)
 
-That comparison is context, not a scoreboard: the corpora are not comparable and five cases
-support no rate at all. No claim to outperform expert archivists is made anywhere in this
-project.
+---
 
-**No archivist has reviewed this system.** Rather than leave that as a caveat, `/v1/practice`
-publishes fourteen demands taken verbatim from published sources — a peer-reviewed evaluation in
-which archive experts assessed AI-generated cataloguing ([ArchiveGPT, Abele et al.,
-arXiv:2507.07551](https://arxiv.org/abs/2507.07551)), the FIAF manual, and the Library of
-Congress's own account of its method — each paired with the mechanism here that answers it.
-**Two are marked `not_met`, including the missing review itself.** Every structural claim in
-the register is asserted by `tests/test_practitioner_objections.py`, and the two load-bearing
-behavioural claims are executed against the real gate rather than described.
+## Research this is built on
 
-## Why not just use a screenshot matcher?
+| Source | What we took from it |
+|---|---|
+| [Pierce, *The Survival of American Silent Feature Films: 1912–1929*](https://www.clir.org/2013/12/clir-and-lc-publish-report-on-americas-endangered-silent-film-heritage/) (CLIR / LOC, 2013) | The size of the problem, and that survivors are scattered across countries and formats |
+| [Mostly Lost, Library of Congress](https://www.loc.gov/item/prn-19-057/librarys-cinematic-quest-for-mostly-lost-films/2019-05-23/) | The professional method (read the frame, search databases) and how hard it is: 23–30% per workshop |
+| [FIAF Moving Image Cataloguing Manual (2016)](https://www.fiafnet.org/pages/E-Resources/Cataloguing-Manual.html) | Seven page-cited requirements, published at [`/v1/standards`](https://last-seen-alive-109051079423.us-central1.run.app/v1/standards). One was failing and is now fixed |
+| [Abele et al., *ArchiveGPT*, arXiv:2507.07551](https://arxiv.org/abs/2507.07551) | Archive experts evaluating AI cataloguing: hallucination, the need for human review, and that trust depends on a transparent pipeline |
+| [Heuer, *Analysis of Competing Hypotheses*](https://onlinelibrary.wiley.com/doi/full/10.1002/acp.3550) (evaluated in Dhami et al., 2019) | Two gate thresholds: a hypothesis nothing opposes has not been tested, and only evidence that discriminates counts |
+| [Jhaveri et al., *Failing to Falsify*, arXiv:2604.02485](https://arxiv.org/abs/2604.02485) | Confirmation bias in LLM exploration is about which evidence gets *selected*, which is what our failing runs looked like |
 
-Our documented prior-art search found screenshot identifiers, archive cataloguing products and
-crowdsourced identification projects, but did not find a production system combining multimodal
-clue extraction, live open-web historical investigation, adversarial verification, global
-holdings research and claim-level provenance. This is a documented search result, not a claim
-that private systems cannot exist. See [prior art](docs/PRIOR-ART.md).
+No archivist has reviewed this system. Rather than leave that as a caveat, [`/practice`](https://last-seen-alive-109051079423.us-central1.run.app/practice) publishes 14 demands taken verbatim from these sources and answers each one. **Four are marked unanswered, starting with the missing review itself.**
 
-## Evaluation
+---
 
-### The baseline, measured
+## The stack
 
-Before measuring this system, we measured the alternative: the same five
-fragments given to Gemini with no web access, no citation checking and no gate,
-three samples each. It needs no partner credential, so it ran first rather than
-afterwards when the number would have been easier to rationalise.
+Every surface below is imported and called on the request path. [`/stack`](https://last-seen-alive-109051079423.us-central1.run.app/stack) shows each one with its call site and whether it is reachable right now.
 
-It contradicted the assumption it was built to test. Gemini is **well calibrated
-about whether to answer** — it declined to name a film on both fragments whose
-evidence cannot support one, so false-confident identifications were **zero**.
+**Google Cloud** — Agent Development Kit (`google-adk`), Gemini 2.5 Flash on Vertex AI (`google-genai`), Vertex AI controlled generation, Cloud Run, Secret Manager.
 
-What it could not do was answer the same question twice. Three runs of one
-fragment returned three different titles and two different years, every one at
-"high" confidence, and **all 7 identifications it made cited nothing**. A
-cataloguer runs it once, gets one of three answers, and cannot tell which.
+**Parallel** — all six surfaces, each with a distinct job:
 
-Full method and caveats: [docs/ABLATION.md](docs/ABLATION.md). Raw result:
-[`eval/reports/ablation-control.json`](eval/reports/ablation-control.json) or
-`GET /v1/eval/ablation`. Reproduce: `python scripts/run_ablation.py --repeats 3 --temp 0.7`.
+| Surface | Job |
+|---|---|
+| Search | Rare visible phrases, as literal quoted strings |
+| Task | Alternate titles and holdings, against an archival source policy |
+| FindAll | A census of named catalogues (asynchronous; returns a handle) |
+| Extract | Re-opens every cited page to confirm the quotation is really there |
+| Task Group | One independent run per candidate, whose only job is to disprove it |
+| Monitor | Keeps an unidentified fragment under a standing weekly watch |
 
-### The held-out split
+---
 
-The held-out result is **not run**. Five fragments remain sealed until:
-
-1. the five development cases pass the live Parallel workflow;
-2. the implementation is committed and tagged `eval-freeze-*`;
-3. the five held-out cases are then run exactly once.
-
-The evaluator records every corpus SHA-256 and refuses a second held-out attempt. The primary
-safety metric is false-confident identifications; the target is zero. Failures will remain in the
-committed report.
-
-## Limitations and prohibited uses
-
-- This is triage support, not an attribution authority or replacement for an archivist.
-- It cannot establish that a reel is the last or only surviving element. Searching every
-  catalogue you can name tells you where a print is; it can never tell you no other print exists.
-- Digitised English-language sources have better coverage than many other regions and languages.
-- A rare phrase may be reused; a face or costume may be misread.
-- Never use a generated candidate to alter a catalogue or preservation decision without human
-  review.
-
-See [all limitations](docs/LIMITATIONS.md).
-
-## Reproduce locally
+## Run it yourself
 
 ```bash
-python -m venv .venv
-. .venv/bin/activate            # Windows: .venv\Scripts\Activate.ps1
+git clone https://github.com/usv240/last-seen-alive
+cd last-seen-alive
 pip install -r requirements.resolved.txt
-pip install pytest==9.1.1 pytest-asyncio==1.3.0 ruff==0.15.6
-ruff check .
-pytest -q
-uvicorn app.api.main:app --reload
+
+uvicorn app.api.main:app --reload      # http://127.0.0.1:8000
 ```
 
-The full suite runs without network access or credentials: the partner surfaces are exercised
-against fakes, and the fail-closed behaviour is asserted with the credential removed.
+The site, the worked example dossier and the published evaluation all work with no credentials. A live investigation needs `GOOGLE_CLOUD_PROJECT` and `PARALLEL_API_KEY`; see [`.env.example`](.env.example). Without them the workflow **refuses rather than guessing**, which is the intended behaviour.
 
-The lock is audited for prohibited non-Google AI packages. Secrets belong in Secret Manager;
-copy `.env.example` only for local development and never commit `.env`.
+### Tests
 
-## Licence and asset rights
+```bash
+pip install pytest==9.1.1 pytest-asyncio==1.3.0 ruff==0.15.6
+pytest -q                      # 252 tests, offline, no credentials needed
+ruff check .
+```
 
-Code is Apache-2.0. Demo assets are Library of Congress National Screening Room material,
-published by 1929 and in the United States public domain, tracked in
-[ASSET_RIGHTS.md](ASSET_RIGHTS.md) and [eval/ASSET_RIGHTS.md](eval/ASSET_RIGHTS.md). Required
-credit — *Library of Congress, Motion Picture, Broadcasting, and Recorded Sound Division* —
-appears on every media response, every preset card and every page footer. No published trailers
-or third-party-owned film material appears in the submission.
+Two suites need the internet, and neither needs a credential:
+
+```bash
+python scripts/verify_live.py  # 98 checks against the deployed service
+python scripts/walk_demo.py    # drives a real browser through every page
+```
+
+`verify_live.py` checks behaviour rather than status codes: that the bytes served for a demo fragment hash to the value the manifest publishes, that a held-out case is refused on every path, that a key minted once authenticates across the instance pool.
+
+### Reproduce the evaluation
+
+```bash
+python scripts/run_ablation.py --write     # control arm: Gemini alone, no web, no gate
+python scripts/run_stability.py --passes 2 # repeat the development split
+python scripts/score_stability.py --write  # score every run against the sealed key
+python scripts/compare_fix.py --write      # before and after the two fixes
+```
+
+---
+
+## What this is not
+
+- **Not an attribution authority.** It is triage. An archivist approves or rejects every identification.
+- **Not reviewed by an archivist.** See [`/practice`](https://last-seen-alive-109051079423.us-central1.run.app/practice), entry P5.
+- **Not stable across runs.** See the table above, and [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md).
+- **Not measured on the held-out split.** Five fragments have never been run; their hashes are published at [`/v1/eval/manifest`](https://last-seen-alive-109051079423.us-central1.run.app/v1/eval/manifest) so the set cannot be quietly changed.
+
+---
+
+## Documentation
+
+| | |
+|---|---|
+| [`JUDGING.md`](JUDGING.md) | What to check, and in what order |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | How the pieces fit together |
+| [`docs/ABLATION.md`](docs/ABLATION.md) | Three arms, the stability study, and the fix that only half worked |
+| [`docs/IMPACT.md`](docs/IMPACT.md) | The case for it, from cited sources |
+| [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md) | Everything it cannot do |
+| [`docs/STANDARDS-CONFORMANCE.md`](docs/STANDARDS-CONFORMANCE.md) | FIAF and EN 15907, page-cited |
+| [`docs/DESIGN.md`](docs/DESIGN.md) | Interface principles and the reasons for them |
+| [`docs/PRIOR-ART.md`](docs/PRIOR-ART.md) | What already exists, and why this is not that |
+| [`submission-evidence.json`](submission-evidence.json) | Every claim above, machine-readable |
+
+---
+
+## Licence and credits
+
+Apache License 2.0. Evaluation fragments are public domain, courtesy of the **Library of Congress National Screening Room**; see [`ASSET_RIGHTS.md`](ASSET_RIGHTS.md).

@@ -21,7 +21,6 @@ Last verified: 2026-09-07. Full audit: [`docs/AUDIT-2026-09-05.md`](docs/AUDIT-2
 | Parallel request shapes validated | Pass | `tests/test_parallel_wire_contract.py` asserts the JSON body each of the six surfaces would send, offline. |
 | Evaluation harness runs on the real corpus | Pass | `agentic_core/eval/corpus.py`; previously would have failed on the single held-out run. |
 | Dependency lock free of prohibited AI tooling | Pass | 111 packages audited; only google-adk, google-genai, google-cloud-aiplatform, parallel-web. |
-| Devpost draft and video shot list | Pass | `docs/DEVPOST.md`, `docs/DEMO-VIDEO.md` — owner still records and submits. |
 | Design system and principles | Pass | `docs/DESIGN.md`; WCAG AA contrast in both themes, automated a11y audit clean, no horizontal scroll 320–1440px, print stylesheet for filing a dossier. |
 | **Parallel runtime** | **PASS — live** | Credential attached 2026-09-07. `/health/integrations` returns a real `search_id`; all six surfaces report live on `/v1/stack`. |
 | Ten-fragment evaluation set | Pass | Five development + five sealed holdout clips with hashes and rights record. |

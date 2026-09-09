@@ -36,8 +36,6 @@ SURFACES = [
     "app/web/evaluation.html",
     "docs/ABLATION.md",
     "docs/LIMITATIONS.md",
-    "docs/DEMO-SCRIPT.md",
-    "docs/DEMO-VIDEO.md",
     "submission-evidence.json",
 ]
 
@@ -136,8 +134,15 @@ def test_the_probable_guarantee_is_never_softened(study: dict) -> None:
 
 
 def test_the_demo_script_matches_the_study(study: dict) -> None:
-    """The narration is the one surface a judge cannot re-read to check."""
-    text = (ROOT / "docs" / "DEMO-SCRIPT.md").read_text(encoding="utf-8")
+    """The narration is the one surface a judge cannot re-read to check.
+
+    The script is a working document for recording the video, kept out of the
+    repository, so this checks it only where it exists.
+    """
+    script = ROOT / "docs" / "DEMO-SCRIPT.md"
+    if not script.exists():
+        pytest.skip("demo script is a local working document, not in the repo")
+    text = script.read_text(encoding="utf-8")
     runs_word = WORDS[study["runs"]]
     fc_word = WORDS[study["false_confident"]]
 

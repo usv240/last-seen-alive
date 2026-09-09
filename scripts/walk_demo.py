@@ -1,4 +1,4 @@
-"""Drive a real browser through docs/DEMO-SCRIPT.md, beat by beat, and report anything broken.
+"""Drive a real browser through the whole product and report anything broken.
 
 Curl proves an endpoint answers. It does not prove the page renders, that a
 button exists where the script says to click, that a JS exception did not leave a
@@ -6,10 +6,11 @@ section blank, or that a control is reachable without hunting for it. Three of
 the four errors already found in the demo script were exactly that kind, and they
 would have been found on camera.
 
-So this opens the deployed site, follows every NAVIGATE / POINT AT / DO in the
-script in order, asserts what the presenter is told to look for is actually
-visible, clicks what they are told to click, and fails loudly with a screenshot
-if it is not there.
+So this opens the deployed site and walks it the way a visitor does: the three
+numbered steps on the landing page, then the fragments, a dossier, the
+evaluation, the practitioner register, the API and the stack. It asserts that
+what each page promises is actually on screen, clicks the controls rather than
+assuming they exist, and fails loudly with a screenshot when one does not.
 
     python scripts/walk_demo.py
     python scripts/walk_demo.py --headed          # watch it happen

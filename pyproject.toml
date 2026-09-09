@@ -33,11 +33,6 @@ testpaths = ["tests"]
 line-length = 100
 target-version = "py311"
 
-# Preserved snapshots of earlier revisions. They exist to show what the code
-# looked like before a documented change, so linting them into the present
-# would destroy the only thing they are for.
-extend-exclude = ["docs/build-history"]
-
 # Selected explicitly rather than inherited. Ruff's implicit default rule set
 # widens between minor releases, so a pinned CI version and a developer's newer
 # local install would otherwise disagree about whether the tree is clean.

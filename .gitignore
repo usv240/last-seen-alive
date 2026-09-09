@@ -16,3 +16,10 @@ uploads/
 
 # Screenshots from scripts/walk_demo.py: regenerated on every run, not evidence.
 eval/reports/demo-walk/
+
+# Video production notes and Devpost submission drafts. Working documents for
+# getting the project submitted, not part of the project. Kept locally.
+docs/DEMO-SCRIPT.md
+docs/DEMO-VIDEO.md
+docs/DEVPOST.md
+docs/DEVPOST-STORY.md
