@@ -265,6 +265,36 @@ def main() -> int:
         check(not bubble.is_visible(), "Escape dismisses it")
         shot("08-explainer")
 
+        # ------------------------------------------------------------ the route
+        beat("The route a first-time visitor follows")
+        page.goto(BASE, wait_until="networkidle")
+        page.wait_for_timeout(1200)
+        cards = page.locator(".pathway a")
+        check(cards.count() == 3, "the landing page opens with a numbered three-step path",
+              f"{cards.count()}")
+        hrefs = [c.get_attribute("href") for c in cards.all()]
+        check(hrefs == ["/presets", "/dossiers", "/evaluation"],
+              "the three steps are watch, read, then see where it was wrong", str(hrefs))
+
+        # Someone who only ever clicks Next must reach every page and come back.
+        visited = []
+        for _ in range(len(["/", "/presets", "/dossiers", "/evaluation",
+                            "/practice", "/stack", "/api"])):
+            visited.append(page.url.replace(BASE, "") or "/")
+            nxt = page.locator(".nextstep a")
+            if not nxt.count():
+                break
+            nxt.click()
+            page.wait_for_load_state("networkidle")
+            page.wait_for_timeout(700)
+        check(len(visited) == 7, "every page offers a next step", str(visited))
+        check(sorted(visited) == sorted(["/", "/presets", "/dossiers", "/evaluation",
+                                         "/practice", "/stack", "/api"]),
+              "clicking Next alone reaches all seven pages", str(visited))
+        check((page.url.replace(BASE, "") or "/") == "/",
+              "the last page returns to the start rather than dead-ending")
+        shot("09-route")
+
         # ------------------------------------------------------- global checks
         beat("Across every page")
         for path in ("/", "/presets", "/dossiers", "/evaluation", "/practice", "/api", "/stack"):
@@ -276,6 +306,25 @@ def main() -> int:
                   f"{path}: no em dash visible to a viewer")
             check(page.evaluate("document.body.scrollWidth <= window.innerWidth + 2"),
                   f"{path}: no horizontal scroll at 1440px")
+
+        # A phone and a tablet found two overflows a laptop never showed: the
+        # explainer bubble ran off a 390px screen, and the seven-item nav pushed
+        # the header buttons 210px off an 834px one. One viewport is not a test.
+        beat("Other viewports")
+        for width, height, label in ((390, 844, "phone"), (834, 1112, "tablet"),
+                                     (1280, 800, "small laptop")):
+            page.set_viewport_size({"width": width, "height": height})
+            worst, where = 0, ""
+            for path in ("/", "/presets", "/dossiers", "/evaluation", "/practice",
+                         "/stack", "/api"):
+                page.goto(BASE + path, wait_until="networkidle")
+                page.wait_for_timeout(500)
+                over = page.evaluate("document.body.scrollWidth - window.innerWidth")
+                if over > worst:
+                    worst, where = over, path
+            check(worst <= 2, f"{label} ({width}px): nothing runs off the side",
+                  f"{worst}px on {where}")
+        page.set_viewport_size({"width": 1440, "height": 900})
 
         browser.close()
 

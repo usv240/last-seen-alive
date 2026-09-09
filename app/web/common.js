@@ -689,6 +689,47 @@
     }
   }
 
+  /* ---- the route -------------------------------------------------------
+     Seven pages in the nav is a menu, and a menu asks a first-time visitor to
+     guess which door is the right one. The landing page opens with a numbered
+     three-page path, and every page ends by naming the next one, so someone who
+     starts anywhere still has somewhere to go.
+
+     The reference pages come after the three that tell the story, and the last
+     of them returns to the start rather than dead-ending. */
+  const ROUTE = [
+    ['/', 'Overview', 'What this is, and why it matters'],
+    ['/presets', 'Watch a fragment', 'Ten real reels, five that should not be identified'],
+    ['/dossiers', 'Read what it found', 'A finished investigation, with its sources'],
+    ['/evaluation', 'See where it was wrong', 'All 28 runs, including the failures'],
+    ['/practice', 'What archivists asked for', 'Published demands, answered or admitted'],
+    ['/stack', 'How it is built', 'Eleven surfaces and the line that calls each one'],
+    ['/api', 'Use it yourself', 'Mint a key and call the same endpoints'],
+  ];
+
+  function paintNextStep() {
+    const main = document.querySelector('main');
+    if (!main || document.querySelector('.nextstep')) return;
+    const here = window.location.pathname.replace(/\/$/, '') || '/';
+    const index = ROUTE.findIndex(([path]) => path === here);
+    if (index < 0) return;
+    const [path, title, blurb] = ROUTE[(index + 1) % ROUTE.length];
+
+    const nav = el('nav', undefined, 'nextstep');
+    nav.setAttribute('aria-label', 'Next page');
+    const link = el('a');
+    link.href = path;
+    const wrap = el('span', undefined, 'nextstep-body');
+    wrap.append(el('span', index + 1 === ROUTE.length ? 'Back to the start' : 'Next', 'nextstep-kicker'));
+    wrap.append(el('b', title));
+    wrap.append(el('span', blurb, 'nextstep-blurb'));
+    link.append(wrap);
+    link.append(el('span', '\u2192', 'nextstep-arrow'));
+    nav.append(link);
+    main.append(nav);
+  }
+  paintNextStep();
+
   window.LSA = {
     el, mintKey, authedFetch, readKey, renderBoard, paintStack,
     showWorkedExample,
