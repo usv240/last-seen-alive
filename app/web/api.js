@@ -220,12 +220,28 @@
 
     send.disabled = true;
     send.textContent = 'Sending…';
-    statusLine.textContent = `${method} ${path} …`;
-    out.textContent = 'Waiting for the live service…';
     copyResponse.hidden = true;
     showBoard.hidden = true;
     board.hidden = true;
     const started = performance.now();
+
+    // An investigation takes minutes, and a static "waiting" line for that long
+    // is indistinguishable from a hang. A ticking clock is the difference
+    // between a caller who waits and a caller who reloads the page.
+    const slow = path === '/v1/identify' || path === '/v1/investigate';
+    const tick = () => {
+      const seconds = (performance.now() - started) / 1000;
+      statusLine.textContent = `${method} ${path} … ${seconds.toFixed(0)}s`;
+      if (slow) {
+        out.textContent = 'Running five agents against live sources. Typically 1 to 7 minutes, '
+          + `median about 5. Elapsed: ${seconds.toFixed(0)}s.\n\n`
+          + 'Leave this tab open. The full response replaces this text when it lands.';
+      } else {
+        out.textContent = 'Waiting for the live service…';
+      }
+    };
+    tick();
+    const ticker = setInterval(tick, 1000);
 
     try {
       const headers = {};
@@ -256,6 +272,7 @@
       statusLine.className = 'play-status bad';
       out.textContent = String(error.message || error);
     } finally {
+      clearInterval(ticker);
       send.disabled = false;
       send.textContent = 'Send request';
     }

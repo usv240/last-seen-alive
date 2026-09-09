@@ -73,10 +73,10 @@
           <label for="endpoint">Endpoint</label>
           <select id="endpoint" data-endpoint>
             <option value="GET /health/integrations">GET /health/integrations: is every sponsor runtime reachable?</option>
-            <option value="GET /v1/stack">GET /v1/stack: every service, its call site, its status</option>
+            <option value="GET /v1/stack" selected>GET /v1/stack: every service, its call site, its status</option>
             <option value="GET /v1/presets">GET /v1/presets: the ten demo fragments</option>
             <option value="GET /v1/eval/corpus">GET /v1/eval/corpus: benchmark state</option>
-            <option value="POST /v1/identify" selected>POST /v1/identify: investigate a demo fragment</option>
+            <option value="POST /v1/identify">POST /v1/identify: investigate a demo fragment (5 minutes)</option>
             <option value="POST /v1/investigate">POST /v1/investigate: investigate your own file</option>
             <option value="GET /v1/eval/latest">GET /v1/eval/latest: frozen held-out report</option>
           </select>
@@ -94,7 +94,7 @@
           </div>
 
           <button class="primary-button" type="submit" data-send>Send request</button>
-          <p class="small" data-warn hidden>An investigation runs five agents and several live Parallel calls. Measured over 18 runs that finished inside the server timeout: 61–430 seconds, median 299. One further run took 95 minutes and one returned 502. Longer in deep mode. Set your client timeout to 900s, not to the median.</p>
+          <p class="small" data-warn hidden>An investigation runs five agents and several live Parallel calls. Measured over 27 runs that finished inside the server timeout: 61 to 444 seconds, median 304. One further run took 95 minutes. Longer in deep mode. Set your client timeout to 900s, not to the median.</p>
         </form>
 
         <section class="card play-result" aria-live="polite">
@@ -164,7 +164,7 @@
         </article>
         <article class="card">
           <h3>Limits, stated honestly</h3>
-          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher, and we would rather say that than imply a distributed quota we do not have. Investigations took 61–430 seconds (median 299) across 18 runs, with one 95-minute outlier and one 502 in 20 attempts; nothing is queued or cached, so every call pays that in full. The full distribution is at <a href="/v1/eval/stability">/v1/eval/stability</a>.</p>
+          <p>2,000 calls a day for a judge key, 500 for an evaluation key. That counter lives in each instance's memory, so with several instances the real ceiling is higher, and we would rather say that than imply a distributed quota we do not have. Investigations took 61 to 444 seconds (median 304) across 27 runs, with one 95-minute outlier; nothing is queued or cached, so every call pays that in full. The full distribution is at <a href="/v1/eval/stability">/v1/eval/stability</a>.</p>
         </article>
       </div>
     </section>
